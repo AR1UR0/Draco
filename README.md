@@ -1,4 +1,6 @@
 # DRACO
+## IDEA DE PROYECTO
+Se trata de una página web, plataforma donde puedes aprender sobre diferentes temáticas: The Lorf of the Rings, GloryHammer, War of Warcraft, Minecraft...
 
 ### ESTRUCTURA DE CARPETAS
 
