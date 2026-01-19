@@ -2,6 +2,10 @@
 ## IDEA DE PROYECTO
 Se trata de una página web, plataforma donde puedes aprender sobre diferentes temáticas: The Lorf of the Rings, GloryHammer, War of Warcraft, Minecraft...
 
+## ANÁLISIS DEL PROYECTO
+La plataforma DRACO es una página web orientada al aprendizaje de diferentes universos de fantasía y videojuegos como The Lord of the Rings, GloryHammer, World of Warcraft y Minecraft. El proyecto surge como objeto de centralizar todo lo aprendido durante el 2º curso de DAW creando para el módulo de Proyecto Intermodular un entorno web accesible, organizado y fácil de usar.
+El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el entretenimiento educativo. Al ser una página web, se puede acceder desde cualquier dispositivo con navegador, sin necesidad de instalación.
+
 ### ESTRUCTURA DE CARPETAS
 
 - Draco
