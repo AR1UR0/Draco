@@ -49,7 +49,8 @@
 - Página "principal" con los 4 temas más jugados (GloryHammer / El Señor de los Anillos / WoW / Minecraft)
 - Otra página como "directorio" de temas en formato cuadrícula con las portadas de todos los temas elegibles.
 - Filtrar temas de los tests.
-- Crear nuevos test (el usuario de la web los puede crear)
+- Crear nuevos test (el usuario admin los puede crear)
+- Crear usuarios (sin login, con login, administrador)
 - Carrousel de imágenes para algunas fotos específicas de algún test
 
 ### COSAS A HACER POR APARTADOS
