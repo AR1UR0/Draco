@@ -3,8 +3,7 @@
 ### ESTRUCTURA DE CARPETAS
 
 - Draco
-  - html
-    - todos los html aquí
+  - todos los html aquí divididos en carpetas
   - css
     - todos los css generales aquí
     - css espec
