@@ -1,13 +1,17 @@
 # DRACO
+
 ## IDEA DE PROYECTO
+
 Se trata de una página web, plataforma donde puedes aprender sobre diferentes temáticas: The Lorf of the Rings, GloryHammer, War of Warcraft, Minecraft...
 
 ## ANÁLISIS DEL PROYECTO
+
 La plataforma DRACO es una página web orientada al aprendizaje de diferentes universos de fantasía y videojuegos como The Lord of the Rings, GloryHammer, World of Warcraft y Minecraft. El proyecto surge como objeto de centralizar todo lo aprendido durante el 2º curso de DAW creando para el módulo de Proyecto Intermodular un entorno web accesible, organizado y fácil de usar.
 El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el entretenimiento educativo. Al ser una página web, se puede acceder desde cualquier dispositivo con navegador, sin necesidad de instalación.
 
 ### ESTRUCTURA DE CARPETAS
 
+- Probar cambios Marta
 - Draco
   - todos los html aquí divididos en carpetas
   - css
@@ -24,23 +28,22 @@ El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el
     - todos los php aquí
   - multimedia
     - audios
-
       - (todos los audios aquí divididos por tema)
       - minecraft
       - wow
       - gloryhammer
       - lordofrings
       - ...
-    - gifs/videos
 
+    - gifs/videos
       - (todos los gifs/vídeos aquí divididos por tema)
       - minecraft
       - wow
       - gloryhammer
       - lordofrings
       - ...
-    - imágenes
 
+    - imágenes
       - todas las imágenes divididas por tema)
       - minecraft
       - wow
@@ -60,11 +63,11 @@ El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el
 
 ### COSAS A HACER POR APARTADOS
 
-* USUARIOS
-  * [ ]  Formulario de creación de usuarios funcional y filtrado
-  * [ ]  Conexión a la base de datos para registro de nuevos usuarios
-  * [ ]  Comporbación del registro de los usuarios
-  * [ ]  Formulario de inicio de sesión funcional y filtrado
-  * [ ]  Conexión a la base de datos para comprobación de usuario y contraseña a la hora de iniciar sesión
-  * [ ]  Gestionar todos los datos de los usuarios en la base de datos para aclarar las funcionalidades de estos
-  * [ ]  Definir los distintos tipos de usuarios y las funciones que pueden realizar
+- USUARIOS
+  - [ ] Formulario de creación de usuarios funcional y filtrado
+  - [ ] Conexión a la base de datos para registro de nuevos usuarios
+  - [ ] Comporbación del registro de los usuarios
+  - [ ] Formulario de inicio de sesión funcional y filtrado
+  - [ ] Conexión a la base de datos para comprobación de usuario y contraseña a la hora de iniciar sesión
+  - [ ] Gestionar todos los datos de los usuarios en la base de datos para aclarar las funcionalidades de estos
+  - [ ] Definir los distintos tipos de usuarios y las funciones que pueden realizar
