@@ -10,8 +10,6 @@ La plataforma DRACO es una página web orientada al aprendizaje de diferentes un
 El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el entretenimiento educativo. Al ser una página web, se puede acceder desde cualquier dispositivo con navegador, sin necesidad de instalación.
 
 ### ESTRUCTURA DE CARPETAS
-
-- Probar cambios Marta
 - Draco
   - todos los html aquí divididos en carpetas
   - css
