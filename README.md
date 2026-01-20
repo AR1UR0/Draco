@@ -42,6 +42,7 @@ El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el
       - ...
 
     - imágenes
+
       - todas las imágenes divididas por tema)
       - minecraft
       - wow
