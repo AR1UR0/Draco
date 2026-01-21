@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Draco - Aprende sobre tus temas favoritos</title>
+        <link
+            rel="shortcut icon"
+            href="./media/imgs/icoDraco.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <div class="container-xxl">
+            <header class="container d-flex justify-content-between">
+                <!-- header -->
+                <img
+                    src="./media/imgs/logoDraco.png"
+                    alt="Draco"
+                    class="logoDraco"
+                />
+                <div class="d-flex align-items-center">
+                    <!-- BOTÓN PARA DROPDOWN IDIOMAS -->
+                    <div class="dropdown">
+                        <button
+                            class="btn btn-idioma dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Page Language
+                        </button>
+
+                        <!-- DROPDOWN MENU -->
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#">English</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Spanish</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- CAMBIAR TEMA -->
+                    <div class="form-check form-switch">
+                        <label class="switch">
+                            <input type="checkbox" id="toggleTheme" checked />
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </header>
+            <div class="container">
+                <!-- contenedor principal -->
+                <nav>
+                    <!-- navegación -->
+                </nav>
+                <main>
+                    <!-- contenido principal -->
+                </main>
+                <aside>
+                    <!-- panel lateral -->
+                </aside>
+            </div>
+            <footer>
+                <!-- footer -->
+            </footer>
+        </div>
+
+        <script src="./js/bootstrap.bundle.js"></script>
+        <script src="./js/themeChange.js"></script>
+    </body>
+</html>

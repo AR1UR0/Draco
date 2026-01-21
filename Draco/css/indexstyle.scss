@@ -1,0 +1,230 @@
+// ---- VARIABLES ----
+
+$maincolor: #f70071;
+$secColor: #98b705;
+$secColorTran: rgba(153, 183, 5, 0.44);
+
+// ---- SUSTITUCIONES ----
+
+.btnPrimary {
+    background-color: var(--bs-primary) !important;
+    border: 2px solid var(--bs-primary) !important;
+    color: whitesmoke !important;
+    font-weight: 900 !important;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.btnSecondary {
+    background-color: var(--bs-secondary) !important;
+    border: 2px solid var(--bs-secondary) !important;
+    color: whitesmoke !important;
+    font-weight: 900 !important;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.btnTerciary {
+    font-weight: 900 !important;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 3px 20px;
+    background-color: transparent !important;
+    border-style: solid !important;
+    border-width: 2px !important;
+}
+
+.btnTerciaryLight {
+    border-color: rgb(0, 0, 0) !important;
+    color: var(--bs-secondary) !important;
+}
+
+.btnTerciaryDark {
+    border-color: rgb(255, 255, 255) !important;
+    color: var(--bs-secondary) !important;
+}
+
+.btnSemiTran {
+    background-color: $secColorTran !important;
+    border: 2px solid $secColor !important;
+    font-weight: 900 !important;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+// - - - - ESTILO - - - - //
+
+body {
+    box-sizing: border-box;
+    margin-top: 5px;
+    font-weight: 900;
+    transition: 0.5s;
+}
+
+.logoDraco {
+    height: 50px;
+}
+
+// ---- BODY ----
+
+body.bg-dark a {
+    color: whitesmoke !important;
+}
+
+body.bg-dark a:hover {
+    color: #a1a1a1 !important;
+}
+
+body.bg-light a {
+    color: black !important;
+}
+
+body.bg-light a:hover {
+    color: #a1a1a1 !important;
+}
+
+// ---- DROPDOWN IDIOMAS ----
+
+.btn-idioma {
+    background-color: $maincolor !important;
+    color: whitesmoke !important;
+    border: none;
+    font-weight: 900;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.show {
+        background-color: $maincolor !important;
+        color: whitesmoke !important;
+        box-shadow: none !important;
+    }
+}
+
+.dropdown-menu {
+    background-color: #a1a1a1 !important;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5rem 0;
+}
+
+.dropdown-menu li .dropdown-item {
+    color: whitesmoke !important;
+    font-weight: 500;
+    background: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $secColor !important;
+        color: whitesmoke !important;
+        text-decoration: none;
+    }
+}
+
+// ---- CAMBIAR TEMA ----
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch input:checked + .slider {
+    background-color: $maincolor;
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $secColor;
+    border-radius: 24px;
+    transition: 0.3s;
+}
+
+.switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+// ---- CARROUSEL ----
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden; // Esconde lo que sale de la pantalla
+    padding: 20px 0;
+    background: transparent;
+}
+
+.carousel-track {
+    display: flex;
+    width: calc(25% * 10); // 6 originales + 4 duplicados
+    animation: scrollInfinite 15s linear infinite; // Movimiento constante
+
+    &:hover {
+        animation-play-state: paused; // Se detiene al poner el ratón
+    }
+}
+
+.card-item {
+    flex: 0 0 25%; // Siempre se ven 4
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none !important;
+    background: transparent;
+
+    img {
+        width: 80%; // Ajusta el tamaño de tus imágenes
+        height: auto;
+        border: none;
+        object-fit: contain;
+    }
+}
+
+@keyframes scrollInfinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        // Se mueve el ancho de 6 elementos (25% * 6 = 150%)
+        transform: translateX(-150%);
+    }
+}

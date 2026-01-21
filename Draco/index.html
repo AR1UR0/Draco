@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Draco - Aprende sobre tus temas favoritos</title>
+        <link
+            rel="shortcut icon"
+            href="./media/imgs/icoDraco.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./css/indexstyle.css" />
+    </head>
+    <body>
+        <div class="d-flex flex-column min-vh-100">
+            <!-- HEADER -->
+            <header
+                class="container d-flex justify-content-between align-items-center py-3"
+            >
+                <img
+                    src="./media/imgs/logoDraco.png"
+                    alt="Draco"
+                    class="logoDraco"
+                />
+
+                <div class="d-flex align-items-center gap-3">
+                    <!-- DROPDOWN IDIOMAS -->
+                    <div class="dropdown">
+                        <button
+                            class="btn btn-idioma dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Page Language
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#">English</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Spanish</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- CAMBIO DE TEMA -->
+                    <label class="switch m-0">
+                        <input type="checkbox" id="toggleTheme" checked />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </header>
+
+            <!-- MAIN -->
+            <main
+                class="flex-grow-1 d-flex justify-content-center align-items-center"
+            >
+                <div class="d-flex gap-4 align-items-center">
+                    <img
+                        src="./media/imgs/index/dracoLibro.png"
+                        alt="Draco"
+                        class="main-img"
+                        style="width: 300px; height: 350px"
+                    />
+
+                    <div
+                        class="text-center d-flex flex-column gap-3 align-items-center justify-content-center"
+                        style="width: 300px; height: 350px"
+                    >
+                        <p>
+                            ¡Una forma fácil, divertida y gratuita de aprender
+                            sobre tus temas favoritos!
+                        </p>
+                        <button class="btn btnPrimary" style="width: 250px">
+                            EMPIEZA AHORA
+                        </button>
+                        <button
+                            class="btn btnTerciary btnTerciaryLight"
+                            style="width: 250px"
+                        >
+                            YA TENGO UNA CUENTA
+                        </button>
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="mt-auto py-3">
+                <hr />
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="card-item">
+                            <img src="./media/imgs/1.png" alt="1" />
+                        </div>
+                        <div class="card-item">
+                            <img src="./media/imgs/2.png" alt="2" />
+                        </div>
+                        <div class="card-item">
+                            <img src="./media/imgs/3.png" alt="3" />
+                        </div>
+                        <div class="card-item">
+                            <img src="./media/imgs/4.png" alt="4" />
+                        </div>
+                        <div class="card-item">
+                            <img src="./media/imgs/5.png" alt="5" />
+                        </div>
+                        <div class="card-item">
+                            <img src="./media/imgs/6.png" alt="6" />
+                        </div>
+
+                        <div class="card-item">
+                            <img src="./media/imgs/1.png" alt="1" />
+                        </div>
+                        <div class="card-item">
+                            <img src="./media/imgs/2.png" alt="2" />
+                        </div>
+                        <div class="card-item">
+                            <img src="./media/imgs/3.png" alt="3" />
+                        </div>
+                        <div class="card-item">
+                            <img src="./media/imgs/4.png" alt="4" />
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="./js/bootstrap.bundle.js"></script>
+        <script src="./js/themeChange.js"></script>
+    </body>
+</html>
