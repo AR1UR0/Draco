@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script defer src="js/login.js"></script>
+    <script defer src="./js/bootstrap.bundle.js"></script>
+    <script defer src="./js/themeChange.js"></script>
+</head>
+
+<body>
+    <div class="login-wrapper d-flex align-items-center justify-content-center">
+        <!-- Botón cerrar -->
+        <a href="index.html">
+            <button class="btn-close login-close"></button>
+        </a>
+
+        <div class="login-actions">
+            <label class="switch m-0">
+                <input type="checkbox" id="toggleTheme" checked />
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <a href="#" class="btn login-register btn-register" id="openRegister">
+            REGÍSTRATE
+        </a>
+
+
+        <!-- LOGIN -->
+        <div class="login-card text-center" id="loginView">
+            <h1 class="login-title mb-4">Ingresar</h1>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="loginUser" placeholder="Correo o usuario">
+                </div>
+
+                <div class="mb-2 position-relative">
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Contraseña">
+                    <a href="#" class="forgot-password">¿Se te olvidó?</a>
+                </div>
+
+                <button type="submit" class="btn btn-login w-100 mt-3">
+                    INGRESAR
+                </button>
+            </form>
+
+            <p class="login-legal mt-4">
+                Al iniciar sesión, aceptas nuestros Términos y
+                Política de Privacidad.
+            </p>
+        </div>
+
+        <!-- REGISTER -->
+        <div class="login-card text-center d-none" id="registerView">
+            <h1 class="login-title mb-4">Regístrate</h1>
+
+            <form id="registerForm">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="regUser" placeholder="Usuario">
+                </div>
+
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="regEmail" placeholder="Correo Electrónico">
+                </div>
+
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="regPassword" placeholder="Contraseña">
+                </div>
+
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="regPassword2" placeholder="Confirmar Contraseña">
+                </div>
+
+                <button type="submit" class="btn btn-login w-100 mt-3">
+                    INGRESAR
+                </button>
+            </form>
+            <p class="login-legal mt-4">
+                Al registrarte, aceptas nuestros Términos y Política de Privacidad.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
