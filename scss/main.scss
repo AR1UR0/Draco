@@ -1,0 +1,315 @@
+// ==================================================
+// VARIABLES GLOBALES
+// ==================================================
+
+$maincolor: #f70071;
+$secColor: #98b705;
+$secColorTran: rgba(153, 183, 5, 0.44);
+$gray-text: #8c8c8c;
+
+// ==================================================
+// RESET / BASE
+// ==================================================
+
+body {
+    background-color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    box-sizing: border-box;
+    margin-top: 5px;
+    font-weight: 900;
+    transition: 0.5s;
+}
+
+.logoDraco {
+    height: 50px;
+}
+
+// ==================================================
+// LOGIN
+// ==================================================
+
+.login-wrapper {
+    min-height: 100vh;
+    position: relative;
+    padding: 1rem;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 380px;
+}
+
+.login-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #9a9a9a;
+}
+
+.form-control {
+    border-radius: 0;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.btn-login {
+    background-color: $secColor;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0;
+    padding: 0.75rem;
+
+    &:hover {
+        background-color: darken($secColor, 5%);
+    }
+}
+
+.forgot-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: $gray-text;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.login-legal {
+    font-size: 0.8rem;
+    color: $gray-text;
+}
+
+.login-actions {
+    position: relative;
+    top: 30px;
+    right: 145px;
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+}
+
+.login-close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.btn-register {
+    color: $secColor;
+    border: 2px solid $secColor;
+    background-color: transparent;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    &:hover {
+        background-color: $secColor;
+        color: #fff;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-title {
+        font-size: 1.6rem;
+    }
+}
+
+// ==================================================
+// BOTONES GENERALES
+// ==================================================
+
+.btnPrimary {
+    background-color: var(--bs-primary) !important;
+    border: 2px solid var(--bs-primary) !important;
+    color: whitesmoke !important;
+    font-weight: 900 !important;
+    border-radius: 10px;
+    padding: 3px 20px;
+}
+
+.btnSecondary {
+    background-color: var(--bs-secondary) !important;
+    border: 2px solid var(--bs-secondary) !important;
+    color: whitesmoke !important;
+    font-weight: 900 !important;
+    border-radius: 10px;
+    padding: 3px 20px;
+}
+
+.btnTerciary {
+    font-weight: 900 !important;
+    border-radius: 10px;
+    padding: 3px 20px;
+    background-color: transparent !important;
+    border: 2px solid !important;
+}
+
+.btnTerciaryLight {
+    border-color: black !important;
+    color: var(--bs-secondary) !important;
+}
+
+.btnTerciaryDark {
+    border-color: white !important;
+    color: var(--bs-secondary) !important;
+}
+
+.btnSemiTran {
+    background-color: $secColorTran !important;
+    border: 2px solid $secColor !important;
+    font-weight: 900 !important;
+    border-radius: 10px;
+    padding: 3px 20px;
+}
+
+// ==================================================
+// LINKS LIGHT / DARK
+// ==================================================
+
+body.bg-dark a {
+    color: whitesmoke !important;
+
+    &:hover {
+        color: #a1a1a1 !important;
+    }
+}
+
+body.bg-light a {
+    color: black !important;
+
+    &:hover {
+        color: #a1a1a1 !important;
+    }
+}
+
+// ==================================================
+// DROPDOWN IDIOMAS
+// ==================================================
+
+.btn-idioma {
+    background-color: $maincolor !important;
+    color: whitesmoke !important;
+    border: none;
+    font-weight: 900;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.show {
+        background-color: $maincolor !important;
+        box-shadow: none !important;
+    }
+}
+
+.dropdown-menu {
+    background-color: #a1a1a1 !important;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5rem 0;
+
+    .dropdown-item {
+        color: whitesmoke !important;
+        font-weight: 500;
+
+        &:hover {
+            background-color: $secColor !important;
+        }
+    }
+}
+
+// ==================================================
+// TOGGLE TEMA (UNIFICADO)
+// ==================================================
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.switch {
+    position: relative;
+    width: 50px;
+    height: 24px;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .slider {
+            background-color: $maincolor;
+
+            &:before {
+                transform: translateX(26px);
+            }
+        }
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        inset: 0;
+        background-color: $secColor;
+        border-radius: 24px;
+        transition: 0.3s;
+
+        &:before {
+            content: "";
+            position: absolute;
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: whitesmoke;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+    }
+}
+
+// ==================================================
+// CAROUSEL
+// ==================================================
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.carousel-track {
+    display: flex;
+    width: calc(25% * 10);
+    animation: scrollInfinite 15s linear infinite;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.card-item {
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none !important;
+
+    img {
+        width: 80%;
+        object-fit: contain;
+    }
+}
+
+@keyframes scrollInfinite {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-150%);
+    }
+}
