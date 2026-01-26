@@ -22,6 +22,11 @@ body {
   padding: 1rem;
 }
 
+.login-wrapper .btn-register:hover {
+  background-color: #98b705 !important;
+  color: #ffffff !important;
+}
+
 .login-card {
   width: 100%;
   max-width: 380px;
@@ -46,7 +51,6 @@ body {
   border-radius: 0;
   padding: 0.75rem;
 }
-
 .btn-login:hover {
   background-color: #839e04;
 }
@@ -60,7 +64,6 @@ body {
   color: #8c8c8c;
   text-decoration: none;
 }
-
 .forgot-password:hover {
   text-decoration: underline;
 }
@@ -71,12 +74,13 @@ body {
 }
 
 .login-actions {
-  position: relative;
-  top: 30px;
-  right: 145px;
+  position: absolute;
+  top: 1.8rem;
+  right: 10rem;
+  z-index: 10;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.5rem;
 }
 
 .login-close {
@@ -86,17 +90,17 @@ body {
 }
 
 .btn-register {
-  color: #98b705;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
   border: 2px solid #98b705;
-  background-color: transparent;
   position: absolute;
   top: 20px;
   right: 20px;
 }
-
 .btn-register:hover {
   background-color: #98b705;
-  color: #fff;
+  color: #ffffff !important;
 }
 
 @media (max-width: 576px) {
@@ -104,7 +108,6 @@ body {
     font-size: 1.6rem;
   }
 }
-
 .btnPrimary {
   background-color: var(--bs-primary) !important;
   border: 2px solid var(--bs-primary) !important;
@@ -152,7 +155,6 @@ body {
 body.bg-dark a {
   color: whitesmoke !important;
 }
-
 body.bg-dark a:hover {
   color: #a1a1a1 !important;
 }
@@ -160,7 +162,6 @@ body.bg-dark a:hover {
 body.bg-light a {
   color: black !important;
 }
-
 body.bg-light a:hover {
   color: #a1a1a1 !important;
 }
@@ -171,7 +172,6 @@ body.bg-light a:hover {
   border: none;
   font-weight: 900;
 }
-
 .btn-idioma:hover, .btn-idioma:focus, .btn-idioma:active, .btn-idioma.show {
   background-color: #f70071 !important;
   box-shadow: none !important;
@@ -183,12 +183,10 @@ body.bg-light a:hover {
   border: none;
   padding: 0.5rem 0;
 }
-
 .dropdown-menu .dropdown-item {
   color: whitesmoke !important;
   font-weight: 500;
 }
-
 .dropdown-menu .dropdown-item:hover {
   background-color: #98b705 !important;
 }
@@ -204,21 +202,17 @@ body.bg-light a:hover {
   width: 50px;
   height: 24px;
 }
-
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 .switch input:checked + .slider {
   background-color: #f70071;
 }
-
 .switch input:checked + .slider:before {
   transform: translateX(26px);
 }
-
 .switch .slider {
   position: absolute;
   cursor: pointer;
@@ -227,7 +221,6 @@ body.bg-light a:hover {
   border-radius: 24px;
   transition: 0.3s;
 }
-
 .switch .slider:before {
   content: "";
   position: absolute;
@@ -251,8 +244,7 @@ body.bg-light a:hover {
 }
 
 .carousel-item-custom {
-  min-width: 25%;
-  /* 4 visibles */
+  min-width: 25%; /* 4 visibles */
   height: 70px;
   margin: 0 5px;
   border-radius: 12px;
@@ -263,22 +255,9 @@ body.bg-light a:hover {
   font-weight: bold;
   font-style: normal;
 }
-
 .carousel-item-custom a {
   text-decoration: none;
 }
-
 .carousel-item-custom img {
   height: 30px;
-}
-
-@media (max-width: 576px) {
-  .main-img {
-    content: src("../Draco/media/imgs/index/dracoLibroPequeno.png");
-    width: 200px;
-  }
-  .carousel-item-custom {
-    min-width: 50%;
-    /* 2 visibles en móvil */
-  }
-}
+}/*# sourceMappingURL=main.css.map */
