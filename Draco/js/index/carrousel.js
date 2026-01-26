@@ -28,5 +28,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 500);
     }
 
-    setInterval(moveCarousel, 2000);
+    setInterval(moveCarousel, 3000);
 });
