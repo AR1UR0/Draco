@@ -12,25 +12,25 @@ $gray-text: #8c8c8c;
 // ==================================================
 
 body {
-  background-color: #ffffff;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  box-sizing: border-box;
-  margin-top: 5px;
-  font-weight: 900;
-  transition: 0.5s;
+    background-color: #ffffff;
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    box-sizing: border-box;
+    margin-top: 5px;
+    font-weight: 900;
+    transition: 0.5s;
 }
 
 .logoDraco {
-  height: 50px;
+    height: 50px;
 }
 
 .main-img {
-  width: 300px;
+    width: 300px;
 }
 
 // ==================================================
@@ -38,100 +38,100 @@ body {
 // ==================================================
 
 .login-wrapper {
-  min-height: 100vh;
-  position: relative;
-  padding: 1rem;
+    min-height: 100vh;
+    position: relative;
+    padding: 1rem;
 }
 
 .login-wrapper .btn-register:hover {
-  background-color: $secColor !important;
-  color: #ffffff !important;
+    background-color: $secColor !important;
+    color: #ffffff !important;
 }
 
 .login-card {
-  width: 100%;
-  max-width: 380px;
+    width: 100%;
+    max-width: 380px;
 }
 
 .login-title {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #9a9a9a;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #9a9a9a;
 }
 
 .form-control {
-  border-radius: 0;
-  padding: 0.75rem;
-  font-size: 0.95rem;
+    border-radius: 0;
+    padding: 0.75rem;
+    font-size: 0.95rem;
 }
 
 .btn-login {
-  background-color: $secColor;
-  color: #fff;
-  font-weight: 600;
-  border-radius: 0;
-  padding: 0.75rem;
+    background-color: $secColor;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0;
+    padding: 0.75rem;
 
-  &:hover {
-    background-color: darken($secColor, 5%);
-  }
+    &:hover {
+        background-color: darken($secColor, 5%);
+    }
 }
 
 .forgot-password {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.8rem;
-  color: $gray-text;
-  text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: $gray-text;
+    text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
-  }
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .login-legal {
-  font-size: 0.8rem;
-  color: $gray-text;
+    font-size: 0.8rem;
+    color: $gray-text;
 }
 
 .login-actions {
-  position: absolute;
-  top: 1.8rem;
-  right: 10rem;
-  z-index: 10;
+    position: absolute;
+    top: 1.8rem;
+    right: 10rem;
+    z-index: 10;
 
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .login-close {
-  position: absolute;
-  top: 20px;
-  left: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 .btn-register {
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.6rem 1.2rem;
-  border: 2px solid $secColor;
-  position: absolute;
-  top: 20px;
-  right: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid $secColor;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 
-  &:hover {
-    background-color: $secColor;
-    color: #ffffff !important;
-  }
+    &:hover {
+        background-color: $secColor;
+        color: #ffffff !important;
+    }
 }
 
 @media (max-width: 576px) {
-  .login-title {
-    font-size: 1.6rem;
-  }
+    .login-title {
+        font-size: 1.6rem;
+    }
 }
 
 // ==================================================
@@ -139,47 +139,47 @@ body {
 // ==================================================
 
 .btnPrimary {
-  background-color: var(--bs-primary) !important;
-  border: 2px solid var(--bs-primary) !important;
-  color: whitesmoke !important;
-  font-weight: 900 !important;
-  border-radius: 10px;
-  padding: 3px 20px;
+    background-color: var(--bs-primary) !important;
+    border: 2px solid var(--bs-primary) !important;
+    color: whitesmoke !important;
+    font-weight: 900 !important;
+    border-radius: 10px;
+    padding: 3px 20px;
 }
 
 .btnSecondary {
-  background-color: var(--bs-secondary) !important;
-  border: 2px solid var(--bs-secondary) !important;
-  color: whitesmoke !important;
-  font-weight: 900 !important;
-  border-radius: 10px;
-  padding: 3px 20px;
+    background-color: var(--bs-secondary) !important;
+    border: 2px solid var(--bs-secondary) !important;
+    color: whitesmoke !important;
+    font-weight: 900 !important;
+    border-radius: 10px;
+    padding: 3px 20px;
 }
 
 .btnTerciary {
-  font-weight: 900 !important;
-  border-radius: 10px;
-  padding: 3px 20px;
-  background-color: transparent !important;
-  border: 2px solid !important;
+    font-weight: 900 !important;
+    border-radius: 10px;
+    padding: 3px 20px;
+    background-color: transparent !important;
+    border: 2px solid !important;
 }
 
 .btnTerciaryLight {
-  border-color: black !important;
-  color: var(--bs-secondary) !important;
+    border-color: black !important;
+    color: var(--bs-secondary) !important;
 }
 
 .btnTerciaryDark {
-  border-color: white !important;
-  color: var(--bs-secondary) !important;
+    border-color: white !important;
+    color: var(--bs-secondary) !important;
 }
 
 .btnSemiTran {
-  background-color: $secColorTran !important;
-  border: 2px solid $secColor !important;
-  font-weight: 900 !important;
-  border-radius: 10px;
-  padding: 3px 20px;
+    background-color: $secColorTran !important;
+    border: 2px solid $secColor !important;
+    font-weight: 900 !important;
+    border-radius: 10px;
+    padding: 3px 20px;
 }
 
 // ==================================================
@@ -187,19 +187,19 @@ body {
 // ==================================================
 
 body.bg-dark a {
-  color: whitesmoke !important;
+    color: whitesmoke !important;
 
-  &:hover {
-    color: #a1a1a1 !important;
-  }
+    &:hover {
+        color: #a1a1a1 !important;
+    }
 }
 
 body.bg-light a {
-  color: black !important;
+    color: black !important;
 
-  &:hover {
-    color: #a1a1a1 !important;
-  }
+    &:hover {
+        color: #a1a1a1 !important;
+    }
 }
 
 // ==================================================
@@ -207,34 +207,34 @@ body.bg-light a {
 // ==================================================
 
 .btn-idioma {
-  background-color: $maincolor !important;
-  color: whitesmoke !important;
-  border: none;
-  font-weight: 900;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.show {
     background-color: $maincolor !important;
-    box-shadow: none !important;
-  }
+    color: whitesmoke !important;
+    border: none;
+    font-weight: 900;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.show {
+        background-color: $maincolor !important;
+        box-shadow: none !important;
+    }
 }
 
 .dropdown-menu {
-  background-color: #a1a1a1 !important;
-  border-radius: 8px;
-  border: none;
-  padding: 0.5rem 0;
+    background-color: #a1a1a1 !important;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5rem 0;
 
-  .dropdown-item {
-    color: whitesmoke !important;
-    font-weight: 500;
+    .dropdown-item {
+        color: whitesmoke !important;
+        font-weight: 500;
 
-    &:hover {
-      background-color: $secColor !important;
+        &:hover {
+            background-color: $secColor !important;
+        }
     }
-  }
 }
 
 // ==================================================
@@ -242,50 +242,50 @@ body.bg-light a {
 // ==================================================
 
 .toggle-container {
-  display: flex;
-  align-items: center;
-  margin-right: 30px;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
 }
 
 .switch {
-  position: relative;
-  width: 50px;
-  height: 24px;
+    position: relative;
+    width: 50px;
+    height: 24px;
 
-  input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
 
-    &:checked + .slider {
-      background-color: $maincolor;
+        &:checked + .slider {
+            background-color: $maincolor;
 
-      &:before {
-        transform: translateX(26px);
-      }
+            &:before {
+                transform: translateX(26px);
+            }
+        }
     }
-  }
 
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    inset: 0;
-    background-color: $secColor;
-    border-radius: 24px;
-    transition: 0.3s;
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        inset: 0;
+        background-color: $secColor;
+        border-radius: 24px;
+        transition: 0.3s;
 
-    &:before {
-      content: "";
-      position: absolute;
-      height: 18px;
-      width: 18px;
-      left: 3px;
-      bottom: 3px;
-      background-color: whitesmoke;
-      border-radius: 50%;
-      transition: 0.3s;
+        &:before {
+            content: "";
+            position: absolute;
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: whitesmoke;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
     }
-  }
 }
 
 // ==================================================
@@ -293,33 +293,33 @@ body.bg-light a {
 // ==================================================
 
 .carousel-wrapper {
-  overflow: hidden;
-  width: 100%;
+    overflow: hidden;
+    width: 100%;
 }
 
 .carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
+    display: flex;
+    transition: transform 0.5s ease;
 }
 
 .carousel-item-custom {
-  min-width: 25%; /* 4 visibles */
-  height: 70px;
-  margin: 0 5px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  font-weight: bold;
-  font-style: normal;
+    min-width: 25%; /* 4 visibles */
+    height: 70px;
+    margin: 0 5px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-style: normal;
 
-  & a {
-    text-decoration: none;
-  }
-  & img {
-    height: 30px;
-  }
+    & a {
+        text-decoration: none;
+    }
+    & img {
+        height: 30px;
+    }
 }
 
 // ==================================================
@@ -327,9 +327,9 @@ body.bg-light a {
 // ==================================================
 
 .offcanvas-bottom {
-  height: 30vh;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+    height: 30vh;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
 }
 
 // ==================================================
@@ -337,11 +337,22 @@ body.bg-light a {
 // ==================================================
 
 @media (max-width: 576px) {
-  .main-img {
-    content: src("./media/imgs/index/dracoLibroPequeno.png");
-    width: 200px;
-  }
-  .carousel-item-custom {
-    min-width: 50%; /* 2 visibles en móvil */
-  }
+    .main-img {
+        content: src("../Draco/media/imgs/index/dracoLibroPequeno.png");
+        width: 200px;
+    }
+    .carousel-item-custom {
+        min-width: 50%; /* 2 visibles en móvil */
+    }
+}
+
+// ==================================================
+// --------------------------------------------------
+// PÁGINA PRINCIPAL
+// --------------------------------------------------
+// ==================================================
+
+.navPrin a {
+    font-size: 1.2em;
+    text-decoration: none;
 }
