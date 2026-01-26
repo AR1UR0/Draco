@@ -82,3 +82,15 @@ if (registerForm) {
     });
 }
 
+document.getElementById('forgotPasswordForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('forgotEmail').value;
+    console.log("Correo enviado para recuperar contraseña:", email);
+    // logica para enviar el correo 
+
+
+    const forgotModal = bootstrap.Modal.getInstance(document.getElementById('forgotPasswordModal'));
+    forgotModal.hide();
+
+    alert("Si el correo existe, recibirás instrucciones para recuperar tu contraseña.");
+});
