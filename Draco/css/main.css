@@ -254,10 +254,35 @@ body.bg-light a:hover {
   font-size: 0.9rem;
   font-weight: bold;
   font-style: normal;
+  min-width: 25%;
+  /* 4 visibles */
+  height: 70px;
+  margin: 0 5px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-style: normal;
 }
 .carousel-item-custom a {
+  text-decoration: none;
   text-decoration: none;
 }
 .carousel-item-custom img {
   height: 30px;
 }/*# sourceMappingURL=main.css.map */
+  height: 30px;
+}
+
+@media (max-width: 576px) {
+  .main-img {
+    content: src("../Draco/media/imgs/index/dracoLibroPequeno.png");
+    width: 200px;
+  }
+  .carousel-item-custom {
+    min-width: 50%;
+    /* 2 visibles en móvil */
+  }
+}
