@@ -1,7 +1,12 @@
 @charset "UTF-8";
 body {
   background-color: #ffffff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   box-sizing: border-box;
   margin-top: 5px;
   font-weight: 900;
@@ -172,7 +177,10 @@ body.bg-light a:hover {
   border: none;
   font-weight: 900;
 }
-.btn-idioma:hover, .btn-idioma:focus, .btn-idioma:active, .btn-idioma.show {
+.btn-idioma:hover,
+.btn-idioma:focus,
+.btn-idioma:active,
+.btn-idioma.show {
   background-color: #f70071 !important;
   box-shadow: none !important;
 }
@@ -272,7 +280,7 @@ body.bg-light a:hover {
 }
 .carousel-item-custom img {
   height: 30px;
-}/*# sourceMappingURL=main.css.map */
+  /*# sourceMappingURL=main.css.map */
   height: 30px;
 }
 
