@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Draco - Aprende sobre tus temas favoritos</title>
+        <link
+            rel="shortcut icon"
+            href="./media/imgs/icoDraco.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+    </head>
+    <body>
+        <div class="container-xxl">
+            <header class="container d-flex justify-content-between">
+                <!-- header -->
+                <!-- CAMBIAR TEMA -->
+                <div class="form-check form-switch">
+                    <label class="switch">
+                        <input type="checkbox" id="toggleTheme" checked />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </header>
+            <div class="container d-flex">
+                <!-- contenedor principal -->
+                <nav
+                    class="flex-grow-0 d-flex flex-column border-end border-1 border-light navPrin vh-100 pe-4 ps-1 align-items-end"
+                >
+                    <!-- navegación -->
+                    <img
+                        src="./media/imgs/pagPrincipal/logoLetras.png"
+                        alt="DRACO"
+                        class="logoDraco mb-4"
+                    />
+                    <a href="" class="mb-1">Aprender</a>
+                    <a href="" class="mb-1">Tienda</a>
+                    <a href="" class="mb-1">Perfil</a>
+                </nav>
+                <main class="flex-grow-1">
+                    <!-- contenido principal -->
+                </main>
+                <aside
+                    class="flex-grow-0 border-start border-1 border-light asidePrin vh-100"
+                >
+                    <!-- panel lateral -->
+                </aside>
+            </div>
+            <footer>
+                <!-- footer -->
+            </footer>
+        </div>
+
+        <script src="./js/bootstrap.bundle.js"></script>
+        <script src="./js/themeChange.js"></script>
+    </body>
+</html>

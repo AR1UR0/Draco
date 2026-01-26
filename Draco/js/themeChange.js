@@ -8,6 +8,8 @@ function applyTheme(isDark) {
     const body = document.body;
     const btnTerciary = document.querySelector(".btnTerciary");
     const imgCarr = document.querySelectorAll(".imgCarr");
+    const navPrin = document.querySelector(".navPrin");
+    const asidePrin = document.querySelector(".asidePrin");
 
     if (isDark) {
         body.classList.add("bg-dark", "text-light");
@@ -16,6 +18,16 @@ function applyTheme(isDark) {
         if (btnTerciary) {
             btnTerciary.classList.add("btnTerciaryDark");
             btnTerciary.classList.remove("btnTerciaryLight");
+        }
+
+        if (navPrin) {
+            navPrin.classList.add("border-light");
+            navPrin.classList.remove("border-dark");
+        }
+
+        if (asidePrin) {
+            asidePrin.classList.add("border-light");
+            asidePrin.classList.remove("border-dark");
         }
 
         imgCarr.forEach((img) => {
@@ -29,6 +41,16 @@ function applyTheme(isDark) {
         if (btnTerciary) {
             btnTerciary.classList.add("btnTerciaryLight");
             btnTerciary.classList.remove("btnTerciaryDark");
+        }
+
+        if (navPrin) {
+            navPrin.classList.add("border-dark");
+            navPrin.classList.remove("border-light");
+        }
+
+        if (asidePrin) {
+            asidePrin.classList.add("border-dark");
+            asidePrin.classList.remove("border-light");
         }
 
         imgCarr.forEach((img) => {

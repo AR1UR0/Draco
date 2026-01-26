@@ -97,14 +97,14 @@ body {
 }
 
 .login-actions {
-        position: absolute;
-        top: 1.8rem;     
-        right: 10rem;
-        z-index: 10;
+    position: absolute;
+    top: 1.8rem;
+    right: 10rem;
+    z-index: 10;
 
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .login-close {
@@ -344,4 +344,15 @@ body.bg-light a {
     .carousel-item-custom {
         min-width: 50%; /* 2 visibles en móvil */
     }
+}
+
+// ==================================================
+// --------------------------------------------------
+// PÁGINA PRINCIPAL
+// --------------------------------------------------
+// ==================================================
+
+.navPrin a {
+    font-size: 1.2em;
+    text-decoration: none;
 }
