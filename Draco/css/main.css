@@ -281,7 +281,7 @@ body.bg-light a:hover {
   font-size: 1.2em;
   text-decoration: none;
 }
-
+/* Estilo necesario para firstConfig.html */
 /* Configuración de la tarjeta */
 .topic-card {
   background-color: transparent;
