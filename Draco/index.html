@@ -208,14 +208,14 @@
         <script src="./js/index/carrousel.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                // if (localStorage.getItem("offcanvasShown")) return;
+                if (localStorage.getItem("offcanvasShown")) return;
 
                 const offcanvas = new bootstrap.Offcanvas(
                     document.getElementById("offcanvasBottom"),
                 );
                 offcanvas.show();
 
-                // localStorage.setItem("offcanvasShown", "true");
+                localStorage.setItem("offcanvasShown", "true");
 
                 setTimeout(() => offcanvas.show(), 1500);
             });
