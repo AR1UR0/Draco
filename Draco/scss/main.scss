@@ -1,7 +1,24 @@
-@charset "UTF-8";
+// ==================================================
+// VARIABLES GLOBALES
+// ==================================================
+
+$maincolor: #f70071;
+$secColor: #98b705;
+$secColorTran: rgba(153, 183, 5, 0.44);
+$gray-text: #8c8c8c;
+
+// ==================================================
+// RESET / BASE
+// ==================================================
+
 body {
   background-color: #ffffff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   box-sizing: border-box;
   margin-top: 5px;
   font-weight: 900;
@@ -16,6 +33,10 @@ body {
   width: 300px;
 }
 
+// ==================================================
+// LOGIN
+// ==================================================
+
 .login-wrapper {
   min-height: 100vh;
   position: relative;
@@ -23,7 +44,7 @@ body {
 }
 
 .login-wrapper .btn-register:hover {
-  background-color: #98b705 !important;
+  background-color: $secColor !important;
   color: #ffffff !important;
 }
 
@@ -45,15 +66,15 @@ body {
 }
 
 .btn-login {
-  background-color: #98b705;
+  background-color: $secColor;
   color: #fff;
   font-weight: 600;
   border-radius: 0;
   padding: 0.75rem;
-}
 
-.btn-login:hover {
-  background-color: #839e04;
+  &:hover {
+    background-color: darken($secColor, 5%);
+  }
 }
 
 .forgot-password {
@@ -62,17 +83,17 @@ body {
   top: 50%;
   transform: translateY(-50%);
   font-size: 0.8rem;
-  color: #8c8c8c;
+  color: $gray-text;
   text-decoration: none;
-}
 
-.forgot-password:hover {
-  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .login-legal {
   font-size: 0.8rem;
-  color: #8c8c8c;
+  color: $gray-text;
 }
 
 .login-actions {
@@ -80,6 +101,7 @@ body {
   top: 1.8rem;
   right: 10rem;
   z-index: 10;
+
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -95,15 +117,15 @@ body {
   font-size: 0.85rem;
   font-weight: 600;
   padding: 0.6rem 1.2rem;
-  border: 2px solid #98b705;
+  border: 2px solid $secColor;
   position: absolute;
   top: 20px;
   right: 20px;
-}
 
-.btn-register:hover {
-  background-color: #98b705;
-  color: #ffffff !important;
+  &:hover {
+    background-color: $secColor;
+    color: #ffffff !important;
+  }
 }
 
 @media (max-width: 576px) {
@@ -111,6 +133,10 @@ body {
     font-size: 1.6rem;
   }
 }
+
+// ==================================================
+// BOTONES GENERALES
+// ==================================================
 
 .btnPrimary {
   background-color: var(--bs-primary) !important;
@@ -149,39 +175,50 @@ body {
 }
 
 .btnSemiTran {
-  background-color: rgba(153, 183, 5, 0.44) !important;
-  border: 2px solid #98b705 !important;
+  background-color: $secColorTran !important;
+  border: 2px solid $secColor !important;
   font-weight: 900 !important;
   border-radius: 10px;
   padding: 3px 20px;
 }
 
+// ==================================================
+// LINKS LIGHT / DARK
+// ==================================================
+
 body.bg-dark a {
   color: whitesmoke !important;
-}
 
-body.bg-dark a:hover {
-  color: #a1a1a1 !important;
+  &:hover {
+    color: #a1a1a1 !important;
+  }
 }
 
 body.bg-light a {
   color: black !important;
+
+  &:hover {
+    color: #a1a1a1 !important;
+  }
 }
 
-body.bg-light a:hover {
-  color: #a1a1a1 !important;
-}
+// ==================================================
+// DROPDOWN IDIOMAS
+// ==================================================
 
 .btn-idioma {
-  background-color: #f70071 !important;
+  background-color: $maincolor !important;
   color: whitesmoke !important;
   border: none;
   font-weight: 900;
-}
 
-.btn-idioma:hover, .btn-idioma:focus, .btn-idioma:active, .btn-idioma.show {
-  background-color: #f70071 !important;
-  box-shadow: none !important;
+  &:hover,
+  &:focus,
+  &:active,
+  &.show {
+    background-color: $maincolor !important;
+    box-shadow: none !important;
+  }
 }
 
 .dropdown-menu {
@@ -189,16 +226,20 @@ body.bg-light a:hover {
   border-radius: 8px;
   border: none;
   padding: 0.5rem 0;
+
+  .dropdown-item {
+    color: whitesmoke !important;
+    font-weight: 500;
+
+    &:hover {
+      background-color: $secColor !important;
+    }
+  }
 }
 
-.dropdown-menu .dropdown-item {
-  color: whitesmoke !important;
-  font-weight: 500;
-}
-
-.dropdown-menu .dropdown-item:hover {
-  background-color: #98b705 !important;
-}
+// ==================================================
+// TOGGLE TEMA (UNIFICADO)
+// ==================================================
 
 .toggle-container {
   display: flex;
@@ -210,42 +251,46 @@ body.bg-light a:hover {
   position: relative;
   width: 50px;
   height: 24px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      background-color: $maincolor;
+
+      &:before {
+        transform: translateX(26px);
+      }
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: $secColor;
+    border-radius: 24px;
+    transition: 0.3s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: whitesmoke;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+  }
 }
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.switch input:checked + .slider {
-  background-color: #f70071;
-}
-
-.switch input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-.switch .slider {
-  position: absolute;
-  cursor: pointer;
-  inset: 0;
-  background-color: #98b705;
-  border-radius: 24px;
-  transition: 0.3s;
-}
-
-.switch .slider:before {
-  content: "";
-  position: absolute;
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  background-color: whitesmoke;
-  border-radius: 50%;
-  transition: 0.3s;
-}
+// ==================================================
+// CAROUSEL
+// ==================================================
 
 .carousel-wrapper {
   overflow: hidden;
@@ -258,8 +303,7 @@ body.bg-light a:hover {
 }
 
 .carousel-item-custom {
-  min-width: 25%;
-  /* 4 visibles */
+  min-width: 25%; /* 4 visibles */
   height: 70px;
   margin: 0 5px;
   border-radius: 12px;
@@ -269,15 +313,18 @@ body.bg-light a:hover {
   font-size: 0.9rem;
   font-weight: bold;
   font-style: normal;
+
+  & a {
+    text-decoration: none;
+  }
+  & img {
+    height: 30px;
+  }
 }
 
-.carousel-item-custom a {
-  text-decoration: none;
-}
-
-.carousel-item-custom img {
-  height: 30px;
-}
+// ==================================================
+// OFFCANVAS COOKIES
+// ==================================================
 
 .offcanvas-bottom {
   height: 30vh;
@@ -285,18 +332,16 @@ body.bg-light a:hover {
   border-top-right-radius: 16px;
 }
 
+// ==================================================
+// RESPONSIVE INDEX
+// ==================================================
+
 @media (max-width: 576px) {
   .main-img {
-    content: src("../Draco/media/imgs/index/dracoLibroPequeno.png");
+    content: src("./media/imgs/index/dracoLibroPequeno.png");
     width: 200px;
   }
   .carousel-item-custom {
-    min-width: 50%;
-    /* 2 visibles en móvil */
+    min-width: 50%; /* 2 visibles en móvil */
   }
-}
-
-.navPrin a {
-  font-size: 1.2em;
-  text-decoration: none;
 }

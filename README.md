@@ -31,7 +31,7 @@ El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el
       - minecraft
       - wow
       - gloryhammer
-      - lordofrings
+      - lord of the rings
       - ...
 
     - gifs/videos

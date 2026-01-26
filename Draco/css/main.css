@@ -313,6 +313,53 @@ body.bg-light a:hover {
   }
 }
 
+/* css necesario para firstConfig.html */
+.topic-card {
+  perspective: 1000px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.topic-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.topic-card.flipped .topic-inner {
+  transform: rotateY(180deg);
+}
+
+.topic-front,
+.topic-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.topic-front {
+  background-color: #bdbdbd;
+}
+
+.topic-back {
+  transform: rotateY(180deg);
+  overflow: hidden;
+}
+
+.topic-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .navPrin a {
   font-size: 1.2em;
   text-decoration: none;
