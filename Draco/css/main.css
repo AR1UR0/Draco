@@ -308,3 +308,33 @@ body.bg-light a:hover {
     font-size: 1.2em;
     text-decoration: none;
 }
+
+.parteArriba div img {
+    height: 50px;
+}
+
+.enlPrin {
+    padding: 4px;
+    width: 150px;
+    text-align: end;
+    outline: 2px solid transparent;
+    transition:
+        background-color 0.5s ease,
+        outline-color 0.5s ease;
+}
+
+.enlPrin:hover {
+    outline-color: #98b705;
+    background-color: rgba(153, 183, 5, 0.44);
+}
+
+.asidePrin {
+    width: 400px;
+}
+
+.imgIco {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+}
