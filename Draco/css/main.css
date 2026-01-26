@@ -272,6 +272,12 @@ body.bg-light a:hover {
   height: 30px;
 }
 
+.offcanvas-bottom {
+  height: 30vh;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
 @media (max-width: 576px) {
   .main-img {
     content: src("../Draco/media/imgs/index/dracoLibroPequeno.png");

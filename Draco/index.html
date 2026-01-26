@@ -162,8 +162,63 @@
             </footer>
         </div>
 
+        <!-- // OFFCANVAS // -->
+
+        <div
+            class="offcanvas offcanvas-bottom"
+            tabindex="-1"
+            id="offcanvasBottom"
+            aria-labelledby="offcanvasBottomLabel"
+        >
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel">
+                    Uso de Cookies
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                ></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <p style="font-weight: 400; text-decoration: none">
+                    Utilizamos cookies propias y de terceros para mejorar tu
+                    experiencia en la web, analizar el uso que haces de nuestros
+                    servicios y mostrarte contenido adaptado a tus intereses.
+                    Puedes aceptar todas las cookies, rechazarlas o configurar
+                    tus preferencias en cualquier momento. Para más información,
+                    consulta nuestra
+                    <a href="" class="cookie-link">Política de Cookies</a>.
+                </p>
+                <div class="d-flex flex-wrap">
+                    <button class="btn btnPrimary w-30 me-2 mb-2">
+                        Aceptar las Cookies
+                    </button>
+                    <button class="btn btnPrimary w-30 mb-2">
+                        Rechazar las Cookies
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <script src="./js/bootstrap.bundle.js"></script>
         <script src="./js/themeChange.js"></script>
         <script src="./js/index/carrousel.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // if (localStorage.getItem("offcanvasShown")) return;
+
+                const offcanvas = new bootstrap.Offcanvas(
+                    document.getElementById("offcanvasBottom"),
+                );
+                offcanvas.show();
+
+                // localStorage.setItem("offcanvasShown", "true");
+
+                setTimeout(() => offcanvas.show(), 1500);
+            });
+        </script>
     </body>
 </html>
