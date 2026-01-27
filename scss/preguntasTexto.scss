@@ -1,114 +1,121 @@
-
-        /* ==================================================
+/* ==================================================
            VARIABLES Y ESTILOS (BASADOS EN TU SCSS)
            ================================================== */
-        :root {
-            --main-color: #f70071;
-            --sec-color: #98b705;
-            --gray-text: #8c8c8c;
-        }
+:root {
+    --main-color: #f70071;
+    --sec-color: #98b705;
+    --gray-text: #8c8c8c;
+}
 
-        body {
-            background-color: #ffffff;
-            font-family: system-ui, -apple-system, sans-serif;
-            font-weight: 900;
-            overflow-x: hidden;
-        }
+body {
+    background-color: #ffffff;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-weight: 900;
+    overflow-x: hidden;
+}
 
-        /* Header / Progreso */
-        .custom-progress {
-            height: 16px;
-            background-color: #e5e5e5;
-            border-radius: 20px;
-        }
-        .progress-bar {
-            background-color: var(--main-color);
-            transition: width 0.4s ease;
-        }
-        .hearts-count {
-            font-size: 1.2rem;
-            white-space: nowrap;
-        }
+/* Header / Progreso */
+.custom-progress {
+    height: 16px;
+    background-color: #e5e5e5;
+    border-radius: 20px;
+}
 
-        /* Contenido Central */
-        .text-pink {
-            color: var(--main-color);
-            letter-spacing: 1px;
-        }
-        .question-text {
-            color: #3c3c3c;
-            font-size: 1.8rem;
-        }
+.progress-bar {
+    background-color: var(--main-color);
+    transition: width 0.4s ease;
+}
 
-        /* Botones de Opciones */
-        .option-btn {
-            background: #fff;
-            border: 2px solid #e5e5e5;
-            border-bottom: 5px solid #e5e5e5;
-            border-radius: 15px;
-            padding: 15px 20px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-align: left;
-            transition: all 0.1s;
-            color: #4b4b4b;
-            width: 100%;
-            margin-bottom: 12px;
-        }
+.hearts-count {
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
 
-        .option-btn:hover:not(.active) {
-            background-color: #f7f7f7;
-        }
+/* Contenido Central */
+.text-pink {
+    color: var(--main-color);
+    letter-spacing: 1px;
+}
 
-        .option-btn.active {
-            background-color: #ddf4ff;
-            border-color: #1cb0f6;
-            border-bottom-color: #1899d6;
-            color: #1cb0f6;
-            transform: translateY(2px);
-            border-bottom-width: 2px;
-        }
+.question-text {
+    color: #3c3c3c;
+    font-size: 1.8rem;
+}
 
-        /* Footer y Botones de Acción */
-        footer {
-            background-color: white;
-            position: sticky;
-            bottom: 0;
-            width: 100%;
-        }
+/* Botones de Opciones */
+.option-btn {
+    background: #fff;
+    border: 2px solid #e5e5e5;
+    border-bottom: 5px solid #e5e5e5;
+    border-radius: 15px;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: left;
+    transition: all 0.1s;
+    color: #4b4b4b;
+    width: 100%;
+    margin-bottom: 12px;
+}
 
-        .btn-saltar {
-            background-color: transparent;
-            color: #afafaf;
-            border: 2px solid #e5e5e5;
-            border-bottom: 4px solid #e5e5e5;
-            font-weight: 900;
-            padding: 10px 30px;
-            border-radius: 12px;
-        }
+.option-btn:hover:not(.active) {
+    background-color: #f7f7f7;
+}
 
-        .btn-comprobar {
-            background-color: var(--sec-color);
-            color: white;
-            border: none;
-            border-bottom: 4px solid #7ea104;
-            font-weight: 900;
-            padding: 10px 40px;
-            border-radius: 12px;
-            min-width: 160px;
-        }
+.option-btn.active {
+    background-color: #ddf4ff;
+    border-color: #1cb0f6;
+    border-bottom-color: #1899d6;
+    color: #1cb0f6;
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+}
 
-        .btn-comprobar:disabled {
-            background-color: #e5e5e5;
-            border-bottom-color: #afafaf;
-            color: #afafaf;
-        }
+/* Footer y Botones de Acción */
+footer {
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
 
-        .btn-comprobar:active:not(:disabled) {
-            transform: translateY(2px);
-            border-bottom-width: 2px;
-        }
+.btn-saltar {
+    background-color: transparent;
+    color: #afafaf;
+    border: 2px solid #e5e5e5;
+    border-bottom: 4px solid #e5e5e5;
+    font-weight: 900;
+    padding: 10px 30px;
+    border-radius: 12px;
+}
 
-        @media (max-width: 576px) {
-            .btn-comprobar, .btn-saltar { width: 100%; margin-bottom: 10px; }
-        }
+.btn-comprobar {
+    background-color: var(--sec-color);
+    color: white;
+    border: none;
+    border-bottom: 4px solid #7ea104;
+    font-weight: 900;
+    padding: 10px 40px;
+    border-radius: 12px;
+    min-width: 160px;
+}
+
+.btn-comprobar:disabled {
+    background-color: #e5e5e5;
+    border-bottom-color: #afafaf;
+    color: #afafaf;
+}
+
+.btn-comprobar:active:not(:disabled) {
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+}
+
+@media (max-width: 576px) {
+
+    .btn-comprobar,
+    .btn-saltar {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
