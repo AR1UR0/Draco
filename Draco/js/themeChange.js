@@ -10,6 +10,7 @@ function applyTheme(isDark) {
     const imgCarr = document.querySelectorAll(".imgCarr");
     const navPrin = document.querySelector(".navPrin");
     const asidePrin = document.querySelector(".asidePrin");
+    const imgTema = document.querySelector(".imgTema");
 
     if (isDark) {
         body.classList.add("bg-dark", "text-light");
@@ -28,6 +29,11 @@ function applyTheme(isDark) {
         if (asidePrin) {
             asidePrin.classList.add("border-light");
             asidePrin.classList.remove("border-dark");
+        }
+
+        if (imgTema) {
+            imgTema.classList.add("border-light");
+            imgTema.classList.remove("border-dark");
         }
 
         imgCarr.forEach((img) => {
@@ -51,6 +57,11 @@ function applyTheme(isDark) {
         if (asidePrin) {
             asidePrin.classList.add("border-dark");
             asidePrin.classList.remove("border-light");
+        }
+
+        if (imgTema) {
+            imgTema.classList.add("border-dark");
+            imgTema.classList.remove("border-light");
         }
 
         imgCarr.forEach((img) => {

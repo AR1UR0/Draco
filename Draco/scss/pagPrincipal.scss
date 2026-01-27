@@ -1,0 +1,131 @@
+// ==================================================
+// VARIABLES GLOBALES
+// ==================================================
+
+$maincolor: #f70071;
+$secColor: #98b705;
+$secColorTran: rgba(153, 183, 5, 0.44);
+$gray-text: #a1a1a1;
+$super-top: #8e2de2;
+$super-mid-1: #4b108c;
+$super-mid-2: #1a1061;
+$super-bottom: #0f083d;
+
+// ==================================================
+// --------------------------------------------------
+// PÁGINA PRINCIPAL
+// --------------------------------------------------
+// ==================================================
+
+.navPrin a {
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.parteArriba div img {
+    height: 50px;
+}
+
+.enlPrin {
+    padding: 4px;
+    width: 150px;
+    text-align: end;
+    outline: 2px solid transparent;
+    transition:
+        background-color 0.5s ease,
+        outline-color 0.5s ease;
+}
+
+.enlPrin:hover {
+    outline-color: $secColor;
+    background-color: $secColorTran;
+}
+
+.asidePrin {
+    width: 400px;
+}
+
+.imgIco {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+}
+
+.col,
+.col-4,
+.col-8 {
+    font-size: 0.8em;
+}
+
+.col-4 {
+    text-align: end;
+}
+
+.imgFooterPrin {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+}
+
+.dracoPlus {
+    border-radius: 20px;
+    padding: 25px;
+    margin: 15px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dracoPlusGlow {
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba($maincolor, 0.4) 0%,
+            transparent 50%
+        ),
+        linear-gradient(
+            135deg,
+            $super-top 0%,
+            $super-mid-1 25%,
+            $super-mid-2 50%,
+            $super-bottom 75%,
+            $maincolor 110%
+        );
+}
+
+.btnPlus {
+    background-color: white !important;
+    color: $maincolor !important;
+    border: none;
+    border-bottom: 4px solid #e1e1e1 !important;
+    font-weight: 900;
+    border-radius: 12px;
+    transition:
+        transform 0.2s,
+        border-bottom 0.2s;
+
+    &:hover {
+        transform: translateY(2px);
+        border-bottom-width: 2px !important;
+    }
+
+    &:active {
+        transform: translateY(4px);
+        border-bottom-width: 0px !important;
+    }
+}
+
+.panelAnuncio {
+    border-radius: 20px;
+    padding: 25px;
+    margin: 15px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}

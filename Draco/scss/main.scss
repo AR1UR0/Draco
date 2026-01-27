@@ -5,7 +5,7 @@
 $maincolor: #f70071;
 $secColor: #98b705;
 $secColorTran: rgba(153, 183, 5, 0.44);
-$gray-text: #8c8c8c;
+$gray-text: #a1a1a1;
 
 // ==================================================
 // RESET / BASE
@@ -361,12 +361,13 @@ body.bg-light a {
 /* Configuración de la tarjeta */
 .topic-card {
     background-color: transparent;
-    perspective: 1000px; 
+    perspective: 1000px;
     cursor: pointer;
     height: 190px;
 
     // El giro al pasar el ratón
-    &:hover .topic-inner, &.flipped .topic-inner {
+    &:hover .topic-inner,
+    &.flipped .topic-inner {
         transform: rotateY(180deg);
     }
 
@@ -383,12 +384,12 @@ body.bg-light a {
     }
 
     // Estilo común para ambas caras
-    .topic-front, 
+    .topic-front,
     .topic-back {
         position: absolute;
         width: 100%;
         height: 100%;
-        backface-visibility: hidden; 
+        backface-visibility: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -408,7 +409,7 @@ body.bg-light a {
     .topic-back {
         background-color: #2980b9;
         color: white;
-        transform: rotateY(180deg); 
+        transform: rotateY(180deg);
 
         img {
             width: 100%;
@@ -417,4 +418,3 @@ body.bg-light a {
         }
     }
 }
-
