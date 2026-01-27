@@ -39,10 +39,9 @@ body {
 .options-grid-images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 30px;
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 800px;
 }
 @media (max-width: 768px) {
   .options-grid-images {
@@ -88,6 +87,7 @@ body {
 }
 .option-btn.active,
 .option-card.active {
+  width: 300px;
   background-color: #ddf4ff;
   border-color: #1cb0f6;
   border-bottom-color: rgb(7.531779661, 131.3877118644, 189.968220339);

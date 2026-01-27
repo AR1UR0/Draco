@@ -1,121 +1,215 @@
-/* ==================================================
-           VARIABLES Y ESTILOS (BASADOS EN TU SCSS)
-           ================================================== */
-:root {
-    --main-color: #f70071;
-    --sec-color: #98b705;
-    --gray-text: #8c8c8c;
-}
+// ==================================================
+// VARIABLES GLOBALES (Fusionadas)
+// ==================================================
+$maincolor: #f70071;
+$secColor: #98b705;
+$secColorTran: rgba(153, 183, 5, 0.44);
+$gray-text: #8c8c8c;
 
+// Colores de estado
+$correct-bg: #d7ffb8;
+$correct-border: #58cc02;
+$wrong-bg: #ffdfe0;
+$wrong-border: #ee2a33;
+$active-blue: #1cb0f6;
+
+// ==================================================
+// RESET / BASE
+// ==================================================
 body {
-    background-color: #ffffff;
-    font-family: system-ui, -apple-system, sans-serif;
-    font-weight: 900;
-    overflow-x: hidden;
+  background-color: #ffffff;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  box-sizing: border-box;
+  margin-top: 5px;
+  font-weight: 900;
+  transition: 0.5s;
+  overflow-x: hidden;
 }
 
-/* Header / Progreso */
+// ==================================================
+// HEADER Y PROGRESO
+// ==================================================
 .custom-progress {
-    height: 16px;
-    background-color: #e5e5e5;
-    border-radius: 20px;
-}
+  height: 16px;
+  background-color: #e5e5e5;
+  border-radius: 20px;
 
-.progress-bar {
-    background-color: var(--main-color);
+  .progress-bar {
+    background-color: $maincolor;
+    border-radius: 20px;
     transition: width 0.4s ease;
+  }
 }
 
 .hearts-count {
-    font-size: 1.2rem;
-    white-space: nowrap;
+  font-size: 1.2rem;
+  white-space: nowrap;
 }
 
-/* Contenido Central */
+// ==================================================
+// CONTENIDO CENTRAL
+// ==================================================
 .text-pink {
-    color: var(--main-color);
-    letter-spacing: 1px;
+  color: $maincolor;
+  letter-spacing: 1px;
+  font-weight: 900;
 }
 
 .question-text {
-    color: #3c3c3c;
-    font-size: 1.8rem;
+  color: #3c3c3c;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
-/* Botones de Opciones */
-.option-btn {
-    background: #fff;
-    border: 2px solid #e5e5e5;
-    border-bottom: 5px solid #e5e5e5;
-    border-radius: 15px;
-    padding: 15px 20px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-align: left;
-    transition: all 0.1s;
-    color: #4b4b4b;
+// ==================================================
+// GRID DE OPCIONES (Texto e Imágenes)
+// ==================================================
+
+// Contenedor dinámico para imágenes
+.options-grid-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Botón de opción universal (Basado en tu .option-btn)
+.option-btn,
+.option-card {
+  background: #fff;
+  border: 2px solid #e5e5e5;
+  border-bottom: 5px solid #e5e5e5;
+  border-radius: 15px;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.1s;
+  color: #4b4b4b;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
     width: 100%;
-    margin-bottom: 12px;
-}
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
 
-.option-btn:hover:not(.active) {
+  &:hover:not(.active):not(.is-correct):not(.is-wrong) {
     background-color: #f7f7f7;
-}
+  }
 
-.option-btn.active {
+  &.active {
     background-color: #ddf4ff;
-    border-color: #1cb0f6;
-    border-bottom-color: #1899d6;
-    color: #1cb0f6;
+    border-color: $active-blue;
+    border-bottom-color: darken($active-blue, 15%);
+    color: $active-blue;
     transform: translateY(2px);
     border-bottom-width: 2px;
+  }
+
+  &.is-correct {
+    background-color: $correct-bg !important;
+    border-color: $correct-border !important;
+    border-bottom: 2px solid darken($correct-border, 10%) !important;
+    color: darken($correct-border, 15%) !important;
+    transform: translateY(2px);
+  }
+
+  &.is-wrong {
+    background-color: $wrong-bg !important;
+    border-color: $wrong-border !important;
+    border-bottom: 2px solid darken($wrong-border, 10%) !important;
+    color: $wrong-border !important;
+    transform: translateY(2px);
+  }
 }
 
-/* Footer y Botones de Acción */
+// ==================================================
+// FOOTER Y ACCIONES (Tus botones actualizados)
+// ==================================================
 footer {
-    background-color: white;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
+  background-color: white;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
 }
 
 .btn-saltar {
-    background-color: transparent;
-    color: #afafaf;
-    border: 2px solid #e5e5e5;
-    border-bottom: 4px solid #e5e5e5;
-    font-weight: 900;
-    padding: 10px 30px;
-    border-radius: 12px;
+  background-color: transparent;
+  color: #afafaf;
+  border: 2px solid #e5e5e5;
+  border-bottom: 4px solid #e5e5e5;
+  font-weight: 900;
+  padding: 10px 30px;
+  border-radius: 12px;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: #f8f8f8;
+  }
 }
 
 .btn-comprobar {
-    background-color: var(--sec-color);
-    color: white;
-    border: none;
-    border-bottom: 4px solid #7ea104;
-    font-weight: 900;
-    padding: 10px 40px;
-    border-radius: 12px;
-    min-width: 160px;
-}
+  background-color: $secColor;
+  color: white;
+  border: none;
+  border-bottom: 4px solid darken($secColor, 15%);
+  font-weight: 900;
+  padding: 10px 40px;
+  border-radius: 12px;
+  min-width: 160px;
+  transition: 0.2s;
 
-.btn-comprobar:disabled {
+  &:disabled {
     background-color: #e5e5e5;
     border-bottom-color: #afafaf;
     color: #afafaf;
-}
+  }
 
-.btn-comprobar:active:not(:disabled) {
+  &:active:not(:disabled) {
     transform: translateY(2px);
     border-bottom-width: 2px;
+  }
+
+  // Estado cuando cambia a CONTINUAR
+  &.btn-next {
+    background-color: $active-blue !important;
+    border-bottom-color: darken($active-blue, 15%) !important;
+  }
 }
 
+// ==================================================
+// RESPONSIVO
+// ==================================================
 @media (max-width: 576px) {
+  .question-text {
+    font-size: 1.5rem;
+  }
 
-    .btn-comprobar,
-    .btn-saltar {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+  .btn-comprobar,
+  .btn-saltar {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
