@@ -1,0 +1,73 @@
+$maincolor: #f70071;
+$secColor: #98b705; 
+
+// Botón de continuar/finalizar con tu color específico
+.btn-step-next {
+    background-color: $secColor !important;
+    border: 2px solid $secColor !important;
+    color: white !important;
+    font-weight: 900;
+    border-radius: 10px;
+    padding: 10px 30px;
+    transition: transform 0.2s;
+
+    &:hover {
+        background-color: darken($secColor, 5%) !important;
+        transform: scale(1.05);
+    }
+}
+
+// Opciones de meta diaria 
+.btn-meta-option {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    border: 3px solid #444; 
+    border-radius: 10px;
+    background: transparent;
+    font-weight: 700;
+    color: inherit;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $secColor;
+        color: $secColor;
+    }
+
+    &:focus {
+        background-color: $secColor;
+        border-color: $secColor;
+        color: white;
+    }
+}
+
+// Estilos para las tarjetas de nivel 
+.level-card {
+    width: 100%;
+    max-width: 500px;
+    border: 3px solid #333;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: #98b705;
+        background-color: $secColor;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .level-icon {
+        width: 60px;
+        height: auto;
+    }
+
+    h5 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.2;
+    }
+}
