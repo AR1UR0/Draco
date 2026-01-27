@@ -42,75 +42,50 @@
                 </nav>
                 <main class="flex-grow-1">
                     <!-- contenido principal -->
-                    Para lograr que los anillos sigan esa trayectoria en forma
-                    de "S" con 3 curvas, necesitamos ajustar tanto el dibujo del
-                    SVG (para que la línea visual coincida) como las posiciones
-                    porcentuales de los nodos en el SCSS/HTML. Aquí tienes la
-                    solución ajustada para que el flujo sea: 1 → 2 (derecha) 4 ←
-                    3 (izquierda) 5 → 6 (derecha) 1. El HTML (Ajuste de
-                    posiciones) He modificado los valores de top y left para que
-                    coincidan con la cuadrícula que pides. HTML
-
-                    <div class="learning-path-container">
-                        <svg
-                            class="path-svg"
-                            viewBox="0 0 400 800"
-                            preserveAspectRatio="none"
-                        >
-                            <path
-                                d="M 60,100 C 150,100 250,100 340,100 
-               C 450,100 450,300 340,300 
-               L 60,300 
-               C -50,300 -50,500 60,500 
-               L 340,500 
-               C 450,500 450,700 340,700"
-                                class="path-line-bg"
-                            />
-                        </svg>
-
-                        <div class="level-node" style="top: 100px; left: 60px">
-                            <img
-                                src="./media/imgs/RING.png"
-                                alt="1"
-                                class="ring-img active"
-                            />
+                    <div class="topMainContent">
+                        <span class="tema">Berserk</span>: FASE
+                        <span class="fase">1</span>, NIVEL
+                        <span class="nivel">1</span>
+                    </div>
+                    <div class="mainContent">
+                        <div class="row">
+                            <div class="col-4 colMain">
+                                <button class="btn-round">1</button>
+                            </div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round">2</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
                         </div>
-                        <div class="level-node" style="top: 100px; left: 340px">
-                            <img
-                                src="./media/imgs/RING.png"
-                                alt="2"
-                                class="ring-img"
-                            />
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round">3</button>
+                            </div>
                         </div>
-
-                        <div class="level-node" style="top: 300px; left: 340px">
-                            <img
-                                src="./media/imgs/RING.png"
-                                alt="3"
-                                class="ring-img"
-                            />
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round">4</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
                         </div>
-                        <div class="level-node" style="top: 300px; left: 60px">
-                            <img
-                                src="./media/imgs/RING.png"
-                                alt="4"
-                                class="ring-img"
-                            />
+                        <div class="row">
+                            <div class="col-4 colMain">
+                                <button class="btn-round">5</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain"></div>
                         </div>
-
-                        <div class="level-node" style="top: 500px; left: 60px">
-                            <img
-                                src="./media/imgs/RING.png"
-                                alt="5"
-                                class="ring-img"
-                            />
-                        </div>
-                        <div class="level-node" style="top: 500px; left: 340px">
-                            <img
-                                src="./media/imgs/RING.png"
-                                alt="6"
-                                class="ring-img"
-                            />
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round">6</button>
+                            </div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round">7</button>
+                            </div>
                         </div>
                     </div>
                 </main>
@@ -188,7 +163,7 @@
                     <footer class="flex-grow-0 mt-3 container text-center">
                         <!-- footer -->
                         <div class="row">
-                            <div class="col-4">Contactos</div>
+                            <div class="col-4 col4">Contactos</div>
                             <div class="col-8">Términos de Privacidad</div>
                         </div>
                         <div class="row">
