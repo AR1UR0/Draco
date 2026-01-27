@@ -11,6 +11,7 @@
         />
         <link rel="stylesheet" href="./css/bootstrap.min.css" />
         <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/pagPrincipal/pagPrincipal.css" />
     </head>
     <body>
         <div class="container-fluid">
@@ -24,7 +25,7 @@
                     </label>
                 </div>
             </header>
-            <div class="container d-flex">
+            <div class="container-fluid p-0 g-0 ps-4 d-flex">
                 <!-- contenedor principal -->
                 <nav
                     class="flex-grow-0 pt-3 d-flex flex-column border-end border-1 border-light navPrin vh-100 pe-4 ps-1 align-items-end"
@@ -43,10 +44,12 @@
                     <!-- contenido principal -->
                 </main>
                 <aside
-                    class="flex-grow-0 pt-3 ps-3 border-start border-1 border-light asidePrin vh-100"
+                    class="flex-grow-0 pt-3 ps-3 border-start border-1 border-light asidePrin vh-100 d-flex flex-column"
                 >
                     <!-- panel lateral -->
-                    <div class="d-flex parteArriba justify-content-evenly">
+                    <div
+                        class="d-flex flex-grow-0 parteArriba justify-content-evenly align-items-center mb-3"
+                    >
                         <div>
                             <img
                                 src="./media/imgs/temas/berserk.jpg"
@@ -54,36 +57,96 @@
                                 class="border border-light imgTema"
                             />
                         </div>
-                        <div>
+                        <div
+                            class="d-flex align-items-center justify-content-center"
+                        >
                             <img
                                 src="./media/imgs/iconos/burn.png"
                                 alt="Racha:"
                                 class="imgIco"
                             />
-                            <span class="racha">1</span>
+                            <span class="racha">&nbsp;1</span>
                         </div>
-                        <div>
+                        <div
+                            class="d-flex align-items-center justify-content-center"
+                        >
                             <img
                                 src="./media/imgs/iconos/coin.png"
                                 alt="Dinero:"
                                 class="imgIco"
                             />
-                            <span class="racha">500</span>
+                            <span class="racha">&nbsp;&nbsp;500</span>
                         </div>
-                        <div>
+                        <div
+                            class="d-flex align-items-center justify-content-center"
+                        >
                             <img
                                 src="./media/imgs/iconos/heart.png"
                                 alt="Vida:"
                                 class="imgIco"
                             />
-                            <span class="racha">7</span>
+                            <span class="racha">&nbsp;7</span>
                         </div>
                     </div>
+                    <div
+                        class="flex-grow-1 d-flex flex-column justify-content-between"
+                    >
+                        <div
+                            class="dracoPlus dracoPlusGlow flex-grow-1 align-items-center justify-content-center d-flex flex-column"
+                        >
+                            <div class="content">
+                                <h2>Draco Plus</h2>
+                                <p>
+                                    ¡Desbloquea contenido exclusivo y racha
+                                    infinita!
+                                </p>
+                                <button class="btn btnPlus px-4 py-2 mt-2">
+                                    PRUEBA SÚPER GRATIS
+                                </button>
+                            </div>
+                        </div>
+                        <div class="panelAnuncio flex-grow-1">
+                            <h2>Anuncio Interesante</h2>
+                            <p>
+                                Mira que anuncio más chulo y más interesante
+                                mola mucho.
+                            </p>
+                            <button>ANUNCIO AQUÍ SISISI</button>
+                        </div>
+                    </div>
+                    <footer class="flex-grow-0 mt-3 container text-center">
+                        <!-- footer -->
+                        <div class="row">
+                            <div class="col-4">Contactos</div>
+                            <div class="col-8">Términos de Privacidad</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">Sobre Nosotros</div>
+                            <div class="col">Copyright</div>
+                            <div class="col">Dirección</div>
+                        </div>
+                        <div
+                            class="container mt-4 mb-4 justify-content-evenly align-items-center d-flex"
+                        >
+                            <img
+                                src="./media/imgs/iconos/instagram.png"
+                                alt="Instagram"
+                                class="imgFooterPrin"
+                            />
+                            <img
+                                src="./media/imgs/iconos/twitter.png"
+                                alt="Twitter"
+                                class="imgFooterPrin"
+                            />
+                            <img
+                                src="./media/imgs/iconos/facebook.png"
+                                alt="Facebook"
+                                class="imgFooterPrin"
+                            />
+                        </div>
+                    </footer>
                 </aside>
             </div>
-            <footer>
-                <!-- footer -->
-            </footer>
         </div>
 
         <script src="./js/bootstrap.bundle.js"></script>

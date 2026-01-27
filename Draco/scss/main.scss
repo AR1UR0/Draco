@@ -5,7 +5,7 @@
 $maincolor: #f70071;
 $secColor: #98b705;
 $secColorTran: rgba(153, 183, 5, 0.44);
-$gray-text: #8c8c8c;
+$gray-text: #a1a1a1;
 
 // ==================================================
 // RESET / BASE
@@ -344,45 +344,4 @@ body.bg-light a {
     .carousel-item-custom {
         min-width: 50%; /* 2 visibles en móvil */
     }
-}
-
-// ==================================================
-// --------------------------------------------------
-// PÁGINA PRINCIPAL
-// --------------------------------------------------
-// ==================================================
-
-.navPrin a {
-    font-size: 1.2em;
-    text-decoration: none;
-}
-
-.parteArriba div img {
-    height: 50px;
-}
-
-.enlPrin {
-    padding: 4px;
-    width: 150px;
-    text-align: end;
-    outline: 2px solid transparent;
-    transition:
-        background-color 0.5s ease,
-        outline-color 0.5s ease;
-}
-
-.enlPrin:hover {
-    outline-color: $secColor;
-    background-color: $secColorTran;
-}
-
-.asidePrin {
-    width: 400px;
-}
-
-.imgIco {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-    display: block;
 }
