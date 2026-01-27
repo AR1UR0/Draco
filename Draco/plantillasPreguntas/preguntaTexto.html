@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz Interactivo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draco Quiz - Portador del Anillo</title>
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/preguntasTexto.css">
+  <script defer src="../js/preguntas/preguntasTexto.js"></script>
+  <link rel="shortcut icon" href="./media/imgs/icoDraco.png" type="image/x-icon" />
 </head>
-<body class="bg-light">
 
-  <div class="container py-4">
+<body>
 
-    <!-- Barra de progreso -->
-    <div class="progress" style="height: 10px;">
-      <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%"></div>
-    </div>
+  <div class="d-flex flex-column min-vh-100">
 
-    <!-- Botón cerrar -->
-    <button type="button" class="btn-close float-end mt-2" aria-label="Close"></button>
+    <header class="container pt-4">
+      <div class="row align-items-center">
+        <div class="col-1">
+          <button class="btn border-0 p-0 fw-bold fs-4" style="color:#afafaf">✕</button>
+        </div>
+        <div class="col-9 col-md-10">
+          <div class="progress custom-progress">
+            <div id="progressBar" class="progress-bar" role="progressbar" style="width: 10%;"></div>
+          </div>
+        </div>
+        <div class="col-2 col-md-1 text-end">
+          <span class="hearts-count text-danger">
+            <img src="" alt="">❤️ 7</span>
+        </div>
+      </div>
+    </header>
 
-    <!-- Texto de encabezado -->
-    <h5 class="fw-bold mt-4 text-danger">LEE Y RESPONDE</h5>
+    <main class="container py-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+      <h5 class="text-uppercase text-pink mb-3">Lee y responde</h5>
+      <h2 id="preguntaTexto" class="question-text mb-5 text-center">¿Quién es el portador del anillo único?</h2>
 
-    <!-- Pregunta -->
-    <p id="question" class="bg-light p-2 rounded text-primary fw-semibold">¿Quién es el portador del anillo único?</p>
+      <div id="opcionesContenedor" class="w-100" style="max-width: 600px;">
+      </div>
+    </main>
 
-    <!-- Opciones -->
-    <div id="options" class="list-group">
-      <button type="button" class="list-group-item list-group-item-action">Gandalf</button>
-      <button type="button" class="list-group-item list-group-item-action">Sauron</button>
-      <button type="button" class="list-group-item list-group-item-action">Frodo</button>
-      <button type="button" class="list-group-item list-group-item-action">Denethor</button>
-    </div>
-
-    <!-- Botones al pie -->
-    <div class="d-flex justify-content-between mt-4">
-      <button id="skipBtn" class="btn btn-success">SALTAR</button>
-      <button id="checkBtn" class="btn btn-success">COMPROBAR</button>
-    </div>
-
-    <!-- Corazón y contador -->
-    <div class="float-end mt-2 me-2 text-danger" style="font-weight: 600;">
-      ❤️ <span id="lives">7</span>
-    </div>
-
+    <footer class="border-top py-4">
+      <div class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-12 col-sm-auto order-2 order-sm-1">
+            <button id="btnSaltar" class="btn btn-saltar">SALTAR</button>
+          </div>
+          <div class="col-12 col-sm-auto order-1 order-sm-2">
+            <button id="btnPrincipal" class="btn btn-comprobar" disabled>COMPROBAR</button>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
-
-  <script src="../js/preguntas/preguntasTexto.js"></script>
 </body>
+
 </html>
