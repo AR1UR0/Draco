@@ -42,7 +42,7 @@ $gray-text: #a1a1a1;
 }
 
 .imgPerfil {
-    background-image: url("../media/BORRAR.jpg");
+    background-image: url("../../media/BORRAR.jpg");
     border-radius: 20px;
     width: 280px;
     height: 280px;
@@ -59,6 +59,24 @@ $gray-text: #a1a1a1;
 }
 
 .btnEditFotoPerfil img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.gray-text {
+    color: $gray-text;
+    font-weight: 600;
+}
+
+.btnEditNombreUsuario {
+    width: min-content;
+    height: min-content;
+    border: none;
+    background-color: transparent;
+}
+
+.btnEditNombreUsuario img {
     width: 30px;
     height: 30px;
     cursor: pointer;
