@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Draco Quiz - Portador del Anillo</title>
+    <title>Draco Quiz - Escucha y responde</title>
+
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/plantillasPreguntas.css" />
-    <script defer src="../js/preguntas/preguntasTexto.js"></script>
+    <script defer src="../js/preguntas/preguntasMedia.js"></script>
+
     <link
       rel="shortcut icon"
       href="../media/imgs/icoDraco.png"
@@ -16,6 +18,7 @@
 
   <body>
     <div class="d-flex flex-column min-vh-100">
+      <!-- HEADER -->
       <header class="container pt-4">
         <div class="row align-items-center">
           <div class="col-1">
@@ -26,6 +29,7 @@
               ✕
             </button>
           </div>
+
           <div class="col-9 col-md-10">
             <div class="progress custom-progress">
               <div
@@ -36,6 +40,7 @@
               ></div>
             </div>
           </div>
+
           <div class="col-2 col-md-1 text-end">
             <span class="hearts-count text-danger">
               <img src="" alt="" />❤️ 7</span
@@ -44,16 +49,42 @@
         </div>
       </header>
 
+      <!-- MAIN -->
       <main
         class="container py-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center"
       >
-        <h5 class="text-uppercase text-pink mb-3">Lee y responde</h5>
-        <h2 id="preguntaTexto" class="question-text mb-5 text-center">
-          ¿Quién es el portador del anillo único?
-        </h2>
+        <h5 class="text-uppercase text-pink mb-3">Escucha y responde</h5>
 
-        <div id="opcionesContenedor" style="width: 600px"></div>
+        <!-- BLOQUE AUDIO + PREGUNTA -->
+        <div
+          class="d-flex align-items-center gap-3 mb-5"
+          style="max-width: 600px"
+        >
+          <button id="btnAudio" class="audio-btn">
+            <img
+              src="../media/imgs/iconos/speaker.png"
+              alt="Reproducir audio"
+              style="width: 40px; height: 40px"
+            />
+          </button>
+
+          <h2 id="preguntaTexto" class="question-text mb-0">
+            ¿A qué territorio pertenece esta canción?
+          </h2>
+        </div>
+
+        <!-- AUDIO (OCULTO) -->
+        <audio id="audioPregunta">
+          <source src="../media/Audio/The Shire.mp3" type="audio/mpeg" />
+        </audio>
+
+        <!-- OPCIONES -->
+        <div id="opcionesContenedor" class="options-text" style="width: 600px">
+          <!-- JS generará los botones aquí -->
+        </div>
       </main>
+
+      <!-- FOOTER -->
       <footer class="border-top py-4">
         <div class="container">
           <div class="row justify-content-between align-items-center">
