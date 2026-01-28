@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.body {
+body {
   overflow-y: hidden;
 }
 
@@ -163,4 +163,63 @@
   background: whitesmoke;
   border-radius: 50%;
   pointer-events: none;
+}
+
+.collapse {
+  transition: height 0.35s ease-in-out;
+}
+
+.menuHamb {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 0 0 15px 15px;
+}
+
+.menuHamb .enlPrinWider {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  padding-left: 15px;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.menuHamb .enlPrinWider:hover {
+  border-left: 3px solid #98b705;
+  background-color: rgba(153, 183, 5, 0.44);
+  padding-left: 20px;
+}
+
+.btnHamb {
+  border: none;
+  background: transparent;
+  font-size: 1.4em;
+  color: #a1a1a1;
+  padding: 5px;
+}
+
+.btnHamb:hover {
+  color: #555555;
+  background-color: rgba(153, 183, 5, 0.44);
+}
+
+@media (max-width: 576px) {
+  .asidePrin {
+    width: 100% !important;
+    height: auto !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body {
+    overflow-y: auto;
+  }
+  .container-fluid {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .col4,
+  .col-8,
+  .colF {
+    font-size: 0.7em !important;
+  }
 }
