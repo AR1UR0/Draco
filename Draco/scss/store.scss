@@ -1,0 +1,54 @@
+$maincolor: #f70071;
+$secColor: #86a005;
+$secColorTran: rgba(153, 183, 5, 0.44);
+$gray-text: #a1a1a1;
+
+.dracoPlus2 {
+  border-radius: 20px;
+  color: #ffffff;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  margin: 15px auto;
+  padding: 20px;
+  h2 {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+.dracoPlusGlow2 {
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba($secColor, 0.4) 0%,
+      transparent 50%
+    ),
+    linear-gradient(135deg, $secColor 110%);
+}
+
+.panelVidas {
+  max-width: 900px;
+  h5 {
+    color: $gray-text;
+  }
+
+  .vidaItem {
+    border-top: 1px solid #ddd;
+
+    .iconVida {
+      width: 40px;
+      height: 40px;
+    }
+
+    .btnVida {
+      min-width: 160px;
+      font-weight: bold;
+    }
+  }
+}
