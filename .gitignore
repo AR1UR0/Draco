@@ -1,0 +1,10 @@
+# Ignorar archivos compilados de CSS (si usáis SCSS)
+*.css
+*.css.map
+
+# Ignorar carpetas de configuración de VS Code
+.vscode/
+
+# Ignorar archivos temporales del sistema
+.DS_Store
+Thumbs.db
