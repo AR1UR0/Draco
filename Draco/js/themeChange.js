@@ -1,10 +1,13 @@
+// CONSTANTES DEL TOGGLE Y EL DOCUMENTO
 const toggle = document.getElementById("toggleTheme");
 const html = document.documentElement;
 
+// FUNCION PARA APLICAR EL TEMA
 function applyTheme(isDark) {
     const theme = isDark ? "dark" : "light";
     html.setAttribute("data-bs-theme", theme);
 
+    // CAMBIO DE CLASES EN EL BODY Y OTROS ELEMENTOS
     const body = document.body;
     const btnTerciary = document.querySelector(".btnTerciary");
     const imgCarr = document.querySelectorAll(".imgCarr");
@@ -12,6 +15,7 @@ function applyTheme(isDark) {
     const asidePrin = document.querySelector(".asidePrin");
     const imgTema = document.querySelector(".imgTema");
 
+    // APLICAR CLASES SEGUN EL TEMA
     if (isDark) {
         body.classList.add("bg-dark", "text-light");
         body.classList.remove("bg-light", "text-dark");
@@ -71,6 +75,7 @@ function applyTheme(isDark) {
     }
 }
 
+// INICIALIZAR EL TEMA SEGUN EL TOGGLE
 if (toggle) {
     applyTheme(toggle.checked);
     toggle.addEventListener("change", () => applyTheme(toggle.checked));
