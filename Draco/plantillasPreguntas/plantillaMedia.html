@@ -12,8 +12,7 @@
     <link
       rel="shortcut icon"
       href="../media/imgs/icoDraco.png"
-      type="image/x-icon"
-    />
+      type="image/x-icon" />
   </head>
 
   <body>
@@ -24,8 +23,7 @@
           <div class="col-1">
             <button
               class="btn border-0 p-0 fw-bold fs-4"
-              style="color: #afafaf"
-            >
+              style="color: #afafaf">
               ✕
             </button>
           </div>
@@ -36,37 +34,33 @@
                 id="progressBar"
                 class="progress-bar"
                 role="progressbar"
-                style="width: 10%"
-              ></div>
+                style="width: 10%"></div>
             </div>
           </div>
 
-          <div class="col-2 col-md-1 text-end">
+          <div class="col-2 col-md-1 text-end text-nowrap">
             <span class="hearts-count text-danger">
               <img src="../media/imgs/iconos/heart.png" alt="" width="45" />
-              7</span
-            >
+              7
+            </span>
           </div>
         </div>
       </header>
 
       <!-- MAIN -->
       <main
-        class="container py-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center"
-      >
+        class="container py-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center">
         <h5 class="text-uppercase text-pink mb-3">Escucha y responde</h5>
 
         <!-- BLOQUE AUDIO + PREGUNTA -->
         <div
           class="d-flex align-items-center gap-3 mb-5"
-          style="max-width: 600px"
-        >
+          style="max-width: 600px">
           <button id="btnAudio" class="audio-btn">
             <img
               src="../media/imgs/iconos/speaker.png"
               alt="Reproducir audio"
-              style="width: 40px; height: 40px"
-            />
+              style="width: 40px; height: 40px" />
           </button>
 
           <h2 id="preguntaTexto" class="question-text mb-0">
@@ -80,19 +74,22 @@
         </audio>
 
         <!-- OPCIONES -->
-        <div id="opcionesContenedor" class="options-text">
-          <!-- JS generará los botones aquí -->
-        </div>
+
+        <div
+          id="opcionesContenedor"
+          class="d-flex flex-wrap justify-content-center gap-3 ">
+        <!-- JS generará los botones aquí --></div>
       </main>
 
       <!-- FOOTER -->
       <footer class="border-top py-4">
         <div class="container">
-          <div class="row justify-content-between align-items-center">
-            <div class="col-12 col-sm-auto order-2 order-sm-1">
+          <div
+            class="row justify-content-between align-items-center flex-nowrap">
+            <div class="col-auto order-1 order-sm-1">
               <button id="btnSaltar" class="btn btn-saltar">SALTAR</button>
             </div>
-            <div class="col-12 col-sm-auto order-1 order-sm-2">
+            <div class="col-auto order-2 order-sm-2">
               <button id="btnPrincipal" class="btn btn-comprobar" disabled>
                 COMPROBAR
               </button>
