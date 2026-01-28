@@ -1,54 +1,81 @@
 $maincolor: #f70071;
-$secColor: #86a005;
-$secColorTran: rgba(153, 183, 5, 0.44);
-$gray-text: #a1a1a1;
+$secColor: #6a8200; // Verde oliva de la imagen
+$gray-text: #919191;
 
+// Estilos globales de modo oscuro (Basado en tu body.bg-dark)
+body.bg-dark {
+  .titleItem, h5, .cos-item, .arrow-btn {
+    color: #ffffff !important;
+  }
+  .vidaItem {
+    border-color: #444 !important;
+  }
+  .btnVida {
+    border-color: #ffffff;
+    color: #ffffff;
+    &:hover { background-color: #ffffff; color: #000; }
+  }
+}
+
+// Banner Draco Plus
 .dracoPlus2 {
-  border-radius: 20px;
+  border-radius: 15px;
   color: #ffffff;
   text-align: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  max-width: 500px;
-  margin: 15px auto;
-  padding: 20px;
-  h2 {
-    font-size: 1.2rem;
-  }
-  p {
-    font-size: 0.9rem;
-  }
-}
+  max-width: 600px;
+  background-color: $secColor;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  
+  h2 { font-size: 1.4rem; line-height: 1.2; }
+  p { font-size: 0.9rem; opacity: 0.9; }
 
-.dracoPlusGlow2 {
-  background:
-    radial-gradient(
-      circle at 10% 10%,
-      rgba($secColor, 0.4) 0%,
-      transparent 50%
-    ),
-    linear-gradient(135deg, $secColor 110%);
-}
+  .btnPlus {
+    background-color: white;
+    color: $maincolor;
+    border: none;
+    border-bottom: 4px solid #d1d1d1; // Efecto 3D
+    font-weight: 800;
+    border-radius: 12px;
+    padding: 10px 25px;
+    letter-spacing: 0.5px;
+    transition: transform 0.1s;
 
-.panelVidas {
-  max-width: 900px;
-  h5 {
-    color: $gray-text;
-  }
-
-  .vidaItem {
-    border-top: 1px solid #ddd;
-
-    .iconVida {
-      width: 40px;
-      height: 40px;
+    &:active {
+      transform: translateY(2px);
+      border-bottom-width: 1px;
     }
+  }
+}
+
+// Panel de Vidas e Items
+.panelVidas {
+  h5 { color: $gray-text; font-size: 1.1rem; border-bottom: 2px solid #bebebe; padding-bottom: 8px; }
+  
+  .vidaItem {
+    border-bottom: 2px solid #bebebe;
+    padding: 20px 0 !important;
+
+    .iconVida { width: 50px; height: 50px; object-fit: contain; }
+    .titleItem { color: #4b4b4b; font-size: 1rem; }
 
     .btnVida {
-      min-width: 160px;
-      font-weight: bold;
+      min-width: 150px;
+      font-weight: 800;
+      border-width: 2px;
+      border-bottom-width: 4px; 
+      border-radius: 12px;
     }
+  }
+}
+
+// Slider Cosméticos
+.slider-cos {
+  .cos-item { font-weight: bold; color: $gray-text; font-size: 1.2rem; }
+  .arrow-btn { 
+    font-size: 1.8rem; 
+    font-weight: 900; 
+    color: $gray-text; 
+    border: none;
+    background: transparent;
   }
 }
