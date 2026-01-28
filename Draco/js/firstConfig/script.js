@@ -1,21 +1,42 @@
 /**
  * @fileoverview Gestión de la configuración inicial de usuario (Wizard).
- * Controla el giro de las tarjetas de temas, la navegación entre secciones (pasos)
- * y las redirecciones finales basadas en el nivel seleccionado.
- * * @author Marta/Draco Team
- * @version 1.0.0
+ * Controla la selección única de temas, la navegación entre pasos
+ * y almacena la elección final del usuario.
+ * @author Marta/Draco Team
+ * @version 1.2.0
  */
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    /** * Variable para almacenar el tema seleccionado globalmente.
+     * @type {string|null} 
+     */
+    let temaSeleccionado = null;
+
     /**
-     * Maneja el efecto de giro (flip) de las tarjetas de temas.
-     * Al hacer clic en una tarjeta, se alterna la clase 'flipped'.
+     * Maneja la selección exclusiva de tarjetas de temas.
+     * Solo permite tener una tarjeta girada ('flipped') a la vez.
      * @listens click
      */
-    document.querySelectorAll(".topic-card").forEach((card) => {
+    const cards = document.querySelectorAll(".topic-card");
+
+    cards.forEach((card) => {
         card.addEventListener("click", () => {
-            card.classList.toggle("flipped");
+            // Si la tarjeta ya está girada, la desmarcamos y reseteamos la elección
+            if (card.classList.contains("flipped")) {
+                card.classList.remove("flipped");
+                temaSeleccionado = null;
+            } else {
+                // Cerramos cualquier otra tarjeta abierta
+                cards.forEach((c) => c.classList.remove("flipped"));
+                
+                // Giramos la tarjeta actual
+                card.classList.add("flipped");
+
+                // GUARDAMOS LA ELECCIÓN: Extraemos el texto del 'topic-front'
+                temaSeleccionado = card.querySelector(".topic-front").innerText.trim();
+                console.log("Tema elegido actualmente:", temaSeleccionado);
+            }
         });
     });
 
