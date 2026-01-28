@@ -1,172 +1,238 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Draco - Aprende sobre tus temas favoritos</title>
+        <link
+            rel="shortcut icon"
+            href="./media/imgs/icoDraco.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./css/main.css" />
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Draco - Aprende sobre tus temas favoritos</title>
-    <link rel="shortcut icon" href="./media/imgs/icoDraco.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <style>
-        body {
-            overflow-y: hidden;
-        }
-    </style>
-</head>
+        <!-- BLOQUEA EL SCROLL VERTICAL -->
+        <style>
+            body {
+                overflow-y: hidden;
+            }
+        </style>
+    </head>
 
-<body>
-    <div class="d-flex flex-column min-vh-100">
-        <!-- HEADER -->
-        <header class="container d-flex justify-content-between align-items-center py-3">
-            <img src="./media/imgs/logoDraco.png" alt="Draco" class="logoDraco" />
+    <body>
+        <div class="d-flex flex-column min-vh-100">
+            <!-- HEADER -->
+            <header
+                class="container d-flex justify-content-between align-items-center py-3"
+            >
+                <img
+                    src="./media/imgs/logoDraco.png"
+                    alt="Draco"
+                    class="logoDraco"
+                />
 
-            <div class="d-flex align-items-center gap-3">
-                <!-- DROPDOWN IDIOMAS -->
-                <div class="dropdown d-none d-sm-block">
-                    <button class="btn btn-idioma dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Page Language
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href="#">English</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Spanish</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- CAMBIO DE TEMA -->
-                <label class="switch m-0">
-                    <input type="checkbox" id="toggleTheme" checked />
-                    <span class="slider"></span>
-                </label>
-            </div>
-        </header>
-
-        <!-- MAIN -->
-        <main class="flex-grow-1 d-flex justify-content-center align-items-center">
-            <div class="d-flex gap-4 align-items-center flex-wrap-reverse flex-sm-nowrap justify-content-center">
-                <img src="./media/imgs/index/dracoLibro.png" alt="Draco" class="main-img" />
-
-                <div class="text-center d-flex flex-column gap-3 align-items-center justify-content-center"
-                    style="width: 300px; height: 350px">
-                    <p>
-                        ¡Una forma fácil, divertida y gratuita de aprender
-                        sobre tus temas favoritos!
-                    </p>
-                    <a href="firstConfig.html">
-                        <button class="btn btnPrimary" style="width: 250px">
-                            EMPIEZA AHORA
+                <div class="d-flex align-items-center gap-3">
+                    <!-- DROPDOWN IDIOMAS -->
+                    <div class="dropdown d-none d-sm-block">
+                        <button
+                            class="btn btn-idioma dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Page Language
                         </button>
-                    </a>
-                    <a href="login.html">
-                        <button class="btn btnTerciary btnTerciaryLight" style="width: 250px">
-                            YA TENGO UNA CUENTA
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </main>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#">English</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Spanish</a>
+                            </li>
+                        </ul>
+                    </div>
 
-        <!-- FOOTER -->
-        <footer class="mt-auto py-3">
-            <hr />
-            <div class="container">
-                <div class="carousel-wrapper">
-                    <div class="carousel-track" id="carouselTrack">
-                        <div class="carousel-item-custom">
-                            <a href="">
-                                <img src="./media/imgs/temas/lotr.jpg" alt=" " class="imgCarr border" />
-                                &nbsp;&nbsp;LOTR
-                            </a>
-                        </div>
-                        <div class="carousel-item-custom">
-                            <a href="">
-                                <img src="./media/imgs/temas/gloryhammer.jpg" alt=" " class="imgCarr border" />
-                                &nbsp;&nbsp;GloryHammer
-                            </a>
-                        </div>
-                        <div class="carousel-item-custom">
-                            <a href="">
-                                <img src="./media/imgs/temas/berserk.jpg" alt=" " class="imgCarr border" />
-                                &nbsp;&nbsp;Berserk
-                            </a>
-                        </div>
-                        <div class="carousel-item-custom">
-                            <a href="">
-                                <img src="./media/imgs/temas/mitologia.jpg" alt=" " class="imgCarr border" />
-                                &nbsp;&nbsp;Mitología
-                            </a>
-                        </div>
-                        <div class="carousel-item-custom">
-                            <a href="">
-                                <img src="./media/imgs/temas/starwars.jpg" alt=" " class="imgCarr border" />
-                                &nbsp;&nbsp;Star Wars
-                            </a>
-                        </div>
-                        <div class="carousel-item-custom">
-                            <a href="">
-                                <img src="./media/imgs/temas/wow.jpg" alt=" " class="imgCarr border" />
-                                &nbsp;&nbsp;WoW
-                            </a>
+                    <!-- CAMBIO DE TEMA -->
+                    <label class="switch m-0">
+                        <input type="checkbox" id="toggleTheme" checked />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </header>
+
+            <!-- MAIN -->
+            <main
+                class="flex-grow-1 d-flex justify-content-center align-items-center"
+            >
+                <div
+                    class="d-flex gap-4 align-items-center flex-wrap-reverse flex-sm-nowrap justify-content-center"
+                >
+                    <img
+                        src="./media/imgs/index/dracoLibro.png"
+                        alt="Draco"
+                        class="main-img"
+                    />
+
+                    <div
+                        class="text-center d-flex flex-column gap-3 align-items-center justify-content-center"
+                        style="width: 300px; height: 350px"
+                    >
+                        <p>
+                            ¡Una forma fácil, divertida y gratuita de aprender
+                            sobre tus temas favoritos!
+                        </p>
+                        <a href="firstConfig.html">
+                            <button class="btn btnPrimary" style="width: 250px">
+                                EMPIEZA AHORA
+                            </button>
+                        </a>
+                        <a href="login.html">
+                            <button
+                                class="btn btnTerciary btnTerciaryLight"
+                                style="width: 250px"
+                            >
+                                YA TENGO UNA CUENTA
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="mt-auto py-3">
+                <hr />
+                <div class="container">
+                    <div class="carousel-wrapper">
+                        <div class="carousel-track" id="carouselTrack">
+                            <!-- CADA BLOQUE ES UN ELEMENTO DEL CARROUSEL -->
+                            <div class="carousel-item-custom">
+                                <a href="">
+                                    <img
+                                        src="./media/imgs/temas/lotr.jpg"
+                                        alt=" "
+                                        class="imgCarr border"
+                                    />
+                                    &nbsp;&nbsp;LOTR
+                                </a>
+                            </div>
+                            <div class="carousel-item-custom">
+                                <a href="">
+                                    <img
+                                        src="./media/imgs/temas/gloryhammer.jpg"
+                                        alt=" "
+                                        class="imgCarr border"
+                                    />
+                                    &nbsp;&nbsp;GloryHammer
+                                </a>
+                            </div>
+                            <div class="carousel-item-custom">
+                                <a href="">
+                                    <img
+                                        src="./media/imgs/temas/berserk.jpg"
+                                        alt=" "
+                                        class="imgCarr border"
+                                    />
+                                    &nbsp;&nbsp;Berserk
+                                </a>
+                            </div>
+                            <div class="carousel-item-custom">
+                                <a href="">
+                                    <img
+                                        src="./media/imgs/temas/mitologia.jpg"
+                                        alt=" "
+                                        class="imgCarr border"
+                                    />
+                                    &nbsp;&nbsp;Mitología
+                                </a>
+                            </div>
+                            <div class="carousel-item-custom">
+                                <a href="">
+                                    <img
+                                        src="./media/imgs/temas/starwars.jpg"
+                                        alt=" "
+                                        class="imgCarr border"
+                                    />
+                                    &nbsp;&nbsp;Star Wars
+                                </a>
+                            </div>
+                            <div class="carousel-item-custom">
+                                <a href="">
+                                    <img
+                                        src="./media/imgs/temas/wow.jpg"
+                                        alt=" "
+                                        class="imgCarr border"
+                                    />
+                                    &nbsp;&nbsp;WoW
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-    </div>
-
-    <!-- // OFFCANVAS // -->
-
-    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasBottomLabel">
-                Uso de Cookies
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </footer>
         </div>
 
-        <div class="offcanvas-body">
-            <p style="font-weight: 400; text-decoration: none">
-                Utilizamos cookies propias y de terceros para mejorar tu
-                experiencia en la web, analizar el uso que haces de nuestros
-                servicios y mostrarte contenido adaptado a tus intereses.
-                Puedes aceptar todas las cookies, rechazarlas o configurar
-                tus preferencias en cualquier momento. Para más información,
-                consulta nuestra
-                <a href="" class="cookie-link">Política de Cookies</a>.
-            </p>
-            <div class="d-flex flex-wrap">
-                <button class="btn btnPrimary w-30 me-2 mb-2">
-                    Aceptar las Cookies
-                </button>
-                <button class="btn btnPrimary w-30 mb-2">
-                    Rechazar las Cookies
-                </button>
+        <!-- // OFFCANVAS // -->
+
+        <div
+            class="offcanvas offcanvas-bottom"
+            tabindex="-1"
+            id="offcanvasBottom"
+            aria-labelledby="offcanvasBottomLabel"
+        >
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel">
+                    Uso de Cookies
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                ></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <p style="font-weight: 400; text-decoration: none">
+                    Utilizamos cookies propias y de terceros para mejorar tu
+                    experiencia en la web, analizar el uso que haces de nuestros
+                    servicios y mostrarte contenido adaptado a tus intereses.
+                    Puedes aceptar todas las cookies, rechazarlas o configurar
+                    tus preferencias en cualquier momento. Para más información,
+                    consulta nuestra
+                    <a href="" class="cookie-link">Política de Cookies</a>.
+                </p>
+                <div class="d-flex flex-wrap">
+                    <button class="btn btnPrimary w-30 me-2 mb-2">
+                        Aceptar las Cookies
+                    </button>
+                    <button class="btn btnPrimary w-30 mb-2">
+                        Rechazar las Cookies
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="./js/bootstrap.bundle.js"></script>
-    <script src="./js/themeChange.js"></script>
-    <script src="./js/index/carrousel.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            if (localStorage.getItem("offcanvasShown")) return;
+        <script src="./js/bootstrap.bundle.js"></script>
+        <script src="./js/themeChange.js"></script>
+        <script src="./js/index/carrousel.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // SI YA SE HA MOSTRADO EL OFFCANVAS, NO SE MUESTRA DE NUEVO
+                if (localStorage.getItem("offcanvasShown")) return;
 
-            const offcanvas = new bootstrap.Offcanvas(
-                document.getElementById("offcanvasBottom"),
-            );
-            offcanvas.show();
+                // MOSTRAR OFFCANVAS
+                const offcanvas = new bootstrap.Offcanvas(
+                    document.getElementById("offcanvasBottom"),
+                );
+                offcanvas.show();
 
-            localStorage.setItem("offcanvasShown", "true");
+                // MARCAR COMO MOSTRADO
+                localStorage.setItem("offcanvasShown", "true");
 
-            setTimeout(() => offcanvas.show(), 1500);
-        });
-    </script>
-</body>
-
+                // MOSTRAR OFFCANVAS DESPUÉS DE 1.5 SEGUNDOS
+                setTimeout(() => offcanvas.show(), 1500);
+            });
+        </script>
+    </body>
 </html>
