@@ -53,6 +53,8 @@ El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el
 
 ## WEB INTERFACE DESIGN
 
+fdhsterdh
+prueba para que no haya duplicidad de correos
 ### BRIEFING CUSTOMERS
 
 **What is needed**
