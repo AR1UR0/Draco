@@ -183,7 +183,9 @@
                         </div>
                         <div class="row">
                             <div class="col">Sobre Nosotros</div>
-                            <div class="col">Copyright</div>
+                            <div class="col">
+                                <a href="#" id="liveToastBtn">Copyright</a>
+                            </div>
                             <div class="col">Dirección</div>
                         </div>
                         <div
@@ -207,6 +209,43 @@
                         </div>
                     </footer>
                 </aside>
+            </div>
+        </div>
+
+        <!-- TOAST COPYRIGHT -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div
+                id="liveToast"
+                class="toast"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+            >
+                <div
+                    class="toast-header d-flex justify-content-between align-items-center"
+                >
+                    <img
+                        src="./media/imgs/icoDraco.png"
+                        class="rounded me-2"
+                        alt="..."
+                        style="width: 25px"
+                    />
+                    <div
+                        class="d-flex justify-content-center align-items-center"
+                    >
+                        <small>Draco &copy;</small>
+                        <button
+                            type="button"
+                            class="btn-close me-2"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                </div>
+                <div class="toast-body">
+                    Copyright &copy; 2025-2026 Draco Enterprises. All rights
+                    reserved.
+                </div>
             </div>
         </div>
 
@@ -308,5 +347,6 @@
         <!-- SCRIPTS -->
         <script src="./js/bootstrap.bundle.js"></script>
         <script src="./js/themeChange.js"></script>
+        <script src="./js/toastCopy.js"></script>
     </body>
 </html>
