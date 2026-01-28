@@ -152,6 +152,17 @@ body {
   padding: 3px 20px;
 }
 
+.btnSemiTran:hover {
+  background-color: #98b705 !important;
+  color: whitesmoke !important;
+}
+
+.btnSemiTran:active {
+  background-color: rgb(131.3829787234, 158.1781914894, 4.3218085106) !important;
+  border-color: rgb(131.3829787234, 158.1781914894, 4.3218085106) !important;
+  color: whitesmoke !important;
+}
+
 body.bg-dark a {
   color: whitesmoke !important;
 }

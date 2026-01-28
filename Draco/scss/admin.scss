@@ -1,0 +1,113 @@
+// ==================================================
+// VARIABLES DE COLOR (Basadas en la imagen)
+// ==================================================
+$main-pink: #f70071;      // El rosa del logo y textos
+$soft-pink: #f06292;      // Botones "Nivel" y "Terminar"
+$border-pink: #d81b60;    // Borde de botones rosas
+$admin-green: #dcedc8;    // Fondo de los botones laterales y el panel (verde manzana suave)
+$admin-green-dark: #98b705; // Borde de los botones verdes
+$highlight-cyan: #00ffd0; // El borde brillante de "Modificar Pregunta"
+$gray-text: #a1a1a1;
+$bg-light-green: #d6e1ae; // El fondo del recuadro grande de la derecha
+
+// ==================================================
+// ESTILOS GENERALES
+// ==================================================
+
+.navPrin {
+    .enlPrin {
+        padding: 8px 15px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        &.active-admin-nav { // Para marcar en el menú lateral que estamos en Admin
+            background-color: $admin-green;
+            border: 1px solid $admin-green-dark;
+        }
+    }
+}
+
+// Estilo de la imagen de perfil (cuadrado redondeado)
+.imgPerfil {
+    background-color: #f3e5f5; // Un color suave de fondo si no hay imagen
+    border-radius: 35px;       // Bordes muy redondeados como en la imagen
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+}
+
+// ==================================================
+// PANEL DE ADMINISTRACIÓN (Botones Izquierda)
+// ==================================================
+
+.btnAdmin {
+    background-color: $admin-green;
+    border: 2px solid $admin-green-dark;
+    border-radius: 20px;
+    padding: 12px;
+    font-weight: 800;
+    color: #444;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 0 $admin-green-dark; // Efecto 3D de botón
+    transition: all 0.1s ease;
+
+    &:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 $admin-green-dark;
+    }
+
+}
+
+// ==================================================
+// TARJETA DE ACCIÓN (Cuadro Derecha)
+// ==================================================
+
+.admin-card {
+    background-color: $bg-light-green;
+    border: 3px solid $admin-green-dark;
+    border-radius: 40px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+    box-shadow: 0 8px 0 rgba(0,0,0,0.05);
+
+    // Los badges rosas (Nivel y Terminar)
+    .badge-nivel, .btn-terminar {
+        background-color: $soft-pink;
+        border: 3px solid $border-pink;
+        color: black;
+        font-weight: 900;
+        border-radius: 25px;
+        padding: 10px 40px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .btn-terminar {
+        cursor: pointer;
+        box-shadow: 0 4px 0 $border-pink;
+        &:hover {
+            background-color: lighten($soft-pink, 5%);
+        }
+        &:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 $border-pink;
+        }
+    }
+
+    // El área blanca central
+    .admin-content-area {
+        background-color: white;
+        border-radius: 25px;
+        margin: 20px 0;
+        flex-grow: 1;
+        min-height: 180px;
+    }
+}
+
+// Ajustes de texto
+.gray-text {
+    color: $gray-text;
+    font-weight: 600;
+}

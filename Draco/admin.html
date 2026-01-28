@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Draco - Aprende sobre tus temas favoritos</title>
+        <link
+            rel="shortcut icon"
+            href="./media/imgs/icoDraco.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/perfil/perfil.css" />
+        <link rel="stylesheet" href="./css/admin.css" />
+
+        <script defer src="./js/bootstrap.bundle.js"></script>
+        <script defer src="./js/themeChange.js"></script>
+    </head>
+    <body class="m-0">
+        <div class="container-fluid">
+            <div class="container-fluid p-0 g-0 ps-4 d-flex">
+                <!-- CONTENEDOR PRINCIPAL -->
+                <nav
+                    class="flex-grow-0 pt-3 d-flex flex-column border-end border-1 border-light navPrin vh-100 pe-4 ps-1 align-items-end"
+                >
+                    <!-- NAVEGACIÓN -->
+                    <a href="./pagPrincipal.html">
+                        <img
+                            src="./media/imgs/pagPrincipal/logoLetras.png"
+                            alt="DRACO"
+                            class="logoDraco mb-5"
+                        />
+                    </a>
+                    <a href="./pagPrincipal.html" class="mb-4 me-3 enlPrin"
+                        >Aprender</a
+                    >
+                    <a href="./store.html" class="mb-4 me-3 enlPrin">Tienda</a>
+                    <a href="./perfil.html" class="mb-4 me-3 enlPrin">Perfil</a>
+                </nav>
+
+                <main class="flex-grow-1">
+                    <div class="p-4 d-flex align-items-center justify-content-end mb-4">
+                        <div class="form-check form-switch me-3">
+                            <label class="switch">
+                                <input type="checkbox" id="toggleTheme" checked />
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <button class="btnSemiTran">Log Out</button>
+                    </div>
+
+                    <div class="container-fluid d-flex align-items-center justify-content-start ms-5 ps-3">
+                        <div class="imgPerfil d-flex justify-content-end p-3 border border-2 border-light">
+                            <button class="btnEditFotoPerfil">
+                                <img
+                                    src="./media/imgs/iconos/pencil.png"
+                                    alt="Editar"
+                                />
+                            </button>
+                        </div>
+                        <div class="d-flex flex-column align-items-start ms-5">
+                            <h2 class="ms-4 mb-4 d-flex align-items-center">
+                                <span class="username">NombreUsuario</span>
+                                 <button class="btnEditNombreUsuario">
+                                        <img
+                                            src="./media/imgs/iconos/pencil.png"
+                                            alt="Editar"
+                                        />
+                                    </button>
+                            </h2>
+                            <p class="mb-1 gray-text">correoelectronico@gmail.com</p>
+                            <p class="mb-1 gray-text">Se unió en enero de 2016</p>
+                            <p class="mb-1 gray-text">Admin</p>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid ms-5 ps-3 mt-5">
+                        <div class="row">
+                            <div class="col-md-3 d-flex flex-column gap-5 mt-4">
+                                <button class="btnAdmin">TEMÁTICA</button>
+                                <button class="btnAdmin">AÑADIR PREGUNTA</button>
+                                <button class="btnAdmin active-admin">MODIFICAR PREGUNTA</button>
+                                <button class="btnAdmin">ELIMINAR PREGUNTA</button>
+                            </div>
+
+                            <div class="col-md-7">
+                                <div class="admin-card">
+                                    <div class="d-flex justify-content-center">
+                                        <span class="badge-nivel">NIVEL</span>
+                                    </div>
+                                    <div class="admin-content-area">
+                                        </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn-terminar">TERMINAR</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <script src="./js/bootstrap.bundle.js"></script>
+    </body>
+</html>

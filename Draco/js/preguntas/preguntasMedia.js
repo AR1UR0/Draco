@@ -1,3 +1,15 @@
+/**
+ * @fileoverview Lógica para el sistema de trivia con soporte de audio.
+ * Gestiona la carga de preguntas, reproducción de pistas multimedia,
+ * validación de respuestas y estados de finalización.
+ * @author Thais/Draco Team
+ * @version 1.2.0
+ */
+
+/**
+ * Banco de datos de la trivia con soporte para rutas de audio.
+ * @type {Array<{q: string, options: string[], correct: number, audio: string}>}
+ */
 const quizData = [
   {
     q: "¿A qué territorio pertenece esta canción?",
@@ -8,42 +20,60 @@ const quizData = [
   // ... más preguntas
 ];
 
-// Tu código JS que ya tenías
+/** @type {number} Índice del paso actual */
 let currentStep = 0;
+
+/** @type {number|null} Índice de la opción seleccionada */
 let selectedIdx = null;
 
+// --- ELEMENTOS DEL DOM ---
+
+/** @type {HTMLElement} Título o enunciado de la pregunta */
 const pTexto = document.getElementById("preguntaTexto");
+
+/** @type {HTMLElement} Contenedor de botones de opciones */
 const oContenedor = document.getElementById("opcionesContenedor");
+
+/** @type {HTMLElement} Botón de acción principal */
 const btnPrincipal = document.getElementById("btnPrincipal");
+
+/** @type {HTMLElement} Barra de progreso visual */
 const progBar = document.getElementById("progressBar");
 
+/** @type {HTMLAudioElement} Elemento de audio nativo */
 const audio = document.getElementById("audioPregunta");
+
+/** @type {HTMLElement} Botón para controlar la reproducción del audio */
 const btnAudio = document.getElementById("btnAudio");
 
+/**
+ * Inicializa y carga los componentes de la pregunta actual.
+ * Configura el audio, resetea la interfaz y actualiza el progreso.
+ */
 function loadQuiz() {
   const currentQuiz = quizData[currentStep];
 
-  // Texto pregunta
+  // Configuración de texto
   pTexto.innerText = currentQuiz.q;
 
-  // Audio
+  // Gestión de carga de audio
   if (currentQuiz.audio) {
     audio.src = currentQuiz.audio;
     audio.load();
   }
 
-  // Reset estado
+  // Reseteo de estados visuales y lógicos
   oContenedor.innerHTML = "";
   selectedIdx = null;
   btnPrincipal.innerText = "COMPROBAR";
   btnPrincipal.disabled = true;
   btnPrincipal.classList.remove("btn-next");
 
-  // Barra de progreso
+  // Cálculo y actualización de la barra de progreso
   const percent = (currentStep / quizData.length) * 100 + 10;
   progBar.style.width = percent + "%";
 
-  // Opciones
+  // Generación dinámica de botones de respuesta
   currentQuiz.options.forEach((opt, i) => {
     const button = document.createElement("button");
     button.className = "option-btn";
@@ -53,6 +83,11 @@ function loadQuiz() {
   });
 }
 
+/**
+ * Marca una opción como seleccionada y habilita el botón de comprobación.
+ * @param {number} idx - Índice de la opción.
+ * @param {HTMLElement} el - Botón presionado.
+ */
 function selectOption(idx, el) {
   document
     .querySelectorAll(".option-btn")
@@ -63,12 +98,17 @@ function selectOption(idx, el) {
   btnPrincipal.disabled = false;
 }
 
+/**
+ * Controlador principal de interacción.
+ * Maneja la lógica de validación, detención de audio y transición de pasos.
+ * @listens click
+ */
 btnPrincipal.onclick = () => {
   if (btnPrincipal.innerText === "COMPROBAR") {
     const data = quizData[currentStep];
     const botones = document.querySelectorAll(".option-btn");
 
-    // Parar audio al comprobar
+    // Detener reproducción multimedia al validar
     audio.pause();
     audio.currentTime = 0;
 
@@ -79,6 +119,7 @@ btnPrincipal.onclick = () => {
       botones[data.correct].classList.add("is-correct");
     }
 
+    // Deshabilitar interacción tras la respuesta
     botones.forEach((btn) => (btn.style.pointerEvents = "none"));
 
     btnPrincipal.innerText = "CONTINUAR";
@@ -95,7 +136,10 @@ btnPrincipal.onclick = () => {
   }
 };
 
-// Botón de reproducir audio
+/**
+ * Evento para alternar la reproducción del audio de la pregunta.
+ * @listens click
+ */
 btnAudio.addEventListener("click", () => {
   if (audio.paused) {
     audio.play();
@@ -103,6 +147,10 @@ btnAudio.addEventListener("click", () => {
     audio.pause();
   }
 });
+
+/**
+ * Muestra la pantalla de éxito final y actualiza el progreso al máximo.
+ */
 function finishQuiz() {
   progBar.style.width = "100%";
   pTexto.innerText = "¡Nivel Completado!";
@@ -121,5 +169,5 @@ function finishQuiz() {
   btnPrincipal.classList.remove("btn-next");
 }
 
-// Carga inicial
+// Inicialización de la aplicación
 loadQuiz();
