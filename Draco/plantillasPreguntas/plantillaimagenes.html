@@ -3,26 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Draco - Imágenes</title>
+    <title>Draco Quiz - Escucha y responde</title>
+
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/preguntasTexto.css" />
+    <link rel="stylesheet" href="../css/plantillasPreguntas.css" />
     <script defer src="../js/preguntas/preguntasImagenes.js"></script>
+
     <link
       rel="shortcut icon"
       href="../media/imgs/icoDraco.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <div class="d-flex flex-column min-vh-100">
+      <!-- HEADER -->
       <header class="container pt-4">
         <div class="row align-items-center">
           <div class="col-1">
-            <button class="btn border-0 p-0 fw-bold fs-4 text-secondary">
+            <button
+              class="btn border-0 p-0 fw-bold fs-4"
+              style="color: #afafaf"
+            >
               ✕
             </button>
           </div>
+
           <div class="col-9 col-md-10">
             <div class="progress custom-progress">
               <div
@@ -33,14 +40,18 @@
               ></div>
             </div>
           </div>
+
           <div class="col-2 col-md-1 text-end">
-            <span class="hearts-count text-danger">❤️ 7</span>
+            <span class="hearts-count text-danger">
+              <img src="../media/imgs/iconos/heart.png" alt="" width="45" />
+              7</span
+            >
           </div>
         </div>
       </header>
 
       <main
-        class="container py-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center"
+        class="container py-5 flex-grow-1 d-flex flex-column align-items-center"
       >
         <h5 class="text-uppercase text-pink mb-3">Lee y responde</h5>
         <h2 id="preguntaTexto" class="question-text mb-5 text-center">
@@ -50,14 +61,14 @@
         <div id="opcionesContenedor" class="options-grid-images"></div>
       </main>
 
-      <footer class="border-top py-4 bg-white">
+      <footer class="border-top py-4">
         <div class="container">
           <div class="row justify-content-between align-items-center">
             <div class="col-12 col-sm-auto order-2 order-sm-1">
-              <button id="btnSaltar" class="btn-quiz btn-saltar">SALTAR</button>
+              <button id="btnSaltar" class="btn btn-saltar">SALTAR</button>
             </div>
             <div class="col-12 col-sm-auto order-1 order-sm-2">
-              <button id="btnPrincipal" class="btn-quiz btn-comprobar" disabled>
+              <button id="btnPrincipal" class="btn btn-comprobar" disabled>
                 COMPROBAR
               </button>
             </div>

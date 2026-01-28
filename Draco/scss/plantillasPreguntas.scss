@@ -1,0 +1,265 @@
+// ==================================================
+// VARIABLES
+// ==================================================
+$maincolor: #f70071;
+$secColor: #98b705;
+$gray-text: #8c8c8c;
+
+$correct-bg: #d7ffb8;
+$correct-border: #58cc02;
+$wrong-bg: #ffdfe0;
+$wrong-border: #ee2a33;
+$active-blue: #1cb0f6;
+
+// ==================================================
+// BASE
+// ==================================================
+
+body {
+  background-color: #ffffff;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  margin-top: 5px;
+  font-weight: 900;
+  overflow-y: auto;
+}
+
+// ==================================================
+// HEADER
+// ==================================================
+.custom-progress {
+  height: 16px;
+  background-color: #e5e5e5;
+  border-radius: 20px;
+
+  .progress-bar {
+    background-color: $maincolor;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+  }
+}
+
+.hearts-count {
+  font-size: 1.2rem;
+}
+
+// ==================================================
+// CONTENIDO
+// ==================================================
+.text-pink {
+  color: $maincolor;
+  letter-spacing: 1px;
+}
+
+.question-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #3c3c3c;
+  margin: 0;
+  word-break: break-word;
+}
+
+// ==================================================
+// OPCIONES TEXTO
+// ==================================================
+.options-text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  width: 600px;
+}
+
+.option-btn {
+  background: #fff;
+  border: 2px solid #e5e5e5;
+  border-bottom: 5px solid #e5e5e5;
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #4b4b4b;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.1s;
+  text-align: center;
+  box-sizing: border-box;
+
+  &:hover:not(.active):not(.is-correct):not(.is-wrong) {
+    background-color: #f7f7f7;
+  }
+
+  &.active {
+    background-color: #ddf4ff;
+    border-color: $active-blue;
+    border-bottom-color: darken($active-blue, 15%);
+    color: $active-blue;
+    transform: translateY(2px);
+  }
+
+  &.is-correct {
+    background-color: $correct-bg;
+    border-color: $correct-border;
+    color: darken($correct-border, 15%);
+  }
+
+  &.is-wrong {
+    background-color: $wrong-bg;
+    border-color: $wrong-border;
+    color: $wrong-border;
+  }
+}
+
+// ==================================================
+// GRID IMÁGENES
+// ==================================================
+.options-grid-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 576px) {
+    overflow: scroll;
+    grid-template-columns: 1fr;
+
+    #opcionesContenedor {
+      overflow: scroll;
+      height: max-content;
+    }
+  }
+}
+
+// ==================================================
+// TARJETAS IMAGEN
+// ==================================================
+.option-card {
+  background: white;
+  border: 2px solid #e5e5e5;
+  border-bottom: 5px solid #e5e5e5;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.1s;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  &.active {
+    background-color: #ddf4ff;
+    border-color: $active-blue;
+  }
+
+  &.is-correct {
+    background-color: $correct-bg;
+    border-color: $correct-border;
+  }
+
+  &.is-wrong {
+    background-color: $wrong-bg;
+    border-color: $wrong-border;
+  }
+}
+
+// ==================================================
+// FOOTER
+// ==================================================
+footer {
+  background-color: white;
+  position: sticky;
+  bottom: 0;
+  border-top: 1px solid #e5e5e5;
+}
+
+.btn-saltar {
+  background: transparent;
+  color: #afafaf;
+  border: 2px solid #e5e5e5;
+  border-bottom: 4px solid #e5e5e5;
+  padding: 10px 30px;
+  border-radius: 12px;
+}
+
+.btn-comprobar {
+  background-color: $secColor;
+  color: white;
+  border-bottom: 4px solid darken($secColor, 15%);
+  padding: 10px 40px;
+  border-radius: 12px;
+
+  &:disabled {
+    background-color: #e5e5e5;
+    color: #afafaf;
+  }
+}
+
+// ==================================================
+// AUDIO + PREGUNTA
+// ==================================================
+.audio-question {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.audio-btn {
+  background: #fff;
+  border: 2px solid #e5e5e5;
+  border-bottom: 5px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.1s;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+
+  &:active {
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+  }
+}
+
+// ==================================================
+// MEDIA QUERIES
+// ==================================================
+@media (max-width: 768px) {
+  .audio-question {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  .option-btn {
+    font-size: 1rem;
+    padding: 12px 15px;
+  }
+
+  .audio-question {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+}

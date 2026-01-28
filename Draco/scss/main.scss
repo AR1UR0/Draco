@@ -182,6 +182,17 @@ body {
     padding: 3px 20px;
 }
 
+.btnSemiTran:hover {
+    background-color: $secColor !important;
+    color: whitesmoke !important;
+}
+
+.btnSemiTran:active {
+    background-color: darken($secColor, 5%) !important;
+    border-color: darken($secColor, 5%) !important;
+    color: whitesmoke !important;
+}
+
 // ==================================================
 // LINKS LIGHT / DARK
 // ==================================================
@@ -397,3 +408,7 @@ body.bg-light a {
     -o-object-fit: cover;
     object-fit: cover;
 } /*# sourceMappingURL=main.css.map */
+
+.modal-body p {
+    font-weight: 500;
+}
