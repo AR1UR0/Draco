@@ -11,20 +11,10 @@
         />
         <link rel="stylesheet" href="./css/bootstrap.min.css" />
         <link rel="stylesheet" href="./css/main.css" />
-        <link rel="stylesheet" href="./css/pagPrincipal/pagPrincipal.css" />
+        <link rel="stylesheet" href="./css/perfil/perfil.css" />
     </head>
-    <body>
+    <body class="m-0">
         <div class="container-fluid">
-            <header class="container d-flex justify-content-between">
-                <!-- HEADER -->
-                <!-- CAMBIAR TEMA -->
-                <div class="form-check form-switch">
-                    <label class="switch">
-                        <input type="checkbox" id="toggleTheme" checked />
-                        <span class="slider"></span>
-                    </label>
-                </div>
-            </header>
             <div class="container-fluid p-0 g-0 ps-4 d-flex">
                 <!-- CONTENEDOR PRINCIPAL -->
                 <nav
@@ -44,6 +34,34 @@
                 </nav>
                 <main class="flex-grow-1">
                     <!-- CONTENIDO PRINCIPAL -->
+                    <div
+                        class="p-4 d-flex align-items-center justify-content-end"
+                    >
+                        <div class="form-check form-switch">
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="toggleTheme"
+                                    checked
+                                />
+                                <span class="slider"></span>
+                            </label>
+                            &nbsp;
+                        </div>
+                        <button class="btnSemiTran">Log Out</button>
+                    </div>
+                    <div class="container-fluid">
+                        <div
+                            class="imgPerfil d-flex justify-content-end p-3 border border-2 border-light"
+                        >
+                            <button class="btnEditFotoPerfil">
+                                <img
+                                    src="./media/imgs/iconos/pencil.png"
+                                    alt="Editar"
+                                />
+                            </button>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>

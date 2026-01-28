@@ -14,6 +14,7 @@ function applyTheme(isDark) {
     const navPrin = document.querySelector(".navPrin");
     const asidePrin = document.querySelector(".asidePrin");
     const imgTema = document.querySelector(".imgTema");
+    const imgPerfil = document.querySelector(".imgPerfil");
 
     // APLICAR CLASES SEGUN EL TEMA
     if (isDark) {
@@ -38,6 +39,11 @@ function applyTheme(isDark) {
         if (imgTema) {
             imgTema.classList.add("border-light");
             imgTema.classList.remove("border-dark");
+        }
+
+        if (imgPerfil) {
+            imgPerfil.classList.add("border-light");
+            imgPerfil.classList.remove("border-dark");
         }
 
         imgCarr.forEach((img) => {
@@ -66,6 +72,11 @@ function applyTheme(isDark) {
         if (imgTema) {
             imgTema.classList.add("border-dark");
             imgTema.classList.remove("border-light");
+        }
+
+        if (imgPerfil) {
+            imgPerfil.classList.add("border-dark");
+            imgPerfil.classList.remove("border-light");
         }
 
         imgCarr.forEach((img) => {
