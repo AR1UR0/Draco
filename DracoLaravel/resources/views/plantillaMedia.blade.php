@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draco Quiz - Escucha y responde</title>
+
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/plantillasPreguntas.css') }}" />
+    <script defer src="{{ asset('js/preguntas/preguntasMedia.js') }}"></script>
+
+    <link
+      rel="shortcut icon"
+      href="{{ asset('media/imgs/icoDraco.png') }}"
+      type="image/x-icon" />
+  </head>
+
+  <body>
+    <div class="d-flex flex-column min-vh-100">
+      <!-- HEADER -->
+      <header class="container pt-4">
+        <div class="row align-items-center">
+          <div class="col-1">
+            <button
+              class="btn border-0 p-0 fw-bold fs-4"
+              style="color: #afafaf">
+              ✕
+            </button>
+          </div>
+
+          <div class="col-9 col-md-10">
+            <div class="progress custom-progress">
+              <div
+                id="progressBar"
+                class="progress-bar"
+                role="progressbar"
+                style="width: 10%"></div>
+            </div>
+          </div>
+
+          <div class="col-2 col-md-1 text-end text-nowrap">
+            <span class="hearts-count text-danger">
+              <img src="{{ asset('media/imgs/iconos/heart.png') }}" alt="" width="45" />
+              7
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN -->
+      <main
+        class="container py-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+        <h5 class="text-uppercase text-pink mb-3">Escucha y responde</h5>
+
+        <!-- BLOQUE AUDIO + PREGUNTA -->
+        <div
+          class="d-flex align-items-center gap-3 mb-5"
+          style="max-width: 600px">
+          <button id="btnAudio" class="audio-btn">
+            <img
+              src="{{ asset('media/imgs/iconos/speaker.png') }}"
+              alt="Reproducir audio"
+              style="width: 40px; height: 40px" />
+          </button>
+
+          <h2 id="preguntaTexto" class="question-text mb-0">
+            ¿A qué territorio pertenece esta canción?
+          </h2>
+        </div>
+
+        <!-- AUDIO (OCULTO) -->
+        <audio id="audioPregunta">
+          <source src="{{ asset('media/Audio/The Shire.mp3') }}" type="audio/mpeg" />
+        </audio>
+
+        <!-- OPCIONES -->
+
+        <div
+          id="opcionesContenedor"
+          class="d-flex flex-wrap justify-content-center gap-3 ">
+        <!-- JS generará los botones aquí --></div>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="border-top py-4">
+        <div class="container">
+          <div
+            class="row justify-content-between align-items-center flex-nowrap">
+            <div class="col-auto order-1 order-sm-1">
+              <button id="btnSaltar" class="btn btn-saltar">SALTAR</button>
+            </div>
+            <div class="col-auto order-2 order-sm-2">
+              <button id="btnPrincipal" class="btn btn-comprobar" disabled>
+                COMPROBAR
+              </button>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+.navPrin .enlPrin {
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.navPrin .enlPrin.active-admin-nav {
+  background-color: #dcedc8;
+  border: 1px solid #98b705;
+}
+
+.imgPerfil {
+  background-color: #f3e5f5;
+  border-radius: 35px;
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+}
+
+.btnAdmin {
+  background-color: #dcedc8;
+  border: 2px solid #98b705;
+  border-radius: 20px;
+  padding: 12px;
+  font-weight: 800;
+  color: #444;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 0 #98b705;
+  transition: all 0.1s ease;
+}
+.btnAdmin:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #98b705;
+}
+
+.admin-card {
+  background-color: #d6e1ae;
+  border: 3px solid #98b705;
+  border-radius: 40px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.05);
+}
+.admin-card .badge-nivel, .admin-card .btn-terminar {
+  background-color: #f06292;
+  border: 3px solid #d81b60;
+  color: black;
+  font-weight: 900;
+  border-radius: 25px;
+  padding: 10px 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.admin-card .btn-terminar {
+  cursor: pointer;
+  box-shadow: 0 4px 0 #d81b60;
+}
+.admin-card .btn-terminar:hover {
+  background-color: rgb(242.2238372093, 121.2761627907, 162.1598837209);
+}
+.admin-card .btn-terminar:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #d81b60;
+}
+.admin-card .admin-content-area {
+  background-color: white;
+  border-radius: 25px;
+  margin: 20px 0;
+  flex-grow: 1;
+  min-height: 180px;
+}
+
+.gray-text {
+  color: #a1a1a1;
+  font-weight: 600;
+}/*# sourceMappingURL=admin.css.map */

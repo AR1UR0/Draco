@@ -1,0 +1,295 @@
+// ==================================================
+// VARIABLES GLOBALES
+// ==================================================
+
+$maincolor: #f70071;
+$secColor: #98b705;
+$secColorTran: rgba(153, 183, 5, 0.44);
+$gray-text: #a1a1a1;
+$super-top: #8e2de2;
+$super-mid-1: #4b108c;
+$super-mid-2: #1a1061;
+$super-bottom: #0f083d;
+
+// ==================================================
+// --------------------------------------------------
+// PÁGINA PRINCIPAL
+// --------------------------------------------------
+// ==================================================
+
+body {
+    overflow-y: auto;
+}
+
+.navPrin a {
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.parteArriba div img {
+    height: 50px;
+}
+
+.enlPrin {
+    padding: 4px;
+    width: 150px;
+    text-align: end;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    padding-right: 15px;
+    border-right: 3px solid transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-right: 3px solid $secColor;
+        background-color: $secColorTran;
+        padding-left: 20px;
+    }
+}
+
+.enlPrin:hover {
+    outline-color: $secColor;
+    background-color: $secColorTran;
+}
+
+.asidePrin {
+    width: 400px;
+}
+
+.imgIco {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+}
+
+.col,
+.col4,
+.col-8 {
+    font-size: 0.8em;
+}
+
+.col-4 {
+    text-align: end;
+}
+
+.imgFooterPrin {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+}
+
+.dracoPlus {
+    border-radius: 20px;
+    padding: 25px;
+    margin: 15px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dracoPlusGlow {
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba($maincolor, 0.4) 0%,
+            transparent 50%
+        ),
+        linear-gradient(
+            135deg,
+            $super-top 0%,
+            $super-mid-1 25%,
+            $super-mid-2 50%,
+            $super-bottom 75%,
+            $maincolor 110%
+        );
+}
+
+.btnPlus {
+    background-color: white !important;
+    color: $maincolor !important;
+    border: none;
+    border-bottom: 4px solid #e1e1e1 !important;
+    font-weight: 900;
+    border-radius: 12px;
+    transition:
+        transform 0.2s,
+        border-bottom 0.2s;
+
+    &:hover {
+        transform: translateY(2px);
+        border-bottom-width: 2px !important;
+    }
+
+    &:active {
+        transform: translateY(4px);
+        border-bottom-width: 0px !important;
+    }
+}
+
+.panelAnuncio {
+    border-radius: 20px;
+    padding: 25px;
+    margin: 15px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.topMainContent {
+    background-color: $secColor;
+    margin: 40px;
+    padding: 20px;
+    margin-bottom: 60px;
+    border-radius: 20px;
+}
+
+.mainContent {
+    margin: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.colMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-round {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+
+    background-color: whitesmoke;
+    color: $secColor;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    border: 5px solid $secColor;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    position: relative;
+
+    /* 3D sutil */
+    box-shadow:
+        0 4px 0 darken($secColor, 15%),
+        0 8px 16px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease;
+}
+
+/* Hover: leve elevación */
+.btn-round:hover {
+    background-color: #f7f7f7;
+
+    transform: translateY(-1px);
+    box-shadow:
+        0 5px 0 darken($secColor, 15%),
+        0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Active: pulsación realista */
+.btn-round:active {
+    transform: translateY(3px);
+    box-shadow:
+        0 1px 0 darken($secColor, 20%),
+        0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btn-round::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 50%;
+    height: 25%;
+    background: whitesmoke;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+// ==================================================
+// RESPONSIVE
+// ==================================================
+
+.collapsing {
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.menuHamb {
+    overflow: hidden; // Evita que el texto salte antes de tiempo
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.02
+    ); // Sutil fondo para el área desplegada
+    border-radius: 0 0 15px 15px;
+
+    .enlPrinWider {
+        text-decoration: none;
+        color: inherit;
+        font-weight: 600;
+        padding-left: 20px;
+        border-left: 4px solid transparent;
+        transition: all 0.3s ease;
+
+        &:hover {
+            border-left: 4px solid $secColor;
+            background-color: $secColorTran;
+            padding-left: 30px; // Efecto de empuje suave
+        }
+    }
+}
+
+.btnHamb {
+    border: none !important;
+    background: transparent !important;
+    transition: transform 0.2s ease;
+
+    &:active {
+        transform: scale(0.9); // Feedback táctil al pulsar
+    }
+}
+
+@media (max-width: 768px) {
+    .asidePrin {
+        width: 100% !important;
+        height: auto !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden; // Evita scroll lateral accidental
+    }
+
+    body {
+        overflow-y: auto;
+    }
+
+    .mainContainer {
+        height: auto !important; // En móvil permitimos que crezca
+        display: block !important;
+    }
+
+    .col4,
+    .col-8,
+    .colF {
+        font-size: 0.7em !important;
+    }
+}
