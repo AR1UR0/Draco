@@ -17,8 +17,8 @@ $super-bottom: #0f083d;
 // --------------------------------------------------
 // ==================================================
 
-.body {
-    overflow-y: hidden;
+body {
+    overflow-y: auto;
 }
 
 .navPrin a {
@@ -34,10 +34,18 @@ $super-bottom: #0f083d;
     padding: 4px;
     width: 150px;
     text-align: end;
-    outline: 2px solid transparent;
-    transition:
-        background-color 0.5s ease,
-        outline-color 0.5s ease;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    padding-right: 15px;
+    border-right: 3px solid transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-right: 3px solid $secColor;
+        background-color: $secColorTran;
+        padding-left: 20px;
+    }
 }
 
 .enlPrin:hover {
@@ -214,4 +222,74 @@ $super-bottom: #0f083d;
     background: whitesmoke;
     border-radius: 50%;
     pointer-events: none;
+}
+
+// ==================================================
+// RESPONSIVE
+// ==================================================
+
+.collapsing {
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.menuHamb {
+    overflow: hidden; // Evita que el texto salte antes de tiempo
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.02
+    ); // Sutil fondo para el área desplegada
+    border-radius: 0 0 15px 15px;
+
+    .enlPrinWider {
+        text-decoration: none;
+        color: inherit;
+        font-weight: 600;
+        padding-left: 20px;
+        border-left: 4px solid transparent;
+        transition: all 0.3s ease;
+
+        &:hover {
+            border-left: 4px solid $secColor;
+            background-color: $secColorTran;
+            padding-left: 30px; // Efecto de empuje suave
+        }
+    }
+}
+
+.btnHamb {
+    border: none !important;
+    background: transparent !important;
+    transition: transform 0.2s ease;
+
+    &:active {
+        transform: scale(0.9); // Feedback táctil al pulsar
+    }
+}
+
+@media (max-width: 768px) {
+    .asidePrin {
+        width: 100% !important;
+        height: auto !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden; // Evita scroll lateral accidental
+    }
+
+    body {
+        overflow-y: auto;
+    }
+
+    .mainContainer {
+        height: auto !important; // En móvil permitimos que crezca
+        display: block !important;
+    }
+
+    .col4,
+    .col-8,
+    .colF {
+        font-size: 0.7em !important;
+    }
 }

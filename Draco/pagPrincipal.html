@@ -1,262 +1,495 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Draco - Aprende sobre tus temas favoritos</title>
-    <link rel="shortcut icon" href="./media/imgs/icoDraco.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/pagPrincipal/pagPrincipal.css" />
-</head>
-
-<body>
-    <div class="container-fluid">
-        <header class="container d-flex justify-content-between">
-            <!-- HEADER -->
-            <!-- CAMBIAR TEMA -->
-            <div class="form-check form-switch">
-                <label class="switch">
-                    <input type="checkbox" id="toggleTheme" checked />
-                    <span class="slider"></span>
-                </label>
-            </div>
-        </header>
-        <div class="container-fluid p-0 g-0 ps-4 d-flex">
-            <!-- CONTENEDOR PRINCIPAL -->
-            <nav
-                class="flex-grow-0 pt-3 d-flex flex-column border-end border-1 border-light navPrin vh-100 pe-4 ps-1 align-items-end">
-                <!-- NAVEGACIÓN -->
-                <a href="./pagPrincipal.html">
-                    <img src="./media/imgs/pagPrincipal/logoLetras.png" alt="DRACO" class="logoDraco mb-5" />
-                </a>
-                <a href="./pagPrincipal.html" class="mb-4 me-3 enlPrin">Aprender</a>
-                <a href="./store.html" class="mb-4 me-3 enlPrin">Tienda</a>
-                <a href="" class="mb-4 me-3 enlPrin">Perfil</a>
-            </nav>
-            <main class="flex-grow-1">
-                <!-- CONTENIDO PRINCIPAL -->
-                <div class="topMainContent">
-                    <span class="tema">Berserk</span>: FASE
-                    <span class="fase">1</span>, NIVEL
-                    <span class="nivel">1</span>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Draco - Aprende sobre tus temas favoritos</title>
+        <link
+            rel="shortcut icon"
+            href="./media/imgs/icoDraco.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/pagPrincipal/pagPrincipal.css" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <header class="container d-flex justify-content-between">
+                <!-- HEADER -->
+                <!-- CAMBIAR TEMA -->
+                <div class="form-check form-switch">
+                    <label class="switch">
+                        <input type="checkbox" id="toggleTheme" checked />
+                        <span class="slider"></span>
+                    </label>
                 </div>
-                <!-- MAPA DE LOS ELEMENTOS EN UN GRID DE BOOTSTRAP -->
-                <div class="mainContent">
-                    <div class="row">
-                        <div class="col-4 colMain">
-                            <button class="btn-round">1</button>
+            </header>
+            <div class="container-fluid p-0 g-0 ps-md-4 d-flex mainContainer">
+                <!-- CONTENEDOR PRINCIPAL -->
+                <nav
+                    class="d-none d-lg-flex flex-grow-0 pt-3 d-flex flex-column border-end border-1 border-light navPrin vh-100 pe-2 ps-1 align-items-end"
+                >
+                    <!-- NAVEGACIÓN -->
+                    <a href="./pagPrincipal.html">
+                        <img
+                            src="./media/imgs/pagPrincipal/logoLetras.png"
+                            alt="DRACO"
+                            class="logoDraco mb-5"
+                        />
+                    </a>
+                    <a href="" class="mb-4 me-3 enlPrin">Aprender</a>
+                    <a href="" class="mb-4 me-3 enlPrin">Tienda</a>
+                    <a href="" class="mb-4 me-3 enlPrin">Perfil</a>
+                </nav>
+                <main class="d-none d-md-block flex-grow-1">
+                    <!-- CONTENIDO PRINCIPAL -->
+                    <div class="topMainContent">
+                        <span class="tema">Berserk</span>: FASE
+                        <span class="fase">1</span>, NIVEL
+                        <span class="nivel">1</span>
+                    </div>
+                    <!-- MAPA DE LOS ELEMENTOS EN UN GRID DE BOOTSTRAP -->
+                    <div class="mainContent">
+                        <div class="row">
+                            <div class="col-4 colMain">
+                                <button class="btn-round">1</button>
+                            </div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round">2</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
                         </div>
-                        <div class="col-4 colMain">
-                            <button class="btn-round">2</button>
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round">3</button>
+                            </div>
                         </div>
-                        <div class="col-4 colMain"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4 colMain"></div>
-                        <div class="col-4 colMain"></div>
-                        <div class="col-4 colMain">
-                            <button class="btn-round">3</button>
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round">4</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4 colMain"></div>
-                        <div class="col-4 colMain">
-                            <button class="btn-round">4</button>
+                        <div class="row">
+                            <div class="col-4 colMain">
+                                <button class="btn-round">5</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain"></div>
                         </div>
-                        <div class="col-4 colMain"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4 colMain">
-                            <button class="btn-round">5</button>
-                        </div>
-                        <div class="col-4 colMain"></div>
-                        <div class="col-4 colMain"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4 colMain"></div>
-                        <div class="col-4 colMain">
-                            <button class="btn-round">6</button>
-                        </div>
-                        <div class="col-4 colMain">
-                            <button class="btn-round">7</button>
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round">6</button>
+                            </div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round">7</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </main>
-            <aside class="flex-grow-0 pt-3 ps-3 border-start border-1 border-light asidePrin vh-100 d-flex flex-column">
-                <!-- PANEL LATERAL -->
-                <div class="d-flex flex-grow-0 parteArriba justify-content-evenly align-items-center mb-3">
-                    <!-- IMAGENES DE TEMA, RACHA, DINERO Y VIDAS -->
-                    <div>
-                        <img src="./media/imgs/temas/berserk.jpg" alt=" " class="border border-light imgTema" />
-                    </div>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img src="./media/imgs/iconos/burn.png" alt="Racha:" class="imgIco" />
-                        <span class="racha">&nbsp;1</span>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img src="./media/imgs/iconos/coin.png" alt="Dinero:" class="imgIco" />
-                        <span class="racha">&nbsp;&nbsp;500</span>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img src="./media/imgs/iconos/heart.png" alt="Vida:" class="imgIco" />
-                        <span class="racha">&nbsp;7</span>
-                    </div>
-                </div>
-                <!-- DIV PARA DRACO PLUS Y ANUNCIO -->
-                <div class="flex-grow-1 d-flex flex-column justify-content-between">
-                    <!-- DRACO PLUS -->
+                </main>
+                <aside
+                    class="flex-grow-1 flex-md-grow-0 pt-3 ps-3 border-start border-md-1 border-light asidePrin vh-100 d-flex flex-column"
+                >
+                    <!-- MENU HAMBURGUESA -->
                     <div
-                        class="dracoPlus dracoPlusGlow flex-grow-1 align-items-center justify-content-center d-flex flex-column">
-                        <div class="content">
-                            <h2>Draco Plus</h2>
+                        class="d-flex d-md-none align-items-center justify-content-between p-2"
+                    >
+                        <a href="./pagPrincipal.html">
+                            <img
+                                src="./media/imgs/pagPrincipal/logoLetras.png"
+                                alt="DRACO"
+                                class="logoDraco ms-3"
+                            />
+                        </a>
+
+                        <button
+                            class="btn btn-outline-secondary me-3 btnHamb text-light"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#menuHamburger"
+                            aria-controls="menuHamburger"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                            <span
+                                ><img
+                                    src="./media/imgs/menuDark.png"
+                                    alt="="
+                                    style="width: 40px"
+                            /></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse d-md-none" id="menuHamburger">
+                        <div class="menuHamb">
+                            <a href="" class="d-block py-3 enlPrinWider"
+                                >Aprender</a
+                            >
+                            <a href="" class="d-block py-3 enlPrinWider"
+                                >Tienda</a
+                            >
+                            <a href="" class="d-block py-3 enlPrinWider"
+                                >Perfil</a
+                            >
+                        </div>
+                    </div>
+                    <hr
+                        class="border border-light mb-4 mt-2 d-block d-md-none"
+                    />
+                    <!-- PANEL LATERAL -->
+                    <div
+                        class="d-flex flex-grow-0 parteArriba justify-content-evenly align-items-center mb-3"
+                    >
+                        <!-- IMAGENES DE TEMA, RACHA, DINERO Y VIDAS -->
+                        <div>
+                            <img
+                                src="./media/imgs/temas/berserk.jpg"
+                                alt=" "
+                                class="border border-light imgTema"
+                            />
+                        </div>
+                        <div
+                            class="d-flex align-items-center justify-content-center"
+                        >
+                            <img
+                                src="./media/imgs/iconos/burn.png"
+                                alt="Racha:"
+                                class="imgIco"
+                            />
+                            <span class="racha">&nbsp;1</span>
+                        </div>
+                        <div
+                            class="d-flex align-items-center justify-content-center"
+                        >
+                            <img
+                                src="./media/imgs/iconos/coin.png"
+                                alt="Dinero:"
+                                class="imgIco"
+                            />
+                            <span class="racha">&nbsp;&nbsp;500</span>
+                        </div>
+                        <div
+                            class="d-flex align-items-center justify-content-center"
+                        >
+                            <img
+                                src="./media/imgs/iconos/heart.png"
+                                alt="Vida:"
+                                class="imgIco"
+                            />
+                            <span class="racha">&nbsp;7</span>
+                        </div>
+                    </div>
+                    <hr
+                        class="border border-light mb-2 mt-2 d-block d-md-none"
+                    />
+                    <!-- DIV PARA DRACO PLUS Y ANUNCIO -->
+                    <div
+                        class="d-none flex-grow-0 d-md-flex flex-column justify-content-between"
+                    >
+                        <!-- DRACO PLUS -->
+                        <div
+                            class="dracoPlus dracoPlusGlow flex-grow-1 align-items-center justify-content-center d-flex flex-column"
+                        >
+                            <div class="content">
+                                <h2>Draco Plus</h2>
+                                <p>
+                                    ¡Desbloquea contenido exclusivo y racha
+                                    infinita!
+                                </p>
+                                <button class="btn btnPlus px-4 py-2 mt-2">
+                                    PRUEBA PLUS GRATIS
+                                </button>
+                            </div>
+                        </div>
+                        <!-- ANUNCIO -->
+                        <div class="panelAnuncio flex-grow-1">
+                            <h2>Anuncio Interesante</h2>
                             <p>
-                                ¡Desbloquea contenido exclusivo y racha
-                                infinita!
+                                Mira que anuncio más chulo y más interesante
+                                mola mucho.
                             </p>
-                            <button class="btn btnPlus px-4 py-2 mt-2">
-                                PRUEBA PLUS GRATIS
-                            </button>
+                            <button>ANUNCIO AQUÍ SISISI</button>
                         </div>
                     </div>
-                    <!-- ANUNCIO -->
-                    <div class="panelAnuncio flex-grow-1">
-                        <h2>Anuncio Interesante</h2>
+                    <!-- DIV RESPONSIVE -->
+                    <div class="d-block d-md-none">
+                        <!-- CONTENIDO PRINCIPAL -->
+                        <div class="topMainContent">
+                            <span class="tema">Berserk</span>: FASE
+                            <span class="fase">1</span>, NIVEL
+                            <span class="nivel">1</span>
+                        </div>
+                        <!-- MAPA DE LOS ELEMENTOS EN UN GRID DE BOOTSTRAP -->
+                        <div class="mainContent">
+                            <div class="row">
+                                <div class="col-4 colMain">
+                                    <button class="btn-round">1</button>
+                                </div>
+                                <div class="col-4 colMain">
+                                    <button class="btn-round">2</button>
+                                </div>
+                                <div class="col-4 colMain"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 colMain"></div>
+                                <div class="col-4 colMain"></div>
+                                <div class="col-4 colMain">
+                                    <button class="btn-round">3</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 colMain"></div>
+                                <div class="col-4 colMain">
+                                    <button class="btn-round">4</button>
+                                </div>
+                                <div class="col-4 colMain"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 colMain">
+                                    <button class="btn-round">5</button>
+                                </div>
+                                <div class="col-4 colMain"></div>
+                                <div class="col-4 colMain"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 colMain"></div>
+                                <div class="col-4 colMain">
+                                    <button class="btn-round">6</button>
+                                </div>
+                                <div class="col-4 colMain">
+                                    <button class="btn-round">7</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr
+                        class="border border-light mb-2 mt-2 d-block d-md-none"
+                    />
+                    <footer
+                        class="flex-grow-0 ms-2 ms-md-0 mt-3 pb-4 pb-md-0 container text-center d-flex d-sm-none d-md-flex flex-column"
+                    >
+                        <!-- FOOTER LATERAL -->
+                        <div class="row">
+                            <div class="col-4 col4">Contactos</div>
+                            <div class="col-8">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#termsModal"
+                                    >Términos de Privacidad</a
+                                >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col colF">Sobre Nosotros</div>
+                            <div class="col colF">
+                                <a href="#" id="liveToastBtn">Copyright</a>
+                            </div>
+                            <div class="col colF">Dirección</div>
+                        </div>
+                        <div
+                            class="d-none container mt-4 mb-4 justify-content-evenly align-items-center d-md-flex"
+                        >
+                            <img
+                                src="./media/imgs/iconos/instagram.png"
+                                alt="Instagram"
+                                class="imgFooterPrin"
+                            />
+                            <img
+                                src="./media/imgs/iconos/twitter.png"
+                                alt="Twitter"
+                                class="imgFooterPrin"
+                            />
+                            <img
+                                src="./media/imgs/iconos/facebook.png"
+                                alt="Facebook"
+                                class="imgFooterPrin"
+                            />
+                        </div>
+                    </footer>
+                    <footer
+                        class="footerMD d-none d-sm-flex d-md-none d-flex flex-column text-center mt-3 pb-4 pb-md-0"
+                    >
+                        <div class="row">
+                            <div class="col colF">Contactos</div>
+                            <div class="col colF">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#termsModal"
+                                    >Términos de Privacidad</a
+                                >
+                            </div>
+                            <div class="col colF">Sobre Nosotros</div>
+                            <div class="col colF">
+                                <a href="#" id="liveToastBtn">Copyright</a>
+                            </div>
+                            <div class="col colF">Dirección</div>
+                        </div>
+                        <div
+                            class="d-none d-sm-flex d-md-none container mt-4 mb-4 justify-content-evenly align-items-center"
+                        >
+                            <img
+                                src="./media/imgs/iconos/instagram.png"
+                                alt="Instagram"
+                                class="imgFooterPrin"
+                            />
+                            <img
+                                src="./media/imgs/iconos/twitter.png"
+                                alt="Twitter"
+                                class="imgFooterPrin"
+                            />
+                            <img
+                                src="./media/imgs/iconos/facebook.png"
+                                alt="Facebook"
+                                class="imgFooterPrin"
+                            />
+                        </div>
+                    </footer>
+                </aside>
+            </div>
+        </div>
+
+        <!-- TOAST COPYRIGHT -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div
+                id="liveToast"
+                class="toast"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+            >
+                <div
+                    class="toast-header d-flex justify-content-between align-items-center"
+                >
+                    <img
+                        src="./media/imgs/icoDraco.png"
+                        class="rounded me-2"
+                        alt="..."
+                        style="width: 25px"
+                    />
+                    <div
+                        class="d-flex justify-content-center align-items-center"
+                    >
+                        <small>Draco &copy;</small>
+                        <button
+                            type="button"
+                            class="btn-close me-2"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                </div>
+                <div class="toast-body">
+                    Copyright &copy; 2025-2026 Draco Enterprises. All rights
+                    reserved.
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL DE TÉRMINOS Y CONDICIONES -->
+        <div
+            class="modal fade"
+            id="termsModal"
+            tabindex="-1"
+            aria-labelledby="termsModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="termsModalLabel">
+                            Términos y Condiciones – Plataforma DRACO
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Cerrar"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
                         <p>
-                            Mira que anuncio más chulo y más interesante
-                            mola mucho.
+                            <strong>1. Introducción</strong><br />
+                            Bienvenido a <strong>DRACO</strong>, una plataforma
+                            web para aprender sobre universos de fantasía y
+                            videojuegos como The Lord of the Rings, GloryHammer,
+                            World of Warcraft y Minecraft. Al usar nuestra
+                            página aceptas estos términos.
                         </p>
-                        <button>ANUNCIO AQUÍ SISISI</button>
+
+                        <p>
+                            <strong>2. Uso de la Plataforma</strong><br />
+                            DRACO está destinada al aprendizaje autodidacta y
+                            entretenimiento educativo. Puede usarse desde
+                            cualquier dispositivo con navegador, y debe
+                            utilizarse de manera respetuosa y ética.
+                        </p>
+
+                        <p>
+                            <strong>3. Contenido</strong><br />
+                            Todo el contenido es solo con fines educativos y de
+                            entretenimiento. No se permite reproducir,
+                            distribuir ni modificar el contenido sin
+                            autorización.
+                        </p>
+
+                        <p>
+                            <strong>4. Registro y Seguridad</strong><br />
+                            Algunos servicios requieren registro. Eres
+                            responsable de mantener tu usuario y contraseña
+                            seguros y de notificar cualquier uso no autorizado.
+                        </p>
+
+                        <p>
+                            <strong>5. Privacidad</strong><br />
+                            Solo recopilamos los datos necesarios para el
+                            funcionamiento del sitio. Consulta nuestra política
+                            de privacidad para más detalles.
+                        </p>
+
+                        <p>
+                            <strong>6. Modificaciones</strong><br />
+                            DRACO puede actualizar estos términos en cualquier
+                            momento. Te recomendamos revisarlos periódicamente.
+                        </p>
+
+                        <p>
+                            <strong>7. Limitación de Responsabilidad</strong
+                            ><br />
+                            DRACO no garantiza disponibilidad continua ni
+                            ausencia de errores y no se hace responsable de
+                            daños derivados del uso del sitio.
+                        </p>
+
+                        <p>
+                            <strong>8. Ley Aplicable</strong><br />
+                            Estos términos se rigen por la legislación española.
+                            Cualquier disputa se resolverá ante los tribunales
+                            competentes.
+                        </p>
                     </div>
-                </div>
-
-                <footer class="flex-grow-0 mt-3 container text-center">
-                    <!-- FOOTER LATERAL -->
-                    <div class="row">
-                        <div class="col-4 col4">Contactos</div>
-                        <div class="col-8">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Términos de Privacidad</a>
-                        </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Cerrar
+                        </button>
                     </div>
-                    <div class="row">
-                        <div class="col">Sobre Nosotros</div>
-                        <div class="col">
-                            <a href="#" id="liveToastBtn">Copyright</a>
-                        </div>
-                        <div class="col">Dirección</div>
-                    </div>
-                    <div class="container mt-4 mb-4 justify-content-evenly align-items-center d-flex">
-                        <img src="./media/imgs/iconos/instagram.png" alt="Instagram" class="imgFooterPrin" />
-                        <img src="./media/imgs/iconos/twitter.png" alt="Twitter" class="imgFooterPrin" />
-                        <img src="./media/imgs/iconos/facebook.png" alt="Facebook" class="imgFooterPrin" />
-                    </div>
-                </footer>
-            </aside>
-        </div>
-    </div>
-
-    <!-- TOAST COPYRIGHT -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header d-flex justify-content-between align-items-center">
-                <img src="./media/imgs/icoDraco.png" class="rounded me-2" alt="..." style="width: 25px" />
-                <div class="d-flex justify-content-center align-items-center">
-                    <small>Draco &copy;</small>
-                    <button type="button" class="btn-close me-2" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-            </div>
-            <div class="toast-body">
-                Copyright &copy; 2025-2026 Draco Enterprises. All rights
-                reserved.
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL DE TÉRMINOS Y CONDICIONES -->
-    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="termsModalLabel">
-                        Términos y Condiciones – Plataforma DRACO
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <strong>1. Introducción</strong><br />
-                        Bienvenido a <strong>DRACO</strong>, una plataforma
-                        web para aprender sobre universos de fantasía y
-                        videojuegos como The Lord of the Rings, GloryHammer,
-                        World of Warcraft y Minecraft. Al usar nuestra
-                        página aceptas estos términos.
-                    </p>
-
-                    <p>
-                        <strong>2. Uso de la Plataforma</strong><br />
-                        DRACO está destinada al aprendizaje autodidacta y
-                        entretenimiento educativo. Puede usarse desde
-                        cualquier dispositivo con navegador, y debe
-                        utilizarse de manera respetuosa y ética.
-                    </p>
-
-                    <p>
-                        <strong>3. Contenido</strong><br />
-                        Todo el contenido es solo con fines educativos y de
-                        entretenimiento. No se permite reproducir,
-                        distribuir ni modificar el contenido sin
-                        autorización.
-                    </p>
-
-                    <p>
-                        <strong>4. Registro y Seguridad</strong><br />
-                        Algunos servicios requieren registro. Eres
-                        responsable de mantener tu usuario y contraseña
-                        seguros y de notificar cualquier uso no autorizado.
-                    </p>
-
-                    <p>
-                        <strong>5. Privacidad</strong><br />
-                        Solo recopilamos los datos necesarios para el
-                        funcionamiento del sitio. Consulta nuestra política
-                        de privacidad para más detalles.
-                    </p>
-
-                    <p>
-                        <strong>6. Modificaciones</strong><br />
-                        DRACO puede actualizar estos términos en cualquier
-                        momento. Te recomendamos revisarlos periódicamente.
-                    </p>
-
-                    <p>
-                        <strong>7. Limitación de Responsabilidad</strong><br />
-                        DRACO no garantiza disponibilidad continua ni
-                        ausencia de errores y no se hace responsable de
-                        daños derivados del uso del sitio.
-                    </p>
-
-                    <p>
-                        <strong>8. Ley Aplicable</strong><br />
-                        Estos términos se rigen por la legislación española.
-                        Cualquier disputa se resolverá ante los tribunales
-                        competentes.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Cerrar
-                    </button>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- SCRIPTS -->
-    <script src="./js/bootstrap.bundle.js"></script>
-    <script src="./js/themeChange.js"></script>
-    <script src="./js/toastCopy.js"></script>
-</body>
-
+        <!-- SCRIPTS -->
+        <script src="./js/bootstrap.bundle.js"></script>
+        <script src="./js/themeChange.js"></script>
+        <script src="./js/toastCopy.js"></script>
+    </body>
 </html>
