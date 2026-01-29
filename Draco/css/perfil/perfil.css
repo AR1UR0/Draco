@@ -8,21 +8,22 @@ body {
   text-decoration: none;
 }
 
-.parteArriba div img {
-  height: 50px;
-}
-
 .enlPrin {
   padding: 4px;
   width: 150px;
   text-align: end;
-  outline: 2px solid transparent;
-  transition: background-color 0.5s ease, outline-color 0.5s ease;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  padding-right: 15px;
+  border-right: 3px solid transparent;
+  transition: all 0.3s ease;
 }
 
 .enlPrin:hover {
-  outline-color: #98b705;
+  border-right: 3px solid #98b705;
   background-color: rgba(153, 183, 5, 0.44);
+  padding-left: 20px;
 }
 
 .imgPerfil {
@@ -32,7 +33,6 @@ body {
   height: 280px;
   background-size: cover;
   background-position: center;
-  margin-left: 50px;
 }
 
 .btnEditFotoPerfil {
@@ -79,4 +79,59 @@ body {
   padding: 10px;
   margin: 10px;
   background-color: rgba(153, 183, 5, 0.44);
+}
+
+.collapsing {
+  transition: height 0.35s ease !important;
+}
+
+.menuHamb {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 0 0 15px 15px;
+}
+
+.btnHamb {
+  border: none !important;
+  background: transparent !important;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.btnHamb:active {
+  transform: scale(0.9);
+}
+
+main {
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+  .navPrin {
+    border-right: none !important;
+    align-items: flex-start !important;
+  }
+  .enlPrin {
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px;
+    border-right: none;
+    border-left: 4px solid transparent;
+  }
+  .enlPrin:hover {
+    border-left: 4px solid #98b705;
+    background-color: rgba(153, 183, 5, 0.44);
+    padding-left: 30px;
+  }
+  .imgPerfil {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  .bloqueStats {
+    justify-content: flex-start;
+  }
 }

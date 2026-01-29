@@ -8,9 +8,7 @@ $secColorTran: rgba(153, 183, 5, 0.44);
 $gray-text: #a1a1a1;
 
 // ==================================================
-// --------------------------------------------------
-// PÁGINA PRINCIPAL
-// --------------------------------------------------
+// BASE / RESET
 // ==================================================
 
 html,
@@ -18,29 +16,36 @@ body {
     overflow-x: hidden;
 }
 
+// ==================================================
+// NAVEGACIÓN
+// ==================================================
+
 .navPrin a {
     font-size: 1.2em;
     text-decoration: none;
-}
-
-.parteArriba div img {
-    height: 50px;
 }
 
 .enlPrin {
     padding: 4px;
     width: 150px;
     text-align: end;
-    outline: 2px solid transparent;
-    transition:
-        background-color 0.5s ease,
-        outline-color 0.5s ease;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    padding-right: 15px;
+    border-right: 3px solid transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-right: 3px solid $secColor;
+        background-color: $secColorTran;
+        padding-left: 20px;
+    }
 }
 
-.enlPrin:hover {
-    outline-color: $secColor;
-    background-color: $secColorTran;
-}
+// ==================================================
+// PERFIL
+// ==================================================
 
 .imgPerfil {
     background-image: url("../../media/BORRAR.jpg");
@@ -49,7 +54,6 @@ body {
     height: 280px;
     background-size: cover;
     background-position: center;
-    margin-left: 50px;
 }
 
 .btnEditFotoPerfil {
@@ -57,12 +61,12 @@ body {
     height: min-content;
     border: none;
     background-color: transparent;
-}
 
-.btnEditFotoPerfil img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+    img {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
 }
 
 .gray-text {
@@ -75,13 +79,17 @@ body {
     height: min-content;
     border: none;
     background-color: transparent;
+
+    img {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
 }
 
-.btnEditNombreUsuario img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
+// ==================================================
+// ESTADÍSTICAS
+// ==================================================
 
 .fotoStats {
     width: 50px;
@@ -96,4 +104,72 @@ body {
     padding: 10px;
     margin: 10px;
     background-color: $secColorTran;
+}
+
+// ==================================================
+// MENÚ MÓVIL / TRANSICIONES
+// ==================================================
+
+.collapsing {
+    transition: height 0.35s ease !important;
+}
+
+.menuHamb {
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 0 0 15px 15px;
+}
+
+.btnHamb {
+    border: none !important;
+    background: transparent !important;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+main {
+    min-height: 100vh;
+}
+
+// ==================================================
+// RESPONSIVE
+// ==================================================
+
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .navPrin {
+        border-right: none !important;
+        align-items: flex-start !important;
+    }
+
+    .enlPrin {
+        width: 100%;
+        text-align: left;
+        padding: 10px 20px;
+        border-right: none;
+        border-left: 4px solid transparent;
+
+        &:hover {
+            border-left: 4px solid $secColor;
+            background-color: $secColorTran;
+            padding-left: 30px;
+        }
+    }
+
+    .imgPerfil {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .bloqueStats {
+        justify-content: flex-start;
+    }
 }
