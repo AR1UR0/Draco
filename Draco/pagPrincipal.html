@@ -25,10 +25,10 @@
                     </label>
                 </div>
             </header>
-            <div class="container-fluid p-0 g-0 ps-sm-4 d-flex">
+            <div class="container-fluid p-0 g-0 ps-md-4 d-flex mainContainer">
                 <!-- CONTENEDOR PRINCIPAL -->
                 <nav
-                    class="d-none d-sm-flex flex-grow-0 pt-3 d-flex flex-column border-end border-1 border-light navPrin vh-100 pe-4 ps-1 align-items-end"
+                    class="d-none d-lg-flex flex-grow-0 pt-3 d-flex flex-column border-end border-1 border-light navPrin vh-100 pe-2 ps-1 align-items-end"
                 >
                     <!-- NAVEGACIÓN -->
                     <a href="./pagPrincipal.html">
@@ -42,7 +42,7 @@
                     <a href="" class="mb-4 me-3 enlPrin">Tienda</a>
                     <a href="" class="mb-4 me-3 enlPrin">Perfil</a>
                 </nav>
-                <main class="d-none d-sm-block flex-grow-1">
+                <main class="d-none d-md-block flex-grow-1">
                     <!-- CONTENIDO PRINCIPAL -->
                     <div class="topMainContent">
                         <span class="tema">Berserk</span>: FASE
@@ -93,11 +93,11 @@
                     </div>
                 </main>
                 <aside
-                    class="flex-grow-1 flex-sm-grow-0 pt-3 ps-3 border-start border-sm-1 border-light asidePrin vh-100 d-flex flex-column"
+                    class="flex-grow-1 flex-md-grow-0 pt-3 ps-3 border-start border-md-1 border-light asidePrin vh-100 d-flex flex-column"
                 >
                     <!-- MENU HAMBURGUESA -->
                     <div
-                        class="d-flex d-sm-none align-items-center justify-content-between p-2"
+                        class="d-flex d-md-none align-items-center justify-content-between p-2"
                     >
                         <a href="./pagPrincipal.html">
                             <img
@@ -108,7 +108,7 @@
                         </a>
 
                         <button
-                            class="btn btn-outline-secondary me-3 btnHamb"
+                            class="btn btn-outline-secondary me-3 btnHamb text-light"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#menuHamburger"
@@ -116,25 +116,30 @@
                             aria-expanded="false"
                             aria-label="Toggle navigation"
                         >
-                            <span class="navbar-toggler-icon"></span>
+                            <span
+                                ><img
+                                    src="./media/imgs/menuDark.png"
+                                    alt="="
+                                    style="width: 40px"
+                            /></span>
                         </button>
                     </div>
 
-                    <div class="collapse d-sm-none" id="menuHamburger">
-                        <div class="menuHamb p-3 pt-0">
-                            <a href="" class="d-block py-2 enlPrinWider"
+                    <div class="collapse d-md-none" id="menuHamburger">
+                        <div class="menuHamb">
+                            <a href="" class="d-block py-3 enlPrinWider"
                                 >Aprender</a
                             >
-                            <a href="" class="d-block py-2 enlPrinWider"
+                            <a href="" class="d-block py-3 enlPrinWider"
                                 >Tienda</a
                             >
-                            <a href="" class="d-block py-2 enlPrinWider"
+                            <a href="" class="d-block py-3 enlPrinWider"
                                 >Perfil</a
                             >
                         </div>
                     </div>
                     <hr
-                        class="border border-light mb-4 mt-2 d-block d-sm-none"
+                        class="border border-light mb-4 mt-2 d-block d-md-none"
                     />
                     <!-- PANEL LATERAL -->
                     <div
@@ -180,11 +185,11 @@
                         </div>
                     </div>
                     <hr
-                        class="border border-light mb-2 mt-2 d-block d-sm-none"
+                        class="border border-light mb-2 mt-2 d-block d-md-none"
                     />
                     <!-- DIV PARA DRACO PLUS Y ANUNCIO -->
                     <div
-                        class="d-none flex-grow-1 d-sm-flex flex-column justify-content-between"
+                        class="d-none flex-grow-0 d-md-flex flex-column justify-content-between"
                     >
                         <!-- DRACO PLUS -->
                         <div
@@ -212,7 +217,7 @@
                         </div>
                     </div>
                     <!-- DIV RESPONSIVE -->
-                    <div class="d-block d-sm-none">
+                    <div class="d-block d-md-none">
                         <!-- CONTENIDO PRINCIPAL -->
                         <div class="topMainContent">
                             <span class="tema">Berserk</span>: FASE
@@ -263,10 +268,10 @@
                         </div>
                     </div>
                     <hr
-                        class="border border-light mb-2 mt-2 d-block d-sm-none"
+                        class="border border-light mb-2 mt-2 d-block d-md-none"
                     />
                     <footer
-                        class="flex-grow-0 ms-2 ms-sm-0 mt-3 pb-4 pb-sm-0 container text-center"
+                        class="flex-grow-0 ms-2 ms-md-0 mt-3 pb-4 pb-md-0 container text-center d-flex d-sm-none d-md-flex flex-column"
                     >
                         <!-- FOOTER LATERAL -->
                         <div class="row">
@@ -288,7 +293,46 @@
                             <div class="col colF">Dirección</div>
                         </div>
                         <div
-                            class="d-none container mt-4 mb-4 justify-content-evenly align-items-center d-sm-flex"
+                            class="d-none container mt-4 mb-4 justify-content-evenly align-items-center d-md-flex"
+                        >
+                            <img
+                                src="./media/imgs/iconos/instagram.png"
+                                alt="Instagram"
+                                class="imgFooterPrin"
+                            />
+                            <img
+                                src="./media/imgs/iconos/twitter.png"
+                                alt="Twitter"
+                                class="imgFooterPrin"
+                            />
+                            <img
+                                src="./media/imgs/iconos/facebook.png"
+                                alt="Facebook"
+                                class="imgFooterPrin"
+                            />
+                        </div>
+                    </footer>
+                    <footer
+                        class="footerMD d-none d-sm-flex d-md-none d-flex flex-column text-center mt-3 pb-4 pb-md-0"
+                    >
+                        <div class="row">
+                            <div class="col colF">Contactos</div>
+                            <div class="col colF">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#termsModal"
+                                    >Términos de Privacidad</a
+                                >
+                            </div>
+                            <div class="col colF">Sobre Nosotros</div>
+                            <div class="col colF">
+                                <a href="#" id="liveToastBtn">Copyright</a>
+                            </div>
+                            <div class="col colF">Dirección</div>
+                        </div>
+                        <div
+                            class="d-none d-sm-flex d-md-none container mt-4 mb-4 justify-content-evenly align-items-center"
                         >
                             <img
                                 src="./media/imgs/iconos/instagram.png"

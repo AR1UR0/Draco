@@ -15,6 +15,8 @@ function applyTheme(isDark) {
     const asidePrin = document.querySelector(".asidePrin");
     const imgTema = document.querySelector(".imgTema");
     const imgPerfil = document.querySelector(".imgPerfil");
+    const hr = document.querySelectorAll("hr");
+    const btnHamb = document.querySelector(".btnHamb");
 
     // APLICAR CLASES SEGUN EL TEMA
     if (isDark) {
@@ -44,6 +46,18 @@ function applyTheme(isDark) {
         if (imgPerfil) {
             imgPerfil.classList.add("border-light");
             imgPerfil.classList.remove("border-dark");
+        }
+
+        if (hr) {
+            hr.forEach((line) => {
+                line.classList.add("border-light");
+                line.classList.remove("border-dark");
+            });
+        }
+
+        if (btnHamb) {
+            btnHamb.classList.add("text-light");
+            btnHamb.classList.remove("text-dark");
         }
 
         imgCarr.forEach((img) => {
@@ -77,6 +91,18 @@ function applyTheme(isDark) {
         if (imgPerfil) {
             imgPerfil.classList.add("border-dark");
             imgPerfil.classList.remove("border-light");
+        }
+
+        if (hr) {
+            hr.forEach((line) => {
+                line.classList.add("border-dark");
+                line.classList.remove("border-light");
+            });
+        }
+
+        if (btnHamb) {
+            btnHamb.classList.add("text-dark");
+            btnHamb.classList.remove("text-light");
         }
 
         imgCarr.forEach((img) => {
