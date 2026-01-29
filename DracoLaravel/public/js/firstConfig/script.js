@@ -7,9 +7,8 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-
     /** * Variable para almacenar el tema seleccionado globalmente.
-     * @type {string|null} 
+     * @type {string|null}
      */
     let temaSeleccionado = null;
 
@@ -29,31 +28,33 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 // Cerramos cualquier otra tarjeta abierta
                 cards.forEach((c) => c.classList.remove("flipped"));
-                
+
                 // Giramos la tarjeta actual
                 card.classList.add("flipped");
 
                 // GUARDAMOS LA ELECCIÓN: Extraemos el texto del 'topic-front'
-                temaSeleccionado = card.querySelector(".topic-front").innerText.trim();
+                temaSeleccionado = card
+                    .querySelector(".topic-front")
+                    .innerText.trim();
                 console.log("Tema elegido actualmente:", temaSeleccionado);
             }
         });
     });
 
     // --- ELEMENTOS DE NAVEGACIÓN ---
-    
+
     /** @type {HTMLElement} Botón para avanzar del paso 1 al 2 */
     const btnToStep2 = document.getElementById("btn-continuar");
-    
+
     /** @type {HTMLElement} Botón para avanzar del paso 2 al 3 */
     const btnToStep3 = document.getElementById("btn-to-step-3");
-    
+
     /** @type {HTMLElement} Sección del Paso 1: Selección de temas */
     const paso1 = document.getElementById("step-1");
-    
+
     /** @type {HTMLElement} Sección del Paso 2: Meta diaria */
     const paso2 = document.getElementById("step-2");
-    
+
     /** @type {HTMLElement} Sección del Paso 3: Modo de inicio */
     const paso3 = document.getElementById("step-3");
 
@@ -85,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /** @type {HTMLElement} Opción para empezar desde nivel principiante */
     const opcionPrincipio = document.getElementById("start-beginner");
-    
+
     /** @type {HTMLElement} Opción para abrir el selector de niveles específicos */
     const opcionNivel = document.getElementById("start-placement");
 
@@ -95,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     if (opcionPrincipio) {
         opcionPrincipio.addEventListener("click", () => {
-            // window.location.href = "dashboard.html"; 
+            // window.location.href = "dashboard.html";
         });
     }
 
@@ -124,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     if (btnLvl1) {
         btnLvl1.addEventListener("click", () => {
-           // window.location.href = "nivel1.html";
+            // window.location.href = "nivel1.html";
         });
     }
 
@@ -161,4 +162,10 @@ document.addEventListener("DOMContentLoaded", () => {
             paso3.classList.remove("d-none");
         });
     }
+});
+
+const empezar = document.querySelector("#start-beginner");
+
+empezar.addEventListener("click", () => {
+    window.location.href = "/pagPrincipal";
 });
