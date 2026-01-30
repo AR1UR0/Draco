@@ -1,3 +1,9 @@
+/*
+    perfil.scss
+    -----------------
+    Estilos específicos para la vista de perfil de usuario.
+*/
+
 // ==================================================
 // VARIABLES GLOBALES
 // ==================================================
@@ -16,6 +22,8 @@ $border-pink: #d81b60; // Borde de botones rosas
 // BASE / RESET
 // ==================================================
 
+// Evitar overflow horizontal que pueda aparecer por elementos con ancho fijo.
+
 html,
 body {
     overflow-x: hidden;
@@ -24,6 +32,10 @@ body {
 // ==================================================
 // NAVEGACIÓN
 // ==================================================
+
+// Estilos relacionados con la navegación principal cuando el usuario está
+// en la vista de perfil. `.navPrin` es el contenedor del menú lateral
+// y `.enlPrin` representa enlaces individuales con efecto visual al hover.
 
 .navPrin a {
     font-size: 1.2em;
@@ -56,6 +68,11 @@ body {
 // ==================================================
 // PERFIL
 // ==================================================
+
+// Bloques y utilidades visuales del perfil del usuario:
+// - `.imgPerfil`: avatar / contenedor de imagen del perfil.
+// - `.btnEditFotoPerfil`, `.btnEditNombreUsuario`: botones discretos
+//   (sin fondo) para editar fotografía o nombre del usuario.
 
 .imgPerfil {
     background-image: url("../../media/BORRAR.jpg");
@@ -101,6 +118,9 @@ body {
 // ESTADÍSTICAS
 // ==================================================
 
+// Estilos para pequeños bloques de estadísticas del usuario. Se usan
+// en listas o cabeceras con información breve (puntuación, nivel, etc.).
+
 .fotoStats {
     width: 50px;
     height: 50px;
@@ -119,6 +139,11 @@ body {
 // ==================================================
 // MENÚ MÓVIL / TRANSICIONES
 // ==================================================
+
+// Ajustes de comportamiento para menús colapsables y botón hamburguesa.
+// - `.collapsing`: fuerza una transición consistente en la altura.
+// - `.menuHamb`: fondo y radios para el menú desplegable móvil.
+// - `.btnHamb`: botón del menú con efecto visual al activarlo.
 
 .collapsing {
     transition: height 0.35s ease !important;

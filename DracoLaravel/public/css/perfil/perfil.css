@@ -1,3 +1,9 @@
+@charset "UTF-8";
+/*
+    perfil.scss
+    -----------------
+    Estilos específicos para la vista de perfil de usuario.
+*/
 html,
 body {
   overflow-x: hidden;
