@@ -1,35 +1,46 @@
+/*
+    pagPrincipal.scss
+    -------------------
+    Estilos para la página principal de la aplicación.
+*/
+
 // ==================================================
 // VARIABLES GLOBALES
 // ==================================================
 
-$maincolor: #f70071;
-$secColor: #98b705;
-$secColorTran: rgba(153, 183, 5, 0.44);
-$gray-text: #a1a1a1;
-$super-top: #8e2de2;
-$super-mid-1: #4b108c;
-$super-mid-2: #1a1061;
-$super-bottom: #0f083d;
+$maincolor: #f70071; // Color principal
+$secColor: #98b705; // Color secundario
+$secColorTran: rgba(153, 183, 5, 0.44); // Color secundario transparente
+$gray-text: #a1a1a1; // Color gris para textos secundarios
+$super-top: #8e2de2; // Color superior del gradiente
+$super-mid-1: #4b108c; // Color medio 1 del gradiente
+$super-mid-2: #1a1061; // Color medio 2 del gradiente
+$super-bottom: #0f083d; // Color inferior del gradiente
 
 // ==================================================
 // --------------------------------------------------
 // PÁGINA PRINCIPAL
 // --------------------------------------------------
 // ==================================================
+// Estilos principales que gobiernan la disposición y apariencia general
+// de la página de inicio / panel principal.
 
 body {
     overflow-y: auto;
 }
 
+// Navegación principal: enlaces del menú lateral o superior.
 .navPrin a {
     font-size: 1.2em;
     text-decoration: none;
 }
 
+// Imagenes del área superior (logo u otros iconos reducidos).
 .parteArriba div img {
     height: 50px;
 }
 
+// `.enlPrin`: enlaces del panel lateral con efecto visual al pasar el cursor.
 .enlPrin {
     padding: 4px;
     width: 150px;
@@ -48,15 +59,19 @@ body {
     }
 }
 
+// Estado hover alternativo (refuerzo visual).
 .enlPrin:hover {
     outline-color: $secColor;
     background-color: $secColorTran;
 }
 
+// Contenedor lateral principal. Ajustar anchura con cuidado porque
+// afecta al layout global.
 .asidePrin {
     width: 400px;
 }
 
+// Iconos pequeños usados en la barra o en enlaces.
 .imgIco {
     width: 30px;
     height: 30px;
@@ -64,16 +79,19 @@ body {
     display: block;
 }
 
+// Clases utilitarias para columnas con tamaño de fuente reducido.
 .col,
 .col4,
 .col-8 {
     font-size: 0.8em;
 }
 
+// Alineación para columnas específicas.
 .col-4 {
     text-align: end;
 }
 
+// Iconos del footer principal.
 .imgFooterPrin {
     width: 30px;
     height: 30px;
@@ -81,6 +99,7 @@ body {
     display: block;
 }
 
+// Panel destacado (Draco Plus): diseño de tarjeta con sombra y radio.
 .dracoPlus {
     border-radius: 20px;
     padding: 25px;
@@ -92,6 +111,8 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+// Variante con efecto glow / gradiente. Combina un radial suave con un
+// degradado lineal para generar un fondo vistoso y dinámico.
 .dracoPlusGlow {
     background:
         radial-gradient(
@@ -109,6 +130,9 @@ body {
         );
 }
 
+// Botón tipo "Plus" con efecto de profundidad (borde inferior que simula
+// un relieve). Las reglas usan `!important` en algunas propiedades para
+// asegurar prioridad frente a estilos globales.
 .btnPlus {
     background-color: white !important;
     color: $maincolor !important;
@@ -131,6 +155,8 @@ body {
     }
 }
 
+// Panel para anuncios: estructura similar a `.dracoPlus` para mantener
+// coherencia visual entre tarjetas destacadas.
 .panelAnuncio {
     border-radius: 20px;
     padding: 25px;
@@ -142,6 +168,8 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+// Zona superior de contenido principal: bloque de color secundario usado
+// para destacar información importante.
 .topMainContent {
     background-color: $secColor;
     margin: 40px;
@@ -150,12 +178,14 @@ body {
     border-radius: 20px;
 }
 
+// Contenedor principal centrado vertical/horizontalmente cuando procede.
 .mainContent {
     margin: 40px;
     align-items: center;
     justify-content: center;
 }
 
+// Columna principal para elementos centrados (botones, iconos, etc.).
 .colMain {
     display: flex;
     justify-content: center;
@@ -164,6 +194,9 @@ body {
     margin-bottom: 10px;
 }
 
+// Botón circular grande con efecto 3D sutil. Usado para acciones principales
+// en la página (ej. acceso rápido a funciones). Incluye estados hover
+// y active para retroalimentación visual.
 .btn-round {
     width: 80px;
     height: 80px;
@@ -212,6 +245,7 @@ body {
         0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
+// Brillo sutil en la parte superior izquierda del botón para mayor realismo.
 .btn-round::before {
     content: "";
     position: absolute;
@@ -227,7 +261,7 @@ body {
 // ==================================================
 // RESPONSIVE
 // ==================================================
-
+// Ajustes para interacciones móviles y comportamiento de menús colapsables.
 .collapsing {
     transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
@@ -242,6 +276,7 @@ body {
     ); // Sutil fondo para el área desplegada
     border-radius: 0 0 15px 15px;
 
+    // Versión amplia de los enlaces para menú móvil.
     .enlPrinWider {
         text-decoration: none;
         color: inherit;
@@ -269,6 +304,8 @@ body {
 }
 
 @media (max-width: 768px) {
+    // Ajustes para vistas móviles: el aside pasa a ocupar todo el ancho
+    // y se eliminan márgenes/padding para adaptar el contenido.
     .asidePrin {
         width: 100% !important;
         height: auto !important;
@@ -282,11 +319,13 @@ body {
         overflow-y: auto;
     }
 
+    // Contenedor principal en móvil debe crecer según contenido.
     .mainContainer {
         height: auto !important; // En móvil permitimos que crezca
         display: block !important;
     }
 
+    // Reducir tipografía de columnas en pantallas pequeñas.
     .col4,
     .col-8,
     .colF {
