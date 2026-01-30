@@ -19,46 +19,22 @@
         <div class="container-fluid p-0">
             <div class="row g-0">
                 <!-- NAV -->
-                <nav
-                    class="col-12 col-md-auto navPrin vh-md-100 border-end border-light d-flex flex-md-column align-items-md-end p-3"
-                >
-                    <!-- Logo + botón hamburguesa -->
-                    <div
-                        class="w-100 d-flex justify-content-between align-items-center d-md-block"
-                    >
+                <nav class="col-12 col-md-auto navPrin vh-md-100 border-end border-light d-flex flex-column align-items-md-end p-3">
+                    <div class="w-100 d-flex justify-content-between align-items-center d-md-block">
                         <a href="{{ route('pagPrincipal') }}">
-                            <img
-                                src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}"
-                                alt="DRACO"
-                                class="logoDraco mb-md-5"
-                            />
+                            <img src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}" alt="DRACO" class="logoDraco mb-md-5" />
                         </a>
 
-                        <button
-                            class="btn btnHamb d-md-none"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#menuMobile"
-                        >
-                            ☰
+                        <button class="btn btnHamb d-md-none" data-bs-toggle="collapse" data-bs-target="#menuMobile">
+                            <img src="{{ asset('media/imgs/menuDark.png') }}" alt="=" style="width: 40px">
                         </button>
                     </div>
 
-                    <!-- Menu -->
-                    <div
-                        class="collapse d-md-block menuHamb w-100"
-                        id="menuMobile"
-                    >
-                        <a
-                            href="{{ route('pagPrincipal') }}"
-                            class="d-block mb-3 enlPrin"
-                            >Aprender</a
-                        >
-                        <a href="{{ route('store') }}" class="d-block mb-3 enlPrin"
-                            >Tienda</a
-                        >
-                        <a href="{{ route('perfil') }}" class="d-block mb-3 enlPrin"
-                            >Perfil</a
-                        >
+                    <div class="collapse d-md-block menuHamb w-100" id="menuMobile">
+                        <div class="pt-3 pt-md-0"> <a href="{{ route('pagPrincipal') }}" class="d-block mb-3 enlPrin">Aprender</a>
+                            <a href="{{ route('store') }}" class="d-block mb-3 enlPrin">Tienda</a>
+                            <a href="{{ route('perfil') }}" class="d-block mb-3 enlPrin">Perfil</a>
+                        </div>
                     </div>
                 </nav>
 
