@@ -8,15 +8,10 @@
 // VARIABLES GLOBALES
 // ==================================================
 
-$maincolor: #f70071; // Color principal
-$secColor: #98b705; // Color secundario
-$secColorTran: rgba(153, 183, 5, 0.44); // Color secundario transparente
-$gray-text: #a1a1a1; // Color gris para textos secundarios
-$admin-green: #dcedc8; // Fondo de los botones laterales y el panel (verde manzana suave)
-$highlight-cyan: #00ffd0; // El borde brillante de "Modificar Pregunta"
-$bg-light-green: #d6e1ae; // El fondo del recuadro grande de la derecha
-$soft-pink: #f06292; // Botones "Nivel" y "Terminar"
-$border-pink: #d81b60; // Borde de botones rosas
+$maincolor: #f70071;
+$secColor: #98b705; // Mantenemos el verde original de perfil
+$secColorTran: rgba(153, 183, 5, 0.44);
+$gray-text: #a1a1a1;
 
 // ==================================================
 // BASE / RESET
@@ -30,7 +25,7 @@ body {
 }
 
 // ==================================================
-// NAVEGACIÓN
+// NAVEGACIÓN (Escritorio)
 // ==================================================
 
 // Estilos relacionados con la navegación principal cuando el usuario está
@@ -42,6 +37,7 @@ body {
     text-decoration: none;
 }
 
+// Estilo de enlaces para Desktop
 .enlPrin {
     padding: 4px;
     width: 150px;
@@ -137,7 +133,7 @@ body {
 }
 
 // ==================================================
-// MENÚ MÓVIL / TRANSICIONES
+// MENÚ MÓVIL / TRANSICIONES (NUEVO DEL OTRO ARCHIVO)
 // ==================================================
 
 // Ajustes de comportamiento para menús colapsables y botón hamburguesa.
@@ -146,19 +142,40 @@ body {
 // - `.btnHamb`: botón del menú con efecto visual al activarlo.
 
 .collapsing {
-    transition: height 0.35s ease !important;
+    transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .menuHamb {
-    overflow: hidden;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.02);
-    border-radius: 0 0 15px 15px;
+    padding-bottom: 10px; // Un poco de aire abajo
+
+    .enlPrinWider {
+        display: block; // Asegura comportamiento de bloque
+        text-decoration: none !important; // Fuerza quitar subrayado (normal)
+        color: #555; // Un gris oscuro por defecto (o usa $gray-text si prefieres)
+        font-weight: 600;
+        padding-left: 20px;
+        border-left: 4px solid transparent;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        // Estilos al pasar el ratón
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: none !important; // Fuerza quitar subrayado (hover)
+            color: inherit; // Mantiene el color o cámbialo a black
+            border-left: 4px solid $secColor;
+            background-color: $secColorTran;
+            padding-left: 30px; // Efecto de desplazamiento
+        }
+    }
 }
 
 .btnHamb {
     border: none !important;
     background: transparent !important;
-    font-size: 1.5rem;
     transition: transform 0.2s ease;
 
     &:active {
@@ -179,23 +196,9 @@ main {
         overflow-y: auto;
     }
 
+    // La navPrin ya no necesita border-right porque está oculta o modificada en HTML
     .navPrin {
         border-right: none !important;
-        align-items: flex-start !important;
-    }
-
-    .enlPrin {
-        width: 100%;
-        text-align: left;
-        padding: 10px 20px;
-        border-right: none;
-        border-left: 4px solid transparent;
-
-        &:hover {
-            border-left: 4px solid $secColor;
-            background-color: $secColorTran;
-            padding-left: 30px;
-        }
     }
 
     .imgPerfil {

@@ -1,8 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
         <title>Draco - Aprende sobre tus temas favoritos</title>
 
         <link
@@ -18,29 +21,65 @@
     <body class="m-0">
         <div class="container-fluid p-0">
             <div class="row g-0">
-                <!-- NAV -->
-                <nav class="col-12 col-md-auto navPrin vh-md-100 border-end border-light d-flex flex-column align-items-md-end p-3">
-                    <div class="w-100 d-flex justify-content-between align-items-center d-md-block">
+                <div class="col-12 col-md-auto border-end border-light">
+                    
+                    <nav
+                        class="navPrin vh-md-100 p-3 d-none d-md-flex flex-column align-items-end"
+                    >
                         <a href="{{ route('pagPrincipal') }}">
-                            <img src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}" alt="DRACO" class="logoDraco mb-md-5" />
+                            <img
+                                src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}"
+                                alt="DRACO"
+                                class="logoDraco mb-5"
+                            />
+                        </a>
+                        <a href="{{ route('pagPrincipal') }}" class="d-block mb-3 enlPrin">Aprender</a>
+                        <a href="{{ route('store') }}" class="d-block mb-3 enlPrin">Tienda</a>
+                        <a href="{{ route('perfil') }}" class="d-block mb-3 enlPrin">Perfil</a>
+                    </nav>
+
+                    <div
+                        class="d-flex d-md-none align-items-center justify-content-between p-2"
+                    >
+                        <a href="{{ route('pagPrincipal') }}">
+                            <img
+                                src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}"
+                                alt="DRACO"
+                                class="logoDraco ms-3"
+                            />
                         </a>
 
-                        <button class="btn btnHamb d-md-none" data-bs-toggle="collapse" data-bs-target="#menuMobile">
-                            <img src="{{ asset('media/imgs/menuDark.png') }}" alt="=" style="width: 40px">
+                        <button
+                            class="btn btn-outline-secondary me-3 btnHamb text-light"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#menuHamburger"
+                            aria-controls="menuHamburger"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                            <span>
+                                <img
+                                    src="{{ asset('media/imgs/menuDark.png') }}"
+                                    alt="="
+                                    style="width: 40px"
+                                />
+                            </span>
                         </button>
                     </div>
 
-                    <div class="collapse d-md-block menuHamb w-100" id="menuMobile">
-                        <div class="pt-3 pt-md-0"> <a href="{{ route('pagPrincipal') }}" class="d-block mb-3 enlPrin">Aprender</a>
-                            <a href="{{ route('store') }}" class="d-block mb-3 enlPrin">Tienda</a>
-                            <a href="{{ route('perfil') }}" class="d-block mb-3 enlPrin">Perfil</a>
+                    <div class="collapse d-md-none" id="menuHamburger">
+                        <div class="menuHamb">
+                            <a href="{{ route('pagPrincipal') }}" class="d-block py-3 enlPrinWider">Aprender</a>
+                            <a href="{{ route('store') }}" class="d-block py-3 enlPrinWider">Tienda</a>
+                            <a href="{{ route('perfil') }}" class="d-block py-3 enlPrinWider">Perfil</a>
                         </div>
                     </div>
-                </nav>
+                    
+                    <hr class="border border-light mb-4 mt-2 d-block d-md-none" />
+                </div>
 
-                <!-- MAIN -->
                 <main class="col p-0">
-                    <!-- TOP BAR -->
                     <div
                         class="p-3 d-flex justify-content-end align-items-center gap-3"
                     >
@@ -51,7 +90,6 @@
                         <button class="btnSemiTran">Log Out</button>
                     </div>
 
-                    <!-- PERFIL -->
                     <div class="container-fluid px-3 px-md-5">
                         <div
                             class="row align-items-center gy-4 ps-5 justify-content-center justify-content-md-start"
@@ -97,7 +135,6 @@
                         </div>
                     </div>
 
-                    <!-- ESTADÍSTICAS -->
                     <div
                         class="container-fluid px-3 px-md-5 mt-5 justify-content-center justify-content-md-start"
                     >

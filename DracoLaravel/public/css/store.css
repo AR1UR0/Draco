@@ -1,4 +1,7 @@
-body.bg-dark .titleItem, body.bg-dark h5, body.bg-dark .cos-item, body.bg-dark .arrow-btn {
+body.bg-dark .titleItem,
+body.bg-dark h5,
+body.bg-dark .cos-item,
+body.bg-dark .arrow-btn {
   color: #ffffff !important;
 }
 body.bg-dark .vidaItem {
@@ -11,6 +14,11 @@ body.bg-dark .btnVida {
 body.bg-dark .btnVida:hover {
   background-color: #ffffff;
   color: #000;
+}
+
+.navPrin,
+.asidePrin {
+  min-height: 100vh;
 }
 
 .dracoPlus2 {
@@ -84,4 +92,62 @@ body.bg-dark .btnVida:hover {
   color: #919191;
   border: none;
   background: transparent;
+}
+
+.collapsing {
+  transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.menuHamb {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.02) border-radius 0px;
+}
+.menuHamb .enlPrinWider {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  padding-left: 20px;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+.menuHamb .enlPrinWider:hover {
+  border-left: 4px solid #6a8200;
+  background-color: rgba(153, 183, 5, 0.44);
+  padding-left: 30px;
+}
+
+.btnHamb {
+  border: none !important;
+  background: transparent !important;
+  transition: transform 0.2s ease;
+}
+.btnHamb:active {
+  transform: scale(0.9);
+}
+
+@media (max-width: 768px) {
+  .asidePrin {
+    width: 100% !important;
+    height: auto !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;
+  }
+  body {
+    overflow-y: auto;
+  }
+  .mainContainer {
+    height: auto !important;
+    display: block !important;
+  }
+  .col4,
+  .col-8,
+  .colF {
+    font-size: 0.7em !important;
+  }
+  .navPrin,
+  .asidePrin {
+    min-height: auto;
+  }
 }/*# sourceMappingURL=store.css.map */
