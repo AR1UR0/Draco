@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/perfil/perfil.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
 
         <script defer src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         <script defer src="{{ asset('js/themeChange.js') }}"></script>
@@ -39,8 +38,8 @@
                     <a href="{{ route('perfil') }}" class="mb-4 me-3 enlPrin">Perfil</a>
                 </nav>
 
-                <main class="flex-grow-1">
-                    <div class="p-4 d-flex align-items-center justify-content-end mb-4">
+                <main class="flex-grow-1 p-2">
+                    <div class="p-1 d-flex align-items-center justify-content-end mb-1">
                         <div class="form-check form-switch me-3">
                             <label class="switch">
                                 <input type="checkbox" id="toggleTheme" checked />
@@ -50,32 +49,54 @@
                         <button class="btnSemiTran">Log Out</button>
                     </div>
 
-                    <div class="container-fluid d-flex align-items-center justify-content-start ms-5 ps-3">
-                        <div class="imgPerfil d-flex justify-content-end p-3 border border-2 border-light">
-                            <button class="btnEditFotoPerfil">
-                                <img
-                                    src="{{ asset('media/imgs/iconos/pencil.png') }}"
-                                    alt="Editar"
-                                />
-                            </button>
-                        </div>
-                        <div class="d-flex flex-column align-items-start ms-5">
-                            <h2 class="ms-4 mb-4 d-flex align-items-center">
-                                <span class="username">NombreUsuario</span>
-                                 <button class="btnEditNombreUsuario">
+                    <!-- PERFIL -->
+                    <div class="container-fluid px-3 px-md-5">
+                        <div
+                            class="row align-items-center gy-4 ps-5 justify-content-center justify-content-md-start"
+                        >
+                            <div
+                                class="col-12 col-md-auto d-flex justify-content-center"
+                            >
+                                <div
+                                    class="imgPerfil d-flex justify-content-end p-3 border border-2 border-light"
+                                >
+                                    <button class="btnEditFotoPerfil">
                                         <img
                                             src="{{ asset('media/imgs/iconos/pencil.png') }}"
                                             alt="Editar"
                                         />
                                     </button>
-                            </h2>
-                            <p class="mb-1 gray-text">correoelectronico@gmail.com</p>
-                            <p class="mb-1 gray-text">Se unió en enero de 2016</p>
-                            <p class="mb-1 gray-text">Admin</p>
+                                </div>
+                            </div>
+
+                            <div class="col text-center text-md-start">
+                                <h2
+                                    class="d-flex justify-content-center justify-content-md-start align-items-center gap-2"
+                                >
+                                    <span class="username"
+                                        >Nombre de Usuario</span
+                                    >
+                                    <button class="btnEditNombreUsuario">
+                                        <img
+                                            src="{{ asset('media/imgs/iconos/pencil.png') }}"
+                                            alt="Editar"
+                                        />
+                                    </button>
+                                </h2>
+
+                                <p class="gray-text">
+                                    correodeejemplo@gmail.com
+                                </p>
+                                <p class="gray-text">
+                                    Se unió en
+                                    <span class="fecha">01/01/2026</span>
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="container-fluid ms-5 ps-3 mt-5">
+
+                    <div class="container-fluid ms-5 ps-3">
                         <div class="row">
                             <div class="col-md-3 d-flex flex-column gap-5 mt-4">
                                 <button class="btnAdmin">TEMÁTICA</button>
