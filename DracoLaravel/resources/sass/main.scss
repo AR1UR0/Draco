@@ -1,15 +1,18 @@
-// ==================================================
+// ===============================
 // VARIABLES GLOBALES
-// ==================================================
+// ===============================
+// Colores principales y secundarios usados en toda la web
+// Se pueden modificar aquí para cambiar la paleta general
 
-$maincolor: #f70071;
-$secColor: #98b705;
-$secColorTran: rgba(153, 183, 5, 0.44);
-$gray-text: #a1a1a1;
+$maincolor: #f70071; // Color principal
+$secColor: #98b705; // Color secundario
+$secColorTran: rgba(153, 183, 5, 0.44); // Secundario translúcido
+$gray-text: #a1a1a1; // Gris para textos secundarios
 
-// ==================================================
+// ===============================
 // RESET / BASE
-// ==================================================
+// ===============================
+// Estilos generales para el body y elementos base. Se busca una apariencia limpia y moderna.
 
 body {
     background-color: #ffffff;
@@ -33,9 +36,10 @@ body {
     width: 300px;
 }
 
-// ==================================================
+// ===============================
 // LOGIN
-// ==================================================
+// ===============================
+// Todo lo relacionado con la página de inicio de sesión: tarjetas, botones y formularios.
 
 .login-wrapper {
     min-height: 100vh;
@@ -134,9 +138,10 @@ body {
     }
 }
 
-// ==================================================
+// ===============================
 // BOTONES GENERALES
-// ==================================================
+// ===============================
+// Botones reutilizables en distintas partes de la web, con variantes para diferentes contextos.
 
 .btnPrimary {
     background-color: var(--bs-primary) !important;
@@ -193,9 +198,10 @@ body {
     color: whitesmoke !important;
 }
 
-// ==================================================
+// ===============================
 // LINKS LIGHT / DARK
-// ==================================================
+// ===============================
+// Cambia el color de los enlaces según el tema (oscuro o claro) para mejorar la legibilidad.
 
 body.bg-dark a {
     color: whitesmoke !important;
@@ -213,9 +219,10 @@ body.bg-light a {
     }
 }
 
-// ==================================================
+// ===============================
 // DROPDOWN IDIOMAS
-// ==================================================
+// ===============================
+// Estilos para el selector de idioma, normalmente en la cabecera.
 
 .btn-idioma {
     background-color: $maincolor !important;
@@ -248,9 +255,10 @@ body.bg-light a {
     }
 }
 
-// ==================================================
+// ===============================
 // TOGGLE TEMA (UNIFICADO)
-// ==================================================
+// ===============================
+// Interruptor para cambiar entre modo claro y oscuro.
 
 .toggle-container {
     display: flex;
@@ -299,9 +307,10 @@ body.bg-light a {
     }
 }
 
-// ==================================================
+// ===============================
 // CAROUSEL
-// ==================================================
+// ===============================
+// Carrusel de elementos, útil para mostrar imágenes o logos de forma horizontal.
 
 .carousel-wrapper {
     overflow: hidden;
@@ -333,9 +342,10 @@ body.bg-light a {
     }
 }
 
-// ==================================================
+// ===============================
 // OFFCANVAS COOKIES
-// ==================================================
+// ===============================
+// Aviso de cookies que aparece en la parte inferior de la pantalla.
 
 .offcanvas-bottom {
     height: 30vh;
@@ -343,9 +353,10 @@ body.bg-light a {
     border-top-right-radius: 16px;
 }
 
-// ==================================================
+// ===============================
 // RESPONSIVE INDEX
-// ==================================================
+// ===============================
+// Ajustes para que la portada y el carrusel se adapten bien a pantallas pequeñas.
 
 @media (max-width: 576px) {
     .main-img {
@@ -357,8 +368,10 @@ body.bg-light a {
     }
 }
 
-/* Estilo necesario para firstConfig.html */
-/* Configuración de la tarjeta */
+// ===============================
+// Estilo necesario para firstConfig.html
+// ===============================
+// Tarjetas interactivas que giran al pasar el ratón o al hacer click.
 .topic-card {
     background-color: transparent;
     perspective: 1000px;
