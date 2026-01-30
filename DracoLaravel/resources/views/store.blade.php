@@ -24,10 +24,10 @@
         </label>
       </div>
     </header>
-    <div class="container-fluid p-0 g-0 ps-4 d-flex">
+    <div class="container-fluid p-0 g-0 ps-4 d-flex flex-column flex-md-row">
       <!-- CONTENEDOR PRINCIPAL -->
       <nav
-        class="flex-grow-0 pt-3 d-flex flex-column border-end border-1 border-light navPrin vh-100 pe-4 ps-1 align-items-end">
+        class="d-none d-md-flex flex-grow-0 pt-3 d-flex flex-column border-end border-1 border-light navPrin pe-4 ps-1 align-items-end">
         <!-- NAVEGACIÓN -->
         <a href="{{ route('pagPrincipal') }}">
           <img src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}" alt="DRACO" class="logoDraco mb-5" />
@@ -36,6 +36,54 @@
         <a href="{{ route('store') }}" class="mb-4 me-3 enlPrin">Tienda</a>
         <a href="{{ route('perfil') }}" class="mb-4 me-3 enlPrin">Perfil</a>
       </nav>
+  <!-- MENU HAMBURGUESA -->
+      <div
+          class="d-flex d-md-none align-items-center justify-content-between p-2"
+      >
+          <a href="{{ route('pagPrincipal') }}">
+              <img
+                  src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}"
+                  alt="DRACO"
+                  class="logoDraco ms-3"
+              />
+          </a>
+
+          <button
+              class="btn btn-outline-secondary me-3 btnHamb text-light"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#menuHamburger"
+              aria-controls="menuHamburger"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+          >
+              <span
+                  ><img
+                      src="{{ asset('media/imgs/menuDark.png') }}"
+                      alt="="
+                      style="width: 40px"
+              /></span>
+          </button>
+      </div>
+
+      <div class="collapse d-md-none" id="menuHamburger">
+          <div class="menuHamb">
+              <a href="{{ route('pagPrincipal') }}" class="d-block py-3 enlPrinWider"
+                  >Aprender</a
+              >
+              <a href="{{ route('store') }}" class="d-block py-3 enlPrinWider"
+                  >Tienda</a
+              >
+              <a href="{{ route('perfil') }}" class="d-block py-3 enlPrinWider"
+                  >Perfil</a
+              >
+          </div>
+      </div>
+      <hr
+          class="border border-light mb-4 mt-2 d-block d-md-none"
+      />
+
+      <!-- MAIN -->
       <main class="flex-grow-1 d-flex flex-column align-items-center py-4">
         <div class="dracoPlus2 dracoPlusGlow2 d-flex flex-column align-items-center justify-content-center mx-5 mb-5">
           <div class="content p-3">
@@ -84,7 +132,7 @@
           </div>
         </div>
       </main>
-      <aside class="flex-grow-0 pt-3 ps-3 border-start border-1 border-light asidePrin vh-100 d-flex flex-column">
+      <aside class="flex-grow-0 pt-3 ps-3 border-start border-1 border-light asidePrin d-flex flex-column">
         <!-- PANEL LATERAL -->
         <div class="d-flex flex-grow-0 parteArriba justify-content-evenly align-items-center mb-3">
           <!-- IMAGENES DE TEMA, RACHA, DINERO Y VIDAS -->
