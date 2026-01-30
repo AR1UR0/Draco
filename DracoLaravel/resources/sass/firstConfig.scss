@@ -1,7 +1,10 @@
+
+// Colores principales del tema, usados en botones y detalles visuales
 $maincolor: #f70071;
 $secColor: #98b705; 
 
-// Botón de continuar/finalizar con tu color específico
+
+// Botón para avanzar de paso, destaca el color secundario y el efecto al pasar el ratón
 .btn-step-next {
     background-color: $secColor !important;
     border: 2px solid $secColor !important;
@@ -10,14 +13,14 @@ $secColor: #98b705;
     border-radius: 10px;
     padding: 10px 30px;
     transition: transform 0.2s;
-
     &:hover {
         background-color: darken($secColor, 5%) !important;
         transform: scale(1.05);
     }
 }
 
-// Opciones de meta diaria 
+
+// Botones para elegir la meta diaria, con efectos visuales al interactuar
 .btn-meta-option {
     width: 100%;
     max-width: 400px;
@@ -28,12 +31,10 @@ $secColor: #98b705;
     font-weight: 700;
     color: inherit;
     transition: all 0.2s ease;
-
     &:hover {
         border-color: $secColor;
         color: $secColor;
     }
-
     &:focus {
         background-color: $secColor;
         border-color: $secColor;
@@ -41,7 +42,8 @@ $secColor: #98b705;
     }
 }
 
-// Estilos para las tarjetas de nivel 
+
+// Tarjetas para seleccionar el nivel, con animación y sombra al pasar el ratón
 .level-card {
     width: 100%;
     max-width: 500px;
@@ -49,23 +51,19 @@ $secColor: #98b705;
     border-radius: 15px;
     cursor: pointer;
     transition: all 0.2s ease;
-
     &:hover {
         border-color: #98b705;
         background-color: $secColor;
         transform: translateY(-3px);
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
     .level-icon {
         width: 60px;
         height: auto;
     }
-
     h5 {
         font-size: 1.1rem;
     }
-
     p {
         font-size: 0.9rem;
         line-height: 1.2;
