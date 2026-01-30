@@ -159,6 +159,7 @@ main {
   background-color: #d6e1ae;
   border: 3px solid #98b705;
   border-radius: 40px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
