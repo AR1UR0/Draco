@@ -1,8 +1,37 @@
-// CONSTANTES DEL TOGGLE Y EL DOCUMENTO
+/**
+ * @fileoverview JavaScript para el cambio de tema en todas las páginas.
+ * Proporciona utilidades para aplicar el tema claro/oscuro y actualizar
+ * las clases y atributos necesarios en el DOM.
+ *
+ * @author Arturo/Draco Team
+ * @version 1.1.0
+ */
+
+/**
+ * Control que alterna el tema (checkbox, switch, etc.). Puede ser `null`
+ * si no existe el elemento en la página actual; comprobar antes de usar.
+ * @type {HTMLInputElement|null}
+ */
 const toggle = document.getElementById("toggleTheme");
+
+/**
+ * Referencia al elemento raíz `<html>` para establecer el atributo
+ * `data-bs-theme` utilizado por Bootstrap u otras utilidades.
+ * @type {HTMLHtmlElement}
+ */
 const html = document.documentElement;
 
-// FUNCION PARA APLICAR EL TEMA
+/**
+ * Aplica el tema y actualiza las clases relevantes en el DOM.
+ *
+ * @param {boolean} isDark - Si true aplica el tema oscuro, si false el claro.
+ * @returns {void}
+ *
+ * Efectos secundarios:
+ * - Modifica `data-bs-theme` en `<html>`.
+ * - Añade/quita clases en `document.body` y otros elementos para ajustar
+ *   colores, bordes y textos según el tema.
+ */
 function applyTheme(isDark) {
     const theme = isDark ? "dark" : "light";
     html.setAttribute("data-bs-theme", theme);
@@ -112,8 +141,15 @@ function applyTheme(isDark) {
     }
 }
 
-// INICIALIZAR EL TEMA SEGUN EL TOGGLE
+/**
+ * Inicializa el tema al cargar el script y añade un listener al control
+ * `toggle` para escuchar cambios del usuario. Si `toggle` no existe en la
+ * página, la inicialización se omite silenciosamente.
+ */
 if (toggle) {
+    // Aplicar el tema según el estado actual del control (checked).
     applyTheme(toggle.checked);
+
+    // Reaplicar el tema cada vez que el usuario cambie el control.
     toggle.addEventListener("change", () => applyTheme(toggle.checked));
 }

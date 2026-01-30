@@ -1,3 +1,9 @@
+/*
+    perfil.scss
+    -----------------
+    Estilos específicos para la vista de perfil de usuario.
+*/
+
 // ==================================================
 // VARIABLES GLOBALES
 // ==================================================
@@ -11,6 +17,8 @@ $gray-text: #a1a1a1;
 // BASE / RESET
 // ==================================================
 
+// Evitar overflow horizontal que pueda aparecer por elementos con ancho fijo.
+
 html,
 body {
     overflow-x: hidden;
@@ -19,6 +27,10 @@ body {
 // ==================================================
 // NAVEGACIÓN (Escritorio)
 // ==================================================
+
+// Estilos relacionados con la navegación principal cuando el usuario está
+// en la vista de perfil. `.navPrin` es el contenedor del menú lateral
+// y `.enlPrin` representa enlaces individuales con efecto visual al hover.
 
 .navPrin a {
     font-size: 1.2em;
@@ -37,6 +49,11 @@ body {
     border-right: 3px solid transparent;
     transition: all 0.3s ease;
 
+    &.active-admin-nav {
+        background-color: $admin-green;
+        border: 1px solid $secColor;
+    }
+
     &:hover {
         border-right: 3px solid $secColor;
         background-color: $secColorTran;
@@ -47,6 +64,11 @@ body {
 // ==================================================
 // PERFIL
 // ==================================================
+
+// Bloques y utilidades visuales del perfil del usuario:
+// - `.imgPerfil`: avatar / contenedor de imagen del perfil.
+// - `.btnEditFotoPerfil`, `.btnEditNombreUsuario`: botones discretos
+//   (sin fondo) para editar fotografía o nombre del usuario.
 
 .imgPerfil {
     background-image: url("../../media/BORRAR.jpg");
@@ -92,6 +114,9 @@ body {
 // ESTADÍSTICAS
 // ==================================================
 
+// Estilos para pequeños bloques de estadísticas del usuario. Se usan
+// en listas o cabeceras con información breve (puntuación, nivel, etc.).
+
 .fotoStats {
     width: 50px;
     height: 50px;
@@ -110,6 +135,11 @@ body {
 // ==================================================
 // MENÚ MÓVIL / TRANSICIONES (NUEVO DEL OTRO ARCHIVO)
 // ==================================================
+
+// Ajustes de comportamiento para menús colapsables y botón hamburguesa.
+// - `.collapsing`: fuerza una transición consistente en la altura.
+// - `.menuHamb`: fondo y radios para el menú desplegable móvil.
+// - `.btnHamb`: botón del menú con efecto visual al activarlo.
 
 .collapsing {
     transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -180,4 +210,85 @@ main {
     .bloqueStats {
         justify-content: flex-start;
     }
+}
+
+// ==================================================
+// Admin Styles
+// ==================================================
+
+// ==================================================
+// PANEL DE ADMINISTRACIÓN (Botones Izquierda)
+// ==================================================
+
+.btnAdmin {
+    background-color: $admin-green;
+    border: 2px solid $secColor;
+    border-radius: 20px;
+    padding: 12px;
+    font-weight: 800;
+    color: #444;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 0 $secColor; // Efecto 3D de botón
+    transition: all 0.1s ease;
+
+    &:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 $secColor;
+    }
+}
+
+// ==================================================
+// TARJETA DE ACCIÓN (Cuadro Derecha)
+// ==================================================
+
+.admin-card {
+    background-color: $bg-light-green;
+    border: 3px solid $secColor;
+    border-radius: 40px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.05);
+
+    // Los badges rosas (Nivel y Terminar)
+    .badge-nivel,
+    .btn-terminar {
+        background-color: $soft-pink;
+        border: 3px solid $border-pink;
+        color: black;
+        font-weight: 900;
+        border-radius: 25px;
+        padding: 10px 40px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .btn-terminar {
+        cursor: pointer;
+        box-shadow: 0 4px 0 $border-pink;
+        &:hover {
+            background-color: lighten($soft-pink, 5%);
+        }
+        &:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 $border-pink;
+        }
+    }
+
+    // El área blanca central
+    .admin-content-area {
+        background-color: white;
+        border-radius: 25px;
+        margin: 20px 0;
+        flex-grow: 1;
+        min-height: 180px;
+    }
+}
+
+// Ajustes de texto
+.gray-text {
+    color: $gray-text;
+    font-weight: 600;
 }
