@@ -42,29 +42,26 @@ COPY ssl/server.key /etc/ssl/private/server.key
 RUN a2ensite 000-default.conf default-ssl.conf
 
 # --------------------------------------------------
-# DESPLIEGUE DEL CÓDIGO (Regla 4a: Clonar desde GitHub)
-# --------------------------------------------------
-WORKDIR /var/www/html
-RUN git clone https://github.com/AR1UR0/Draco .
-
-# --------------------------------------------------
 # DEPENDENCIAS DE PHP (Composer)
 # --------------------------------------------------
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Entramos en la carpeta del proyecto Laravel para instalar dependencias
-WORKDIR /var/www/html/DracoLaravel
-RUN composer install --no-dev --optimize-autoloader
+# --------------------------------------------------
+# SCRIPT DE ENTRADA (Actualización en cada inicio)
+# --------------------------------------------------
+# Copiamos el script que hará el git pull al arrancar
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # --------------------------------------------------
-# PERMISOS (Regla de escritura para Laravel)
+# PERMISOS INICIALES Y DIRECTORIO
 # --------------------------------------------------
-RUN chown -R www-data:www-data /var/www/html/DracoLaravel/storage /var/www/html/DracoLaravel/bootstrap/cache \
-    && chmod -R 775 /var/www/html/DracoLaravel/storage /var/www/html/DracoLaravel/bootstrap/cache
+WORKDIR /var/www/html
 
 # --------------------------------------------------
 # EXPOSICIÓN DE PUERTOS Y EJECUCIÓN
 # --------------------------------------------------
 EXPOSE 80 443
 
-CMD ["apache2-foreground"]
+# Usamos el script como punto de entrada
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
