@@ -26,7 +26,7 @@
                     <nav
                         class="navPrin vh-md-100 p-3 d-none d-md-flex flex-column align-items-end"
                     >
-                        <a href="{{ route('pagPrincipal') }}">
+                        <a href="{{ route('index') }}">
                             <img
                                 src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}"
                                 alt="DRACO"

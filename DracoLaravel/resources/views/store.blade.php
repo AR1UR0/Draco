@@ -29,7 +29,7 @@
       <nav
         class="d-none d-md-flex flex-grow-0 pt-3 d-flex flex-column border-end border-1 border-light navPrin pe-4 ps-1 align-items-end">
         <!-- NAVEGACIÓN -->
-        <a href="{{ route('pagPrincipal') }}">
+        <a href="{{ route('index') }}">
           <img src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}" alt="DRACO" class="logoDraco mb-5" />
         </a>
         <a href="{{ route('pagPrincipal') }}" class="mb-4 me-3 enlPrin">Aprender</a>

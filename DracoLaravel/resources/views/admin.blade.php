@@ -24,7 +24,7 @@
                     class="flex-grow-0 pt-3 d-flex flex-column border-end border-1 border-light navPrin vh-100 pe-4 ps-1 align-items-end"
                 >
                     <!-- NAVEGACIÓN -->
-                    <a href="{{ route('pagPrincipal') }}">
+                    <a href="{{ route('index') }}">
                         <img
                             src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}"
                             alt="DRACO"
