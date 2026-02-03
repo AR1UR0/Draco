@@ -1,0 +1,259 @@
+{
+    "datos": [
+        {
+            "nombre": "Berserk",
+            "descripcion": "Preguntas sobre el manga Berserk.",
+            "tests": [
+                {
+                    "titulo": "Nivel 1: Sencillo",
+                    "orden": 1,
+                    "preguntas": [
+                        {
+                            "enunciado": "¿Quién es el protagonista principal de Berserk?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Griffith", "correcta": false },
+                                { "texto": "Guts", "correcta": true },
+                                { "texto": "Casca", "correcta": false },
+                                { "texto": "Puck", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Quien dice esta frase?",
+                            "audio": "https://example.com/audios/frase_guts.mp3",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Griffith", "correcta": false },
+                                { "texto": "Skull Knight", "correcta": false },
+                                { "texto": "Guts", "correcta": true },
+                                { "texto": "Zodd", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Cómo se llama la espada gigantesca de Guts?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Dragon Slayer", "correcta": true },
+                                { "texto": "Beherit Blade", "correcta": false },
+                                { "texto": "Eclipse", "correcta": false },
+                                { "texto": "God Killer", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Quien es este Casca?",
+                            "puntos": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Serpico",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/serpico.jpg",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Judeau",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/judeau.jpg",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Casca",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/casca.jpg",
+                                    "correcta": true
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Qué criatura acompaña frecuentemente a Guts?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Un elfo", "correcta": true },
+                                { "texto": "Un demonio", "correcta": false },
+                                { "texto": "Un dragón", "correcta": false },
+                                { "texto": "Un espíritu", "correcta": false }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Nivel 2: Intermedio",
+                    "orden": 1,
+                    "preguntas": [
+                        {
+                            "enunciado": "¿Cómo se llama el grupo de mercenarios liderado por Griffith?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Mano de Dios", "correcta": false },
+                                {
+                                    "texto": "Halcones Oscuros",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Banda del Halcón",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Caballeros del Eclipse",
+                                    "correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿A que personaje pertenece este tema?",
+                            "audio": "https://example.com/audios/tema_guts.mp3",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Griffith", "correcta": false },
+                                { "texto": "Skull Knight", "correcta": false },
+                                { "texto": "Pippin", "correcta": false },
+                                { "texto": "Guts", "correcta": true }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Qué objeto permite invocar el Eclipse?",
+                            "puntos": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Un anillo real",
+                                    "correcta": false
+                                },
+                                { "texto": "Un grimorio", "correcta": false },
+                                { "texto": "Un Behelit", "correcta": true },
+                                {
+                                    "texto": "Una reliquia sagrada",
+                                    "correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Quien es este Farnese?",
+                            "puntos": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Casca",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/casca.jpg",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Farnese",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/farnese.jpg",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Charlotte",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/charlotte.jpg",
+                                    "correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Cuál es la relación inicial entre Guts y Griffith?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Hermanos", "correcta": false },
+                                {
+                                    "texto": "Amo y subordinado",
+                                    "correcta": true
+                                },
+                                { "texto": "Enemigos", "correcta": false },
+                                {
+                                    "texto": "Maestro y alumno",
+                                    "correcta": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Nivel 3: Difícil",
+                    "orden": 1,
+                    "preguntas": [
+                        {
+                            "enunciado": "¿Qué marca queda grabada en Guts tras el Eclipse?",
+                            "puntos": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Marca del Odio",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Marca del Sacrificio",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Marca del Vacío",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Marca del Apóstol",
+                                    "correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Quien dice esta frase?",
+                            "audio": "audio",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "", "correcta": false },
+                                { "texto": "", "correcta": false },
+                                { "texto": "", "correcta": false },
+                                { "texto": "", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Cómo se llama la armadura que potencia a Guts a costa de su mente?",
+                            "puntos": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Armadura Negra",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Armadura del Lobo",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Armadura del Berserker",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Armadura del Eclipse",
+                                    "correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Quien es este Femto?",
+                            "puntos": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Skull Knight",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/skullknight.jpg",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Femto",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/femto.jpg",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Grunbeld",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/grunbeld.jpg",
+                                    "correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Cuál de los siguientes NO pertenece a la Mano de Dios?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Femto", "correcta": false },
+                                { "texto": "Slan", "correcta": false },
+                                { "texto": "Void", "correcta": false },
+                                { "texto": "Zodd", "correcta": true }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
