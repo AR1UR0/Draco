@@ -1,0 +1,378 @@
+{
+    "tematicas": [
+        {
+            "nombre": "El Señor de los Anillos",
+            "descripcion": "Todo sobre la Tierra Media, desde la Comarca hasta Mordor.",
+            "imagen": "lotr.jpg",
+            "activa": true,
+            "tests": [
+                {
+                    "titulo": "Nivel 1: Sencillo",
+                    "orden": 1,
+                    "preguntas": [
+                        {
+                            "enunciado": "¿Cómo se llama el mago que guía a la Comunidad del Anillo al principio de su viaje?",
+                            "puntos_recompensa": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Saruman",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Radagast",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Gandalf",
+                                    "es_correcta": true
+                                },
+                                {
+                                    "texto": "Alatar",
+                                    "es_correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Cuál es el nombre del protagonista hobbit que recibe el encargo de llevar el Anillo Único hasta el Monte del Destino?",
+                            "puntos_recompensa": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Frodo Bolsón",
+                                    "es_correcta": true
+                                },
+                                {
+                                    "texto": "Samwise Gamyi",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Peregrin Tuk",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Bilbo Bolsón",
+                                    "es_correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿En qué región viven los Hobbits al comienzo de la aventura?",
+                            "puntos_recompensa": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Gondor",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "La Comarca",
+                                    "es_correcta": true
+                                },
+                                {
+                                    "texto": "Rohan",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Rivendel",
+                                    "es_correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Cuál de estas imágenes corresponde a La Comarca (The Shire)?",
+                            "puntos_recompensa": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Colinas verdes con casas pequeñas de puertas redondas",
+                                    "imagen": "comarca.jpg",
+                                    "es_correcta": true
+                                },
+                                {
+                                    "texto": "La ciudad blanca",
+                                    "imagen": "gondor.jpg",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Tierra del monte del destino",
+                                    "imagen": "mordor.jpg",
+                                    "es_correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Esta canción a qué territorio de la Tierra Media pertenece?",
+                            "audio": "TheShire.mp3",
+                            "puntos_recompensa": 10,
+                            "respuestas": [
+                                { "texto": "La Comarca", "es_correcta": true },
+                                {
+                                    "texto": "Gondor",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Mordor",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Rivendel",
+                                    "es_correcta": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Nivel 2: Medio",
+                    "orden": 2,
+                    "preguntas": [
+                        {
+                            "enunciado": "¿Cómo se llama la espada que fue forjada de nuevo a partir de los fragmentos de Narsil para Aragorn?",
+                            "puntos_recompensa": 20,
+                            "respuestas": [
+                                {
+                                    "texto": "Dardo",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Orcrist",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Glamdring",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Anduril",
+                                    "es_correcta": true
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Quién es el actual soberano de Rohan que estaba bajo el influjo de Saruman y Gríma Lengua de Serpiente?",
+                            "puntos_recompensa": 20,
+                            "respuestas": [
+                                {
+                                    "texto": "Eomer",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Boromir",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Théoden",
+                                    "es_correcta": true
+                                },
+                                {
+                                    "texto": "Denethor",
+                                    "es_correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Cuál es el verdadero nombre de la criatura conocida como Gollum antes de ser corrompido por el Anillo?",
+                            "puntos_recompensa": 20,
+                            "respuestas": [
+                                {
+                                    "texto": "Trahal",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Bandobras",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Déagol",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Sméagol",
+                                    "es_correcta": true
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "Identifica el objeto conocido como El Vial de Galadriel:",
+                            "puntos_recompensa": 20,
+                            "respuestas": [
+                                {
+                                    "texto": "Una espada de cristal que brilla en la oscuridad",
+                                    "imagen": "dardo.jpg",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Un pequeño frasco de cristal que emite una luz blanca intensa",
+                                    "imagen": "vialGaladriel.jpg",
+                                    "es_correcta": true
+                                },
+                                {
+                                    "texto": "Un anillo de oro liso con inscripciones de fuego",
+                                    "imagen": "anilloUnico.jpg",
+                                    "es_correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Esta canción a qué territorio/facción de la Tierra Media pertenece?",
+                            "audio": "uruks.mp3",
+                            "puntos_recompensa": 10,
+                            "respuestas": [
+                                { "texto": "La Comarca", "es_correcta": false },
+                                {
+                                    "texto": "Gondor",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Isengard",
+                                    "es_correcta": true
+                                },
+                                {
+                                    "texto": "Rivendel",
+                                    "es_correcta": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    "titulo": "Nivel 3: Dificil",
+                    "orden": 3,
+                    "preguntas": [
+                        {
+                            "enunciado": "¿Cómo se llamaba originalmente el Monte del Destino en la lengua de los Elfos (Sindarin)",
+                            "puntos_recompensa": 30,
+                            "respuestas": [
+                                {
+                                    "texto": "Thangorodrim",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Caradhras",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Orodruin",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Amon Amarth",
+                                    "es_correcta": true
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Cuál de estos personajes NO es uno de los Ents que se encuentran con Merry y Pippin?",
+                            "puntos_recompensa": 30,
+                            "respuestas": [
+                                {
+                                    "texto": "Ramaviva (Quickbeam)",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Bárbol (Treebeard)",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Glorfindel",
+                                    "es_correcta": true
+                                },
+                                {
+                                    "texto": "Corteza de Roble (Leaflock)",
+                                    "es_correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Quién fue el primer Señor Oscuro de la Tierra Media, de quien Sauron fue solo un sirviente?",
+                            "puntos_recompensa": 30,
+                            "respuestas": [
+                                {
+                                    "texto": "Ungoliant",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Gothmog",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Anatar",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Melkor (Morgoth)",
+                                    "es_correcta": true
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "De las siguientes fortalezas, ¿cuál es Minas Morgul (la ciudad de los Nazgûl)",
+                            "puntos_recompensa": 30,
+                            "respuestas": [
+                                {
+                                    "texto": "Una ciudad de piedra blanca con siete niveles circulares.",
+                                    "imagen": "gondor.jpg",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Una torre negra altísima con un ojo en la cima.",
+                                    "imagen": "barad-dur.jpg",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Una ciudad fortificada que emite una luz verde fantasmal y tétrica.",
+                                    "imagen": "minasMorgul.jpg",
+                                    "es_correcta": true
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Esta canción a qué territorio/facción de la Tierra Media pertenece?",
+                            "audio": "rohan.mp3",
+                            "puntos_recompensa": 10,
+                            "respuestas": [
+                                { "texto": "La Comarca", "es_correcta": false },
+                                {
+                                    "texto": "Rohan",
+                                    "es_correcta": true
+                                },
+                                {
+                                    "texto": "Gondor",
+                                    "es_correcta": false
+                                },
+                                {
+                                    "texto": "Rivendel",
+                                    "es_correcta": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "nombre": "Berserk",
+            "descripcion": "El oscuro mundo de Guts y la Mano de Dios.",
+            "imagen": "berserk_banner.jpg",
+            "activa": true,
+            "tests": [
+                {
+                    "titulo": "Nivel 1: Sencillo",
+                    "orden": 1,
+                    "preguntas": []
+                }
+            ]
+        },
+        {
+            "nombre": "Gloryhammer",
+            "descripcion": "Power metal, martillos espaciales y batallas en el espacio.",
+            "imagen": "gloryhammer_banner.jpg",
+            "activa": true,
+            "tests": [
+                {
+                    "titulo": "Nivel 1: Sencillo",
+                    "orden": 1,
+                    "preguntas": []
+                }
+            ]
+        }
+    ]
+}
