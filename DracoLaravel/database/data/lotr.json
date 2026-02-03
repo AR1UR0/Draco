@@ -347,32 +347,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "nombre": "Berserk",
-            "descripcion": "El oscuro mundo de Guts y la Mano de Dios.",
-            "imagen": "berserk_banner.jpg",
-            "activa": true,
-            "tests": [
-                {
-                    "titulo": "Nivel 1: Sencillo",
-                    "orden": 1,
-                    "preguntas": []
-                }
-            ]
-        },
-        {
-            "nombre": "Gloryhammer",
-            "descripcion": "Power metal, martillos espaciales y batallas en el espacio.",
-            "imagen": "gloryhammer_banner.jpg",
-            "activa": true,
-            "tests": [
-                {
-                    "titulo": "Nivel 1: Sencillo",
-                    "orden": 1,
-                    "preguntas": []
-                }
-            ]
         }
     ]
 }
