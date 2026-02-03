@@ -1,0 +1,214 @@
+{
+    "datos": [
+        {
+            "nombre": "Gloryhammer",
+            "descripcion": "Preguntas sobre la banda de Power Metal Gloryhammer y su historia.",
+            "tests": [
+                {
+                    "titulo": "Nivel 1: Sencillo",
+                    "orden": 1,
+                    "preguntas": [
+                        {
+                            "enunciado": "¿Cómo se llama el príncipe protagonista de la historia?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Thor", "correcta": false },
+                                { "texto": "Angus McFife", "correcta": true },
+                                { "texto": "Conan", "correcta": false },
+                                { "texto": "Ralathor", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿A qué personaje pertenece esta risa malvada?",
+                            "audio": "https://example.com/audios/risa_zargothrax.mp3",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "The Hootsman", "correcta": false },
+                                { "texto": "Angus McFife", "correcta": false },
+                                { "texto": "Zargothrax", "correcta": true },
+                                { "texto": "Proletius", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Cuál es el arma principal utilizada para luchar contra el mal?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "The Hammer of Glory", "correcta": true },
+                                { "texto": "Excalibur", "correcta": false },
+                                { "texto": "The Laser Sword", "correcta": false },
+                                { "texto": "Amulet of Justice", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Quién es este personaje (El Príncipe)?",
+                            "puntos": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Zargothrax",
+                                    "imagen": "imgs/PREGUNTAS/gloryhammer/zargothrax.jpg",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Ralathor",
+                                    "imagen": "imgs/PREGUNTAS/gloryhammer/ralathor.jpg",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Angus McFife",
+                                    "imagen": "imgs/PREGUNTAS/gloryhammer/angus.jpg",
+                                    "correcta": true
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Qué ciudad es la capital del Reino de Fife?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Dundee", "correcta": true },
+                                { "texto": "Glasgow", "correcta": false },
+                                { "texto": "Edinburgh", "correcta": false },
+                                { "texto": "London", "correcta": false }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Nivel 2: Intermedio",
+                    "orden": 1,
+                    "preguntas": [
+                        {
+                            "enunciado": "¿Qué criaturas invaden Dundee en el primer álbum?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Dragones Cibernéticos", "correcta": false },
+                                { "texto": "Orcos del Espacio", "correcta": false },
+                                { "texto": "Unicornios No-Muertos", "correcta": true },
+                                { "texto": "Goblins Galácticos", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿A qué canción pertenece este fragmento?",
+                            "audio": "https://example.com/audios/tema_hootsforce.mp3",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Angus McFife", "correcta": false },
+                                { "texto": "Universe on Fire", "correcta": false },
+                                { "texto": "Hootsforce", "correcta": true },
+                                { "texto": "Masters of the Galaxy", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Quién es el misterioso comandante de submarinos y guía de los héroes?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Ser Proletius", "correcta": false },
+                                { "texto": "Ralathor", "correcta": true },
+                                { "texto": "The Hootsman", "correcta": false },
+                                { "texto": "Horathy", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Quién es este personaje (El Hechicero Oscuro)?",
+                            "puntos": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Proletius",
+                                    "imagen": "imgs/PREGUNTAS/Gloryhammer/proletius.jpg",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Zargothrax",
+                                    "imagen": "imgs/PREGUNTAS/gloryhammer/zargothrax.jpg",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Angus XIII",
+                                    "imagen": "imgs/PREGUNTAS/gloryhammer/angus.jpg",
+                                    "correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Dónde fue encarcelado Zargothrax al final del primer álbum?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "En la Luna", "correcta": false },
+                                { "texto": "Hielo Líquido", "correcta": true },
+                                { "texto": "Un agujero negro", "correcta": false },
+                                { "texto": "El núcleo del sol", "correcta": false }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Nivel 3: Difícil",
+                    "orden": 1,
+                    "preguntas": [
+                        {
+                            "enunciado": "¿De qué territorio es Rey 'The Hootsman'?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Cowdenbeath", "correcta": false },
+                                { "texto": "California", "correcta": true },
+                                { "texto": "Crail", "correcta": false },
+                                { "texto": "Auchtermuchty", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Qué frase completa la canción?",
+                            "audio": "https://example.com/audios/lyric_sanctus.mp3",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "Gloria Perpetua", "correcta": false },
+                                { "texto": "Infernus Ad Astra", "correcta": false },
+                                { "texto": "Sanctus Dominus", "correcta": true },
+                                { "texto": "Missiles of Nuclear Justice", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Con qué objeto fue apuñalado Angus McFife XIII corrompiéndolo?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "The Vorpal Laserblaster", "correcta": false },
+                                { "texto": "The Knife of Evil", "correcta": true },
+                                { "texto": "The Sorcerer's Staff", "correcta": false },
+                                { "texto": "The Goblin Blade", "correcta": false }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Quién es este personaje (El Rey Bárbaro)?",
+                            "puntos": 10,
+                            "respuestas": [
+                                {
+                                    "texto": "Ralathor",
+                                    "imagen": "imgs/PREGUNTAS/gloryhammer/ralathor.jpg",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "The Hootsman",
+                                    "imagen": "imgs/PREGUNTAS/Gloryhammer/hootsman.jpg",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Zargothrax Clone",
+                                    "imagen": "imgs/PREGUNTAS/gloryhammer/zargothrax.jpg",
+                                    "correcta": false
+                                }
+                            ]
+                        },
+                        {
+                            "enunciado": "¿Cómo se llama la dimensión alternativa a la que viajan en el 3er álbum?",
+                            "puntos": 10,
+                            "respuestas": [
+                                { "texto": "The Galactic Empire", "correcta": false },
+                                { "texto": "The Terrorvortex", "correcta": true },
+                                { "texto": "The Warp", "correcta": false },
+                                { "texto": "The Shadow Realm", "correcta": false }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
