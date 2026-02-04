@@ -12,10 +12,12 @@ return new class extends Migration
     public function up()
 {
     Schema::create('preguntas', function (Blueprint $table) {
-        $table->id(); // CP
-        $table->text('enunciado');
-        $table->integer('puntos_recompensa')->default(10);
-        $table->foreignId('test_id')->constrained('tests')->onDelete('cascade'); // FK a tests
+        $table->id();
+        $table->string('enunciado');
+        $table->string('imagen')->nullable();   // nueva columna
+        $table->string('audio')->nullable();    // nueva columna
+        $table->integer('puntos')->default(0);
+        $table->foreignId('test_id')->constrained('tests')->onDelete('cascade');
         $table->timestamps();
     });
 }
