@@ -15,10 +15,7 @@
     </head>
     <body>
         <div class="container-fluid">
-<<<<<<< HEAD
-=======
             
->>>>>>> main
             <div class="container-fluid p-0 g-0 ps-md-4 d-flex mainContainer">
                 <!-- CONTENEDOR PRINCIPAL -->
                 <nav

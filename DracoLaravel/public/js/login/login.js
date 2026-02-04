@@ -48,11 +48,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  * Verifica campos obligatorios y formato de correo si aplica.
  */
 if (loginForm) {
-<<<<<<< HEAD
     loginForm.addEventListener("submit", function (e) {
-=======
-    loginForm.addEventListener("submit", (e) => {
->>>>>>> main
         e.preventDefault();
 
         const user = document.getElementById("loginUser").value.trim();
@@ -62,18 +58,8 @@ if (loginForm) {
             alert("Todos los campos son obligatorios");
             return;
         }
-<<<<<<< HEAD
         // si todo esta bien, enviamos el formulario a Laravel
         this.submit();
-=======
-
-        if (user.includes("@") && !emailRegex.test(user)) {
-            alert("Correo electrónico inválido");
-            return;
-        }
-
-        alert("Login válido ✔");
->>>>>>> main
     });
 }
 
@@ -82,11 +68,7 @@ if (loginForm) {
  * Comprueba integridad de datos, longitud de contraseña y coincidencia de las mismas.
  */
 if (registerForm) {
-<<<<<<< HEAD
     registerForm.addEventListener("submit", function (e) {
-=======
-    registerForm.addEventListener("submit", (e) => {
->>>>>>> main
         e.preventDefault();
 
         const user = document.getElementById("regUser").value.trim();
@@ -105,11 +87,7 @@ if (registerForm) {
         }
 
         if (pass1.length < 8) {
-<<<<<<< HEAD
-            alert("La contraseña debe tener al menos 6 caracteres");
-=======
             alert("La contraseña debe tener al menos 8 caracteres");
->>>>>>> main
             return;
         }
 
@@ -118,22 +96,7 @@ if (registerForm) {
             return;
         }
 
-<<<<<<< HEAD
         this.submit();
-=======
-        alert("Registro válido ✔");
-
-        fetch("http://127.0.0.1:8000/api/register-mail", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name: user,
-                email: email,
-            }),
-        });
->>>>>>> main
     });
 }
 
