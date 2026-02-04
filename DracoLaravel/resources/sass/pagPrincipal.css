@@ -28,7 +28,6 @@ body {
   border-right: 3px solid transparent;
   transition: all 0.3s ease;
 }
-
 .enlPrin:hover {
   border-right: 3px solid #98b705;
   background-color: rgba(153, 183, 5, 0.44);
@@ -47,7 +46,8 @@ body {
 .imgIco {
   width: 30px;
   height: 30px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
 }
 
@@ -64,7 +64,8 @@ body {
 .imgFooterPrin {
   width: 30px;
   height: 30px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
 }
 
@@ -92,12 +93,10 @@ body {
   border-radius: 12px;
   transition: transform 0.2s, border-bottom 0.2s;
 }
-
 .btnPlus:hover {
   transform: translateY(2px);
   border-bottom-width: 2px !important;
 }
-
 .btnPlus:active {
   transform: translateY(4px);
   border-bottom-width: 0px !important;
@@ -151,7 +150,7 @@ body {
   cursor: pointer;
   position: relative;
   /* 3D sutil */
-  box-shadow: 0 4px 0 #5a6d03, 0 8px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 0 rgb(90.1489361702, 108.5345744681, 2.9654255319), 0 8px 16px rgba(0, 0, 0, 0.25);
   transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
@@ -159,13 +158,13 @@ body {
 .btn-round:hover {
   background-color: #f7f7f7;
   transform: translateY(-1px);
-  box-shadow: 0 5px 0 #5a6d03, 0 12px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 0 rgb(90.1489361702, 108.5345744681, 2.9654255319), 0 12px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Active: pulsación realista */
 .btn-round:active {
   transform: translateY(3px);
-  box-shadow: 0 1px 0 #465402, 0 4px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 0 rgb(69.5319148936, 83.7127659574, 2.2872340426), 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 .btn-round::before {
@@ -189,7 +188,6 @@ body {
   background-color: rgba(0, 0, 0, 0.02);
   border-radius: 0 0 15px 15px;
 }
-
 .menuHamb .enlPrinWider {
   text-decoration: none;
   color: inherit;
@@ -198,7 +196,6 @@ body {
   border-left: 4px solid transparent;
   transition: all 0.3s ease;
 }
-
 .menuHamb .enlPrinWider:hover {
   border-left: 4px solid #98b705;
   background-color: rgba(153, 183, 5, 0.44);
@@ -210,7 +207,6 @@ body {
   background: transparent !important;
   transition: transform 0.2s ease;
 }
-
 .btnHamb:active {
   transform: scale(0.9);
 }
@@ -236,4 +232,4 @@ body {
   .colF {
     font-size: 0.7em !important;
   }
-}
+}/*# sourceMappingURL=pagPrincipal.css.map */

@@ -265,15 +265,8 @@ footer {
 }
 
 // ===============================
-// MEDIA QUERIES
+// MEDIA QUERIES (SCSS)
 // ===============================
-// Adaptaciones para que el diseño funcione bien en móviles y tablets.
-@media (max-width: 768px) {
-    .audio-question {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
 
 @media (max-width: 576px) {
     .option-btn {
@@ -285,5 +278,21 @@ footer {
         flex-direction: row;
         gap: 10px;
         align-items: center;
+    }
+
+    // Ocultamos el contenedor de vidas
+    .hearts-count {
+        display: none !important;
+    }
+
+    // Ajuste de columnas para que la barra use el espacio del corazón
+    header {
+        .col-9 {
+            width: 83.333333%; // Equivalente a col-10
+            flex: 0 0 auto;
+        }
+        .col-2 {
+            display: none; // Eliminamos la columna del corazón para evitar espacios
+        }
     }
 }

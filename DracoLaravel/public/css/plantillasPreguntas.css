@@ -189,12 +189,6 @@ footer {
   border-bottom-width: 2px;
 }
 
-@media (max-width: 768px) {
-  .audio-question {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
 @media (max-width: 576px) {
   .option-btn {
     font-size: 1rem;
@@ -204,5 +198,15 @@ footer {
     flex-direction: row;
     gap: 10px;
     align-items: center;
+  }
+  .hearts-count {
+    display: none !important;
+  }
+  header .col-9 {
+    width: 83.333333%;
+    flex: 0 0 auto;
+  }
+  header .col-2 {
+    display: none;
   }
 }/*# sourceMappingURL=plantillasPreguntas.css.map */
