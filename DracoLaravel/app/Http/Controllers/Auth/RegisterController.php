@@ -35,8 +35,8 @@ class RegisterController extends Controller
             'dinero' => 0,
             'racha' => 0,
             'experiencia' => 0,
-            'vidas_actuales' => 5, // Empezamos con 5 vidas
-            'vidas_max' => 5,
+            'vidas_actuales' => 7, 
+            'vidas_max' => 7,
         ]);
 
         // 3. Loguear automáticamente al usuario

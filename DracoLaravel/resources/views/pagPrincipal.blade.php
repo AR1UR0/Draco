@@ -32,11 +32,10 @@
                     <a href="{{ route('pagPrincipal') }}" class="mb-4 me-3 enlPrin"
                         >Aprender</a
                     >
-                    <a href="{{ route('store') }}" class="mb-4 me-3 enlPrin">Tienda</a>
+                    
                     @auth
+                    <a href="{{ route('store') }}" class="mb-4 me-3 enlPrin">Tienda</a>
                     <a href="{{ route('perfil') }}" class="mb-4 me-3 enlPrin">Perfil</a>
-                    @else
-                    <a href="{{ route('login') }}" class="mb-4 me-3 enlPrin">Ingresar</a>
                     @endauth
                 </nav>
                 <main class="d-none d-md-block flex-grow-1">
@@ -127,12 +126,10 @@
                             <a href="{{ route('pagPrincipal') }}" class="d-block py-3 enlPrinWider"
                                 >Aprender</a
                             >
-                            <a href="{{ route('store') }}" class="d-block py-3 enlPrinWider"
-                                >Tienda</a
-                            >
-                            <a href="{{ route('perfil') }}" class="d-block py-3 enlPrinWider"
-                                >Perfil</a
-                            >
+                            @auth
+                                <a href="{{ route('store') }}" class="d-block py-3 enlPrinWider">Tienda</a>
+                                <a href="{{ route('perfil') }}" class="d-block py-3 enlPrinWider">Perfil</a>
+                            @endauth
                         </div>
                     </div>
                     <hr
