@@ -1,5 +1,11 @@
 @charset "UTF-8";
+/*
+    pagPrincipal.scss
+    -------------------
+    Estilos para la página principal de la aplicación.
+*/
 body {
+<<<<<<< HEAD
     overflow-y: auto;
     margin: 0 !important;
 }
@@ -7,6 +13,15 @@ body {
 html {
     margin: 0 !important;
     padding: 0 !important;
+=======
+  overflow-y: auto;
+  margin: 0 !important;
+}
+
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+>>>>>>> main
 }
 
 .navPrin a {

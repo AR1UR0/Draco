@@ -23,7 +23,7 @@
             <div class="row g-0">
                 <div class="navPrin col-12 col-md-auto border-end border-light">
                     <nav
-                        class="navPrin vh-md-100 p-3 d-none d-md-flex flex-column align-items-end"
+                        class="navPrin vh-md-100 p-3 d-none d-md-flex flex-column align-items-end "
                     >
                         <a href="{{ route('index') }}">
                             <img

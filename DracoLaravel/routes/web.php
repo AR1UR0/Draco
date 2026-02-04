@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Mail\RegisterMail;
+use Illuminate\Support\Facades\Mail;
 
 // --- 1. RUTAS PÚBLICAS (Accesibles para invitados y usuarios) ---
 Route::view('/', 'index')->name('index');
@@ -39,3 +41,12 @@ Route::view('/plantilla', 'plantilla')->name('plantilla');
 Route::view('/pregunta-texto', 'preguntaTexto')->name('preguntaTexto');
 Route::view('/plantilla-media', 'plantillaMedia')->name('plantillaMedia');
 Route::view('/plantilla-imagenes', 'plantillaimagenes')->name('plantillaimagenes');
+
+
+
+
+Route::get('/test-mail', function () {
+    Mail::to('xyz.arturool@gmail.com')->send(new RegisterMail('Arturo'));
+
+    return 'Correo enviado';
+});

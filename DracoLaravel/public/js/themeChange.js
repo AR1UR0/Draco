@@ -3,8 +3,10 @@
  * Proporciona utilidades para aplicar el tema claro/oscuro y actualizar
  * las clases y atributos necesarios en el DOM.
  *
+ * Ahora con persistencia de tema mediante cookies.
+ *
  * @author Arturo/Draco Team
- * @version 1.1.0
+ * @version 1.2.0
  */
 
 /**
@@ -20,6 +22,30 @@ const toggle = document.getElementById("toggleTheme");
  * @type {HTMLHtmlElement}
  */
 const html = document.documentElement;
+
+/**
+ * Función para crear o actualizar cookies.
+ * @param {string} name - Nombre de la cookie.
+ * @param {string} value - Valor de la cookie.
+ * @param {number} days - Días hasta que expire la cookie.
+ */
+function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = `${name}=${value};expires=${d.toUTCString()};path=/`;
+}
+
+/**
+ * Función para leer cookies.
+ * @param {string} name - Nombre de la cookie a leer.
+ * @returns {string|null} Valor de la cookie o null si no existe.
+ */
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+}
 
 /**
  * Aplica el tema y actualiza las clases relevantes en el DOM.
@@ -142,14 +168,31 @@ function applyTheme(isDark) {
 }
 
 /**
- * Inicializa el tema al cargar el script y añade un listener al control
- * `toggle` para escuchar cambios del usuario. Si `toggle` no existe en la
- * página, la inicialización se omite silenciosamente.
+ * Inicialización del tema al cargar la página.
+ * Se comprueba primero la cookie para aplicar el tema guardado.
+ * Si no existe cookie, se usa el estado del toggle o tema por defecto.
+ */
+const savedTheme = getCookie("theme"); // <-- NUEVO: leer cookie 'theme'
+if (savedTheme) {
+    const isDark = savedTheme === "dark";
+    applyTheme(isDark);
+
+    // Sincronizar toggle si existe
+    if (toggle) toggle.checked = isDark;
+} else {
+    // Si no hay cookie, usar toggle.checked o default light
+    applyTheme(toggle ? toggle.checked : false);
+}
+
+/**
+ * Listener para el toggle.
+ * Aplica el tema y actualiza la cookie cada vez que el usuario cambia el toggle.
  */
 if (toggle) {
-    // Aplicar el tema según el estado actual del control (checked).
-    applyTheme(toggle.checked);
+    toggle.addEventListener("change", () => {
+        applyTheme(toggle.checked);
 
-    // Reaplicar el tema cada vez que el usuario cambie el control.
-    toggle.addEventListener("change", () => applyTheme(toggle.checked));
+        // <-- NUEVO: actualizar cookie cuando el toggle cambia
+        setCookie("theme", toggle.checked ? "dark" : "light", 30); // 30 días
+    });
 }
