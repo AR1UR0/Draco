@@ -86,7 +86,10 @@
                             <input type="checkbox" id="toggleTheme" checked />
                             <span class="slider"></span>
                         </label>
-                        <button class="btnSemiTran">Log Out</button>
+                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btnSemiTran">Log Out</button>
+                        </form>
                     </div>
 
                     <div class="container-fluid px-3 px-md-5">
@@ -112,9 +115,7 @@
                                 <h2
                                     class="d-flex justify-content-center justify-content-md-start align-items-center gap-2"
                                 >
-                                    <span class="username"
-                                        >Nombre de Usuario</span
-                                    >
+                                    <span class="username">{{ Auth::user()->nombre }}</span>
                                     <button class="btnEditNombreUsuario">
                                         <img
                                             src="{{ asset('media/imgs/iconos/pencil.png') }}"
@@ -123,12 +124,10 @@
                                     </button>
                                 </h2>
 
-                                <p class="gray-text">
-                                    correodeejemplo@gmail.com
-                                </p>
+                                <p class="gray-text">{{ Auth::user()->email }}</p>
                                 <p class="gray-text">
                                     Se unió en
-                                    <span class="fecha">01/01/2026</span>
+                                    <span class="fecha">{{ Auth::user()->created_at->format('d/m/Y') }}</span>
                                 </p>
                             </div>
                         </div>
@@ -150,7 +149,7 @@
                                     src="{{ asset('media/imgs/iconos/burn.png') }}"
                                     class="fotoStats"
                                 />
-                                <div><b>1</b><br />Días de racha</div>
+                                <div><b>{{ Auth::user()->racha ?? 0 }}</b><br />Días de racha</div>
                             </div>
 
                             <div
@@ -160,7 +159,7 @@
                                     src="{{ asset('media/imgs/iconos/storm.png') }}"
                                     class="fotoStats"
                                 />
-                                <div><b>1</b><br />EXP ganada</div>
+                                <div><b>{{ Auth::user()->experiencia ?? 0 }}</b><br />EXP ganada</div>
                             </div>
 
                             <div
@@ -170,7 +169,7 @@
                                     src="{{ asset('media/imgs/iconos/coin.png') }}"
                                     class="fotoStats"
                                 />
-                                <div><b>500</b><br />Monedas</div>
+                                <div><b>{{ Auth::user()->dinero }}</b><br />Monedas</div>
                             </div>
 
                             <div
@@ -180,7 +179,7 @@
                                     src="{{ asset('media/imgs/iconos/heart.png') }}"
                                     class="fotoStats"
                                 />
-                                <div><b>7</b><br />Vidas</div>
+                                <div><b>{{ Auth::user()->vidas_actuales }}</b><br />Vidas</div>
                             </div>
                         </div>
                     </div>

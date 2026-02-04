@@ -48,7 +48,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  * Verifica campos obligatorios y formato de correo si aplica.
  */
 if (loginForm) {
-    loginForm.addEventListener("submit", (e) => {
+    loginForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
         const user = document.getElementById("loginUser").value.trim();
@@ -58,13 +58,8 @@ if (loginForm) {
             alert("Todos los campos son obligatorios");
             return;
         }
-
-        if (user.includes("@") && !emailRegex.test(user)) {
-            alert("Correo electrónico inválido");
-            return;
-        }
-
-        alert("Login válido ✔");
+        // si todo esta bien, enviamos el formulario a Laravel
+        this.submit();
     });
 }
 
@@ -73,7 +68,7 @@ if (loginForm) {
  * Comprueba integridad de datos, longitud de contraseña y coincidencia de las mismas.
  */
 if (registerForm) {
-    registerForm.addEventListener("submit", (e) => {
+    registerForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
         const user = document.getElementById("regUser").value.trim();
@@ -101,18 +96,7 @@ if (registerForm) {
             return;
         }
 
-        alert("Registro válido ✔");
-
-        fetch("http://127.0.0.1:8000/api/register-mail", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name: user,
-                email: email,
-            }),
-        });
+        this.submit();
     });
 }
 

@@ -25,7 +25,7 @@ return new class extends Migration
         $table->integer('vidas_actuales')->default(7);
         $table->integer('vidas_max')->default(7);
         $table->string('imagen_usuario')->nullable();
-        $table->foreignId('role_id')->constrained('roles')->onDelete('cascade'); // FK a roles
+        $table->foreignId('role_id')->default(2)->constrained('roles')->onDelete('cascade');
         $table->timestamps(); // created_at y updated_at
     });
 }

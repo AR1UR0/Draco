@@ -32,8 +32,11 @@
                     <a href="{{ route('pagPrincipal') }}" class="mb-4 me-3 enlPrin"
                         >Aprender</a
                     >
+                    
+                    @auth
                     <a href="{{ route('store') }}" class="mb-4 me-3 enlPrin">Tienda</a>
                     <a href="{{ route('perfil') }}" class="mb-4 me-3 enlPrin">Perfil</a>
+                    @endauth
                 </nav>
                 <main class="d-none d-md-block flex-grow-1">
                     <!-- CONTENIDO PRINCIPAL -->
@@ -123,12 +126,10 @@
                             <a href="{{ route('pagPrincipal') }}" class="d-block py-3 enlPrinWider"
                                 >Aprender</a
                             >
-                            <a href="{{ route('store') }}" class="d-block py-3 enlPrinWider"
-                                >Tienda</a
-                            >
-                            <a href="{{ route('perfil') }}" class="d-block py-3 enlPrinWider"
-                                >Perfil</a
-                            >
+                            @auth
+                                <a href="{{ route('store') }}" class="d-block py-3 enlPrinWider">Tienda</a>
+                                <a href="{{ route('perfil') }}" class="d-block py-3 enlPrinWider">Perfil</a>
+                            @endauth
                         </div>
                     </div>
                     <hr
@@ -175,7 +176,7 @@
                                 alt="Racha:"
                                 class="imgIco"
                             />
-                            <span class="racha">&nbsp;1</span>
+                            <span class="racha">&nbsp;{{ Auth::check() ? (Auth::user()->racha ?? 0) : 0 }}</span>
                         </div>
                         <div
                             class="d-flex align-items-center justify-content-center"
@@ -185,7 +186,7 @@
                                 alt="Dinero:"
                                 class="imgIco"
                             />
-                            <span class="racha">&nbsp;&nbsp;500</span>
+                            <span class="racha">&nbsp;&nbsp;{{ Auth::check() ? Auth::user()->dinero : 0 }}</span>
                         </div>
                         <div
                             class="d-flex align-items-center justify-content-center"
@@ -195,7 +196,7 @@
                                 alt="Vida:"
                                 class="imgIco"
                             />
-                            <span class="racha">&nbsp;7</span>
+                            <span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->vidas_actuales : 5 }}</span>
                         </div>
                     </div>
                     <hr

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Draco - Login</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
     <script defer src="{{ asset('js/login/login.js') }}"></script>
     <script defer src="{{ asset('js/bootstrap.bundle.js') }}"></script>
@@ -33,16 +34,28 @@
             REGÍSTRATE
         </a>
 
+        <div class="container mt-3" style="max-width: 400px;">
+            @if ($errors->any())
+                <div class="alert alert-danger py-2">
+                    <ul class="mb-0 px-3">
+                        @foreach ($errors->all() as $error)
+                            <li style="font-size: 0.9rem;">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
         <!-- LOGIN -->
         <div class="login-card text-center" id="loginView">
             <h1 class="login-title mb-4">Ingresar</h1>
-            <form id="loginForm">
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="loginUser" placeholder="Correo o usuario" />
+            <form id="loginForm" action="{{ route('login.post') }}" method="POST">
+                @csrf <div class="mb-3">
+                    <input type="text" name="email" class="form-control" id="loginUser" placeholder="Correo Electrónico" required />
                 </div>
 
                 <div class="mb-2 position-relative">
-                    <input type="password" class="form-control" id="loginPassword" placeholder="Contraseña" />
+                    <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Contraseña" required />
                     <a href="#" class="forgot-password" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">¿Se te olvidó?</a>
                 </div>
 
@@ -60,25 +73,25 @@
         <div class="login-card text-center d-none" id="registerView">
             <h1 class="login-title mb-4">Regístrate</h1>
 
-            <form id="registerForm">
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="regUser" placeholder="Usuario" />
+            <form id="registerForm" action="{{ route('register.post') }}" method="POST">
+                @csrf <div class="mb-3">
+                    <input type="text" name="nombre" class="form-control" id="regUser" placeholder="Usuario" required />
                 </div>
 
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="regEmail" placeholder="Correo Electrónico" />
+                    <input type="email" name="email" class="form-control" id="regEmail" placeholder="Correo Electrónico" required />
                 </div>
 
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="regPassword" placeholder="Contraseña" />
+                    <input type="password" name="password" class="form-control" id="regPassword" placeholder="Contraseña" required />
                 </div>
 
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="regPassword2" placeholder="Confirmar Contraseña" />
+                    <input type="password" name="password_confirmation" class="form-control" id="regPassword2" placeholder="Confirmar Contraseña" required />
                 </div>
 
                 <button type="submit" class="btn btn-login w-100 mt-3">
-                    INGRESAR
+                    REGISTRARSE
                 </button>
             </form>
             <p class="login-legal mt-4">
@@ -160,6 +173,14 @@
             </div>
         </div>
     </div>
+    <script>
+    // Si hay errores y el usuario estaba intentando registrarse, 
+    // mostramos la vista de registro automáticamente al recargar
+    @if($errors->has('nombre') || $errors->has('password_confirmation'))
+        document.getElementById('loginView').classList.add('d-none');
+        document.getElementById('registerView').classList.remove('d-none');
+    @endif
+</script>
 </body>
 
 </html>
