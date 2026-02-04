@@ -15,16 +15,7 @@
     </head>
     <body>
         <div class="container-fluid">
-            <header class="container d-flex justify-content-between">
-                <!-- HEADER -->
-                <!-- CAMBIAR TEMA -->
-                <div class="form-check form-switch">
-                    <label class="switch">
-                        <input type="checkbox" id="toggleTheme" checked />
-                        <span class="slider"></span>
-                    </label>
-                </div>
-            </header>
+            
             <div class="container-fluid p-0 g-0 ps-md-4 d-flex mainContainer">
                 <!-- CONTENEDOR PRINCIPAL -->
                 <nav
