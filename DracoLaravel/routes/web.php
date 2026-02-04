@@ -32,3 +32,13 @@ Route::view('/plantilla', 'plantilla')->name('plantilla');
 Route::view('/pregunta-texto', 'preguntaTexto')->name('preguntaTexto');
 Route::view('/plantilla-media', 'plantillaMedia')->name('plantillaMedia');
 Route::view('/plantilla-imagenes', 'plantillaimagenes')->name('plantillaimagenes');
+
+
+use App\Mail\RegisterMail;
+use Illuminate\Support\Facades\Mail;
+
+Route::get('/test-mail', function () {
+    Mail::to('xyz.arturool@gmail.com')->send(new RegisterMail('Arturo'));
+
+    return 'Correo enviado';
+});
