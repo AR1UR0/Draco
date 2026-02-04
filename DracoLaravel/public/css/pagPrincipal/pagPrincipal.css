@@ -1,6 +1,17 @@
 @charset "UTF-8";
+/*
+    pagPrincipal.scss
+    -------------------
+    Estilos para la página principal de la aplicación.
+*/
 body {
   overflow-y: auto;
+  margin: 0 !important;
+}
+
+html {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .navPrin a {

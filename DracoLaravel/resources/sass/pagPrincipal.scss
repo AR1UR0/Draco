@@ -27,6 +27,11 @@ $super-bottom: #0f083d; // Color inferior del gradiente
 
 body {
     overflow-y: auto;
+    margin: 0 !important;
+}
+html {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 // Navegación principal: enlaces del menú lateral o superior.
