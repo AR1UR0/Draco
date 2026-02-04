@@ -34,8 +34,9 @@
             REGÍSTRATE
         </a>
 
-        <div class="container mt-3" style="max-width: 400px;">
-            @if ($errors->any())
+       
+        @if ($errors->any())
+             <div class="container mt-3" style="max-width: 400px;">
                 <div class="alert alert-danger py-2">
                     <ul class="mb-0 px-3">
                         @foreach ($errors->all() as $error)
@@ -43,8 +44,8 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
-        </div>
+            </div>
+        @endif
 
         <!-- LOGIN -->
         <div class="login-card text-center" id="loginView">
