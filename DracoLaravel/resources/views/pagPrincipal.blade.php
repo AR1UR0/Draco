@@ -140,11 +140,32 @@
                     >
                         <!-- IMAGENES DE TEMA, RACHA, DINERO Y VIDAS -->
                         <div>
-                            <img
-                                src="{{ asset('media/imgs/temas/berserk.jpg') }}"
-                                alt=" "
-                                class="border border-light imgTema"
-                            />
+                            
+                            <div class="dropdown d-none d-sm-block">
+                                <button class="btn btn-temas dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" id="imgPrincipal" class="border border-light imgTema" />
+                                </button>
+                                
+                                <ul class="dropdown-menu">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <li>
+                                            <a class="dropdown-item p-1" href="#" onclick="cambiarImagen('{{ asset('media/imgs/temas/berserk.jpg') }}')">
+                                                <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" class="border border-light imgTema" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item p-1" href="#" onclick="cambiarImagen('{{ asset('media/imgs/temas/gloryhammer.jpg') }}')">
+                                                <img src="{{ asset('media/imgs/temas/gloryhammer.jpg') }}" class="border border-light imgTema" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item p-1" href="#" onclick="cambiarImagen('{{ asset('media/imgs/temas/lotr.jpg') }}')">
+                                                <img src="{{ asset('media/imgs/temas/lotr.jpg') }}" class="border border-light imgTema" />
+                                            </a>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
                         </div>
                         <div
                             class="d-flex align-items-center justify-content-center"
@@ -484,5 +505,11 @@
         <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         <script src="{{ asset('js/themeChange.js') }}"></script>
         <script src="{{ asset('js/toastCopy.js') }}"></script>
+
+        <script>
+            function cambiarImagen(nuevaRuta) {
+                document.getElementById('imgPrincipal').src = nuevaRuta;
+            }
+        </script>
     </body>
 </html>
