@@ -15,6 +15,7 @@ return new class extends Migration
         $table->id(); // CP
         $table->text('texto');
         $table->boolean('es_correcta');
+        $table->string('imagen')->nullable();
         $table->foreignId('pregunta_id')->constrained('preguntas')->onDelete('cascade'); // FK a preguntas
         $table->timestamps();
     });
