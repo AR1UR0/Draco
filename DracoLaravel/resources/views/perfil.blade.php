@@ -21,8 +21,7 @@
     <body class="m-0">
         <div class="container-fluid p-0">
             <div class="row g-0">
-                <div class="col-12 col-md-auto border-end border-light">
-                    
+                <div class="navPrin col-12 col-md-auto border-end border-light">
                     <nav
                         class="navPrin vh-md-100 p-3 d-none d-md-flex flex-column align-items-end"
                     >
