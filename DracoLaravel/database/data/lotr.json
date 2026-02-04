@@ -1,5 +1,5 @@
 {
-    "tematicas": [
+    "datos": [
         {
             "nombre": "El Señor de los Anillos",
             "descripcion": "Todo sobre la Tierra Media, desde la Comarca hasta Mordor.",
@@ -16,19 +16,19 @@
                             "respuestas": [
                                 {
                                     "texto": "Saruman",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Radagast",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Gandalf",
-                                    "es_correcta": true
+                                    "correcta": true
                                 },
                                 {
                                     "texto": "Alatar",
-                                    "es_correcta": false
+                                    "correcta": false
                                 }
                             ]
                         },
@@ -38,19 +38,19 @@
                             "respuestas": [
                                 {
                                     "texto": "Frodo Bolsón",
-                                    "es_correcta": true
+                                    "correcta": true
                                 },
                                 {
                                     "texto": "Samwise Gamyi",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Peregrin Tuk",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Bilbo Bolsón",
-                                    "es_correcta": false
+                                    "correcta": false
                                 }
                             ]
                         },
@@ -60,19 +60,19 @@
                             "respuestas": [
                                 {
                                     "texto": "Gondor",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "La Comarca",
-                                    "es_correcta": true
+                                    "correcta": true
                                 },
                                 {
                                     "texto": "Rohan",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Rivendel",
-                                    "es_correcta": false
+                                    "correcta": false
                                 }
                             ]
                         },
@@ -83,17 +83,17 @@
                                 {
                                     "texto": "Colinas verdes con casas pequeñas de puertas redondas",
                                     "imagen": "comarca.jpg",
-                                    "es_correcta": true
+                                    "correcta": true
                                 },
                                 {
                                     "texto": "La ciudad blanca",
                                     "imagen": "gondor.jpg",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Tierra del monte del destino",
                                     "imagen": "mordor.jpg",
-                                    "es_correcta": false
+                                    "correcta": false
                                 }
                             ]
                         },
@@ -102,18 +102,18 @@
                             "audio": "TheShire.mp3",
                             "puntos_recompensa": 10,
                             "respuestas": [
-                                { "texto": "La Comarca", "es_correcta": true },
+                                { "texto": "La Comarca", "correcta": true },
                                 {
                                     "texto": "Gondor",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Mordor",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Rivendel",
-                                    "es_correcta": false
+                                    "correcta": false
                                 }
                             ]
                         }
@@ -129,19 +129,19 @@
                             "respuestas": [
                                 {
                                     "texto": "Dardo",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Orcrist",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Glamdring",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Anduril",
-                                    "es_correcta": true
+                                    "correcta": true
                                 }
                             ]
                         },
@@ -151,19 +151,19 @@
                             "respuestas": [
                                 {
                                     "texto": "Eomer",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Boromir",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Théoden",
-                                    "es_correcta": true
+                                    "correcta": true
                                 },
                                 {
                                     "texto": "Denethor",
-                                    "es_correcta": false
+                                    "correcta": false
                                 }
                             ]
                         },
@@ -173,19 +173,19 @@
                             "respuestas": [
                                 {
                                     "texto": "Trahal",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Bandobras",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Déagol",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Sméagol",
-                                    "es_correcta": true
+                                    "correcta": true
                                 }
                             ]
                         },
@@ -196,17 +196,17 @@
                                 {
                                     "texto": "Una espada de cristal que brilla en la oscuridad",
                                     "imagen": "dardo.jpg",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Un pequeño frasco de cristal que emite una luz blanca intensa",
                                     "imagen": "vialGaladriel.jpg",
-                                    "es_correcta": true
+                                    "correcta": true
                                 },
                                 {
                                     "texto": "Un anillo de oro liso con inscripciones de fuego",
                                     "imagen": "anilloUnico.jpg",
-                                    "es_correcta": false
+                                    "correcta": false
                                 }
                             ]
                         },
@@ -215,18 +215,18 @@
                             "audio": "uruks.mp3",
                             "puntos_recompensa": 10,
                             "respuestas": [
-                                { "texto": "La Comarca", "es_correcta": false },
+                                { "texto": "La Comarca", "correcta": false },
                                 {
                                     "texto": "Gondor",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Isengard",
-                                    "es_correcta": true
+                                    "correcta": true
                                 },
                                 {
                                     "texto": "Rivendel",
-                                    "es_correcta": false
+                                    "correcta": false
                                 }
                             ]
                         }
@@ -243,19 +243,19 @@
                             "respuestas": [
                                 {
                                     "texto": "Thangorodrim",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Caradhras",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Orodruin",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Amon Amarth",
-                                    "es_correcta": true
+                                    "correcta": true
                                 }
                             ]
                         },
@@ -265,19 +265,19 @@
                             "respuestas": [
                                 {
                                     "texto": "Ramaviva (Quickbeam)",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Bárbol (Treebeard)",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Glorfindel",
-                                    "es_correcta": true
+                                    "correcta": true
                                 },
                                 {
                                     "texto": "Corteza de Roble (Leaflock)",
-                                    "es_correcta": false
+                                    "correcta": false
                                 }
                             ]
                         },
@@ -287,19 +287,19 @@
                             "respuestas": [
                                 {
                                     "texto": "Ungoliant",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Gothmog",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Anatar",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Melkor (Morgoth)",
-                                    "es_correcta": true
+                                    "correcta": true
                                 }
                             ]
                         },
@@ -310,17 +310,17 @@
                                 {
                                     "texto": "Una ciudad de piedra blanca con siete niveles circulares.",
                                     "imagen": "gondor.jpg",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Una torre negra altísima con un ojo en la cima.",
                                     "imagen": "barad-dur.jpg",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Una ciudad fortificada que emite una luz verde fantasmal y tétrica.",
                                     "imagen": "minasMorgul.jpg",
-                                    "es_correcta": true
+                                    "correcta": true
                                 }
                             ]
                         },
@@ -329,18 +329,18 @@
                             "audio": "rohan.mp3",
                             "puntos_recompensa": 10,
                             "respuestas": [
-                                { "texto": "La Comarca", "es_correcta": false },
+                                { "texto": "La Comarca", "correcta": false },
                                 {
                                     "texto": "Rohan",
-                                    "es_correcta": true
+                                    "correcta": true
                                 },
                                 {
                                     "texto": "Gondor",
-                                    "es_correcta": false
+                                    "correcta": false
                                 },
                                 {
                                     "texto": "Rivendel",
-                                    "es_correcta": false
+                                    "correcta": false
                                 }
                             ]
                         }

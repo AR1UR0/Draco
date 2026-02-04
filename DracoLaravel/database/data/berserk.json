@@ -10,7 +10,7 @@
                     "preguntas": [
                         {
                             "enunciado": "¿Quién es el protagonista principal de Berserk?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 { "texto": "Griffith", "correcta": false },
                                 { "texto": "Guts", "correcta": true },
@@ -21,7 +21,7 @@
                         {
                             "enunciado": "¿Quien dice esta frase?",
                             "audio": "https://example.com/audios/frase_guts.mp3",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 { "texto": "Griffith", "correcta": false },
                                 { "texto": "Skull Knight", "correcta": false },
@@ -31,7 +31,7 @@
                         },
                         {
                             "enunciado": "¿Cómo se llama la espada gigantesca de Guts?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 { "texto": "Dragon Slayer", "correcta": true },
                                 { "texto": "Beherit Blade", "correcta": false },
@@ -41,7 +41,7 @@
                         },
                         {
                             "enunciado": "¿Quien es este Casca?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 {
                                     "texto": "Serpico",
@@ -62,7 +62,7 @@
                         },
                         {
                             "enunciado": "¿Qué criatura acompaña frecuentemente a Guts?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 { "texto": "Un elfo", "correcta": true },
                                 { "texto": "Un demonio", "correcta": false },
@@ -78,7 +78,7 @@
                     "preguntas": [
                         {
                             "enunciado": "¿Cómo se llama el grupo de mercenarios liderado por Griffith?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 { "texto": "Mano de Dios", "correcta": false },
                                 {
@@ -98,7 +98,7 @@
                         {
                             "enunciado": "¿A que personaje pertenece este tema?",
                             "audio": "https://example.com/audios/tema_guts.mp3",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 { "texto": "Griffith", "correcta": false },
                                 { "texto": "Skull Knight", "correcta": false },
@@ -108,7 +108,7 @@
                         },
                         {
                             "enunciado": "¿Qué objeto permite invocar el Eclipse?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 {
                                     "texto": "Un anillo real",
@@ -124,7 +124,7 @@
                         },
                         {
                             "enunciado": "¿Quien es este Farnese?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 {
                                     "texto": "Casca",
@@ -145,7 +145,7 @@
                         },
                         {
                             "enunciado": "¿Cuál es la relación inicial entre Guts y Griffith?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 { "texto": "Hermanos", "correcta": false },
                                 {
@@ -167,7 +167,7 @@
                     "preguntas": [
                         {
                             "enunciado": "¿Qué marca queda grabada en Guts tras el Eclipse?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 {
                                     "texto": "Marca del Odio",
@@ -190,7 +190,7 @@
                         {
                             "enunciado": "¿Quien dice esta frase?",
                             "audio": "audio",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 { "texto": "", "correcta": false },
                                 { "texto": "", "correcta": false },
@@ -200,7 +200,7 @@
                         },
                         {
                             "enunciado": "¿Cómo se llama la armadura que potencia a Guts a costa de su mente?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 {
                                     "texto": "Armadura Negra",
@@ -222,7 +222,7 @@
                         },
                         {
                             "enunciado": "¿Quien es este Femto?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 {
                                     "texto": "Skull Knight",
@@ -243,7 +243,7 @@
                         },
                         {
                             "enunciado": "¿Cuál de los siguientes NO pertenece a la Mano de Dios?",
-                            "puntos": 10,
+                            "puntos_recompensa": 10,
                             "respuestas": [
                                 { "texto": "Femto", "correcta": false },
                                 { "texto": "Slan", "correcta": false },
