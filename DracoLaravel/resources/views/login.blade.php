@@ -51,11 +51,11 @@
             <h1 class="login-title mb-4">Ingresar</h1>
             <form id="loginForm" action="{{ route('login.post') }}" method="POST">
                 @csrf <div class="mb-3">
-                    <input type="text" class="form-control" id="loginUser" placeholder="Correo Electrónico" required />
+                    <input type="text" name="email" class="form-control" id="loginUser" placeholder="Correo Electrónico" required />
                 </div>
 
                 <div class="mb-2 position-relative">
-                    <input type="password" class="form-control" id="loginPassword" placeholder="Contraseña" required />
+                    <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Contraseña" required />
                     <a href="#" class="forgot-password" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">¿Se te olvidó?</a>
                 </div>
 

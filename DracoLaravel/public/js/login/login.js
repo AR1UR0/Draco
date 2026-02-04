@@ -59,7 +59,7 @@ if (loginForm) {
             return;
         }
         // si todo esta bien, enviamos el formulario a Laravel
-        this.SubmitEvent();
+        this.submit();
     });
 }
 
