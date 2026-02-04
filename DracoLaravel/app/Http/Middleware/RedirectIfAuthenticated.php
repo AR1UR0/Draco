@@ -12,7 +12,7 @@ class RedirectIfAuthenticated
 {
     /**
      * Handle an incoming request.
-     *
+     *si estas logueado e intentas ir a login te dice que ya estas logueado
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next, string ...$guards): Response
