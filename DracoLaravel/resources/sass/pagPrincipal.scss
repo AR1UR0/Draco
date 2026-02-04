@@ -263,6 +263,30 @@ html {
     pointer-events: none;
 }
 
+.imgTema {
+    width: 95px !important;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.imgTema:hover {
+    box-shadow: $secColorTran 0 0 10px;
+    transition: 0.5s;
+}
+
+.dropdown-menu {
+    background-color: transparent !important;
+    border: none !important;
+    min-width: auto !important; /* Evita que el menú sea demasiado ancho */
+}
+
+/* Forzar que los elementos LI se mantengan en línea */
+.dropdown-menu div {
+    display: flex;
+    gap: 10px; /* Espacio entre imágenes */
+    padding: 10px;
+}
+
 // ==================================================
 // RESPONSIVE
 // ==================================================
