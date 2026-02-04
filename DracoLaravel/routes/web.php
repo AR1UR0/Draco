@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,11 @@ Route::view('/plantilla', 'plantilla')->name('plantilla');
 Route::view('/pregunta-texto', 'preguntaTexto')->name('preguntaTexto');
 Route::view('/plantilla-media', 'plantillaMedia')->name('plantillaMedia');
 Route::view('/plantilla-imagenes', 'plantillaimagenes')->name('plantillaimagenes');
+
+// Ruta para CARGAR el test (GET)
+Route::get('/test/{id}', [TestController::class, 'mostrarTest'])->name('test.show');
+
+// Ruta para PROCESAR la respuesta y restar vidas (POST)
+Route::post('/test/validar', [TestController::class, 'comprobarRespuesta'])->name('test.validar');
+
+
