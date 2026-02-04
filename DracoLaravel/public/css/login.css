@@ -5,14 +5,12 @@
   justify-content: center;
   position: relative;
   padding: 1rem;
-  background-color: #1a1a1a;
   width: 100%;
 }
 
 .login-card {
   width: 100%;
   max-width: 380px;
-  background: transparent;
   z-index: 5;
 }
 
@@ -34,25 +32,12 @@
   top: 20px;
   right: 20px;
   border: 2px solid #98b705;
-  color: white;
   padding: 0.6rem 1.2rem;
   text-decoration: none;
 }
-.btn-register:hover {
-  background-color: #98b705;
-  color: white;
-}
 
 .form-control {
-  background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid #444;
-  color: white;
   border-radius: 4px;
   margin-bottom: 1rem;
-}
-.form-control::-moz-placeholder {
-  color: #777;
-}
-.form-control::placeholder {
-  color: #777;
 }/*# sourceMappingURL=login.css.map */
