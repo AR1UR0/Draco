@@ -13,6 +13,7 @@ return new class extends Migration
 {
     Schema::create('preguntas', function (Blueprint $table) {
         $table->id(); // CP
+        $table->text('enunciado');
         $table->integer('puntos_recompensa')->default(10);
         $table->foreignId('test_id')->constrained('tests')->onDelete('cascade'); // FK a tests
         $table->timestamps();
