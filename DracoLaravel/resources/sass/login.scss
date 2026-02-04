@@ -9,16 +9,13 @@ $secColor: #98b705;
     justify-content: center; // Centra horizontalmente
     position: relative;
     padding: 1rem;
-    background-color: #1a1a1a; // Color oscuro de fondo
     width: 100%;
 }
 
 .login-card {
     width: 100%;
     max-width: 380px;
-    background: transparent; // O el color de fondo de tu card
     z-index: 5;
-    margin-right: 590px;
 }
 
 // Botones posicionados fuera del flujo central
@@ -40,25 +37,13 @@ $secColor: #98b705;
     top: 20px;
     right: 20px;
     border: 2px solid $secColor;
-    color: white;
     padding: 0.6rem 1.2rem;
     text-decoration: none;
-
-    &:hover {
-        background-color: $secColor;
-        color: white;
-    }
 }
 
 // Estilos para los inputs (basados en tu captura)
 .form-control {
-    background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid #444;
-    color: white;
     border-radius: 4px;
     margin-bottom: 1rem;
-
-    &::placeholder {
-        color: #777;
-    }
 }

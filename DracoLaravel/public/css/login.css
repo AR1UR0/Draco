@@ -1,59 +1,43 @@
 .login-wrapper {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 1rem;
-    background-color: #1a1a1a;
-    width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
+  width: 100%;
 }
 
 .login-card {
-    width: 100%;
-    max-width: 380px;
-    background: transparent;
-    z-index: 5;
-    margin-right: 575px;
+  width: 100%;
+  max-width: 380px;
+  z-index: 5;
 }
 
 .login-close {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .login-actions {
-    position: absolute;
-    top: 20px;
-    right: 140px;
-    z-index: 10;
+  position: absolute;
+  top: 20px;
+  right: 140px;
+  z-index: 10;
 }
 
 .btn-register {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    border: 2px solid #98b705;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    text-decoration: none;
-}
-.btn-register:hover {
-    background-color: #98b705;
-    color: white;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 2px solid #98b705;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
 }
 
 .form-control {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid #444;
-    color: white;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
-.form-control::-moz-placeholder {
-    color: #777;
-}
-.form-control::placeholder {
-    color: #777;
-} /*# sourceMappingURL=login.css.map */
+  border: 1px solid #444;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}/*# sourceMappingURL=login.css.map */
