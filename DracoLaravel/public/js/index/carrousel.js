@@ -80,3 +80,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Iniciar el ciclo automático cada 3 segundos (3000 ms).
     setInterval(moveCarousel, 3000);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    var popoverTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="popover"]'),
+    );
+
+    popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl, {
+            // ESTA ES LA CLAVE: El contenedor es el padre directo
+            container: popoverTriggerEl.parentElement,
+            trigger: "click",
+        });
+    });
+});
