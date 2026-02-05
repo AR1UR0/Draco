@@ -149,21 +149,15 @@
                                 
                                 <ul class="dropdown-menu">
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <li>
-                                            <a class="dropdown-item p-1" href="#" onclick="cambiarImagen('{{ asset('media/imgs/temas/berserk.jpg') }}')">
-                                                <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" class="border border-light imgTema" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item p-1" href="#" onclick="cambiarImagen('{{ asset('media/imgs/temas/gloryhammer.jpg') }}')">
-                                                <img src="{{ asset('media/imgs/temas/gloryhammer.jpg') }}" class="border border-light imgTema" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item p-1" href="#" onclick="cambiarImagen('{{ asset('media/imgs/temas/lotr.jpg') }}')">
-                                                <img src="{{ asset('media/imgs/temas/lotr.jpg') }}" class="border border-light imgTema" />
-                                            </a>
-                                        </li>
+                                        @foreach($tematicas as $tematica)
+                                            <li>
+                                                <a class="dropdown-item p-1" href="#" onclick="cambiarImagen('{{ asset('media/imgs/temas/' . $tematica->image) }}')">
+                                                    <img src="{{ asset('media/imgs/temas/' . $tematica->image) }}" 
+                                                    class="border border-light imgTema" 
+                                                    alt="{{ $tematica->name }}" />
+                                                </a>
+                                            </li>
+                                        @endforeach
                                     </div>
                                 </ul>
                             </div>
@@ -176,7 +170,7 @@
                                 alt="Racha:"
                                 class="imgIco"
                             />
-                            <span class="racha">&nbsp;{{ Auth::check() ? (Auth::user()->racha ?? 0) : 0 }}</span>
+                            <span class="racha">&nbsp;{{ Auth::check() ? (Auth::user()->streak ?? 0) : 0 }}</span>
                         </div>
                         <div
                             class="d-flex align-items-center justify-content-center"
@@ -186,7 +180,7 @@
                                 alt="Dinero:"
                                 class="imgIco"
                             />
-                            <span class="racha">&nbsp;&nbsp;{{ Auth::check() ? Auth::user()->dinero : 0 }}</span>
+                            <span class="racha">&nbsp;&nbsp;{{ Auth::check() ? Auth::user()->points : 0 }}</span>
                         </div>
                         <div
                             class="d-flex align-items-center justify-content-center"
@@ -196,7 +190,7 @@
                                 alt="Vida:"
                                 class="imgIco"
                             />
-                            <span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->vidas_actuales : 5 }}</span>
+                            <span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->current_lives : 5 }}</span>
                         </div>
                     </div>
                     <hr
@@ -235,7 +229,7 @@
                     <div class="d-block d-md-none">
                         <!-- CONTENIDO PRINCIPAL -->
                         <div class="topMainContent">
-                            <span class="tema">Berserk</span>: FASE
+                            <span class="tema">{{ $tematicas->first()->name ?? 'Selecciona un tema' }}</span>: FASE
                             <span class="fase">1</span>, NIVEL
                             <span class="nivel">1</span>
                         </div>

@@ -76,7 +76,7 @@
 
             <form id="registerForm" action="{{ route('register.post') }}" method="POST">
                 @csrf <div class="mb-3">
-                    <input type="text" name="nombre" class="form-control" id="regUser" placeholder="Usuario" required />
+                    <input type="text" name="name" class="form-control" id="regUser" placeholder="Usuario" required />
                 </div>
 
                 <div class="mb-3">
@@ -177,7 +177,7 @@
     <script>
     // Si hay errores y el usuario estaba intentando registrarse, 
     // mostramos la vista de registro automáticamente al recargar
-    @if($errors->has('nombre') || $errors->has('password_confirmation'))
+    @if($errors->has('name') || $errors->has('password_confirmation'))
         document.getElementById('loginView').classList.add('d-none');
         document.getElementById('registerView').classList.remove('d-none');
     @endif

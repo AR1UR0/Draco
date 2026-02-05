@@ -12,21 +12,19 @@ return new class extends Migration
     public function up()
 {
     Schema::create('users', function (Blueprint $table) {
-        $table->id(); // CP
-        $table->string('nombre', 50);
-        $table->string('email', 50)->unique(); // único
-        $table->string('password'); // hash del password
-        $table->integer('dinero')->default(0);
-        $table->integer('racha')->default(0);
-        $table->integer('experiencia')->default(0);
-        $table->timestamp('email_verified_at')->nullable();
-        $table->timestamp('last_login_at')->nullable();
-        $table->timestamp('last_life_recovery_at')->nullable();
-        $table->integer('vidas_actuales')->default(7);
-        $table->integer('vidas_max')->default(7);
-        $table->string('imagen_usuario')->nullable();
-        $table->foreignId('role_id')->default(2)->constrained('roles')->onDelete('cascade');
-        $table->timestamps(); // created_at y updated_at
+        $table->id();
+        $table->string('name', 50);
+        $table->string('email', 50)->unique();
+        $table->string('password');
+        $table->integer('points')->default(0); 
+        $table->integer('streak')->default(0);
+        $table->integer('current_lives')->default(5);
+        $table->integer('max_lives')->default(7);
+        $table->timestamp('last_life_recovery')->nullable();
+        $table->string('profile_image')->nullable();
+        $table->foreignId('role_id')->constrained('roles'); // Esto requiere que 'roles' ya exista
+        $table->rememberToken();
+        $table->timestamps();
     });
 }
 

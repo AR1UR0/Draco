@@ -74,11 +74,11 @@
                 },
                 {
                     "titulo": "Nivel 2: Intermedio",
-                    "orden": 1,
+                    "orden": 2,
                     "preguntas": [
                         {
                             "enunciado": "¿Cómo se llama el grupo de mercenarios liderado por Griffith?",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 20,
                             "respuestas": [
                                 { "texto": "Mano de Dios", "correcta": false },
                                 {
@@ -98,7 +98,7 @@
                         {
                             "enunciado": "¿A que personaje pertenece este tema?",
                             "audio": "https://example.com/audios/tema_guts.mp3",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 20,
                             "respuestas": [
                                 { "texto": "Griffith", "correcta": false },
                                 { "texto": "Skull Knight", "correcta": false },
@@ -108,7 +108,7 @@
                         },
                         {
                             "enunciado": "¿Qué objeto permite invocar el Eclipse?",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 20,
                             "respuestas": [
                                 {
                                     "texto": "Un anillo real",
@@ -124,7 +124,7 @@
                         },
                         {
                             "enunciado": "¿Quien es este Farnese?",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 20,
                             "respuestas": [
                                 {
                                     "texto": "Casca",
@@ -145,7 +145,7 @@
                         },
                         {
                             "enunciado": "¿Cuál es la relación inicial entre Guts y Griffith?",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 20,
                             "respuestas": [
                                 { "texto": "Hermanos", "correcta": false },
                                 {
@@ -163,11 +163,11 @@
                 },
                 {
                     "titulo": "Nivel 3: Difícil",
-                    "orden": 1,
+                    "orden": 3,
                     "preguntas": [
                         {
                             "enunciado": "¿Qué marca queda grabada en Guts tras el Eclipse?",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 30,
                             "respuestas": [
                                 {
                                     "texto": "Marca del Odio",
@@ -190,7 +190,7 @@
                         {
                             "enunciado": "¿Quien dice esta frase?",
                             "audio": "audio",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 30,
                             "respuestas": [
                                 { "texto": "", "correcta": false },
                                 { "texto": "", "correcta": false },
@@ -200,7 +200,7 @@
                         },
                         {
                             "enunciado": "¿Cómo se llama la armadura que potencia a Guts a costa de su mente?",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 30,
                             "respuestas": [
                                 {
                                     "texto": "Armadura Negra",
@@ -222,7 +222,7 @@
                         },
                         {
                             "enunciado": "¿Quien es este Femto?",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 30,
                             "respuestas": [
                                 {
                                     "texto": "Skull Knight",
@@ -243,7 +243,7 @@
                         },
                         {
                             "enunciado": "¿Cuál de los siguientes NO pertenece a la Mano de Dios?",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 30,
                             "respuestas": [
                                 { "texto": "Femto", "correcta": false },
                                 { "texto": "Slan", "correcta": false },

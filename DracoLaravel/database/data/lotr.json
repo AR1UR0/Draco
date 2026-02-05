@@ -213,7 +213,7 @@
                         {
                             "enunciado": "¿Esta canción a qué territorio/facción de la Tierra Media pertenece?",
                             "audio": "uruks.mp3",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 20,
                             "respuestas": [
                                 { "texto": "La Comarca", "correcta": false },
                                 {
@@ -327,7 +327,7 @@
                         {
                             "enunciado": "¿Esta canción a qué territorio/facción de la Tierra Media pertenece?",
                             "audio": "rohan.mp3",
-                            "puntos_recompensa": 10,
+                            "puntos_recompensa": 30,
                             "respuestas": [
                                 { "texto": "La Comarca", "correcta": false },
                                 {
