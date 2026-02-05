@@ -32,11 +32,16 @@
                     <a href="{{ route('pagPrincipal') }}" class="mb-4 me-3 enlPrin"
                         >Aprender</a
                     >
-                    
+
                     @auth
                     <a href="{{ route('store') }}" class="mb-4 me-3 enlPrin">Tienda</a>
-                    <a href="{{ route('perfil') }}" class="mb-4 me-3 enlPrin">Perfil</a>
+                        @if(Auth::user()->role_id==1)
+                        <a href="{{ route('admin') }}" class="mb-4 me-3 enlPrin">Admin</a>
+                        @else
+                        <a href="{{ route('perfil') }}" class="mb-4 me-3 enlPrin">Perfil</a>
+                        @endif
                     @endauth
+
                 </nav>
                 <main class="d-none d-md-block flex-grow-1">
                     <!-- CONTENIDO PRINCIPAL -->
@@ -126,9 +131,14 @@
                             <a href="{{ route('pagPrincipal') }}" class="d-block py-3 enlPrinWider"
                                 >Aprender</a
                             >
+                            
                             @auth
-                                <a href="{{ route('store') }}" class="d-block py-3 enlPrinWider">Tienda</a>
+                            <a href="{{ route('store') }}" class="d-block py-3 enlPrinWider">Tienda</a>
+                                @if(Auth::user()->role_id==1)
+                                <a href="{{ route('admin') }}" class="d-block py-3 enlPrinWider">Admin</a>
+                                @else
                                 <a href="{{ route('perfil') }}" class="d-block py-3 enlPrinWider">Perfil</a>
+                                @endif
                             @endauth
                         </div>
                     </div>
