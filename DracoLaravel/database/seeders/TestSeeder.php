@@ -2,67 +2,70 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
-use Illuminate\Database\Seeder; 
-use Illuminate\Support\Facades\File;
-use App\Models\Tematica;
+use Illuminate\Database\Seeder;
 use App\Models\Test;
 use App\Models\Pregunta;
 use App\Models\Respuesta;
-
+use App\Models\Tematica;
+use Illuminate\Support\Facades\File;
 
 class TestSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-public function run(): void
+    public function run(): void
     {
-        // Lista de JSON a importar
-        $jsonFiles = [
-            'gloryhammer.json',
-            'lotr.json',
-            'berserk.json'
-        ];
+        // 1. Definimos los archivos que están en database/data
+        $archivos = ['berserk.json', 'gloryhammer.json', 'lotr.json'];
 
-        foreach ($jsonFiles as $fileName) {
-            $jsonPath = database_path("data/$fileName");
-            if (!file_exists($jsonPath)) continue;
+        foreach ($archivos as $nombreArchivo) {
+            $ruta = database_path("data/{$nombreArchivo}");
 
-            $json = File::get($jsonPath);
+            if (!File::exists($ruta)) {
+                $this->command->warn("Archivo no encontrado en: {$ruta}");
+                continue;
+            }
+
+            // 2. Leemos y decodificamos el JSON
+            $json = File::get($ruta);
             $data = json_decode($json, true);
 
-            foreach ($data['datos'] as $tematicaData) {
-                $tematica = Tematica::where('nombre', $tematicaData['nombre'])->first();
-                if (!$tematica) continue;
+            foreach ($data['datos'] as $temaData) {
+                // Buscamos la temática por el nombre (Berserk, El Señor de los Anillos, etc.)
+                $tema = Tematica::where('name', $temaData['nombre'])->first();
 
-                foreach ($tematicaData['tests'] as $testData) {
+                if (!$tema) {
+                    $this->command->error("Temática '{$temaData['nombre']}' no encontrada en la BD.");
+                    continue;
+                }
+
+                foreach ($temaData['tests'] as $testData) {
+                    // Mapeo: JSON 'titulo' -> Modelo 'title' | JSON 'orden' -> Modelo 'order'
                     $test = Test::create([
-                        'titulo' => $testData['titulo'],
-                        'orden' => $testData['orden'],
-                        'tematica_id' => $tematica->id,
+                        'title'       => $testData['titulo'],
+                        'order'       => $testData['orden'],
+                        'tematica_id' => $tema->id
                     ]);
 
-                    foreach ($testData['preguntas'] as $preguntaData) {
+                    foreach ($testData['preguntas'] as $qData) {
+                        // Mapeo: JSON 'enunciado' -> Modelo 'enunciado'
                         $pregunta = Pregunta::create([
-                            'enunciado' => $preguntaData['enunciado'],
-                            'imagen' => $preguntaData['imagen'] ?? null,
-                            'audio' => $preguntaData['audio'] ?? null,
-                            'test_id' => $test->id,
+                            'enunciado'            => $qData['enunciado'],
+                            'reward_points'   => $qData['puntos_recompensa'] ?? 10,
+                            'test_id'         => $test->id
                         ]);
 
-                        foreach ($preguntaData['respuestas'] as $respuestaData) {
+                        foreach ($qData['respuestas'] as $aData) {
+                            // Mapeo: JSON 'texto' -> Modelo 'text'
+                            // Mapeo: JSON 'correcta' -> Modelo 'is_correct'
                             Respuesta::create([
-                                'texto' => $respuestaData['texto'],
-                                'es_correcta' => $respuestaData['correcta'],
-                                'imagen' => $respuestaData['imagen'] ?? null,
-                                'pregunta_id' => $pregunta->id,
+                                'opcion'        => $aData['texto'] ?? '',
+                                'is_correct'  => $aData['correcta'], 
+                                'pregunta_id' => $pregunta->id
                             ]);
                         }
                     }
                 }
             }
         }
+        $this->command->info("¡Tests y preguntas cargados con éxito desde database/data!");
     }
 }

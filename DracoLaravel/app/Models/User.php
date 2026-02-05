@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -13,16 +12,16 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
-        'nombre',
-        'email',
-        'password',
-        'role_id',
-        'dinero',
-        'racha',
-        'experiencia',
-        'vidas_actuales',
-        'vidas_max',
-        'imagen_usuario',
+        'name',           // Antes era 'nombre'
+        'email',          
+        'password',       
+        'role_id',        
+        'points',         // Antes era 'experiencia' 
+        'streak',         // Antes era 'racha' 
+        'current_lives',  // Antes era 'vidas_actuales'
+        'max_lives',      // Antes era 'vidas_max'
+        'last_life_recovery', // Antes era 'last_life_recovery_at' 
+        'profile_image',  // Antes era 'imagen_usuario' 
     ];
 
     protected $hidden = [
@@ -33,21 +32,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-        'last_life_recovery_at' => 'datetime',
+        'last_life_recovery' => 'datetime',
     ];
 
-    public function rol()
+    // Relación con el nuevo modelo Role [cite: 282, 431]
+    public function role()
     {
-        return $this->belongsTo(Rol::class, 'role_id');
+        return $this->belongsTo(Role::class);
     }
 
-    public function progresos()
+    // Relación con los nuevos resultados de tests [cite: 298, 473]
+    public function results()
     {
-        return $this->hasMany(Progreso::class, 'user_id');
+        return $this->hasMany(UserTestResult::class);
     }
 
-    public function compras()
+    // Relación con el inventario de la tienda [cite: 304, 488]
+    public function inventory()
     {
-        return $this->hasMany(Compra::class, 'user_id');
+        return $this->belongsToMany(Item::class, 'user_inventory')
+                    ->withPivot('quantity', 'expires_at')
+                    ->withTimestamps();
     }
 }

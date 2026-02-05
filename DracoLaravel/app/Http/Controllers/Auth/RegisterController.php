@@ -18,31 +18,29 @@ class RegisterController extends Controller
 
     // Procesa el registro
     public function register(Request $request)
-    {
-        // 1. Validar los datos
-        $request->validate([
-            'nombre' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
+{
+    // 1. Validar los datos (usando 'name' en lugar de 'nombre')
+    $request->validate([
+        'name' => 'required|string|max:255', 
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:8|confirmed',
+    ]);
 
-        // 2. Crear el usuario en la BD
-        $user = User::create([
-            'nombre' => $request->nombre,
-            'email' => $request->email,
-            'password' => Hash::make($request->password), // Encriptar contraseña
-            'role_id' => 2, // ID de usuario normal
-            'dinero' => 0,
-            'racha' => 0,
-            'experiencia' => 0,
-            'vidas_actuales' => 7, 
-            'vidas_max' => 7,
-        ]);
+    // 2. Crear el usuario en la BD con los nombres en INGLÉS
+    $user = User::create([
+        'name'           => $request->name,
+        'email'          => $request->email,
+        'password'       => Hash::make($request->password),
+        'role_id'        => 2, // Usuario normal
+        'points'         => 0, // Antes 'dinero'
+        'streak'         => 0, // Antes 'racha'
+        'experience'     => 0, // Antes 'experiencia'
+        'current_lives'  => 7, // Antes 'vidas_actuales'
+        'max_lives'      => 7, // Antes 'vidas_max'
+    ]);
 
-        // 3. Loguear automáticamente al usuario
-        Auth::login($user);
-
-        // 4. Redirigir a la página principal con el mensaje de oferta (vuestro requisito)
-        return redirect()->route('pagPrincipal')->with('oferta_plus', true);
-    }
+    // 3. Loguear y redirigir
+    Auth::login($user);
+    return redirect()->route('pagPrincipal')->with('oferta_plus', true);
+}
 }

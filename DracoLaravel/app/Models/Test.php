@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Test extends Model
 {
     protected $table = 'tests';
+    protected $fillable = ['title', 'order', 'tematica_id']; 
 
     public function tematica()
     {

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Respuesta extends Model
 {
     protected $table = 'respuestas';
+    protected $fillable = ['opcion', 'is_correct', 'pregunta_id']; 
 
     public function pregunta()
     {
