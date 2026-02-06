@@ -47,3 +47,16 @@ $secColor: #98b705;
     border-radius: 4px;
     margin-bottom: 1rem;
 }
+
+// Estilo específico para el popover de error sin afectar el layout
+.popover-error {
+    --bs-popover-bg: #f70071;
+    --bs-popover-border-color: #f70071;
+    --bs-popover-header-bg: #f70071;
+    --bs-popover-header-color: #fff;
+    --bs-popover-body-color: #fff;
+
+    .popover-arrow::before {
+        border-right-color: #f70071 !important; // Para la flechita lateral
+    }
+}
