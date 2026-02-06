@@ -17,6 +17,11 @@
             body {
                 overflow-y: hidden;
             }
+            @media screen and (max-width: 576px) {
+                body {
+                    overflow-y: scroll;
+                }
+            }
         </style>
     </head>
 

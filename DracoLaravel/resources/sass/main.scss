@@ -132,7 +132,7 @@ body {
     }
 }
 
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
     .login-title {
         font-size: 1.6rem;
     }
@@ -362,13 +362,16 @@ body.bg-light a {
 // ===============================
 // Ajustes para que la portada y el carrusel se adapten bien a pantallas pequeñas.
 
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
     .main-img {
         content: src("../Draco/media/imgs/index/dracoLibroPequeno.png");
         width: 200px;
     }
     .carousel-item-custom {
         min-width: 50%; /* 2 visibles en móvil */
+    }
+    body {
+        overflow: scroll;
     }
 }
 

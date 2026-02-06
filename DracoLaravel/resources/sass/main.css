@@ -106,7 +106,7 @@ body {
   color: #ffffff !important;
 }
 
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
   .login-title {
     font-size: 1.6rem;
   }
@@ -300,7 +300,7 @@ body.bg-light a:hover {
   border-top-right-radius: 16px;
 }
 
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
   .main-img {
     content: src("../Draco/media/imgs/index/dracoLibroPequeno.png");
     width: 200px;
