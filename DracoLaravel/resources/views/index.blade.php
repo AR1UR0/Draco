@@ -26,6 +26,16 @@
     </head>
 
     <body>
+        <!-- SPINNER PARA MOVER DE PÁGINA -->
+        <div id="loader-overlay" class="d-none">
+            <div class="d-flex flex-column align-items-center justify-content-center vh-100">
+                <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Cargando...</span>
+                </div>
+                <h5 class="text-white mt-3">Loading...</h5>
+            </div>
+        </div>
+        <!-- PÁGINA -->
         <div class="d-flex flex-column min-vh-100">
             <!-- HEADER -->
             <header
@@ -81,24 +91,21 @@
                         class="main-img"
                     />
 
-                    <div
-                        class="text-center d-flex flex-column gap-3 align-items-center justify-content-center"
-                        style="width: 300px; height: 350px"
-                    >
+                    <div 
+                        class="text-center d-flex flex-column gap-3 align-items-center justify-content-center" 
+                        style="width: 300px; height: 350px">
                         <p>
-                            ¡Una forma fácil, divertida y gratuita de aprender
-                            sobre tus temas favoritos!
+                            ¡Una forma fácil, divertida y gratuita de aprender sobre tus temas favoritos!
                         </p>
-                        <a href="{{ route('firstConfig') }}">
+                        
+                        <a href="javascript:void(0)" onclick="redireccionarConCarga('{{ route('firstConfig') }}')">
                             <button class="btn btnPrimary" style="width: 250px">
                                 EMPIEZA AHORA
                             </button>
                         </a>
-                        <a href="{{ route('login') }}">
-                            <button
-                                class="btn btnTerciary btnTerciaryLight"
-                                style="width: 250px"
-                            >
+
+                        <a href="javascript:void(0)" onclick="redireccionarConCarga('{{ route('login') }}')">
+                            <button class="btn btnTerciary btnTerciaryLight" style="width: 250px">
                                 YA TENGO UNA CUENTA
                             </button>
                         </a>
@@ -273,6 +280,30 @@
 
                 // MOSTRAR OFFCANVAS DESPUÉS DE 1.5 SEGUNDOS
                 setTimeout(() => offcanvas.show(), 1500);
+            });
+        </script>
+        <script>
+            function redireccionarConCarga(url) {
+                const loader = document.getElementById('loader-overlay');
+                
+                // 1. Mostrar la capa
+                loader.classList.remove('d-none');
+                
+                // 2. Bloquear scroll (opcional pero recomendado)
+                document.body.style.overflow = 'hidden';
+                
+                // 3. Esperar 1.5 segundos y redirigir
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 1000);
+            }
+            window.addEventListener('pageshow', function (event) {
+                // Si la página se carga desde la caché del navegador (al ir hacia atrás)
+                if (event.persisted) {
+                    const loader = document.getElementById('loader-overlay');
+                    loader.classList.add('d-none'); // Ocultamos el loader
+                    document.body.style.overflow = 'auto'; // Restauramos el scroll si fuera necesario
+                }
             });
         </script>
     </body>

@@ -437,3 +437,16 @@ body.bg-light a {
     border: 0;
     border-top: 1px dotted var(--bs-secondary);
 }
+
+#loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Oscurece el fondo */
+    z-index: 10000; /* Por encima de todo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
