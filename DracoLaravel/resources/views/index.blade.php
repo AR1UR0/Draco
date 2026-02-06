@@ -138,35 +138,50 @@
                                     &nbsp;&nbsp;Berserk
                                 </a>
                             </div>
-                            <div class="carousel-item-custom">
-                                <a href="{{ route('pagPrincipal') }}">
-                                    <img
-                                        src="{{ asset('media/imgs/temas/mitologia.jpg') }}"
-                                        alt=" "
-                                        class="imgCarr border"
-                                    />
-                                    &nbsp;&nbsp;Mitología
-                                </a>
+                            <div class="carousel-item-custom" style="position: relative; overflow: visible !important;">
+                                <div class="popover-wrapper" style="position: relative; display: inline-block;">
+
+                                    <div style="cursor: pointer;" 
+                                         data-bs-toggle="popover" 
+                                         data-bs-placement="top" 
+                                         data-bs-content="PRÓXIMAMENTE"
+                                         data-bs-animation="false"> <img src="{{ asset('media/imgs/temas/mitologia.jpg') }}" 
+                                             alt="Mitología" 
+                                             class="imgCarr border" />
+                                        &nbsp;&nbsp;Mitología
+                                    </div>
+
+                                </div>
                             </div>
-                            <div class="carousel-item-custom">
-                                <a href="{{ route('pagPrincipal') }}">
-                                    <img
-                                        src="{{ asset('media/imgs/temas/starwars.jpg') }}"
-                                        alt=" "
-                                        class="imgCarr border"
-                                    />
-                                    &nbsp;&nbsp;Star Wars
-                                </a>
+                            <div class="carousel-item-custom" style="position: relative; overflow: visible !important;">
+                                <div class="popover-wrapper" style="position: relative; display: inline-block;">
+    
+                                    <div style="cursor: pointer;" 
+                                         data-bs-toggle="popover" 
+                                         data-bs-placement="top" 
+                                         data-bs-content="PRÓXIMAMENTE"
+                                         data-bs-animation="false"> <img src="{{ asset('media/imgs/temas/starwars.jpg') }}" 
+                                             alt="Star Wars" 
+                                             class="imgCarr border" />
+                                        &nbsp;&nbsp;Star Wars
+                                    </div>
+    
+                                </div>
                             </div>
-                            <div class="carousel-item-custom">
-                                <a href="{{ route('pagPrincipal') }}">
-                                    <img
-                                        src="{{ asset('media/imgs/temas/wow.jpg') }}"
-                                        alt=" "
-                                        class="imgCarr border"
-                                    />
-                                    &nbsp;&nbsp;WoW
-                                </a>
+                            <div class="carousel-item-custom" style="position: relative; overflow: visible !important;">
+                                <div class="popover-wrapper" style="position: relative; display: inline-block;">
+    
+                                    <div style="cursor: pointer;" 
+                                         data-bs-toggle="popover" 
+                                         data-bs-placement="top" 
+                                         data-bs-content="PRÓXIMAMENTE"
+                                         data-bs-animation="false"> <img src="{{ asset('media/imgs/temas/wow.jpg') }}" 
+                                             alt="WoW" 
+                                             class="imgCarr border" />
+                                        &nbsp;&nbsp;WoW
+                                    </div>
+    
+                                </div>
                             </div>
                         </div>
                     </div>
