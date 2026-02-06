@@ -24,10 +24,17 @@
         </a>
         <a href="{{ route('pagPrincipal') }}" class="mb-4 me-3 enlPrin">Aprender</a>
         <a href="{{ route('store') }}" class="mb-4 me-3 enlPrin">Tienda</a>
-        <a href="{{ route('perfil') }}" class="mb-4 me-3 enlPrin">Perfil</a>
+            @if(Auth::user()->role_id==1)
+            <a href="{{ route('admin') }}" class="mb-4 me-3 enlPrin">Admin</a>
+            @else
+            <a href="{{ route('perfil') }}" class="mb-4 me-3 enlPrin">Perfil</a>
+            @endif
+        
+
+
       </nav>
   <!-- MENU HAMBURGUESA -->
-      <div
+      <div 
           class="d-flex d-md-none align-items-center justify-content-between p-2"
       >
           <a href="{{ route('pagPrincipal') }}">
@@ -61,12 +68,12 @@
               <a href="{{ route('pagPrincipal') }}" class="d-block py-3 enlPrinWider"
                   >Aprender</a
               >
-              <a href="{{ route('store') }}" class="d-block py-3 enlPrinWider"
-                  >Tienda</a
-              >
-              <a href="{{ route('perfil') }}" class="d-block py-3 enlPrinWider"
-                  >Perfil</a
-              >
+              <a href="{{ route('store') }}" class="d-block py-3 enlPrinWider">Tienda</a>
+                  @if(Auth::user()->role_id==1)
+                  <a href="{{ route('admin') }}" class="d-block py-3 enlPrinWider">Admin</a>
+                  @else
+                  <a href="{{ route('perfil') }}" class="d-block py-3 enlPrinWider">Perfil</a>
+                  @endif
           </div>
       </div>
       <hr

@@ -9,9 +9,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            RoleSeeder::class,     // 1º Roles
-            TematicaSeeder::class, // 2º Temáticas
-            TestSeeder::class,     // 3º Tests y Preguntas
+            RoleUserSeeder::class, //roles y usuario admin
+            TematicaSeeder::class, //tematicas 
+            TestSeeder::class, //tests, preguntas y respuestas
         ]);
     }
 }

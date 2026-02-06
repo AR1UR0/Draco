@@ -35,7 +35,7 @@
                         >Aprender</a
                     >
                     <a href="{{ route('store') }}" class="mb-4 me-3 enlPrin">Tienda</a>
-                    <a href="{{ route('perfil') }}" class="mb-4 me-3 enlPrin">Perfil</a>
+                    <a href="{{ route('admin') }}" class="mb-4 me-3 enlPrin">Admin</a>
                 </nav>
 
                 <main class="flex-grow-1 p-2">

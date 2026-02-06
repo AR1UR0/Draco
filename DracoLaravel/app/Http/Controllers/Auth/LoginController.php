@@ -21,15 +21,12 @@ class LoginController extends Controller
     if (Auth::attempt($credentials)) {
         $request->session()->regenerate();
 
-        // OPCIÓN A: Si quieres que TODOS vayan a la misma página principal
-        return redirect()->intended(route('pagPrincipal'));
-/*
-        //* OPCIÓN B: Por si quieres diferenciar (Admin vs Usuario)
+        // Diferenciar Admin vs Usuario al entrar
         if (Auth::user()->role_id == 1) {
-            return redirect()->intended('/admin');
+            return redirect()->intended(route('admin')); // Va directo al panel
         }
-        return redirect()->intended('/pag-principal'); 
-*/
+        
+        return redirect()->intended(route('pagPrincipal')); // Usuario normal va a aprender
     }
 
     return back()->withErrors([

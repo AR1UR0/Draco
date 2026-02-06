@@ -6,11 +6,12 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Mail\RegisterMail;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\TematicaController;
 
 // --- 1. RUTAS PÚBLICAS (Accesibles para invitados y usuarios) ---
 Route::view('/', 'index')->name('index');
 Route::view('/first-config', 'firstConfig')->name('firstConfig');
-Route::view('/pagPrincipal', 'pagPrincipal')->name('pagPrincipal');
+Route::get('/pagPrincipal', [TematicaController::class, 'index'])->name('pagPrincipal');
 
 // Rutas del Test (Públicas)
 Route::get('/test/{id}', [TestController::class, 'mostrarTest'])->name('test.show');

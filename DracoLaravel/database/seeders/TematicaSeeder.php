@@ -11,18 +11,27 @@ class TematicaSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void {
-    $tematicas = [
-            ['nombre' => 'Gloryhammer', 'descripcion' => 'Preguntas sobre la banda de Power Metal Gloryhammer.'],
-            ['nombre' => 'El Señor de los Anillos', 'descripcion' => 'Preguntas sobre la saga de El Señor de los Anillos.'],
-            ['nombre' => 'Berserk', 'descripcion' => 'Preguntas sobre el manga/anime Berserk.'],
-        ];
+   public function run(): void {
+    $temas = [
+        [
+            'name' => 'Gloryhammer', 
+            'description' => 'Preguntas sobre la banda de Power Metal Gloryhammer.',
+            'image' => 'gloryhammer.jpg' // <-- Verifica que el archivo existe
+        ],
+        [
+            'name' => 'El Señor de los Anillos', 
+            'description' => 'Preguntas sobre la saga de El Señor de los Anillos.',
+            'image' => 'lotr.jpg' // <-- Verifica si es .jpg o .png
+        ],
+        [
+            'name' => 'Berserk', 
+            'description' => 'Preguntas sobre el manga/anime Berserk.',
+            'image' => 'berserk.jpg' // <-- Verifica que el archivo existe
+        ],
+    ];
 
-        foreach ($tematicas as $t) {
-            Tematica::firstOrCreate(
-                ['nombre' => $t['nombre']],
-                ['descripcion' => $t['descripcion']]
-            );
-        }
+    foreach ($temas as $tema) {
+        Tematica::create($tema); 
     }
+}
 }
