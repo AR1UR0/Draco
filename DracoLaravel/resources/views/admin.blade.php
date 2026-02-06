@@ -46,7 +46,10 @@
                                 <span class="slider"></span>
                             </label>
                         </div>
-                        <button class="btnSemiTran">Log Out</button>
+                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btnSemiTran">Log Out</button>
+                        </form>
                     </div>
 
                     <!-- PERFIL -->
