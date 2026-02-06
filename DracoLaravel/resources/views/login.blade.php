@@ -13,6 +13,13 @@
     <script defer src="{{ asset('js/themeChange.js') }}"></script>
     <link rel="shortcut icon" href="{{ asset('media/imgs/icoDraco.png') }}" type="image/x-icon" />
 
+    <style>
+        .btn-primary {
+            background-color: #98b705 !important;
+            border-color: #98b705 !important;
+        }
+    </style>
+
 </head>
 
 
