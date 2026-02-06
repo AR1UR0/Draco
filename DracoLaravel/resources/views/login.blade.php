@@ -34,18 +34,23 @@
             REGÍSTRATE
         </a>
 
-       
-        @if ($errors->any())
-             <div class="container mt-3" style="max-width: 400px;">
-                <div class="alert alert-danger py-2">
-                    <ul class="mb-0 px-3">
-                        @foreach ($errors->all() as $error)
-                            <li style="font-size: 0.9rem;">{{ $error }}</li>
-                        @endforeach
-                    </ul>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+            @if ($errors->any())
+                <div id="errorToast" class="toast show border border-danger" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                    <div class="toast-header bg-danger text-white">
+                        <strong class="me-auto">Ups! Algo salió mal</strong>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        <ul class="mb-0 ps-3">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        @endif
+            @endif
+        </div>
 
         <!-- LOGIN -->
         <div class="login-card text-center" id="loginView">
@@ -175,13 +180,26 @@
         </div>
     </div>
     <script>
-    // Si hay errores y el usuario estaba intentando registrarse, 
-    // mostramos la vista de registro automáticamente al recargar
-    @if($errors->has('name') || $errors->has('password_confirmation'))
-        document.getElementById('loginView').classList.add('d-none');
-        document.getElementById('registerView').classList.remove('d-none');
-    @endif
-</script>
+        // Si hay errores y el usuario estaba intentando registrarse, 
+        // mostramos la vista de registro automáticamente al recargar
+        @if($errors->has('name') || $errors->has('password_confirmation'))
+            document.getElementById('loginView').classList.add('d-none');
+            document.getElementById('registerView').classList.remove('d-none');
+        @endif
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Inicializar todos los toasts en la página
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl, {
+                    autohide: true,
+                    delay: 5000 // Se cerrará solo después de 5 segundos
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>
