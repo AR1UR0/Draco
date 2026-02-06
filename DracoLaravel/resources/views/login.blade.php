@@ -88,19 +88,19 @@
 
             <form id="registerForm" action="{{ route('register.post') }}" method="POST">
                 @csrf <div class="mb-3">
-                    <input type="text" name="name" class="form-control" id="regUser" placeholder="Usuario" required />
+                    <input type="text" name="name" class="form-control" id="regUser" placeholder="Usuario" />
                 </div>
 
                 <div class="mb-3">
-                    <input type="email" name="email" class="form-control" id="regEmail" placeholder="Correo Electrónico" required />
+                    <input type="email" name="email" class="form-control" id="regEmail" placeholder="Correo Electrónico" />
                 </div>
 
                 <div class="mb-3">
-                    <input type="password" name="password" class="form-control" id="regPassword" placeholder="Contraseña" required />
+                    <input type="password" name="password" class="form-control" id="regPassword" placeholder="Contraseña" />
                 </div>
 
                 <div class="mb-3">
-                    <input type="password" name="password_confirmation" class="form-control" id="regPassword2" placeholder="Confirmar Contraseña" required />
+                    <input type="password" name="password_confirmation" class="form-control" id="regPassword2" placeholder="Confirmar Contraseña" />
                 </div>
 
                 <button type="submit" class="btn btn-login w-100 mt-3">
