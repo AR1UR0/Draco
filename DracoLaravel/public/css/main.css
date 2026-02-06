@@ -300,6 +300,13 @@ body.bg-light a:hover {
   border-top-right-radius: 16px;
 }
 
+@media screen and (max-width: 991px) {
+  .carousel-item-custom {
+    min-width: 33%;
+    /* 3 visibles en tablet */
+  }
+}
+
 @media screen and (max-width: 576px) {
   .main-img {
     content: src("../Draco/media/imgs/index/dracoLibroPequeno.png");
@@ -393,4 +400,15 @@ body.bg-light a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.toast {
+  min-width: 300px;
+  border: none;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.toast-body ul {
+  font-size: 0.85rem;
+  color: #333;
 }
