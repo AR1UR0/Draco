@@ -362,6 +362,11 @@ body.bg-light a {
 // ===============================
 // Ajustes para que la portada y el carrusel se adapten bien a pantallas pequeñas.
 
+@media screen and (max-width: 991px) {
+    .carousel-item-custom {
+        min-width: 33%; /* 3 visibles en tablet */
+    }
+}
 @media screen and (max-width: 576px) {
     .main-img {
         content: src("../Draco/media/imgs/index/dracoLibroPequeno.png");
