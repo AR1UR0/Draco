@@ -227,7 +227,8 @@
                 <div class="modal-content">
                 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Título del Modal</h5>
+                    <img src="{{ asset('media/imgs/icoDraco.png') }}" alt="Draco" class="img-fluid me-2" style="width: 30px; height: 30px;">
+                    <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder;">Título del Modal</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -235,8 +236,11 @@
                     Aquí puedes poner tu formulario o cualquier mensaje para el usuario.
                 </div>
 
+                <hr class="hr-dotted" />
+                <i class="p-3 pt-0">Aprende más sobre este tema con nosotros.</i>
+
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btnSecondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
 
                 </div>

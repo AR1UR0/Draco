@@ -161,6 +161,10 @@ body {
     padding: 3px 20px;
 }
 
+.btnSecondary:hover {
+    background-color: #6c8102 !important;
+}
+
 .btnTerciary {
     font-weight: 900 !important;
     border-radius: 10px;
@@ -424,4 +428,9 @@ body.bg-light a {
 
 .modal-body p {
     font-weight: 500;
+}
+
+.hr-dotted {
+    border: 0;
+    border-top: 1px dotted var(--bs-secondary);
 }
