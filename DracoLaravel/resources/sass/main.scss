@@ -450,3 +450,14 @@ body.bg-light a {
     align-items: center;
     justify-content: center;
 }
+
+.toast {
+    min-width: 300px;
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.toast-body ul {
+    font-size: 0.85rem;
+    color: #333;
+}
