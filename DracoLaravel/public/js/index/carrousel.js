@@ -94,3 +94,37 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".popoverTema").forEach((el) => {
+        const pop = new bootstrap.Popover(el, {
+            content: "PRÓXIMAMENTE",
+            placement: "top",
+            trigger: "manual",
+            animation: false,
+        });
+
+        el.addEventListener("click", () => {
+            // Oculta cualquier otro popover abierto
+            document.querySelectorAll(".popoverTema").forEach((other) => {
+                if (other !== el) {
+                    bootstrap.Popover.getInstance(other)?.hide();
+                }
+            });
+
+            pop.show();
+
+            // Se cierra solo tras 1 segundos
+            setTimeout(() => pop.hide(), 1000);
+        });
+    });
+
+    // Click fuera = cerrar todo
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".popoverTema")) {
+            document.querySelectorAll(".popoverTema").forEach((el) => {
+                bootstrap.Popover.getInstance(el)?.hide();
+            });
+        }
+    });
+});

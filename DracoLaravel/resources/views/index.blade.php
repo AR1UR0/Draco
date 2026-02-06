@@ -17,10 +17,25 @@
             body {
                 overflow-y: hidden;
             }
+            @media screen and (max-width: 576px) {
+                body {
+                    overflow-y: scroll;
+                }
+            }
         </style>
     </head>
 
     <body>
+        <!-- SPINNER PARA MOVER DE PÁGINA -->
+        <div id="loader-overlay" class="d-none">
+            <div class="d-flex flex-column align-items-center justify-content-center vh-100">
+                <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Cargando...</span>
+                </div>
+                <h5 class="text-white mt-3">Loading...</h5>
+            </div>
+        </div>
+        <!-- PÁGINA -->
         <div class="d-flex flex-column min-vh-100">
             <!-- HEADER -->
             <header
@@ -76,24 +91,21 @@
                         class="main-img"
                     />
 
-                    <div
-                        class="text-center d-flex flex-column gap-3 align-items-center justify-content-center"
-                        style="width: 300px; height: 350px"
-                    >
+                    <div 
+                        class="text-center d-flex flex-column gap-3 align-items-center justify-content-center" 
+                        style="width: 300px; height: 350px">
                         <p>
-                            ¡Una forma fácil, divertida y gratuita de aprender
-                            sobre tus temas favoritos!
+                            ¡Una forma fácil, divertida y gratuita de aprender sobre tus temas favoritos!
                         </p>
-                        <a href="{{ route('firstConfig') }}">
+                        
+                        <a href="javascript:void(0)" onclick="redireccionarConCarga('{{ route('firstConfig') }}')">
                             <button class="btn btnPrimary" style="width: 250px">
                                 EMPIEZA AHORA
                             </button>
                         </a>
-                        <a href="{{ route('login') }}">
-                            <button
-                                class="btn btnTerciary btnTerciaryLight"
-                                style="width: 250px"
-                            >
+
+                        <a href="javascript:void(0)" onclick="redireccionarConCarga('{{ route('login') }}')">
+                            <button class="btn btnTerciary btnTerciaryLight" style="width: 250px">
                                 YA TENGO UNA CUENTA
                             </button>
                         </a>
@@ -109,7 +121,7 @@
                         <div class="carousel-track" id="carouselTrack">
                             <!-- CADA BLOQUE ES UN ELEMENTO DEL CARROUSEL -->
                             <div class="carousel-item-custom">
-                                <a href="{{ route('pagPrincipal') }}">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modalTemas" id="temaLOTR">
                                     <img
                                         src="{{ asset('media/imgs/temas/lotr.jpg') }}"
                                         alt=" "
@@ -119,7 +131,7 @@
                                 </a>
                             </div>
                             <div class="carousel-item-custom">
-                                <a href="{{ route('pagPrincipal') }}">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modalTemas" id="temaGlory">
                                     <img
                                         src="{{ asset('media/imgs/temas/gloryhammer.jpg') }}"
                                         alt=" "
@@ -129,25 +141,21 @@
                                 </a>
                             </div>
                             <div class="carousel-item-custom">
-                                <a href="{{ route('pagPrincipal') }}">
-                                    <img
-                                        src="{{ asset('media/imgs/temas/berserk.jpg') }}"
-                                        alt=" "
-                                        class="imgCarr border"
-                                    />
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modalTemas" id="temaBerserk">
+                                    <img 
+                                        src="{{ asset('media/imgs/temas/berserk.jpg') }}" 
+                                        alt=" " 
+                                        class="imgCarr border" />
                                     &nbsp;&nbsp;Berserk
                                 </a>
                             </div>
                             <div class="carousel-item-custom" style="position: relative; overflow: visible !important;">
                                 <div class="popover-wrapper" style="position: relative; display: inline-block;">
 
-                                    <div style="cursor: pointer;" 
-                                         data-bs-toggle="popover" 
-                                         data-bs-placement="top" 
-                                         data-bs-content="PRÓXIMAMENTE"
-                                         data-bs-animation="false"> <img src="{{ asset('media/imgs/temas/mitologia.jpg') }}" 
-                                             alt="Mitología" 
-                                             class="imgCarr border" />
+                                    <div style="cursor: pointer;" class="popoverTema"> 
+                                        <img src="{{ asset('media/imgs/temas/mitologia.jpg') }}" 
+                                            alt="Mitología" 
+                                            class="imgCarr border" />
                                         &nbsp;&nbsp;Mitología
                                     </div>
 
@@ -156,13 +164,10 @@
                             <div class="carousel-item-custom" style="position: relative; overflow: visible !important;">
                                 <div class="popover-wrapper" style="position: relative; display: inline-block;">
     
-                                    <div style="cursor: pointer;" 
-                                         data-bs-toggle="popover" 
-                                         data-bs-placement="top" 
-                                         data-bs-content="PRÓXIMAMENTE"
-                                         data-bs-animation="false"> <img src="{{ asset('media/imgs/temas/starwars.jpg') }}" 
-                                             alt="Star Wars" 
-                                             class="imgCarr border" />
+                                    <div style="cursor: pointer;" class="popoverTema">
+                                        <img src="{{ asset('media/imgs/temas/starwars.jpg') }}" 
+                                            alt="Star Wars" 
+                                            class="imgCarr border" />
                                         &nbsp;&nbsp;Star Wars
                                     </div>
     
@@ -171,13 +176,10 @@
                             <div class="carousel-item-custom" style="position: relative; overflow: visible !important;">
                                 <div class="popover-wrapper" style="position: relative; display: inline-block;">
     
-                                    <div style="cursor: pointer;" 
-                                         data-bs-toggle="popover" 
-                                         data-bs-placement="top" 
-                                         data-bs-content="PRÓXIMAMENTE"
-                                         data-bs-animation="false"> <img src="{{ asset('media/imgs/temas/wow.jpg') }}" 
-                                             alt="WoW" 
-                                             class="imgCarr border" />
+                                    <div style="cursor: pointer;" class="popoverTema">
+                                        <img src="{{ asset('media/imgs/temas/wow.jpg') }}" 
+                                            alt="WoW" 
+                                            class="imgCarr border" />
                                         &nbsp;&nbsp;WoW
                                     </div>
     
@@ -230,10 +232,38 @@
             </div>
         </div>
 
+        <!-- MODAL DE TEMAS -->
+
+        <div class="modal fade" id="modalTemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                
+                <div class="modal-header">
+                    <img src="{{ asset('media/imgs/icoDraco.png') }}" alt="Draco" class="img-fluid me-2" style="width: 30px; height: 30px;">
+                    <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder;">Título del Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    Aquí puedes poner tu formulario o cualquier mensaje para el usuario.
+                </div>
+
+                <hr class="hr-dotted" />
+                <i class="p-3 pt-0">Aprende más sobre este tema con nosotros.</i>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btnSecondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
         <!-- SCRIPTS -->
         <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         <script src="{{ asset('js/themeChange.js') }}"></script>
         <script src="{{ asset('js/index/carrousel.js') }}"></script>
+        <script src="{{ asset('js/index/modalTema.js') }}"></script>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 // SI YA SE HA MOSTRADO EL OFFCANVAS, NO SE MUESTRA DE NUEVO
@@ -250,6 +280,30 @@
 
                 // MOSTRAR OFFCANVAS DESPUÉS DE 1.5 SEGUNDOS
                 setTimeout(() => offcanvas.show(), 1500);
+            });
+        </script>
+        <script>
+            function redireccionarConCarga(url) {
+                const loader = document.getElementById('loader-overlay');
+                
+                // 1. Mostrar la capa
+                loader.classList.remove('d-none');
+                
+                // 2. Bloquear scroll (opcional pero recomendado)
+                document.body.style.overflow = 'hidden';
+                
+                // 3. Esperar 1.5 segundos y redirigir
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 1000);
+            }
+            window.addEventListener('pageshow', function (event) {
+                // Si la página se carga desde la caché del navegador (al ir hacia atrás)
+                if (event.persisted) {
+                    const loader = document.getElementById('loader-overlay');
+                    loader.classList.add('d-none'); // Ocultamos el loader
+                    document.body.style.overflow = 'auto'; // Restauramos el scroll si fuera necesario
+                }
             });
         </script>
     </body>
