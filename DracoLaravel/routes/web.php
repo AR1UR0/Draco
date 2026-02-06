@@ -24,7 +24,7 @@ Route::post('/login/registrar', [RegisterController::class, 'register'])->name('
 
 
 // --- 2. RUTAS PARA USUARIOS LOGUEADOS ---
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'nocache'])->group(function () {
     Route::view('/perfil', 'perfil')->name('perfil');
     Route::view('/store', 'store')->name('store');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
