@@ -149,7 +149,7 @@
                                     src="{{ asset('media/imgs/iconos/burn.png') }}"
                                     class="fotoStats"
                                 />
-                                <div><b>{{ Auth::user()->racha ?? 0 }}</b><br />Días de racha</div>
+                                <div><span class="racha">&nbsp;{{ Auth::check() ? (Auth::user()->streak ?? 0) : 0 }}</span><br />Días de racha</div>
                             </div>
 
                             <div
@@ -159,7 +159,7 @@
                                     src="{{ asset('media/imgs/iconos/storm.png') }}"
                                     class="fotoStats"
                                 />
-                                <div><b>{{ Auth::user()->experiencia ?? 0 }}</b><br />EXP ganada</div>
+                                <div><span class="racha">&nbsp;&nbsp;{{ Auth::check() ? Auth::user()->points : 0 }}</span><br />EXP ganada</div>
                             </div>
 
                             <div
@@ -169,7 +169,7 @@
                                     src="{{ asset('media/imgs/iconos/coin.png') }}"
                                     class="fotoStats"
                                 />
-                                <div><b>{{ Auth::user()->dinero }}</b><br />Monedas</div>
+                                <div>7000<br />Monedas</div>
                             </div>
 
                             <div
@@ -179,7 +179,7 @@
                                     src="{{ asset('media/imgs/iconos/heart.png') }}"
                                     class="fotoStats"
                                 />
-                                <div><b>{{ Auth::user()->vidas_actuales }}</b><br />Vidas</div>
+                                <div><span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->current_lives : 5 }}</span><br />Vidas</div>
                             </div>
                         </div>
                     </div>
