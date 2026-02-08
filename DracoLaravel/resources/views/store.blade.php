@@ -138,15 +138,15 @@
           </div>
           <div class="d-flex align-items-center justify-content-center">
             <img src="{{ asset('media/imgs/iconos/burn.png') }}" alt="Racha:" class="imgIco" />
-            <span class="racha">&nbsp;1</span>
+            <span class="racha">&nbsp;{{ Auth::check() ? (Auth::user()->streak ?? 0) : 0 }}</span>
           </div>
           <div class="d-flex align-items-center justify-content-center">
             <img src="{{ asset('media/imgs/iconos/coin.png') }}" alt="Dinero:" class="imgIco" />
-            <span class="racha">&nbsp;&nbsp;500</span>
+            <span>7000</span>
           </div>
           <div class="d-flex align-items-center justify-content-center">
             <img src="{{ asset('media/imgs/iconos/heart.png') }}" alt="Vida:" class="imgIco" />
-            <span class="racha">&nbsp;7</span>
+            <span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->current_lives : 5 }}</span>
           </div>
         </div>
         <!-- DIV PARA DRACO PLUS Y ANUNCIO -->

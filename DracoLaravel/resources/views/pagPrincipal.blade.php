@@ -190,7 +190,7 @@
                                 alt="Dinero:"
                                 class="imgIco"
                             />
-                            <span class="racha">&nbsp;&nbsp;{{ Auth::check() ? Auth::user()->points : 0 }}</span>
+                            <span>7000</span>
                         </div>
                         <div
                             class="d-flex align-items-center justify-content-center"
