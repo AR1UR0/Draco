@@ -57,4 +57,27 @@ class User extends Authenticatable
                     ->withPivot('quantity', 'expires_at')
                     ->withTimestamps();
     }
+    
+    protected static function boot()
+{
+    parent::boot();
+
+    // Este evento se dispara justo antes de guardar los cambios del usuario
+    static::updating(function ($user) {
+        // Si la experiencia es 10 o más...
+        if ($user->experience >= 10) {
+            // Calculamos cuántas monedas le tocan (5 por cada 10 XP)
+            $bloques = floor($user->experience / 10);
+            $monedasGanadas = $bloques * 5;
+            $xpAGastar = $bloques * 10;
+
+            // Hacemos el canje automático
+            $user->points += $monedasGanadas;
+            $user->experience -= $xpAGastar;
+            
+            // Nota: No hace falta llamar a save() aquí, 
+            // porque estamos en el evento "updating" y se guardará solo.
+        }
+    });
+}
 }

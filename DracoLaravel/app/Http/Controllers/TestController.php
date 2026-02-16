@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use App\Models\Test; // No olvides importar tus modelos
+use App\Models\Test; 
 use App\Models\Respuesta;
 
 class TestController extends Controller
@@ -14,7 +14,7 @@ class TestController extends Controller
     {
         // Obtener las vidas
         if (Auth::check()) {
-            $vidas = Auth::user()->vidas_actuales;
+            $vidas = Auth::user()->current_lives;
         } else {
             $vidas = Session::get('vidas_invitado', 5);
         }
@@ -35,13 +35,30 @@ class TestController extends Controller
     {
         $respuesta = Respuesta::find($request->id_respuesta);
 
-        if (!$respuesta->es_correcta) {
-            // Si falla, llamamos a nuestra función interna para restar vida
+        if (!$respuesta->is_correct) {
             $this->restarVida();
-            return back()->with('mal', 'Respuesta incorrecta, pierdes una vida');
+            // Usamos 'error' para que tu Toast rojo lo detecte
+            return back()->with('error', 'Respuesta incorrecta, pierdes una vida');
         }
 
-        return back()->with('bien', '¡Correcto!');
+        // --- AQUÍ AÑADIMOS LA LÓGICA DE EXPERIENCIA ---
+        if (Auth::check()) {
+            $user = Auth::user();
+            
+            // Accedemos a la pregunta para saber cuánto vale (reward_points)
+            $pregunta = \App\Models\Pregunta::find($respuesta->pregunta_id);
+            $puntos = $pregunta->reward_points ?? 10;
+
+            // Sumamos la experiencia
+            $user->increment('experience', $puntos);
+
+            // Como pusimos el evento 'updating' en el modelo User, 
+            // la base de datos convertirá los 10 XP en 5 monedas automáticamente.
+            
+            return back()->with('success', "¡Correcto! Has ganado $puntos de XP.");
+        }
+
+        return back()->with('success', '¡Correcto!');
     }
 
     // ESTA FUNCIÓN ES UN MÉTODO PRIVADO (Auxiliar)
@@ -57,8 +74,8 @@ class TestController extends Controller
         
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->vidas_actuales > 0) {
-                $user->decrement('vidas_actuales');
+            if ($user->current_lives > 0) {
+                $user->decrement('current_lives');
             }
         } else {
             $vidas = Session::get('vidas_invitado', 5);
