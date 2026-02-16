@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/perfil/perfil.css') }}" />
 
+        <script defer src="{{ asset('js/adminCRUD.js') }}"></script>
         <script defer src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         <script defer src="{{ asset('js/themeChange.js') }}"></script>
     </head>
@@ -119,18 +120,18 @@
                     <div class="container-fluid ms-5 ps-3">
                         <div class="row">
                             <div class="col-md-3 d-flex flex-column gap-5 mt-4">
-                                <button class="btnAdmin">TEMÁTICA</button>
-                                <button class="btnAdmin">AÑADIR PREGUNTA</button>
-                                <button class="btnAdmin active-admin">MODIFICAR PREGUNTA</button>
-                                <button class="btnAdmin">ELIMINAR PREGUNTA</button>
-                            </div>
+                            <button id="btn-cargar-tematicas" class="btnAdmin">TEMÁTICA</button>
+                            <button id="btn-añadir-pregunta" class="btnAdmin">AÑADIR PREGUNTA</button>
+                            <button class="btnAdmin active-admin">MODIFICAR PREGUNTA</button>
+                            <button class="btnAdmin">ELIMINAR PREGUNTA</button>
+                        </div>
 
                             <div class="col-md-7">
                                 <div class="admin-card">
                                     <div class="d-flex justify-content-center">
                                         <span class="badge-nivel">NIVEL</span>
                                     </div>
-                                    <div class="admin-content-area">
+                                    <div class="admin-content-area notranslate">
                                         </div>
                                     <div class="d-flex justify-content-center">
                                         <button class="btn-terminar">TERMINAR</button>
