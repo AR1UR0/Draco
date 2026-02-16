@@ -35,22 +35,39 @@
                         >Aprender</a
                     >
                     <a href="{{ route('store') }}" class="mb-4 me-3 enlPrin">Tienda</a>
-                    <a href="{{ route('admin') }}" class="mb-4 me-3 enlPrin">Admin</a>
+                    <a href="{{ route('admin') }}" class="mb-4 me-3 enlPrin notranslate">Admin</a>
                 </nav>
 
-                <main class="flex-grow-1 p-2">
-                    <div class="p-1 d-flex align-items-center justify-content-end mb-1">
-                        <div class="form-check form-switch me-3">
-                            <label class="switch">
-                                <input type="checkbox" id="toggleTheme" checked />
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btnSemiTran">Log Out</button>
-                        </form>
+                <main class="flex-grow-1 p-0"> <div class="p-3 d-flex justify-content-end align-items-center gap-3">
+                    <div class="dropdown d-none d-sm-block">
+                        <button class="btn btn-idioma dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            Page Language
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="setLanguage('en'); return false;">
+                                    English
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="setLanguage('es'); return false;">
+                                    Spanish
+                                </a>
+                            </li>
+                        </ul>
                     </div>
+
+                    <label class="switch">
+                        <input type="checkbox" id="toggleTheme" checked />
+                        <span class="slider"></span>
+                    </label>
+
+                    <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btnSemiTran notranslate">Log Out</button>
+                    </form>
+                </div>
 
                     <!-- PERFIL -->
                     <div class="container-fluid px-3 px-md-5">
@@ -76,7 +93,7 @@
                                 <h2
                                     class="d-flex justify-content-center justify-content-md-start align-items-center gap-2"
                                 >
-                                    <span class="username"
+                                    <span class="username notranslate"
                                         >{{ Auth::user()->name}}</span
                                     >
                                     <button class="btnEditNombreUsuario">
@@ -125,9 +142,67 @@
                 </main>
             </div>
         </div>
+        
+        <div id="google_translate_element"></div>
 
-        <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
-        <script src="{{ asset('js/autotranslate.js') }}"></script>
-        <div id="gt" style="display:none"></div>
+        <script>
+            function setCookie(name, value, days = 365) {
+                const d = new Date();
+                d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+            }
+
+            function getCookie(name) {
+                const cname = name + "=";
+                const decodedCookie = decodeURIComponent(document.cookie);
+                const ca = decodedCookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i].trim();
+                    if (c.indexOf(cname) == 0) return c.substring(cname.length);
+                }
+                return null;
+            }
+
+            // GOOGLE INIT
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'es',
+                    autoDisplay: false
+                }, 'google_translate_element');
+            }
+
+            // SET LANGUAGE
+            function setLanguage(lang) {
+                setCookie("site_lang", lang);
+
+                document.querySelector('.btn-idioma').textContent =
+                    lang === 'en' ? 'English' : 'Spanish';
+
+                const interval = setInterval(() => {
+                    const select = document.querySelector('.goog-te-combo');
+
+                    if (select) {
+                        select.value = lang;
+                        select.dispatchEvent(new Event('change'));
+                        clearInterval(interval);
+                    }
+                }, 100);
+            }
+
+            // AUTO LOAD
+            window.addEventListener('load', () => {
+                let lang = getCookie("site_lang");
+
+                if (!lang) {
+                    lang = "en";
+                    setCookie("site_lang", "en");
+                }
+
+                setLanguage(lang);
+            });
+        </script>
+
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     </body>
 </html>

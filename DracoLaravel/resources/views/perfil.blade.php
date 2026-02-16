@@ -108,7 +108,7 @@
                         </label>
                         <form action="{{ route('logout') }}" method="POST" class="d-inline">
                             @csrf
-                            <button type="submit" class="btnSemiTran">Log Out</button>
+                            <button type="submit" class="btnSemiTran notranslate">Log Out</button>
                         </form>
                     </div>
 
@@ -135,7 +135,7 @@
                                 <h2
                                     class="d-flex justify-content-center justify-content-md-start align-items-center gap-2"
                                 >
-                                    <span class="username">{{ Auth::user()->nombre }}</span>
+                                    <span class="username notranslate">{{ Auth::user()->nombre }}</span>
                                     <button class="btnEditNombreUsuario">
                                         <img
                                             src="{{ asset('media/imgs/iconos/pencil.png') }}"

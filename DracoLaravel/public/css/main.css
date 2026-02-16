@@ -446,3 +446,98 @@ iframe.skiptranslate {
 #google_translate_element {
   display: none !important;
 }/*# sourceMappingURL=main.css.map */
+}
+
+/* Oculta el cuadro de sugerencia de traducción al pasar el ratón */
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+/* Evita que el texto resaltado cambie de color al pasar el ratón */
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Oculta la barra superior de Google Translate (opcional) */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* Oculta el cuadro de sugerencia de traducción al pasar el ratón */
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+/* Evita que el texto resaltado cambie de color al pasar el ratón */
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Oculta la barra superior de Google Translate (opcional) */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* Elimina el recuadro blanco, el fondo y cualquier borde del resaltado */
+.goog-text-highlight,
+.goog-text-highlight:hover {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline !important;
+  /* Evita que se comporte como un bloque blanco */
+}
+
+.goog-text-highlight {
+  color: inherit !important;
+  /* Mantiene el color original de tu CSS */
+}
+
+/* En algunos navegadores Google usa la etiqueta <font> para este efecto */
+font.goog-text-highlight {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+/* 1. Mata el contenedor del tooltip que genera el resplandor */
+#goog-gt-tt,
+.goog-te-balloon-frame,
+#goog-gt-tt.vi {
+  visibility: hidden !important;
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* 2. Elimina el recuadro blanco (el resaltado de la palabra) */
+.goog-text-highlight {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  position: relative !important;
+  /* Evita que herede posiciones extrañas */
+}
+
+/* 3. Ataca específicamente el estado de hover de Google */
+.goog-text-highlight:hover {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+/* 4. IMPORTANTE: Quita el espacio que deja la barra de Google arriba si la hay */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
