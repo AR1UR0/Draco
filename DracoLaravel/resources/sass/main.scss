@@ -489,3 +489,41 @@ iframe.skiptranslate {
 #google_translate_element {
     display: none !important;
 }
+
+/* Oculta el cuadro de sugerencia de traducción al pasar el ratón */
+#goog-gt-tt,
+.goog-te-balloon-frame {
+    display: none !important;
+}
+
+/* Evita que el texto resaltado cambie de color al pasar el ratón */
+.goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+}
+
+/* Oculta la barra superior de Google Translate (opcional) */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+/* Ajusta el body si la barra de arriba dejaba un hueco */
+body {
+    top: 0 !important;
+}
+
+/* Elimina el resaltado (brillo) al pasar el ratón sobre los textos traducidos */
+.goog-text-highlight {
+    background-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Por si acaso Google usa una versión alternativa de la clase */
+font[style*="background-color"],
+font:hover {
+    background-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
