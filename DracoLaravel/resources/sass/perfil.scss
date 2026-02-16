@@ -12,6 +12,7 @@ $maincolor: #f70071;
 $secColor: #98b705; // Mantenemos el verde original de perfil
 $secColorTran: rgba(153, 183, 5, 0.44);
 $gray-text: #a1a1a1;
+$secColorS: rgba(152, 183, 5, 0.8); // Verde más sólido para botones
 
 // ==================================================
 // BASE / RESET
@@ -50,7 +51,7 @@ body {
     transition: all 0.3s ease;
 
     &.active-admin-nav {
-        background-color: $admin-green;
+        background-color: $secColorTran;
         border: 1px solid $secColor;
     }
 
@@ -221,7 +222,7 @@ main {
 // ==================================================
 
 .btnAdmin {
-    background-color: $admin-green;
+    background-color: $secColorS;
     border: 2px solid $secColor;
     border-radius: 20px;
     padding: 12px;
@@ -242,21 +243,22 @@ main {
 // ==================================================
 
 .admin-card {
-    background-color: $bg-light-green;
+    background-color: $secColorS;
     border: 3px solid $secColor;
     border-radius: 40px;
-    padding: 50px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 400px;
+    max-height: 400px;
+    min-height: 300px;
     box-shadow: 0 8px 0 rgba(0, 0, 0, 0.05);
 
     // Los badges rosas (Nivel y Terminar)
     .badge-nivel,
     .btn-terminar {
-        background-color: $soft-pink;
-        border: 3px solid $border-pink;
+        background-color: #f06292;
+        border: 3px solid #d81b60;
         color: black;
         font-weight: 900;
         border-radius: 25px;
@@ -267,13 +269,13 @@ main {
 
     .btn-terminar {
         cursor: pointer;
-        box-shadow: 0 4px 0 $border-pink;
+        box-shadow: 0 4px 0 #d81b60;
         &:hover {
-            background-color: lighten($soft-pink, 5%);
+            background-color: lighten(#f06292, 5%);
         }
         &:active {
             transform: translateY(2px);
-            box-shadow: 0 2px 0 $border-pink;
+            box-shadow: 0 2px 0 #d81b60;
         }
     }
 
@@ -284,6 +286,7 @@ main {
         margin: 20px 0;
         flex-grow: 1;
         min-height: 180px;
+        max-height: 200px;
     }
 }
 
