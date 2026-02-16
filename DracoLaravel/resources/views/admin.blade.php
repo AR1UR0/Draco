@@ -40,26 +40,26 @@
 
                 <main class="flex-grow-1 p-2">
                     <div class="p-1 d-flex align-items-center justify-content-end mb-1">
-                        <div class="form-check form-switch me-3">
-                            <!-- DROPDOWN IDIOMAS -->
-                            <div class="dropdown d-none d-sm-block">
-                                <button class="btn btn-idioma dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                    Page Language
-                                </button>
+                        <!-- DROPDOWN IDIOMAS -->
+                        <div class="dropdown d-none d-sm-block">
+                            <button class="btn btn-idioma dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                Page Language
+                            </button>
 
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="#" onclick="setLanguage('en'); return false;">
-                                            English
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#" onclick="setLanguage('es'); return false;">
-                                            Spanish
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#" onclick="setLanguage('en'); return false;">
+                                        English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#" onclick="setLanguage('es'); return false;">
+                                        Spanish
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="form-check form-switch me-3">
                             <label class="switch">
                                 <input type="checkbox" id="toggleTheme" checked />
                                 <span class="slider"></span>
