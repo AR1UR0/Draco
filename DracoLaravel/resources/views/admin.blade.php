@@ -77,7 +77,7 @@
                                     class="d-flex justify-content-center justify-content-md-start align-items-center gap-2"
                                 >
                                     <span class="username"
-                                        >Nombre de Usuario</span
+                                        >{{ Auth::user()->name}}</span
                                     >
                                     <button class="btnEditNombreUsuario">
                                         <img
@@ -88,11 +88,11 @@
                                 </h2>
 
                                 <p class="gray-text">
-                                    correodeejemplo@gmail.com
+                                    {{ Auth::user()->email }}
                                 </p>
                                 <p class="gray-text">
                                     Se unió en
-                                    <span class="fecha">01/01/2026</span>
+                                    <span class="fecha">{{ Auth::user()->created_at->format('d/m/Y') }}</span>
                                 </p>
                             </div>
                         </div>
