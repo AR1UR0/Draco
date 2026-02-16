@@ -12,6 +12,7 @@
  */
 
 const urlParams = new URLSearchParams(window.location.search);
+// http://127.0.0.1:8000/pregunta-texto?tematica=1&pregunta=1
 const idPregunta = urlParams.get("pregunta");
 const idTematica = urlParams.get("tematica");
 
