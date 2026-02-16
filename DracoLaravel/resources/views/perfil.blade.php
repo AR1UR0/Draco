@@ -83,7 +83,7 @@
                         class="p-3 d-flex justify-content-end align-items-center gap-3"
                     >
                         <!-- DROPDOWN IDIOMAS -->
-                        <div class="dropdown d-block">
+                        <div class="dropdown d-none d-sm-block">
                             <button class="btn btn-idioma dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                 Page Language
                             </button>
@@ -108,7 +108,7 @@
                         </label>
                         <form action="{{ route('logout') }}" method="POST" class="d-inline">
                             @csrf
-                            <button type="submit" class="btnSemiTran notranslate">Log Out</button>
+                            <button type="submit" class="btnSemiTran">Log Out</button>
                         </form>
                     </div>
 
@@ -135,7 +135,7 @@
                                 <h2
                                     class="d-flex justify-content-center justify-content-md-start align-items-center gap-2"
                                 >
-                                    <span class="username notranslate">{{ Auth::user()->nombre }}</span>
+                                    <span class="username">{{ Auth::user()->name }}</span>
                                     <button class="btnEditNombreUsuario">
                                         <img
                                             src="{{ asset('media/imgs/iconos/pencil.png') }}"
@@ -169,7 +169,12 @@
                                     src="{{ asset('media/imgs/iconos/burn.png') }}"
                                     class="fotoStats"
                                 />
-                                <div><span class="racha">&nbsp;{{ Auth::check() ? (Auth::user()->streak ?? 0) : 0 }}</span><br />Días de racha</div>
+                                <div><span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->streak : 0 }}</span><br />
+                                    @if(Auth::check() && Auth::user()->streak == 1)
+                                        Día de racha
+                                    @else
+                                        Días de racha
+                                    @endif</div>
                             </div>
 
                             <div

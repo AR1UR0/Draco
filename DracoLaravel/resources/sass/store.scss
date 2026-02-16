@@ -185,3 +185,62 @@ body.bg-dark {
         min-height: auto;
     }
 }
+
+// estilo para el anuncio de otra pagina web
+.panelAnuncio {
+    padding: 0; // Eliminamos cualquier espacio interno que pueda haber
+    min-height: 250px; // Altura mínima para asegurar que se vea
+
+    .anuncio-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none; // Quita subrayados si los hubiera
+        position: relative;
+    }
+
+    .imgAnuncio {
+        width: 100%;
+        height: 100%;
+        display: block; // Evita espacios extraños debajo de la imagen
+        object-fit: cover; // Crucial: la imagen rellena el div sin deformarse
+        transition: transform 0.4s ease;
+    }
+
+    &:hover .imgAnuncio {
+        transform: scale(1.08); // Efecto visual de zoom al pasar el ratón
+    }
+
+    .overlay-button {
+        position: absolute;
+        inset: 0; // Ocupa todo el espacio del enlace
+        display: flex;
+        align-items: flex-end; // Pone el botón abajo
+        justify-content: center;
+        padding-bottom: 20px;
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.6) 0%,
+            transparent 50%
+        );
+
+        .btnAnuncio {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: #f57c00;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+}

@@ -12,12 +12,6 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/perfil/perfil.css') }}" />
-        <style>
-            html,body {
-                margin: 0;
-                padding: 0;
-            }
-        </style>
 
         <script defer src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         <script defer src="{{ asset('js/themeChange.js') }}"></script>
@@ -71,7 +65,7 @@
 
                     <form action="{{ route('logout') }}" method="POST" class="d-inline">
                         @csrf
-                        <button type="submit" class="btnSemiTran notranslate">Log Out</button>
+                        <button type="submit" class="btnSemiTran">Log Out</button>
                     </form>
                 </div>
 
@@ -99,7 +93,7 @@
                                 <h2
                                     class="d-flex justify-content-center justify-content-md-start align-items-center gap-2"
                                 >
-                                    <span class="username notranslate"
+                                    <span class="username"
                                         >{{ Auth::user()->name}}</span
                                     >
                                     <button class="btnEditNombreUsuario">
@@ -125,7 +119,7 @@
                     <div class="container-fluid ms-5 ps-3">
                         <div class="row">
                             <div class="col-md-3 d-flex flex-column gap-5 mt-4">
-                                <button class="btnAdmin font">TEMÁTICA</button>
+                                <button class="btnAdmin">TEMÁTICA</button>
                                 <button class="btnAdmin">AÑADIR PREGUNTA</button>
                                 <button class="btnAdmin active-admin">MODIFICAR PREGUNTA</button>
                                 <button class="btnAdmin">ELIMINAR PREGUNTA</button>

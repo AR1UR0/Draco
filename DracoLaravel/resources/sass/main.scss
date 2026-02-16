@@ -14,60 +14,6 @@ $gray-text: #a1a1a1; // Gris para textos secundarios
 // ===============================
 // Estilos generales para el body y elementos base. Se busca una apariencia limpia y moderna.
 
-// ===============================
-// MODAL DE PAGO (DRACO CUSTOM)
-// ===============================
-
-// 1. Botón de contorno adaptativo
-.btn-outline-draco {
-    border: 2px solid $secColor;
-    color: $secColor;
-    background-color: transparent;
-    transition: all 0.3s ease;
-
-    &:hover {
-        background-color: rgba($secColor, 0.1);
-        color: $secColor;
-        border-color: $secColor;
-    }
-}
-
-// 2. ESTADO MARCADO (La clave para que se quede pintado)
-.btn-check:checked + .btn-outline-draco {
-    background-color: $secColor !important;
-    color: white !important;
-    border-color: $secColor !important;
-    box-shadow: 0 0 10px rgba(152, 183, 5, 0.5);
-}
-
-// 3. Estilos de inputs dentro del modal para que no se "rallen"
-.modal-content {
-    // Esto asegura que en modo claro el fondo sea blanco y en oscuro el de Bootstrap
-    border-radius: 15px;
-    overflow: hidden;
-
-    .form-control {
-        // Usamos tus variables para el foco
-        &:focus {
-            border-color: $secColor;
-            box-shadow: 0 0 0 0.25rem rgba($secColor, 0.25);
-        }
-    }
-
-    .input-group-text {
-        background-color: transparent;
-        border-color: #dee2e6; // Borde estándar de Bootstrap
-    }
-}
-
-// 4. Ajuste para que los labels sean legibles en ambos temas
-[data-bs-theme="dark"] .modal-content {
-    .input-group-text {
-        border-color: #495057;
-        color: white;
-    }
-}
-
 body {
     background-color: #ffffff;
     font-family:
@@ -396,7 +342,7 @@ body.bg-light a {
         text-decoration: none;
     }
     & img {
-        height: 30px;
+        height: 60px;
     }
 }
 
@@ -542,94 +488,4 @@ iframe.skiptranslate {
 
 #google_translate_element {
     display: none !important;
-}
-
-/* Oculta el cuadro de sugerencia de traducción al pasar el ratón */
-#goog-gt-tt,
-.goog-te-balloon-frame {
-    display: none !important;
-}
-
-/* Evita que el texto resaltado cambie de color al pasar el ratón */
-.goog-text-highlight {
-    background: none !important;
-    box-shadow: none !important;
-    box-sizing: border-box !important;
-}
-
-/* Oculta la barra superior de Google Translate (opcional) */
-.goog-te-banner-frame {
-    display: none !important;
-}
-
-/* Oculta el cuadro de sugerencia de traducción al pasar el ratón */
-#goog-gt-tt,
-.goog-te-balloon-frame {
-    display: none !important;
-}
-
-/* Evita que el texto resaltado cambie de color al pasar el ratón */
-.goog-text-highlight {
-    background: none !important;
-    box-shadow: none !important;
-    box-sizing: border-box !important;
-}
-
-/* Oculta la barra superior de Google Translate (opcional) */
-.goog-te-banner-frame {
-    display: none !important;
-}
-
-/* Elimina el recuadro blanco, el fondo y cualquier borde del resaltado */
-.goog-text-highlight,
-.goog-text-highlight:hover {
-    background: none !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    display: inline !important; /* Evita que se comporte como un bloque blanco */
-}
-
-.goog-text-highlight {
-    color: inherit !important; /* Mantiene el color original de tu CSS */
-}
-
-/* En algunos navegadores Google usa la etiqueta <font> para este efecto */
-font.goog-text-highlight {
-    background: none !important;
-    background-color: transparent !important;
-}
-
-/* 1. Mata el contenedor del tooltip que genera el resplandor */
-#goog-gt-tt,
-.goog-te-balloon-frame,
-#goog-gt-tt.vi {
-    visibility: hidden !important;
-    display: none !important;
-    opacity: 0 !important;
-}
-
-/* 2. Elimina el recuadro blanco (el resaltado de la palabra) */
-.goog-text-highlight {
-    background: none !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    position: relative !important; /* Evita que herede posiciones extrañas */
-}
-
-/* 3. Ataca específicamente el estado de hover de Google */
-.goog-text-highlight:hover {
-    background: none !important;
-    background-color: transparent !important;
-}
-
-/* 4. IMPORTANTE: Quita el espacio que deja la barra de Google arriba si la hay */
-.goog-te-banner-frame {
-    display: none !important;
-}
-body {
-    top: 0 !important;
 }
