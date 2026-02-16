@@ -6,6 +6,8 @@ use App\Http\Controllers\MailController;
 use App\Models\Tematica;
 use App\Http\Controllers\PreguntaController;
 use App\Models\Test;
+use App\Models\Pregunta;
+use App\Models\Respuesta;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +48,20 @@ Route::put('/preguntas/{pregunta}', [PreguntaController::class, 'update']);
 
 //Ruta para eliminar (Delete)
 Route::delete('/preguntas/{id}', [PreguntaController::class, 'destroy']);
+
+// Ruta para obtener las preguntas de un Test específico
+Route::get('/preguntas', function (Request $request) {
+    return Pregunta::where('test_id', $request->test_id)->get();
+});
+
+// Ruta para obtener las respuestas de una pregunta específica
+Route::get('/respuestas', function (Request $request) {
+    return Respuesta::where('pregunta_id', $request->pregunta_id)->get();
+});
+
+// Ruta para obtener el Test según temática y orden
+Route::get('/tests', function (Request $request) {
+    return Test::where('tematica_id', $request->tematica_id)
+               ->where('order', $request->order)
+               ->get();
+});
