@@ -83,7 +83,7 @@
                         class="p-3 d-flex justify-content-end align-items-center gap-3"
                     >
                         <!-- DROPDOWN IDIOMAS -->
-                        <div class="dropdown d-none d-sm-block">
+                        <div class="dropdown d-block">
                             <button class="btn btn-idioma dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                 Page Language
                             </button>
