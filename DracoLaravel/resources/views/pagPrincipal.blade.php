@@ -161,10 +161,11 @@
                                     <div class="d-flex justify-content-center align-items-center">
                                         @foreach($tematicas as $tematica)
                                             <li>
-                                                <a class="dropdown-item p-1" href="#" onclick="cambiarImagen('{{ asset('media/imgs/temas/' . $tematica->image) }}')">
+                                                <a class="dropdown-item p-1" href="#" onclick="cambiarImagen('{{ asset('media/imgs/temas/' . $tematica->image) }}', '{{ $tematica->name }}')">
                                                     <img src="{{ asset('media/imgs/temas/' . $tematica->image) }}" 
-                                                    class="border border-light imgTema" 
-                                                    alt="{{ $tematica->name }}" />
+                                                    class="border border-light imgTema imgTemaDropdown" 
+                                                    alt="{{ $tematica->name }}"
+                                                    id="imgTema{{ $tematica->id }}" />
                                                 </a>
                                             </li>
                                         @endforeach
@@ -510,10 +511,10 @@
         <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         <script src="{{ asset('js/themeChange.js') }}"></script>
         <script src="{{ asset('js/toastCopy.js') }}"></script>
-
         <script>
-            function cambiarImagen(nuevaRuta) {
+            function cambiarImagen(nuevaRuta, nombreTema) {
                 document.getElementById('imgPrincipal').src = nuevaRuta;
+                document.querySelector('.tema').textContent = nombreTema;
             }
         </script>
     </body>
