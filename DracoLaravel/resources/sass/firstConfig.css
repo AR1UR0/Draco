@@ -7,9 +7,8 @@
   padding: 10px 30px;
   transition: transform 0.2s;
 }
-
 .btn-step-next:hover {
-  background-color: #839e04 !important;
+  background-color: rgb(131.3829787234, 158.1781914894, 4.3218085106) !important;
   transform: scale(1.05);
 }
 
@@ -24,12 +23,10 @@
   color: inherit;
   transition: all 0.2s ease;
 }
-
 .btn-meta-option:hover {
   border-color: #98b705;
   color: #98b705;
 }
-
 .btn-meta-option:focus {
   background-color: #98b705;
   border-color: #98b705;
@@ -44,24 +41,20 @@
   cursor: pointer;
   transition: all 0.2s ease;
 }
-
 .level-card:hover {
   border-color: #98b705;
   background-color: #98b705;
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
 .level-card .level-icon {
   width: 60px;
   height: auto;
 }
-
 .level-card h5 {
   font-size: 1.1rem;
 }
-
 .level-card p {
   font-size: 0.9rem;
   line-height: 1.2;
-}
+}/*# sourceMappingURL=firstConfig.css.map */
