@@ -46,7 +46,7 @@
                 <main class="d-none d-md-block flex-grow-1">
                     <!-- CONTENIDO PRINCIPAL -->
                     <div class="topMainContent">
-                        <span class="tema">Berserk</span>: FASE
+                        <span class="tema notranslate">Berserk</span>: FASE
                         <span class="fase">1</span>, NIVEL
                         <span class="nivel">1</span>
                     </div>
@@ -517,5 +517,7 @@
                 document.querySelector('.tema').textContent = nombreTema;
             }
         </script>
+        <script src="{{ asset('js/autotranslate.js') }}"></script>
+        <div id="gt" style="display:none"></div>
     </body>
 </html>

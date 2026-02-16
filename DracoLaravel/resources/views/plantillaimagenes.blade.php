@@ -74,5 +74,7 @@
         </div>
       </footer>
     </div>
+    <script src="{{ asset('js/autotranslate.js') }}"></script>
+    <div id="gt" style="display:none"></div>
   </body>
 </html>
