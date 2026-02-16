@@ -29,6 +29,7 @@ Route::middleware(['auth', 'nocache', 'streak'])->group(function () {
     Route::view('/perfil', 'perfil')->name('perfil');
     Route::get('/store', [StoreController::class, 'index'])->name('store');
     Route::post('/store/buy-life', [StoreController::class, 'buyLife'])->name('buy.life');
+    Route::post('/store/buy-plus', [StoreController::class, 'buyPlus'])->name('buy.plus');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 

@@ -28,4 +28,30 @@ class StoreController extends Controller
 
         return back()->with('error', 'No tienes suficientes puntos.');
     }
+
+
+    public function buyPlus()
+    {
+        $user = Auth::user();
+        $precioPlus = 2000; // Un precio alto para el modo "Premium"
+
+        if ($user->is_plus) {
+            return back()->with('error', 'Ya tienes Draco Plus activado.');
+        }
+
+        if ($user->points >= $precioPlus) {
+            $user->decrement('points', $precioPlus);
+            $user->is_plus = true;
+            $user->current_lives = $user->max_lives; 
+            $user->save();
+
+            return back()->with('success', '¡Bienvenido a Draco Plus! Vidas ilimitadas activadas.');
+        }
+
+        return back()->with('error', 'No tienes suficientes puntos para Draco Plus.');
+    }
+
+
+
+
 }

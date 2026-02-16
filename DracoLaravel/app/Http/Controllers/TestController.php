@@ -48,6 +48,13 @@ class TestController extends Controller
     // Se pone aquí dentro pero al final, para que las rutas no la vean directamente
     private function restarVida()
     {
+        $user = Auth::user();
+    
+        // Si es Plus, NO restamos nada, salimos de la función
+        if ($user && $user->is_plus) {
+            return; 
+        }
+        
         if (Auth::check()) {
             $user = Auth::user();
             if ($user->vidas_actuales > 0) {

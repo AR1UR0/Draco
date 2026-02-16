@@ -118,7 +118,12 @@
                 <small class="text-muted">Consigue vidas ilimitadas para poder disfrutar y probar sin límites.</small>
               </div>
             </div>
-            <button class="btn btnVida btn-outline-dark text-uppercase">Obtener Super</button>
+            <form action="{{ route('buy.plus') }}" method="POST">
+              @csrf
+              <button type="submit" class="btn btnVida btn-outline-dark text-uppercase">
+                {{ Auth::user()->is_plus ? 'Activado' : 'Obtener Super' }}
+              </button>
+            </form>
           </div>
         </div>
 
@@ -505,6 +510,8 @@
     };
 </script>
 <script src="{{ asset('js/toastBuyLife.js') }}"></script>
+
+
 </body>
 
 </html>
