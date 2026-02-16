@@ -102,7 +102,12 @@
                   lección.</small>
               </div>
             </div>
-            <button class="btn btnVida btn-outline-dark text-uppercase">Recargar</button>
+            <form action="{{ route('buy.life') }}" method="POST">
+              @csrf
+              <button type="submit" class="btn btnVida btn-outline-dark text-uppercase">
+                Recargar
+              </button>
+            </form>
           </div>
 
           <div class="vidaItem d-flex align-items-center justify-content-between p-3">
@@ -113,7 +118,12 @@
                 <small class="text-muted">Consigue vidas ilimitadas para poder disfrutar y probar sin límites.</small>
               </div>
             </div>
-            <button class="btn btnVida btn-outline-dark text-uppercase">Obtener Super</button>
+            <form action="{{ route('buy.plus') }}" method="POST">
+              @csrf
+              <button type="submit" class="btn btnVida btn-outline-dark text-uppercase">
+                {{ Auth::user()->is_plus ? 'Activado' : 'Obtener Super' }}
+              </button>
+            </form>
           </div>
         </div>
 
@@ -142,7 +152,7 @@
           </div>
           <div class="d-flex align-items-center justify-content-center">
             <img src="{{ asset('media/imgs/iconos/coin.png') }}" alt="Dinero:" class="imgIco" />
-            <span>7000</span>
+            <span>{{ Auth::user()->points }}</span>
           </div>
           <div class="d-flex align-items-center justify-content-center">
             <img src="{{ asset('media/imgs/iconos/heart.png') }}" alt="Vida:" class="imgIco" />
@@ -237,6 +247,19 @@
       </div>
     </div>
   </div>
+
+ <!-- toast para compra de vidas -->
+  <div class="toast-container position-fixed bottom-0 start-0 p-3">
+    <div id="storeToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="{{ asset('media/imgs/icoDraco.png') }}" class="rounded me-2" style="width: 20px;">
+            <strong class="me-auto">Tienda Draco</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="storeToastBody">
+            </div>
+    </div>
+</div>
 
   <!-- MODAL DE TÉRMINOS Y CONDICIONES -->
   <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
@@ -480,6 +503,15 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIwM93aStjLTqInGUdQriLgLoIiV-hM4g&callback=initMap" async defer></script>
   <script src="{{ asset('js/autotranslate.js') }}"></script>
   <div id="gt" style="display:none"></div>
+<script>
+    window.storeSession = {
+        success: "{{ session('success') }}",
+        error: "{{ session('error') }}"
+    };
+</script>
+<script src="{{ asset('js/toastBuyLife.js') }}"></script>
+
+
 </body>
 
 </html>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Mail\RegisterMail;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\TematicaController;
+use App\Http\Controllers\StoreController;
 
 // --- 1. RUTAS PÚBLICAS (Accesibles para invitados y usuarios) ---
 Route::view('/', 'index')->name('index');
@@ -26,7 +27,9 @@ Route::post('/login/registrar', [RegisterController::class, 'register'])->name('
 // --- 2. RUTAS PARA USUARIOS LOGUEADOS ---
 Route::middleware(['auth', 'nocache', 'streak'])->group(function () {
     Route::view('/perfil', 'perfil')->name('perfil');
-    Route::view('/store', 'store')->name('store');
+    Route::get('/store', [StoreController::class, 'index'])->name('store');
+    Route::post('/store/buy-life', [StoreController::class, 'buyLife'])->name('buy.life');
+    Route::post('/store/buy-plus', [StoreController::class, 'buyPlus'])->name('buy.plus');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
