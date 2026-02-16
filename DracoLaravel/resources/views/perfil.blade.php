@@ -184,7 +184,7 @@
                                     src="{{ asset('media/imgs/iconos/storm.png') }}"
                                     class="fotoStats"
                                 />
-                                <div><span class="racha">&nbsp;&nbsp;{{ Auth::check() ? Auth::user()->points : 0 }}</span><br />EXP ganada</div>
+                                <div><span class="racha">&nbsp;&nbsp;{{ Auth::check() ? Auth::user()->experience : 0 }}</span><br />EXP ganada</div>
                             </div>
 
                             <div
@@ -194,7 +194,7 @@
                                     src="{{ asset('media/imgs/iconos/coin.png') }}"
                                     class="fotoStats"
                                 />
-                                <div>7000<br />Monedas</div>
+                                <div><span class="racha">&nbsp;{{ Auth::user()->points }}</span><br />Monedas</div>
                             </div>
 
                             <div

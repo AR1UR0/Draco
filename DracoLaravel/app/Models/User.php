@@ -16,7 +16,8 @@ class User extends Authenticatable
         'email',          
         'password',       
         'role_id',        
-        'points',         // Antes era 'experiencia' 
+        'points',         // Antes era 'dinero' 
+        'experience',      // antes experiencia
         'streak',         // Antes era 'racha' 
         'current_lives',  // Antes era 'vidas_actuales'
         'max_lives',      // Antes era 'vidas_max'
