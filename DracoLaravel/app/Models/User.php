@@ -22,6 +22,7 @@ class User extends Authenticatable
         'max_lives',      // Antes era 'vidas_max'
         'last_life_recovery', // Antes era 'last_life_recovery_at' 
         'profile_image',  // Antes era 'imagen_usuario' 
+        'last_streak_at',
     ];
 
     protected $hidden = [
@@ -33,6 +34,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
         'last_life_recovery' => 'datetime',
+        'last_streak_at' => 'datetime',
     ];
 
     // Relación con el nuevo modelo Role [cite: 282, 431]
