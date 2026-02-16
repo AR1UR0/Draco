@@ -96,7 +96,7 @@ async function cargarTests(tematicaId) {
 function fijarTest(id, titulo) {
     window.adminState.testId = id;
     document.querySelector(".admin-content-area").innerHTML =
-        `<div class="text-center p-5"><h4 class="text-primary fw-bold">📍 Test Seleccionado:</h4><h2>${titulo}</h2><div class="alert alert-success mt-4">¡Listo! Ahora elige una acción a la izquierda.</div></div>`;
+        `<div class="text-center p-5"><h4 class="text-primary fw-bold text-black">Test Seleccionado:</h4><h2>${titulo}</h2><div class="alert alert-success mt-4">¡Listo! Ahora elige una acción a la izquierda.</div></div>`;
 }
 
 /** * SECCIÓN: FORMULARIO ÚNICO (CREAR / EDITAR)
