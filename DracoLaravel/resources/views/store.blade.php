@@ -163,9 +163,16 @@
           </div>
           <!-- ANUNCIO -->
           <div class="panelAnuncio flex-grow-1">
-            <h2>Anuncio Interesante</h2>
-            <p>Mira que anuncio más chulo y más interesante mola mucho.</p>
-            <button>ANUNCIO AQUÍ SISISI</button>
+            <a href="https://LAPAGINAWEB.com" target="_blank" class="anuncio-link">
+              <img
+                src="{{ asset('media/pruebaAnuncio.png') }}"
+                alt="Anuncio"
+                class="imgAnuncio"
+              />
+              <div class="overlay-button">
+                <button class="btnAnuncio">VISITAR WEB</button>
+              </div>
+            </a>
           </div>
         </div>
 
