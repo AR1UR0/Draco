@@ -52,20 +52,20 @@
                 <div class="d-flex align-items-center gap-3">
                     <!-- DROPDOWN IDIOMAS -->
                     <div class="dropdown d-none d-sm-block">
-                        <button
-                            class="btn btn-idioma dropdown-toggle"
-                            type="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                        >
+                        <button class="btn btn-idioma dropdown-toggle" type="button" data-bs-toggle="dropdown">
                             Page Language
                         </button>
+
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="#">English</a>
+                                <a class="dropdown-item" href="#" onclick="setLanguage('en'); return false;">
+                                    English
+                                </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Spanish</a>
+                                <a class="dropdown-item" href="#" onclick="setLanguage('es'); return false;">
+                                    Spanish
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -114,7 +114,7 @@
             </main>
 
             <!-- FOOTER -->
-            <footer class="mt-auto py-3">
+            <footer class="mt-auto py-3 notranslate">
                 <hr />
                 <div class="container">
                     <div class="carousel-wrapper">
@@ -306,5 +306,67 @@
                 }
             });
         </script>
+
+        <div id="google_translate_element"></div>
+
+        <script>
+            function setCookie(name, value, days = 365) {
+                const d = new Date();
+                d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+            }
+
+            function getCookie(name) {
+                const cname = name + "=";
+                const decodedCookie = decodeURIComponent(document.cookie);
+                const ca = decodedCookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i].trim();
+                    if (c.indexOf(cname) == 0) return c.substring(cname.length);
+                }
+                return null;
+            }
+
+            // GOOGLE INIT
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'es',
+                    autoDisplay: false
+                }, 'google_translate_element');
+            }
+
+            // SET LANGUAGE
+            function setLanguage(lang) {
+                setCookie("site_lang", lang);
+
+                document.querySelector('.btn-idioma').textContent =
+                    lang === 'en' ? 'English' : 'Spanish';
+
+                const interval = setInterval(() => {
+                    const select = document.querySelector('.goog-te-combo');
+
+                    if (select) {
+                        select.value = lang;
+                        select.dispatchEvent(new Event('change'));
+                        clearInterval(interval);
+                    }
+                }, 100);
+            }
+
+            // AUTO LOAD
+            window.addEventListener('load', () => {
+                let lang = getCookie("site_lang");
+
+                if (!lang) {
+                    lang = "en";
+                    setCookie("site_lang", "en");
+                }
+
+                setLanguage(lang);
+            });
+        </script>
+
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     </body>
 </html>

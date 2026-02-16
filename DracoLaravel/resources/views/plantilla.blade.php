@@ -71,5 +71,7 @@
 
         <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         <script src="{{ asset('js/themeChange.js') }}"></script>
+        <script src="{{ asset('js/autotranslate.js') }}"></script>
+        <div id="gt" style="display:none"></div>
     </body>
 </html>
