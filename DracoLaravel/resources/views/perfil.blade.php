@@ -115,7 +115,7 @@
                                 <h2
                                     class="d-flex justify-content-center justify-content-md-start align-items-center gap-2"
                                 >
-                                    <span class="username">{{ Auth::user()->nombre }}</span>
+                                    <span class="username">{{ Auth::user()->name }}</span>
                                     <button class="btnEditNombreUsuario">
                                         <img
                                             src="{{ asset('media/imgs/iconos/pencil.png') }}"
