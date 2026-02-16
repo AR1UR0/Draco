@@ -1,0 +1,54 @@
+services:
+  # PHP
+  php:
+    build:
+      context: ./
+      dockerfile: ./DracoLaravel/Dockerfile
+    ports:
+      - 8080:443
+      - 80:80
+    env_file:
+      - ./DracoLaravel/.env
+    networks:
+      draco:
+        aliases:
+          - draco.com
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  mysql:
+    image: mysql:9.6
+    ports:
+      - 3306:3306
+    env_file:
+      - ./DracoLaravel/.env
+    networks:
+      draco:
+        aliases:
+          - mysql.draco.com
+    volumes:
+      - ./db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: mysql
+    networks:
+      draco:
+        aliases:
+          - phpmyadmin.draco.com
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+networks:
+  draco:
+    name: draco
+    driver: bridge
