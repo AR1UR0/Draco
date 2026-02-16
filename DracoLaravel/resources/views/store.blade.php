@@ -134,7 +134,7 @@
         <div class="d-flex flex-grow-0 parteArriba justify-content-evenly align-items-center mb-3">
           <!-- IMAGENES DE TEMA, RACHA, DINERO Y VIDAS -->
           <div>
-            <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" alt=" " class="border border-light imgTema" />
+            <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" alt=" " class="border border-light imgTema" id="imgPrincipal" />
           </div>
           <div class="d-flex align-items-center justify-content-center">
             <img src="{{ asset('media/imgs/iconos/burn.png') }}" alt="Racha:" class="imgIco" />
@@ -284,7 +284,7 @@
   </div>
 
     <!-- Modal para el pago de DracoPlus -->
-   <div class="modal fade" id="modalPago" tabindex="-1" aria-labelledby="modalPagoLabel" aria-hidden="true">
+    <div class="modal fade" id="modalPago" tabindex="-1" aria-labelledby="modalPagoLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 shadow">
             <div class="modal-header">
@@ -352,6 +352,23 @@
   <script src="{{ asset('js/toastCopy.js') }}"></script>
   <script src="{{ asset('js/autotranslate.js') }}"></script>
   <div id="gt" style="display:none"></div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const r = localStorage.getItem('temaImg');
+        const n = localStorage.getItem('temaNombre');
+        
+        if (r) {
+            const img = document.getElementById('imgPrincipal');
+            if (img) img.src = r;
+        }
+        if (n) {
+            const elementosNombre = document.querySelectorAll('.tema');
+            elementosNombre.forEach(el => {
+                el.textContent = n;
+            });
+        }
+    });
+  </script>
 </body>
 
 </html>
