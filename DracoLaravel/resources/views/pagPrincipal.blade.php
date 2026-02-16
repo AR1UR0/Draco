@@ -299,7 +299,14 @@
                     >
                         <!-- FOOTER LATERAL -->
                         <div class="row">
-                            <div class="col-4 col4">Contactos</div>
+                            <div class="col-4 col4">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#contactModal"
+                                    >Contáctanos</a
+                                >
+                            </div>
                             <div class="col-8">
                                 <a
                                     href="#"
@@ -310,11 +317,25 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col colF">Sobre Nosotros</div>
+                            <div class="col colF">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#aboutModal"
+                                    >Sobre Nosotros</a
+                                >
+                            </div>
                             <div class="col colF">
                                 <a href="#" id="liveToastBtn">Copyright</a>
                             </div>
-                            <div class="col colF">Dirección</div>
+                            <div class="col colF">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#mapModal"
+                                    >Dirección</a
+                                >
+                            </div>
                         </div>
                         <div
                             class="d-none container mt-4 mb-4 justify-content-evenly align-items-center d-md-flex"
@@ -340,7 +361,14 @@
                         class="footerMD d-none d-sm-flex d-md-none d-flex flex-column text-center mt-3 pb-4 pb-md-0"
                     >
                         <div class="row">
-                            <div class="col colF">Contactos</div>
+                            <div class="col colF">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#contactModal"
+                                    >Contáctanos</a
+                                >
+                            </div>
                             <div class="col colF">
                                 <a
                                     href="#"
@@ -349,11 +377,25 @@
                                     >Términos de Privacidad</a
                                 >
                             </div>
-                            <div class="col colF">Sobre Nosotros</div>
+                            <div class="col colF">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#aboutModal"
+                                    >Sobre Nosotros</a
+                                >
+                            </div>
                             <div class="col colF">
                                 <a href="#" id="liveToastBtn">Copyright</a>
                             </div>
-                            <div class="col colF">Dirección</div>
+                            <div class="col colF">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#mapModal"
+                                    >Dirección</a
+                                >
+                            </div>
                         </div>
                         <div
                             class="d-none d-sm-flex d-md-none container mt-4 mb-4 justify-content-evenly align-items-center"
@@ -428,7 +470,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="termsModalLabel">
-                            Términos y Condiciones – Plataforma DRACO
+                            Términos y Condiciones – DRACO
                         </h5>
                         <button
                             type="button"
@@ -511,6 +553,138 @@
             </div>
         </div>
 
+        <!-- MODAL SOBRE NOSOTROS -->
+        <div
+            class="modal fade"
+            id="aboutModal"
+            tabindex="-1"
+            aria-labelledby="aboutModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="aboutModalLabel">
+                            Sobre Nosotros – DRACO
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Cerrar"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Draco es un proyecto educativo y tecnológico diseñado para
+                            ofrecer a los usuarios una plataforma interactiva donde puedan 
+                            aprender y explorar sus temas favoritos de manera intuitiva y visual. 
+                            Nuestro objetivo es crear un espacio donde el conocimiento se presente 
+                            de forma clara, atractiva y accesible desde cualquier dispositivo.
+                        </p>
+                        <p>
+                            Nuestro equipo ha trabajado para que la experiencia de usuario sea fluida 
+                            y atractiva: desde la elección de colores y tipografías hasta la implementación 
+                            de funcionalidades que permiten personalizar la navegación. Además, Draco 
+                            incluye elementos de identidad visual como su icono distintivo, lo que refuerza 
+                            la experiencia de marca y facilita la identificación de la plataforma.
+                        </p>
+                        <p>
+                            Estamos comprometidos con la innovación y la calidad educativa, ofreciendo un 
+                            entorno seguro y confiable para estudiantes y curiosos por igual. Nuestro objetivo 
+                            final es empoderar a los usuarios, facilitando el aprendizaje autónomo y fomentando 
+                            la exploración de nuevos conocimientos.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL MAPA/DIRECCIÓN -->
+        <div class="modal fade" id="mapModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="d-flex align-items-center">
+                            <img
+                                src="{{ asset('media/imgs/icoDraco.png') }}"
+                                class="rounded me-2"
+                                alt="..."
+                                style="width: 25px"
+                            />
+                            <h5 class="modal-title">Nuestra Ubicación</h5>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><i class="notranslate">Carrer D'Alberic, 18, Extramurs, 46008 València, Valencia</i></p>
+                        <div id="map" style="width: 100%; height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL CONTACTOS -->
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="d-flex align-items-center">
+                            <img
+                                src="{{ asset('media/imgs/icoDraco.png') }}"
+                                class="rounded me-2"
+                                alt="..."
+                                style="width: 25px"
+                            />
+                            <h5 class="modal-title">Los miembros del equipo</h5>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center justify-content-between gap-4 ps-5 pe-5">
+                        <div class="d-flex flex-column justify-content-center gap-3">
+                            <p><small>Arturo Ortiz López</small></p>
+                            <img 
+                                src="{{ asset('media/imgs/iconos/linkedin.png') }}"
+                                class="rounded me-2" 
+                                alt="LinkedIn"
+                                style="width: 150px; cursor: pointer;"
+                                onclick="window.open('https://www.linkedin.com/in/arturo-ortiz-lópez-a323152aa/', '_blank')"
+                            />
+                        </div>
+                        <div class="d-flex flex-column justify-content-center gap-3">
+                            <p><small>Thais Núñez Agulló</small></p>
+                            <img 
+                                src="{{ asset('media/imgs/iconos/linkedin.png') }}"
+                                class="rounded me-2" 
+                                alt="LinkedIn"
+                                style="width: 150px; cursor: pointer;"
+                                onclick="window.open('https://www.linkedin.com/in/thais-nu%C3%B1ez-agullo-93840019a/', '_blank')"
+                            />
+                        </div>
+                        <div class="d-flex flex-column justify-content-center gap-3">
+                            <p><small>Marta Clemente Collado</small></p>
+                            <img 
+                                src="{{ asset('media/imgs/iconos/linkedin.png') }}"
+                                class="rounded me-2" 
+                                alt="LinkedIn"
+                                style="width: 150px; cursor: pointer;"
+                                onclick="window.open('https://www.linkedin.com/in/marta-clemente-collado-6616b227b/', '_blank')"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- SCRIPTS -->
         <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         <script src="{{ asset('js/themeChange.js') }}"></script>
@@ -521,6 +695,37 @@
                 document.querySelector('.tema').textContent = nombreTema;
             }
         </script>
+        <script>
+            let map;
+
+            function initMap() {
+                const modal = document.getElementById('mapModal');
+                
+                // Escuchamos el evento de Bootstrap cuando el modal termina de abrirse
+                modal.addEventListener('shown.bs.modal', function () {
+                    const position = { lat: 39.46846981708395, lng: -0.38866599592922074 }; 
+
+                    // Si el mapa ya existe, no lo recreamos, solo lo centramos
+                    if (!map) {
+                        map = new google.maps.Map(document.getElementById("map"), {
+                            zoom: 16,
+                            center: position,
+                            mapTypeId: 'hybrid'
+                    });
+
+                    new google.maps.Marker({
+                        position: position,
+                        map: map,
+                    });
+                    } else {
+                    // Re-centrar el mapa por si acaso
+                        google.maps.event.trigger(map, "resize");
+                        map.setCenter(position);
+                    }
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIwM93aStjLTqInGUdQriLgLoIiV-hM4g&callback=initMap" async defer></script>
         <script src="{{ asset('js/autotranslate.js') }}"></script>
         <div id="gt" style="display:none"></div>
     </body>
