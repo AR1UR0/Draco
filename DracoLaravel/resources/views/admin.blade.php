@@ -12,6 +12,12 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/perfil/perfil.css') }}" />
+        <style>
+            html,body {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
 
         <script defer src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         <script defer src="{{ asset('js/themeChange.js') }}"></script>
@@ -119,7 +125,7 @@
                     <div class="container-fluid ms-5 ps-3">
                         <div class="row">
                             <div class="col-md-3 d-flex flex-column gap-5 mt-4">
-                                <button class="btnAdmin">TEMÁTICA</button>
+                                <button class="btnAdmin font">TEMÁTICA</button>
                                 <button class="btnAdmin">AÑADIR PREGUNTA</button>
                                 <button class="btnAdmin active-admin">MODIFICAR PREGUNTA</button>
                                 <button class="btnAdmin">ELIMINAR PREGUNTA</button>

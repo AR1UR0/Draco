@@ -25,10 +25,12 @@ body {
   border-right: 3px solid transparent;
   transition: all 0.3s ease;
 }
+
 .enlPrin.active-admin-nav {
-  background-color: #dcedc8;
+  background-color: rgba(153, 183, 5, 0.44);
   border: 1px solid #98b705;
 }
+
 .enlPrin:hover {
   border-right: 3px solid #98b705;
   background-color: rgba(153, 183, 5, 0.44);
@@ -45,13 +47,12 @@ body {
 }
 
 .btnEditFotoPerfil {
-  width: -moz-min-content;
   width: min-content;
-  height: -moz-min-content;
   height: min-content;
   border: none;
   background-color: transparent;
 }
+
 .btnEditFotoPerfil img {
   width: 30px;
   height: 30px;
@@ -64,13 +65,12 @@ body {
 }
 
 .btnEditNombreUsuario {
-  width: -moz-min-content;
   width: min-content;
-  height: -moz-min-content;
   height: min-content;
   border: none;
   background-color: transparent;
 }
+
 .btnEditNombreUsuario img {
   width: 30px;
   height: 30px;
@@ -93,21 +93,40 @@ body {
 }
 
 .collapsing {
-  transition: height 0.35s ease !important;
+  transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .menuHamb {
-  overflow: hidden;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.02);
-  border-radius: 0 0 15px 15px;
+  padding-bottom: 10px;
+}
+
+.menuHamb .enlPrinWider {
+  display: block;
+  text-decoration: none !important;
+  color: #555;
+  font-weight: 600;
+  padding-left: 20px;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.menuHamb .enlPrinWider:hover, .menuHamb .enlPrinWider:focus, .menuHamb .enlPrinWider:active {
+  text-decoration: none !important;
+  color: inherit;
+  border-left: 4px solid #98b705;
+  background-color: rgba(153, 183, 5, 0.44);
+  padding-left: 30px;
 }
 
 .btnHamb {
   border: none !important;
   background: transparent !important;
-  font-size: 1.5rem;
   transition: transform 0.2s ease;
 }
+
 .btnHamb:active {
   transform: scale(0.9);
 }
@@ -122,19 +141,6 @@ main {
   }
   .navPrin {
     border-right: none !important;
-    align-items: flex-start !important;
-  }
-  .enlPrin {
-    width: 100%;
-    text-align: left;
-    padding: 10px 20px;
-    border-right: none;
-    border-left: 4px solid transparent;
-  }
-  .enlPrin:hover {
-    border-left: 4px solid #98b705;
-    background-color: rgba(153, 183, 5, 0.44);
-    padding-left: 30px;
   }
   .imgPerfil {
     width: 200px;
@@ -145,8 +151,9 @@ main {
     justify-content: flex-start;
   }
 }
+
 .btnAdmin {
-  background-color: #dcedc8;
+  background-color: rgba(152, 183, 5, 0.8);
   border: 2px solid #98b705;
   border-radius: 20px;
   padding: 12px;
@@ -156,21 +163,25 @@ main {
   box-shadow: 0 4px 0 #98b705;
   transition: all 0.1s ease;
 }
+
 .btnAdmin:active {
   transform: translateY(2px);
   box-shadow: 0 2px 0 #98b705;
 }
 
 .admin-card {
-  background-color: #d6e1ae;
+  background-color: rgba(152, 183, 5, 0.8);
   border: 3px solid #98b705;
   border-radius: 40px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 400px;
+  max-height: 400px;
+  min-height: 300px;
   box-shadow: 0 8px 0 rgba(0, 0, 0, 0.05);
 }
+
 .admin-card .badge-nivel,
 .admin-card .btn-terminar {
   background-color: #f06292;
@@ -182,26 +193,31 @@ main {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
 .admin-card .btn-terminar {
   cursor: pointer;
   box-shadow: 0 4px 0 #d81b60;
 }
+
 .admin-card .btn-terminar:hover {
-  background-color: rgb(242.2238372093, 121.2761627907, 162.1598837209);
+  background-color: #f279a2;
 }
+
 .admin-card .btn-terminar:active {
   transform: translateY(2px);
   box-shadow: 0 2px 0 #d81b60;
 }
+
 .admin-card .admin-content-area {
   background-color: white;
   border-radius: 25px;
   margin: 20px 0;
   flex-grow: 1;
   min-height: 180px;
+  max-height: 200px;
 }
 
 .gray-text {
   color: #a1a1a1;
   font-weight: 600;
-}/*# sourceMappingURL=perfil.css.map */
+}
