@@ -37,7 +37,7 @@
       <div 
           class="d-flex d-md-none align-items-center justify-content-between p-2"
       >
-          <a href="{{ route('pagPrincipal') }}">
+          <a href="{{ route('index') }}">
               <img
                   src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}"
                   alt="DRACO"
