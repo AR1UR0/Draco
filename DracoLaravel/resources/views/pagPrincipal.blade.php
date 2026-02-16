@@ -147,7 +147,7 @@
                     />
                     <!-- PANEL LATERAL -->
                     <div
-                        class="d-flex flex-grow-0 parteArriba justify-content-evenly align-items-center mb-3"
+                        class="d-flex flex-grow-0 parteArriba justify-content-evenly align-items-center mb-3 me-5"
                     >
                         <!-- IMAGENES DE TEMA, RACHA, DINERO Y VIDAS -->
                         <div>
