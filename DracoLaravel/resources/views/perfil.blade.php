@@ -169,7 +169,12 @@
                                     src="{{ asset('media/imgs/iconos/burn.png') }}"
                                     class="fotoStats"
                                 />
-                                <div><span class="racha">&nbsp;{{ Auth::check() ? (Auth::user()->streak ?? 0) : 0 }}</span><br />Días de racha</div>
+                                <div><span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->streak : 0 }}</span><br />
+                                    @if(Auth::check() && Auth::user()->streak == 1)
+                                        Día de racha
+                                    @else
+                                        Días de racha
+                                    @endif</div>
                             </div>
 
                             <div
