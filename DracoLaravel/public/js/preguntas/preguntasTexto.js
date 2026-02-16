@@ -10,23 +10,78 @@
  * Banco de preguntas y opciones del cuestionario.
  * @type {Array<{q: string, options: string[], correct: number}>}
  */
-const quizData = [
-  {
-    q: "¿Quién es el portador del anillo único?",
-    options: ["Gandalf", "Sauron", "Frodo", "Denethor"],
-    correct: 2,
-  },
-  {
-    q: "¿En qué lugar fue forjado el anillo?",
-    options: ["Rivendel", "Monte del Destino", "La Comarca", "Isengard"],
-    correct: 1,
-  },
-  {
-    q: "¿Cuántos anillos recibieron los hombres?",
-    options: ["Tres", "Siete", "Uno", "Nueve"],
-    correct: 3,
-  },
-];
+
+const urlParams = new URLSearchParams(window.location.search);
+// http://127.0.0.1:8000/pregunta-texto?tematica=1&pregunta=1
+const idPregunta = urlParams.get("pregunta");
+const idTematica = urlParams.get("tematica");
+
+if (isNaN(idPregunta) || idPregunta === null) {
+    alert("La pregunta es inválida");
+}
+if (isNaN(idTematica) || idTematica === null) {
+    alert("La temática es inválida");
+}
+
+async function pedirPreguntas() {
+    const testsPromise = await fetch(
+        `/api/tests?tematica_id=${idTematica}&order=${idPregunta}`,
+    );
+    const tests = await testsPromise.json();
+
+    // console.log("tests", tests);
+
+    if (tests.length == 0) {
+        alert("No existe el test");
+        return;
+    }
+
+    const preguntas = (
+        await Promise.all(
+            tests.map(async function (test) {
+                const preguntasPromise = await fetch(
+                    `/api/preguntas?test_id=${test.id}`,
+                );
+                return await preguntasPromise.json();
+            }),
+        )
+    ).flat();
+
+    // console.log("preguntas", preguntas);
+
+    const respuestas = await Promise.all(
+        preguntas.map(async function (pregunta) {
+            const respuestasPromise = await fetch(
+                `/api/respuestas?pregunta_id=${pregunta.id}`,
+            );
+            return (await respuestasPromise.json())
+                .map((value) => ({ value, sort: Math.random() }))
+                .sort((a, b) => a.sort - b.sort)
+                .map(({ value }) => value);
+        }),
+    );
+
+    // console.log("respuestas", respuestas);
+
+    quizData = preguntas.map(function (pregunta, index) {
+        const respuesta = respuestas[index];
+        return {
+            q: pregunta.enunciado,
+            options: respuesta.map(function (res) {
+                return res.opcion;
+            }),
+            correct: respuesta.findIndex(function (res) {
+                return res.is_correct == 1;
+            }),
+        };
+    });
+
+    // console.log("quizData", quizData);
+    loadQuiz();
+}
+
+var quizData = null;
+pedirPreguntas();
 
 /** @type {number} Índice del paso o pregunta actual */
 let currentStep = 0;
@@ -53,24 +108,24 @@ const progBar = document.getElementById("progressBar");
  * Reinicia los estados de selección y ajusta la barra de progreso.
  */
 function loadQuiz() {
-  const currentQuiz = quizData[currentStep];
-  pTexto.innerText = currentQuiz.q;
-  oContenedor.innerHTML = "";
-  selectedIdx = null;
-  btnPrincipal.innerText = "COMPROBAR";
-  btnPrincipal.disabled = true;
+    const currentQuiz = quizData[currentStep];
+    pTexto.innerText = currentQuiz.q;
+    oContenedor.innerHTML = "";
+    selectedIdx = null;
+    btnPrincipal.innerText = "COMPROBAR";
+    btnPrincipal.disabled = true;
 
-  // Actualizar barra
-  const percent = (currentStep / quizData.length) * 100 + 10;
-  progBar.style.width = percent + "%";
+    // Actualizar barra
+    const percent = (currentStep / quizData.length) * 100 + 10;
+    progBar.style.width = percent + "%";
 
-  currentQuiz.options.forEach((opt, i) => {
-    const button = document.createElement("button");
-    button.className = "option-btn";
-    button.innerText = opt;
-    button.onclick = () => selectOption(i, button);
-    oContenedor.appendChild(button);
-  });
+    currentQuiz.options.forEach((opt, i) => {
+        const button = document.createElement("button");
+        button.className = "option-btn";
+        button.innerText = opt;
+        button.onclick = () => selectOption(i, button);
+        oContenedor.appendChild(button);
+    });
 }
 
 /**
@@ -79,12 +134,12 @@ function loadQuiz() {
  * @param {HTMLElement} el - Elemento del DOM del botón pulsado.
  */
 function selectOption(idx, el) {
-  document
-    .querySelectorAll(".option-btn")
-    .forEach((b) => b.classList.remove("active"));
-  el.classList.add("active");
-  selectedIdx = idx;
-  btnPrincipal.disabled = false;
+    document
+        .querySelectorAll(".option-btn")
+        .forEach((b) => b.classList.remove("active"));
+    el.classList.add("active");
+    selectedIdx = idx;
+    btnPrincipal.disabled = false;
 }
 
 /**
@@ -93,37 +148,37 @@ function selectOption(idx, el) {
  * @listens click
  */
 btnPrincipal.onclick = () => {
-  if (btnPrincipal.innerText === "COMPROBAR") {
-    const data = quizData[currentStep];
-    const botones = document.querySelectorAll(".option-btn");
+    if (btnPrincipal.innerText === "COMPROBAR") {
+        const data = quizData[currentStep];
+        const botones = document.querySelectorAll(".option-btn");
 
-    // Validar respuesta
-    if (selectedIdx === data.correct) {
-      // CORRECTO: Verde
-      botones[selectedIdx].classList.add("is-correct");
+        // Validar respuesta
+        if (selectedIdx === data.correct) {
+            // CORRECTO: Verde
+            botones[selectedIdx].classList.add("is-correct");
+        } else {
+            // INCORRECTO: Rojo
+            botones[selectedIdx].classList.add("is-wrong");
+            // Opcional: mostrar cuál era la correcta en verde
+            botones[data.correct].classList.add("is-correct");
+        }
+
+        // Bloquear otros botones para que no sigan marcando
+        botones.forEach((btn) => (btn.style.pointerEvents = "none"));
+
+        btnPrincipal.innerText = "CONTINUAR";
+        btnPrincipal.classList.add("btn-next"); // Cambia color del botón principal
+    } else if (btnPrincipal.innerText === "CONTINUAR") {
+        currentStep++;
+        if (currentStep < quizData.length) {
+            loadQuiz();
+            btnPrincipal.classList.remove("btn-next");
+        } else {
+            finishQuiz();
+        }
     } else {
-      // INCORRECTO: Rojo
-      botones[selectedIdx].classList.add("is-wrong");
-      // Opcional: mostrar cuál era la correcta en verde
-      botones[data.correct].classList.add("is-correct");
+        location.reload();
     }
-
-    // Bloquear otros botones para que no sigan marcando
-    botones.forEach((btn) => (btn.style.pointerEvents = "none"));
-
-    btnPrincipal.innerText = "CONTINUAR";
-    btnPrincipal.classList.add("btn-next"); // Cambia color del botón principal
-  } else if (btnPrincipal.innerText === "CONTINUAR") {
-    currentStep++;
-    if (currentStep < quizData.length) {
-      loadQuiz();
-      btnPrincipal.classList.remove("btn-next");
-    } else {
-      finishQuiz();
-    }
-  } else {
-    location.reload();
-  }
 };
 
 /**
@@ -131,13 +186,10 @@ btnPrincipal.onclick = () => {
  * y actualizando la barra de progreso al máximo.
  */
 function finishQuiz() {
-  progBar.style.width = "100%";
-  pTexto.innerText = "¡Nivel Completado!";
-  oContenedor.innerHTML =
-    '<div class="text-center"><img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" width="100"></div>';
-  btnPrincipal.innerText = "FINALIZAR";
-  btnPrincipal.classList.remove("btn-next");
+    progBar.style.width = "100%";
+    pTexto.innerText = "¡Nivel Completado!";
+    oContenedor.innerHTML =
+        '<div class="text-center"><img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" width="100"></div>';
+    btnPrincipal.innerText = "FINALIZAR";
+    btnPrincipal.classList.remove("btn-next");
 }
-
-// Inicialización de la aplicación
-loadQuiz();
