@@ -35,41 +35,39 @@
                         >Aprender</a
                     >
                     <a href="{{ route('store') }}" class="mb-4 me-3 enlPrin">Tienda</a>
-                    <a href="{{ route('admin') }}" class="mb-4 me-3 enlPrin">Admin</a>
+                    <a href="{{ route('admin') }}" class="mb-4 me-3 enlPrin notranslate">Admin</a>
                 </nav>
 
-                <main class="flex-grow-1 p-2">
-                    <div class="p-1 d-flex align-items-center justify-content-end mb-1">
-                        <!-- DROPDOWN IDIOMAS -->
-                        <div class="dropdown d-none d-sm-block">
-                            <button class="btn btn-idioma dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                Page Language
-                            </button>
+                <main class="flex-grow-1 p-0"> <div class="p-3 d-flex justify-content-end align-items-center gap-3">
+                    <div class="dropdown d-none d-sm-block">
+                        <button class="btn btn-idioma dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            Page Language
+                        </button>
 
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="#" onclick="setLanguage('en'); return false;">
-                                        English
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#" onclick="setLanguage('es'); return false;">
-                                        Spanish
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="form-check form-switch me-3">
-                            <label class="switch">
-                                <input type="checkbox" id="toggleTheme" checked />
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btnSemiTran">Log Out</button>
-                        </form>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="setLanguage('en'); return false;">
+                                    English
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="setLanguage('es'); return false;">
+                                    Spanish
+                                </a>
+                            </li>
+                        </ul>
                     </div>
+
+                    <label class="switch">
+                        <input type="checkbox" id="toggleTheme" checked />
+                        <span class="slider"></span>
+                    </label>
+
+                    <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btnSemiTran">Log Out</button>
+                    </form>
+                </div>
 
                     <!-- PERFIL -->
                     <div class="container-fluid px-3 px-md-5">
@@ -144,8 +142,6 @@
                 </main>
             </div>
         </div>
-
-        <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         
         <div id="google_translate_element"></div>
 
