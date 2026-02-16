@@ -1,4 +1,41 @@
 @charset "UTF-8";
+.btn-outline-draco {
+  border: 2px solid #98b705;
+  color: #98b705;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+.btn-outline-draco:hover {
+  background-color: rgba(152, 183, 5, 0.1);
+  color: #98b705;
+  border-color: #98b705;
+}
+
+.btn-check:checked + .btn-outline-draco {
+  background-color: #98b705 !important;
+  color: white !important;
+  border-color: #98b705 !important;
+  box-shadow: 0 0 10px rgba(152, 183, 5, 0.5);
+}
+
+.modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+}
+.modal-content .form-control:focus {
+  border-color: #98b705;
+  box-shadow: 0 0 0 0.25rem rgba(152, 183, 5, 0.25);
+}
+.modal-content .input-group-text {
+  background-color: transparent;
+  border-color: #dee2e6;
+}
+
+[data-bs-theme=dark] .modal-content .input-group-text {
+  border-color: #495057;
+  color: white;
+}
+
 body {
   background-color: #ffffff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -51,9 +88,8 @@ body {
   border-radius: 0;
   padding: 0.75rem;
 }
-
 .btn-login:hover {
-  background-color: #839e04;
+  background-color: rgb(131.3829787234, 158.1781914894, 4.3218085106);
 }
 
 .forgot-password {
@@ -65,7 +101,6 @@ body {
   color: #a1a1a1;
   text-decoration: none;
 }
-
 .forgot-password:hover {
   text-decoration: underline;
 }
@@ -100,7 +135,6 @@ body {
   top: 20px;
   right: 20px;
 }
-
 .btn-register:hover {
   background-color: #98b705;
   color: #ffffff !important;
@@ -111,7 +145,6 @@ body {
     font-size: 1.6rem;
   }
 }
-
 .btnPrimary {
   background-color: var(--bs-primary) !important;
   border: 2px solid var(--bs-primary) !important;
@@ -166,15 +199,14 @@ body {
 }
 
 .btnSemiTran:active {
-  background-color: #839e04 !important;
-  border-color: #839e04 !important;
+  background-color: rgb(131.3829787234, 158.1781914894, 4.3218085106) !important;
+  border-color: rgb(131.3829787234, 158.1781914894, 4.3218085106) !important;
   color: whitesmoke !important;
 }
 
 body.bg-dark a {
   color: whitesmoke !important;
 }
-
 body.bg-dark a:hover {
   color: #a1a1a1 !important;
 }
@@ -182,7 +214,6 @@ body.bg-dark a:hover {
 body.bg-light a {
   color: black !important;
 }
-
 body.bg-light a:hover {
   color: #a1a1a1 !important;
 }
@@ -193,7 +224,6 @@ body.bg-light a:hover {
   border: none;
   font-weight: 900;
 }
-
 .btn-idioma:hover, .btn-idioma:focus, .btn-idioma:active, .btn-idioma.show {
   background-color: #f70071 !important;
   box-shadow: none !important;
@@ -205,12 +235,10 @@ body.bg-light a:hover {
   border: none;
   padding: 0.5rem 0;
 }
-
 .dropdown-menu .dropdown-item {
   color: whitesmoke !important;
   font-weight: 500;
 }
-
 .dropdown-menu .dropdown-item:hover {
   background-color: #98b705 !important;
 }
@@ -226,21 +254,17 @@ body.bg-light a:hover {
   width: 50px;
   height: 24px;
 }
-
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 .switch input:checked + .slider {
   background-color: #f70071;
 }
-
 .switch input:checked + .slider:before {
   transform: translateX(26px);
 }
-
 .switch .slider {
   position: absolute;
   cursor: pointer;
@@ -249,7 +273,6 @@ body.bg-light a:hover {
   border-radius: 24px;
   transition: 0.3s;
 }
-
 .switch .slider:before {
   content: "";
   position: absolute;
@@ -273,8 +296,7 @@ body.bg-light a:hover {
 }
 
 .carousel-item-custom {
-  min-width: 25%;
-  /* 4 visibles */
+  min-width: 25%; /* 4 visibles */
   height: 70px;
   margin: 0 5px;
   border-radius: 12px;
@@ -285,11 +307,9 @@ body.bg-light a:hover {
   font-weight: bold;
   font-style: normal;
 }
-
 .carousel-item-custom a {
   text-decoration: none;
 }
-
 .carousel-item-custom img {
   height: 30px;
 }
@@ -302,25 +322,21 @@ body.bg-light a:hover {
 
 @media screen and (max-width: 991px) {
   .carousel-item-custom {
-    min-width: 33%;
-    /* 3 visibles en tablet */
+    min-width: 33%; /* 3 visibles en tablet */
   }
 }
-
 @media screen and (max-width: 576px) {
   .main-img {
     content: src("../Draco/media/imgs/index/dracoLibroPequeno.png");
     width: 200px;
   }
   .carousel-item-custom {
-    min-width: 50%;
-    /* 2 visibles en móvil */
+    min-width: 50%; /* 2 visibles en móvil */
   }
   body {
     overflow: scroll;
   }
 }
-
 .topic-card {
   background-color: transparent;
   perspective: 1000px;
@@ -375,9 +391,7 @@ body.bg-light a:hover {
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-}
-
-/*# sourceMappingURL=main.css.map */
+} 
 .modal-body p {
   font-weight: 500;
 }
@@ -393,10 +407,8 @@ body.bg-light a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  /* Oscurece el fondo */
-  z-index: 10000;
-  /* Por encima de todo */
+  background-color: rgba(0, 0, 0, 0.8); /* Oscurece el fondo */
+  z-index: 10000; /* Por encima de todo */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -433,6 +445,7 @@ iframe.skiptranslate {
 
 #google_translate_element {
   display: none !important;
+}/*# sourceMappingURL=main.css.map */
 }
 
 /* Oculta el cuadro de sugerencia de traducción al pasar el ratón */

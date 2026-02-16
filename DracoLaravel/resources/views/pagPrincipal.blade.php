@@ -221,8 +221,8 @@
                                     ¡Desbloquea contenido exclusivo y racha
                                     infinita!
                                 </p>
-                                <button class="btn btnPlus px-4 py-2 mt-2">
-                                    PRUEBA PLUS GRATIS
+                                <button class="btn btnPlus px-4 py-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalPago">
+                                PRUEBA PLUS GRATIS
                                 </button>
                             </div>
                         </div>
@@ -506,6 +506,68 @@
                 </div>
             </div>
         </div>
+
+<!-- Modal para el pago de DracoPlus -->
+<div class="modal fade" id="modalPago" tabindex="-1" aria-labelledby="modalPagoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="modalPagoLabel">Suscribirse a Draco Plus</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="paymentForm">
+                    <div class="mb-4 text-center">
+                        <div class="btn-group w-100" role="group" aria-label="Métodos de pago">
+                            <input type="radio" class="btn-check" name="payMethod" id="methodCard" autocomplete="off" checked onclick="switchPay('card')">
+                            <label class="btn btn-outline-draco" for="methodCard">Tarjeta Bancaria</label>
+
+                            <input type="radio" class="btn-check" name="payMethod" id="methodIban" autocomplete="off" onclick="switchPay('iban')">
+                            <label class="btn btn-outline-draco" for="methodIban">IBAN / SEPA</label>
+                        </div>
+
+                    <div id="sectionCard">
+                        <div class="mb-3">
+                            <label class="form-label small text-uppercase fw-bold">Titular de la tarjeta</label>
+                            <input type="text" class="form-control" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small text-uppercase fw-bold">Número de tarjeta</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="0000 0000 0000 0000" id="numTarj" required>
+                                <span class="input-group-text"><i class="bi bi-credit-card"></i></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label class="form-label small text-uppercase fw-bold">Fecha Exp.</label>
+                                <input type="text" class="form-control" placeholder="MM/AA" required>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label small text-uppercase fw-bold">CVC/CVV</label>
+                                <input type="password" class="form-control" placeholder="123" maxlength="4" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="sectionIban" style="display: none;">
+                        <div class="mb-3">
+                            <label class="form-label small text-uppercase fw-bold">Número de cuenta (IBAN)</label>
+                            <input type="text" class="form-control" placeholder="ES00 0000 0000 0000 0000">
+                            <div class="form-text mt-2">Se domiciliará el pago mensualmente en tu cuenta bancaria.</div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-primary py-2 d-flex align-items-center btn-outline-draco">
+                        <small>Pago seguro encriptado por DracoSecure.</small>
+                    </div>
+
+                    <button type="submit" class="btn btnPlus w-100 py-2 fw-bold text-uppercase mt-3">Confirmar Suscripción</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- SCRIPTS -->
         <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
