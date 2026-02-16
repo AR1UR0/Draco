@@ -581,5 +581,35 @@
         </script>
         <script src="{{ asset('js/autotranslate.js') }}"></script>
         <div id="gt" style="display:none"></div>
+        <script>
+            // 1. Definimos la función globalmente para que el 'onclick' la encuentre siempre
+            window.cambiarImagen = function(nuevaRuta, nombreTema) {
+                console.log("Cambiando a:", nombreTema); // Para debug en consola
+                
+                localStorage.setItem('temaImg', nuevaRuta);
+                localStorage.setItem('temaNombre', nombreTema);
+
+                actualizarUI(nuevaRuta, nombreTema);
+            };
+            function actualizarUI(ruta, nombre) {
+                // Actualizar Imagen
+                const img = document.getElementById('imgPrincipal');
+                if (img) img.src = ruta;
+
+                // Actualizar Texto (en todos los sitios donde aparezca la clase .tema)
+                const elementosNombre = document.querySelectorAll('.tema');
+                elementosNombre.forEach(el => {
+                    el.textContent = nombre;
+                });
+            }
+            // 2. Ejecutar al cargar la página
+            document.addEventListener("DOMContentLoaded", () => {
+                const r = localStorage.getItem('temaImg');
+                const n = localStorage.getItem('temaNombre');
+                if (r && n) {
+                    actualizarUI(r, n);
+                }
+            });
+        </script>
     </body>
 </html>
