@@ -128,14 +128,9 @@
 
                             <div class="col-md-7">
                                 <div class="admin-card">
-                                    <div class="d-flex justify-content-center">
-                                        <span class="badge-nivel">NIVEL</span>
-                                    </div>
-                                    <div class="admin-content-area notranslate">
+                                    <div class="admin-content-area m-4 notranslate ">
                                         </div>
-                                    <div class="d-flex justify-content-center">
-                                        <button class="btn-terminar">TERMINAR</button>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
