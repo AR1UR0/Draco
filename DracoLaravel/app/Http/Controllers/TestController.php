@@ -10,7 +10,7 @@ use App\Models\Respuesta;
 
 class TestController extends Controller
 {
-    public function mostrarTest($id)
+    public function mostrarTest(Request $request)
     {
         // Obtener las vidas
         if (Auth::check()) {
@@ -19,20 +19,12 @@ class TestController extends Controller
             $vidas = Session::get('vidas_invitado', 5);
         }
 
-        // Comprobar si puede jugar
-        if ($vidas <= 0) {
-            return redirect()->back()->with('error', 'No te quedan vidas.');
-        }
-
         // Si intenta entrar con 0 vidas, lo mandamos a la principal con error
         if ($vidas <= 0) {
             return redirect()->route('pagPrincipal')->with('error', 'No tienes vidas suficientes. ¡Pásate por la tienda!');
         }
 
-        // Cargar el test con sus preguntas y respuestas
-        $test = Test::with('preguntas.respuestas')->findOrFail($id);
-
-        return view('preguntaTexto', compact('vidas', 'test'));
+        return view('preguntaTexto', compact('vidas'));
     }
 
     // funcion para comprobar las respuestas del usuario

@@ -806,6 +806,13 @@
                 });
             }
         </script>
+        @if(session('error'))
+        <script>
+            // Esto capturará el mensaje "No tienes vidas suficientes" 
+            // que enviamos desde el controlador
+            alert("{{ session('error') }}");
+        </script>
+        @endif
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIwM93aStjLTqInGUdQriLgLoIiV-hM4g&callback=initMap" async defer></script>
         <script src="{{ asset('js/autotranslate.js') }}"></script>
         <div id="gt" style="display:none"></div>

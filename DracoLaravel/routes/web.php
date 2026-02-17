@@ -42,7 +42,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 // --- 4. UTILIDADES Y PLANTILLAS ---
 Route::view('/plantilla', 'plantilla')->name('plantilla');
-Route::view('/pregunta-texto', 'preguntaTexto')->name('preguntaTexto');
+Route::get('/pregunta-texto', [TestController::class, 'mostrarTest'])->name('preguntaTexto');
 Route::view('/plantilla-media', 'plantillaMedia')->name('plantillaMedia');
 Route::view('/plantilla-imagenes', 'plantillaimagenes')->name('plantillaimagenes');
 
