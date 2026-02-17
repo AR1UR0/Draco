@@ -104,8 +104,9 @@
             </div>
             <form action="{{ route('buy.life') }}" method="POST">
               @csrf
-              <button type="submit" class="btn btnVida btn-outline-dark text-uppercase">
-                Recargar
+              <button type="submit" class="btn btnVida btn-outline-dark text-uppercase" 
+                {{ Auth::user()->current_lives >= Auth::user()->max_lives ? 'disabled' : '' }}>
+                100 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="18"> Recargar
               </button>
             </form>
           </div>
@@ -120,8 +121,13 @@
             </div>
             <form action="{{ route('buy.plus') }}" method="POST">
               @csrf
-              <button type="submit" class="btn btnVida btn-outline-dark text-uppercase">
-                {{ Auth::user()->is_plus ? 'Activado' : 'Obtener Super' }}
+              <button type="submit" class="btn btnVida btn-outline-dark text-uppercase"
+                {{ Auth::user()->is_plus ? 'disabled' : '' }}>
+                  @if(Auth::user()->is_plus)
+                      Activado
+                  @else
+                      2000 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="18"> Obtener Plus
+                  @endif
               </button>
             </form>
           </div>
