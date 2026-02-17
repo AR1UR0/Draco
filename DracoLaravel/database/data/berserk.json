@@ -19,14 +19,14 @@
                             ]
                         },
                         {
-                            "enunciado": "¿Quien dice esta frase?",
+                            "enunciado": "¿Quien canción es esta?",
                             "audio": "https://example.com/audios/frase_guts.mp3",
                             "puntos_recompensa": 10,
                             "respuestas": [
-                                { "texto": "Griffith", "correcta": false },
-                                { "texto": "Skull Knight", "correcta": false },
-                                { "texto": "Guts", "correcta": true },
-                                { "texto": "Zodd", "correcta": false }
+                                { "texto": "Intro Anime 2010", "correcta": false },
+                                { "texto": "Intro Primera Película", "correcta": false },
+                                { "texto": "Intro Segunda Película", "correcta": false },
+                                { "texto": "Intro Anime 1997", "correcta": true }
                             ]
                         },
                         {
