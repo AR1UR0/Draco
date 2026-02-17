@@ -96,7 +96,7 @@ async function cargarTests(tematicaId) {
 function fijarTest(id, titulo) {
     window.adminState.testId = id;
     document.querySelector(".admin-content-area").innerHTML =
-        `<div class="text-center p-5"><h4 class="text-primary fw-bold text-black">Test Seleccionado:</h4><h2>${titulo}</h2><div class="alert alert-success mt-4">¡Listo! Ahora elige una acción a la izquierda.</div></div>`;
+        `<div class="text-center p-5"><h4 class="text-primary fw-bold text-black">Test Seleccionado:</h4><h2 style="color: black;">${titulo}</h2><div class="alert alert-success mt-4">¡Listo! Ahora elige una acción a la izquierda.</div></div>`;
 }
 
 /** * SECCIÓN: FORMULARIO ÚNICO (CREAR / EDITAR)
@@ -105,9 +105,9 @@ function fijarTest(id, titulo) {
 function mostrarFormularioPregunta() {
     document.querySelector(".admin-content-area").innerHTML = `
         <div class="p-4">
-            <h3 class="mb-4">Nueva Pregunta</h3>
+            <h3 class="mb-4" style="color: black;">Nueva Pregunta</h3>
             <div class="mb-3">
-                <label class="form-label fw-bold">Enunciado:</label>
+                <label class="form-label fw-bold" style="color: black;">Enunciado:</label>
                 <textarea id="enunciado" class="form-control" rows="2" placeholder="Escribe la pregunta..."></textarea>
             </div>
             <div class="row g-2 mb-3">
@@ -168,9 +168,9 @@ async function guardarPregunta() {
 async function listarPreguntasParaEditar() {
     const res = await fetch(`/api/tests/${window.adminState.testId}/preguntas`);
     const preguntas = await res.json();
-    let html = `<div class="p-4"><h3 class="text-center mb-4">Modificar Preguntas</h3><ul class="list-group">`;
+    let html = `<div class="p-4"><h3 class="text-center mb-4" style="color: black;">Modificar Preguntas</h3><ul class="list-group">`;
     preguntas.forEach((p) => {
-        html += `<li class="list-group-item d-flex justify-content-between align-items-center">${p.enunciado}<button class="btn btn-warning btn-sm" onclick="cargarDatosEnFormulario(${p.id})">EDITAR</button></li>`;
+        html += `<li class="list-group-item d-flex justify-content-between align-items-center">${p.enunciado}<button class="btn btn-warning btn-sm" style="background-color: #f70071; border-color: #f70071; color: white;" onclick="cargarDatosEnFormulario(${p.id})">EDITAR</button></li>`;
     });
     document.querySelector(".admin-content-area").innerHTML =
         html + `</ul></div>`;
