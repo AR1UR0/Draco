@@ -145,7 +145,7 @@
           </div>
         </div>
       </main>
-      <aside class="flex-grow-0 pt-3 ps-3 border-start border-1 border-light asidePrin d-flex flex-column">
+      <aside class="flex-grow-1 flex-md-grow-0 pt-3 ps-3 border-start border-md-1 border-light asidePrin vh-100 d-flex flex-column">
         <!-- PANEL LATERAL -->
         <div class="d-flex flex-grow-0 parteArriba justify-content-evenly align-items-center mb-3">
           <!-- IMAGENES DE TEMA, RACHA, DINERO Y VIDAS -->

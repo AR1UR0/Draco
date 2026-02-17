@@ -82,24 +82,24 @@
                             "respuestas": [
                                 {
                                     "texto": "Colinas verdes con casas pequeñas de puertas redondas",
-                                    "imagen": "comarca.jpg",
+                                    "imagen": "imgs/PREGUNTAS/lotr/comarca.jpg",
                                     "correcta": true
                                 },
                                 {
                                     "texto": "La ciudad blanca",
-                                    "imagen": "gondor.jpg",
+                                    "imagen": "imgs/PREGUNTAS/lotr/gondor.jpg",
                                     "correcta": false
                                 },
                                 {
                                     "texto": "Tierra del monte del destino",
-                                    "imagen": "mordor.jpg",
+                                    "imagen": "imgs/PREGUNTAS/lotr/mordor.jpg",
                                     "correcta": false
                                 }
                             ]
                         },
                         {
                             "enunciado": "¿Esta canción a qué territorio de la Tierra Media pertenece?",
-                            "audio": "TheShire.mp3",
+                            "audio": "Audio/lotr/TheShire.mp3",
                             "puntos_recompensa": 10,
                             "respuestas": [
                                 { "texto": "La Comarca", "correcta": true },
@@ -195,24 +195,24 @@
                             "respuestas": [
                                 {
                                     "texto": "Una espada de cristal que brilla en la oscuridad",
-                                    "imagen": "dardo.jpg",
+                                    "imagen": "imgs/PREGUNTAS/lotr/dardo.jpg",
                                     "correcta": false
                                 },
                                 {
                                     "texto": "Un pequeño frasco de cristal que emite una luz blanca intensa",
-                                    "imagen": "vialGaladriel.jpg",
+                                    "imagen": "imgs/PREGUNTAS/lotr/vialGaladriel.jpg",
                                     "correcta": true
                                 },
                                 {
                                     "texto": "Un anillo de oro liso con inscripciones de fuego",
-                                    "imagen": "anilloUnico.jpg",
+                                    "imagen": "imgs/PREGUNTAS/lotr/anilloUnico.jpg",
                                     "correcta": false
                                 }
                             ]
                         },
                         {
                             "enunciado": "¿Esta canción a qué territorio/facción de la Tierra Media pertenece?",
-                            "audio": "uruks.mp3",
+                            "audio": "Audio/lotr/uruks.mp3",
                             "puntos_recompensa": 20,
                             "respuestas": [
                                 { "texto": "La Comarca", "correcta": false },
@@ -309,24 +309,24 @@
                             "respuestas": [
                                 {
                                     "texto": "Una ciudad de piedra blanca con siete niveles circulares.",
-                                    "imagen": "gondor.jpg",
+                                    "imagen": "imgs/PREGUNTAS/lotr/gondor.jpg",
                                     "correcta": false
                                 },
                                 {
                                     "texto": "Una torre negra altísima con un ojo en la cima.",
-                                    "imagen": "barad-dur.jpg",
+                                    "imagen": "imgs/PREGUNTAS/lotr/barad-dur.jpg",
                                     "correcta": false
                                 },
                                 {
                                     "texto": "Una ciudad fortificada que emite una luz verde fantasmal y tétrica.",
-                                    "imagen": "minasMorgul.jpg",
+                                    "imagen": "imgs/PREGUNTAS/lotr/minasMorgul.jpg",
                                     "correcta": true
                                 }
                             ]
                         },
                         {
                             "enunciado": "¿Esta canción a qué territorio/facción de la Tierra Media pertenece?",
-                            "audio": "rohan.mp3",
+                            "audio": "Audio/lotr/rohan.mp3",
                             "puntos_recompensa": 30,
                             "respuestas": [
                                 { "texto": "La Comarca", "correcta": false },

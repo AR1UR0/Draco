@@ -753,7 +753,9 @@
         </script>
         <script>
             let map;
-            let temaSeleccionadoId = null;
+            const urlParams = new URLSearchParams(window.location.search);
+            let temaSeleccionadoId = urlParams.get("tematica");
+            
 
     function cambiarImagenYGuardarId(ruta, nombre, id) {
         // 1. Llama a tu función original para que cambie la imagen como siempre

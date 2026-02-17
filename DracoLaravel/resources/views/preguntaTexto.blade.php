@@ -51,14 +51,40 @@
         </div>
       </header>
 
+      
       <main
         class="container py-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-        <h5 class="text-uppercase text-pink mb-3">Lee y responde</h5>
         <h2 id="preguntaTexto" class="question-text mb-5 text-center">
-          ¿Quién es el portador del anillo único?
         </h2>
 
-        <div id="opcionesContenedor"></div>
+        <!-- Texto -->
+         <div id="contenedorTexto">
+          <h5 class="text-uppercase text-pink mb-3">Lee y responde</h5>
+         </div>
+
+        <!-- Audio -->
+        <div
+          id = "contenedorAudio"
+          class="d-flex align-items-center gap-3 mb-5"
+          style="max-width: 600px">
+          <button id="btnAudio" class="audio-btn">
+            <img
+              src="{{ asset('media/imgs/iconos/speaker.png') }}"
+              alt="Reproducir audio"
+              style="width: 40px; height: 40px" />
+          </button>
+          <audio id="audioPregunta">
+            <source id="audioSource" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <!-- Imagnes-->
+        <div id="contenedorImagenes">
+          <h5 class="text-uppercase text-pink mb-3">Lee y responde</h5>
+        </div>
+        <div id="opcionesContenedor" class="mt-5"></div>
+        
+      
       </main>
       <footer class="border-top py-4">
         <div class="container">

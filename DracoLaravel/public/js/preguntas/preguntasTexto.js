@@ -23,6 +23,18 @@ if (isNaN(idTematica) || idTematica === null) {
     alert("La temática es inválida");
 }
 
+var estadoPregunta = "no confirmado";
+const contenedorTexto = document.getElementById("contenedorTexto");
+const contenedorAudio = document.getElementById("contenedorAudio");
+const contenedorImagenes = document.getElementById("contenedorImagenes");
+const opcionesContenedor = document.getElementById("opcionesContenedor");
+const audioSource = document.getElementById("audioSource");
+const audioPregunta = document.getElementById("audioPregunta");
+
+document.getElementById("btnAudio").addEventListener("click", function () {
+    audioPregunta.play();
+});
+
 async function pedirPreguntas() {
     const testsPromise = await fetch(
         `/api/tests?tematica_id=${idTematica}&order=${idPregunta}`,
@@ -68,20 +80,22 @@ async function pedirPreguntas() {
         return {
             q: pregunta.enunciado,
             options: respuesta.map(function (res) {
-                return res.opcion;
+                return {
+                    text: res.opcion,
+                    audio: res.audio,
+                    imagen: res.image,
+                };
             }),
             correct: respuesta.findIndex(function (res) {
                 return res.is_correct == 1;
             }),
+            audio: pregunta.audio,
         };
     });
 
-    // console.log("quizData", quizData);
-    loadQuiz();
+    console.log("quizData", quizData);
+    loadQuiz(quizData[currentStep]);
 }
-
-var quizData = null;
-pedirPreguntas();
 
 /** @type {number} Índice del paso o pregunta actual */
 let currentStep = 0;
@@ -90,6 +104,8 @@ let currentStep = 0;
 let selectedIdx = null;
 
 // --- ELEMENTOS DEL INTERFAZ DE USUARIO ---
+var quizData = null;
+pedirPreguntas();
 
 /** @type {HTMLElement} Elemento de texto de la pregunta */
 const pTexto = document.getElementById("preguntaTexto");
@@ -107,8 +123,12 @@ const progBar = document.getElementById("progressBar");
  * Carga los datos de la pregunta actual y actualiza la interfaz.
  * Reinicia los estados de selección y ajusta la barra de progreso.
  */
-function loadQuiz() {
-    const currentQuiz = quizData[currentStep];
+function loadQuizText(currentQuiz) {
+    contenedorImagenes.classList.add("d-none");
+    contenedorAudio.classList.add("d-none");
+    contenedorTexto.classList.remove("d-none");
+    opcionesContenedor.classList.remove("options-grid-images");
+
     pTexto.innerText = currentQuiz.q;
     oContenedor.innerHTML = "";
     selectedIdx = null;
@@ -122,10 +142,104 @@ function loadQuiz() {
     currentQuiz.options.forEach((opt, i) => {
         const button = document.createElement("button");
         button.className = "option-btn";
-        button.innerText = opt;
-        button.onclick = () => selectOption(i, button);
+        button.innerText = opt.text;
+        button.onclick = () => {
+            selectOption(i, button);
+        };
         oContenedor.appendChild(button);
     });
+}
+
+function loadQuizImage(currentQuiz) {
+    contenedorImagenes.classList.remove("d-none");
+    contenedorAudio.classList.add("d-none");
+    contenedorTexto.classList.add("d-none");
+    opcionesContenedor.classList.add("options-grid-images");
+
+    pTexto.innerText = currentQuiz.q;
+    oContenedor.innerHTML = "";
+    selectedIdx = null;
+    btnPrincipal.innerText = "COMPROBAR";
+    btnPrincipal.disabled = true;
+
+    // Actualizar barra
+    const percent = (currentStep / quizData.length) * 100 + 10;
+    progBar.style.width = percent + "%";
+
+    currentQuiz.options.forEach((opt, i) => {
+        const button = document.createElement("button");
+        const img = document.createElement("img");
+        button.className = "option-btn";
+        img.setAttribute("src", opt.imagen);
+        img.style.maxWidth = "300px";
+        img.style.height = "auto";
+        button.appendChild(img);
+        button.onclick = () => {
+            selectOption(i, button);
+        };
+        oContenedor.appendChild(button);
+        console.log("opt,", opt);
+    });
+}
+
+function loadQuizAudio(currentQuiz) {
+    contenedorImagenes.classList.add("d-none");
+    contenedorAudio.classList.remove("d-none");
+    contenedorTexto.classList.add("d-none");
+    opcionesContenedor.classList.remove("options-grid-images");
+
+    pTexto.innerText = currentQuiz.q;
+    audioSource.setAttribute("src", currentQuiz.audio);
+    audioPregunta.load();
+    oContenedor.innerHTML = "";
+    selectedIdx = null;
+    btnPrincipal.innerText = "COMPROBAR";
+    btnPrincipal.disabled = true;
+
+    // Actualizar barra
+    const percent = (currentStep / quizData.length) * 100 + 10;
+    progBar.style.width = percent + "%";
+
+    currentQuiz.options.forEach((opt, i) => {
+        const button = document.createElement("button");
+        button.className = "option-btn";
+        button.onclick = () => {
+            selectOption(i, button);
+        };
+        button.innerText = opt.text;
+        oContenedor.appendChild(button);
+        console.log("opt,", opt);
+    });
+}
+
+function loadQuiz(currentQuiz) {
+    let hasAudio = currentQuiz.audio != null && currentQuiz.audio != undefined;
+    let hasImage = false;
+    console.log("currentquiz", currentQuiz);
+    for (let i = 0; i < currentQuiz.options.length; i++) {
+        if (
+            currentQuiz.options[i].audio != null &&
+            currentQuiz.options[i].audio != undefined
+        ) {
+            hasAudio = true;
+        } else if (
+            currentQuiz.options[i].imagen != undefined &&
+            currentQuiz.options[i].imagen != null
+        ) {
+            hasImage = true;
+        }
+    }
+
+    if (hasAudio === true) {
+        console.log("la pregunta te audio");
+        loadQuizAudio(currentQuiz);
+    } else if (hasImage === true) {
+        console.log("la pregunta te imagen");
+        loadQuizImage(currentQuiz);
+    } else {
+        console.log("La pregunta no te ni audio ni res");
+        loadQuizText(currentQuiz);
+    }
 }
 
 /**
@@ -148,7 +262,10 @@ function selectOption(idx, el) {
  * @listens click
  */
 btnPrincipal.onclick = () => {
-    if (btnPrincipal.innerText === "COMPROBAR") {
+    console.log("estadoPregunta", estadoPregunta);
+    if (estadoPregunta === "no confirmado") {
+        console.log("pause");
+        audioPregunta.pause();
         const data = quizData[currentStep];
         const botones = document.querySelectorAll(".option-btn");
 
@@ -168,33 +285,37 @@ btnPrincipal.onclick = () => {
                 let vidas = parseInt(contador.innerText);
                 if (vidas > 0) contador.innerText = vidas - 1;
             }
-        
+
             // 2. Avisar a la base de datos de forma invisible (Fetch)
-            fetch('/test/validar', {
-                method: 'POST',
+            fetch("/test/validar", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": document
+                        .querySelector('meta[name="csrf-token"]')
+                        .getAttribute("content"),
                 },
-                body: JSON.stringify({ id_respuesta: -1 }) // Enviamos un ID que sabemos que no existe para que tu controlador reste vida
-            }).then(response => response.json());
+                body: JSON.stringify({ id_respuesta: -1 }), // Enviamos un ID que sabemos que no existe para que tu controlador reste vida
+            }).then((response) => response.json());
         }
 
         // Bloquear otros botones para que no sigan marcando
         botones.forEach((btn) => (btn.style.pointerEvents = "none"));
 
         btnPrincipal.innerText = "CONTINUAR";
+        estadoPregunta = "confirmado";
         btnPrincipal.classList.add("btn-next"); // Cambia color del botón principal
-    } else if (btnPrincipal.innerText === "CONTINUAR") {
+    } else if (estadoPregunta === "confirmado") {
         currentStep++;
         if (currentStep < quizData.length) {
-            loadQuiz();
+            estadoPregunta = "no confirmado";
+            loadQuiz(quizData[currentStep]);
             btnPrincipal.classList.remove("btn-next");
         } else {
             finishQuiz();
         }
-    } else if (btnPrincipal.innerText === "FINALIZAR") {
-        window.location.href = '/pagPrincipal'; // Redirección directa
+    } else if (estadoPregunta === "final") {
+        window.location.href = "/pagPrincipal?tematica=" + idTematica; // Redirección directa
     }
 };
 
@@ -203,10 +324,15 @@ btnPrincipal.onclick = () => {
  * y actualizando la barra de progreso al máximo.
  */
 function finishQuiz() {
+    contenedorImagenes.classList.add("d-none");
+    contenedorAudio.classList.add("d-none");
+    contenedorTexto.classList.add("d-none");
+
     progBar.style.width = "100%";
     pTexto.innerText = "¡Nivel Completado!";
     oContenedor.innerHTML =
         '<div class="text-center"><img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" width="100"></div>';
     btnPrincipal.innerText = "FINALIZAR";
+    estadoPregunta = "final";
     btnPrincipal.classList.remove("btn-next");
 }
