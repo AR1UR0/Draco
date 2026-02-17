@@ -191,7 +191,7 @@
                                 alt="Dinero:"
                                 class="imgIco"
                             />
-                            <span class="racha">&nbsp;{{ Auth::user()->points }}</span>
+                            <span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->points : 0 }}</span>
                         </div>
                         <div
                             class="d-flex align-items-center justify-content-center"
@@ -230,7 +230,7 @@
                         <div class="panelAnuncio flex-grow-1">
                             <a href="https://LAPAGINAWEB.com" target="_blank" class="anuncio-link">
                                 <img
-                                    src="{{ asset('media/pruebaAnuncio.png') }}"
+                                    src="{{ asset('media/pruebaAnuncio.jpg') }}"
                                     alt="Anuncio"
                                     class="imgAnuncio"
                                 />
