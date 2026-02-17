@@ -72,7 +72,22 @@
                         <div class="col-4 colMain">
                             <button class="btn-round" onclick="irAlQuiz(4)">4</button>
                         </div>
-                        <div class="col-4 colMain"></div>
+                        <div class="row">
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(5)">5</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(6)">6</button>
+                            </div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(7)">7</button>
+                            </div>
+                        </div>
                     </div>
                     </div>
                 </main>
@@ -232,47 +247,47 @@
                         <span class="fase">1</span>
                         </div>
                         <!-- MAPA DE LOS ELEMENTOS EN UN GRID DE BOOTSTRAP -->
-                        <div class="mainContent">
-                            <div class="row">
-                                <div class="col-4 colMain">
-                                    <button onclick="irAlQuiz(1)">Nivel 1</button>
-                                </div>
-                                <div class="col-4 colMain">
-                                    <button onclick="irAlQuiz(2)">Nivel 2</button>
-                                </div>
-                                <div class="col-4 colMain"></div>
+                       <div class="mainContent">
+                        <div class="row">
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(1)">1</button>
                             </div>
-                            <div class="row">
-                                <div class="col-4 colMain"></div>
-                                <div class="col-4 colMain"></div>
-                                <div class="col-4 colMain">
-                                    <button onclick="irAlQuiz(3)">Nivel 3</button>
-                                </div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(2)">2</button>
                             </div>
-                            <div class="row">
-                                <div class="col-4 colMain"></div>
-                                <div class="col-4 colMain">
-                                    <button class="btn-round">4</button>
-                                </div>
-                                <div class="col-4 colMain"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4 colMain">
-                                    <button class="btn-round">5</button>
-                                </div>
-                                <div class="col-4 colMain"></div>
-                                <div class="col-4 colMain"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4 colMain"></div>
-                                <div class="col-4 colMain">
-                                    <button class="btn-round">6</button>
-                                </div>
-                                <div class="col-4 colMain">
-                                    <button class="btn-round">7</button>
-                                </div>
+                            <div class="col-4 colMain"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(3)">3</button>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(4)">4</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(5)">5</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(6)">6</button>
+                            </div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(7)">7</button>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                     <hr
                         class="border border-light mb-2 mt-2 d-block d-md-none"
