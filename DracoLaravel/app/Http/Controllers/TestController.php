@@ -24,6 +24,11 @@ class TestController extends Controller
             return redirect()->back()->with('error', 'No te quedan vidas.');
         }
 
+        // Si intenta entrar con 0 vidas, lo mandamos a la principal con error
+        if ($vidas <= 0) {
+            return redirect()->route('pagPrincipal')->with('error', 'No tienes vidas suficientes. ¡Pásate por la tienda!');
+        }
+
         // Cargar el test con sus preguntas y respuestas
         $test = Test::with('preguntas.respuestas')->findOrFail($id);
 
