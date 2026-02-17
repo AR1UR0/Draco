@@ -244,3 +244,35 @@ body.bg-dark {
         }
     }
 }
+
+// estilo para los cosmeticos
+
+.cos-container {
+    transition: transform 0.3s ease;
+    padding: 10px;
+    
+    .imgCosmetico {
+        width: 80px;  // Ajusta según el tamaño de tus iconos
+        height: 80px;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    }
+
+    .btn-buy-cos {
+        background-color: $maincolor;
+        color: white;
+        font-size: 0.8rem;
+        border-radius: 20px;
+        padding: 2px 12px;
+        margin-top: 5px;
+        border: none;
+        
+        &:hover {
+            background-color: darken($maincolor, 10%);
+        }
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}

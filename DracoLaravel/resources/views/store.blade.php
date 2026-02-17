@@ -86,7 +86,7 @@
           <div class="content p-3">
             <h2 class="fw-bold">Consigue vidas ilimitadas y muchas otras ventajas con Draco Plus</h2>
             <p>Con un descuento incluido en el plan de 12 meses.</p>
-            <button class="btn btnPlus">OBTÉN UN 60% DE DESCUENTO</button>
+            <button class="btn btnPlus" data-bs-toggle="modal" data-bs-target="#modalPago">OBTÉN UN 60% DE DESCUENTO</button>
           </div>
         </div>
 
@@ -134,16 +134,61 @@
         </div>
 
         <div class="panelVidas w-100 px-5 mt-4">
-          <h5 class="fw-bold mb-3 text-uppercase">Cosméticos</h5>
-          <div class="d-flex align-items-center justify-content-between slider-cos">
-            <button class="btn arrow-btn">&lt;</button>
-            <span class="cos-item">COS1</span>
-            <span class="cos-item">COS2</span>
-            <span class="cos-item">COS3</span>
-            <span class="cos-item">COS4</span>
-            <button class="btn arrow-btn">&gt;</button>
-          </div>
+    <h5 class="fw-bold mb-3 text-uppercase">Cosméticos</h5>
+    <div class="d-flex align-items-center justify-content-between slider-cos">
+        <button class="btn arrow-btn" onclick="moveSlider(-1)">&lt;</button>
+
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/hair.png') }}" alt="Cosmético 1" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Peluca Elfica</span>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                300 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
         </div>
+
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/marco_dorado.png') }}" alt="Cosmético 2" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Marco Dorado</span>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                100 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
+        </div>
+
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/mexican_hat.png') }}" alt="Cosmético 3" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Sombrero Mexicano</span>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                200 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
+        </div>
+
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/tiara.png') }}" alt="Cosmético 4" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Tiara</span>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                300 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
+        </div>
+
+        <button class="btn arrow-btn" onclick="moveSlider(1)">&gt;</button>
+      </div>
+    </div>
       </main>
       <aside class="flex-grow-1 flex-md-grow-0 pt-3 ps-3 border-start border-md-1 border-light asidePrin vh-100 d-flex flex-column">
         <!-- PANEL LATERAL -->
@@ -499,7 +544,7 @@
                             <label class="btn btn-outline-draco" for="methodCard">Tarjeta Bancaria</label>
 
                             <input type="radio" class="btn-check" name="payMethod" id="methodIban" autocomplete="off" onclick="switchPay('iban')">
-                            <label class="btn btn-outline-draco" for="methodIban">IBAN / SEPA</label>
+                            <label class="btn btn-outline-draco" for="methodIban">IBAN </label>
                         </div>
 
                     <div id="sectionCard">
@@ -590,6 +635,13 @@
     };
 </script>
 <script src="{{ asset('js/toastBuyLife.js') }}"></script>
+<script>
+  // Inicializa los popovers de Bootstrap
+  document.addEventListener('DOMContentLoaded', function () {
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+  });
+</script>
 
 
 </body>
