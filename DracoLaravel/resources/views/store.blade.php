@@ -134,37 +134,61 @@
         </div>
 
         <div class="panelVidas w-100 px-5 mt-4">
-          <h5 class="fw-bold mb-3 text-uppercase">Cosméticos</h5>
-          <div class="d-flex align-items-center justify-content-between slider-cos">
-            <button class="btn arrow-btn" onclick="moveSlider(-1)">&lt;</button>
-        
+    <h5 class="fw-bold mb-3 text-uppercase">Cosméticos</h5>
+    <div class="d-flex align-items-center justify-content-between slider-cos">
+        <button class="btn arrow-btn" onclick="moveSlider(-1)">&lt;</button>
+
         <div class="cos-container text-center">
             <img src="{{ asset('media/imgs/store/hair.png') }}" alt="Cosmético 1" class="imgCosmetico mb-2">
             <span class="cos-item d-block">Peluca Elfica</span>
-            <button class="btn btn-buy-cos">300 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15"></button>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                300 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
         </div>
 
         <div class="cos-container text-center">
             <img src="{{ asset('media/imgs/store/marco_dorado.png') }}" alt="Cosmético 2" class="imgCosmetico mb-2">
             <span class="cos-item d-block">Marco Dorado</span>
-            <button class="btn btn-buy-cos">100 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15"></button>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                100 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
         </div>
 
         <div class="cos-container text-center">
-            <img src="{{ asset('media/imgs/store/mexican_hat.png') }}" alt="Cosmético 2" class="imgCosmetico mb-2">
+            <img src="{{ asset('media/imgs/store/mexican_hat.png') }}" alt="Cosmético 3" class="imgCosmetico mb-2">
             <span class="cos-item d-block">Sombrero Mexicano</span>
-            <button class="btn btn-buy-cos">200 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15"></button>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                200 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
         </div>
 
         <div class="cos-container text-center">
-            <img src="{{ asset('media/imgs/store/tiara.png') }}" alt="Cosmético 2" class="imgCosmetico mb-2">
+            <img src="{{ asset('media/imgs/store/tiara.png') }}" alt="Cosmético 4" class="imgCosmetico mb-2">
             <span class="cos-item d-block">Tiara</span>
-            <button class="btn btn-buy-cos">300 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15"></button>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                300 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
         </div>
 
         <button class="btn arrow-btn" onclick="moveSlider(1)">&gt;</button>
-          </div>
-        </div>
+      </div>
+    </div>
       </main>
       <aside class="flex-grow-0 pt-3 ps-3 border-start border-1 border-light asidePrin d-flex flex-column">
         <!-- PANEL LATERAL -->
@@ -611,6 +635,13 @@
     };
 </script>
 <script src="{{ asset('js/toastBuyLife.js') }}"></script>
+<script>
+  // Inicializa los popovers de Bootstrap
+  document.addEventListener('DOMContentLoaded', function () {
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+  });
+</script>
 
 
 </body>
