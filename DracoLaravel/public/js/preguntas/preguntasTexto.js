@@ -281,9 +281,10 @@ btnPrincipal.onclick = () => {
 
             // 1. Descontar visualmente para que el usuario lo vea al instante
             const contador = document.getElementById("contadorVidas");
+            let vidasFinales = 0;
             if (contador) {
-                let vidas = parseInt(contador.innerText);
-                if (vidas > 0) contador.innerText = vidas - 1;
+                vidasFinales = parseInt(contador.innerText) - 1;
+                contador.innerText = vidasFinales > 0 ? vidasFinales : 0;
             }
 
             // 2. Avisar a la base de datos de forma invisible (Fetch)
@@ -296,7 +297,16 @@ btnPrincipal.onclick = () => {
                         .getAttribute("content"),
                 },
                 body: JSON.stringify({ id_respuesta: -1 }), // Enviamos un ID que sabemos que no existe para que tu controlador reste vida
-            }).then((response) => response.json());
+            })
+
+            if (vidasFinales <= 0) {
+                estadoPregunta = "game_over"; // Nuevo estado
+                btnPrincipal.innerText = "VOLVER AL MENÚ";
+                btnPrincipal.classList.add("btn-danger"); // Opcional: poner el botón rojo
+                btnPrincipal.disabled = false;
+                return; // Salimos para que no ejecute el cambio a "CONTINUAR" de abajo
+            }
+
         }
 
         // Bloquear otros botones para que no sigan marcando
@@ -316,6 +326,9 @@ btnPrincipal.onclick = () => {
         }
     } else if (estadoPregunta === "final") {
         window.location.href = "/pagPrincipal?tematica=" + idTematica; // Redirección directa
+    } else if (estadoPregunta === "game_over") {
+        alert("Te has quedado sin vidas. Serás redirigido a la página principal.");
+        window.location.href = "/pagPrincipal";
     }
 };
 
