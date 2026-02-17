@@ -21,11 +21,14 @@
       <header class="container pt-4">
         <div class="row align-items-center">
           <div class="col-1">
-            <button
-              class="btn border-0 p-0 fw-bold fs-4"
-              style="color: #afafaf">
-              ✕
+          <a href="{{ route('pagPrincipal') }}"> 
+              <button  
+                class="btn border-0 p-0 fw-bold fs-4"
+                style="color: #afafaf">
+                ✕
             </button>
+          </a>
+
           </div>
 
           <div class="col-9 col-md-10">

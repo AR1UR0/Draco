@@ -47,50 +47,33 @@
                     <!-- CONTENIDO PRINCIPAL -->
                     <div class="topMainContent">
                         <span class="tema notranslate">Berserk</span>: FASE
-                        <span class="fase">1</span>, NIVEL
-                        <span class="nivel">1</span>
+                        <span class="fase">1 Niveles</span>
                     </div>
                     <!-- MAPA DE LOS ELEMENTOS EN UN GRID DE BOOTSTRAP -->
                     <div class="mainContent">
-                        <div class="row">
-                            <div class="col-4 colMain">
-                                <button class="btn-round">1</button>
-                            </div>
-                            <div class="col-4 colMain">
-                                <button class="btn-round">2</button>
-                            </div>
-                            <div class="col-4 colMain"></div>
+                    <div class="row">
+                        <div class="col-4 colMain">
+                            <button class="btn-round" onclick="irAlQuiz(1)">1</button>
                         </div>
-                        <div class="row">
-                            <div class="col-4 colMain"></div>
-                            <div class="col-4 colMain"></div>
-                            <div class="col-4 colMain">
-                                <button class="btn-round">3</button>
-                            </div>
+                        <div class="col-4 colMain">
+                            <button class="btn-round" onclick="irAlQuiz(2)">2</button>
                         </div>
-                        <div class="row">
-                            <div class="col-4 colMain"></div>
-                            <div class="col-4 colMain">
-                                <button class="btn-round">4</button>
-                            </div>
-                            <div class="col-4 colMain"></div>
+                        <div class="col-4 colMain"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 colMain"></div>
+                        <div class="col-4 colMain"></div>
+                        <div class="col-4 colMain">
+                            <button class="btn-round" onclick="irAlQuiz(3)">3</button>
                         </div>
-                        <div class="row">
-                            <div class="col-4 colMain">
-                                <button class="btn-round">5</button>
-                            </div>
-                            <div class="col-4 colMain"></div>
-                            <div class="col-4 colMain"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 colMain"></div>
+                        <div class="col-4 colMain">
+                            <button class="btn-round" onclick="irAlQuiz(4)">4</button>
                         </div>
-                        <div class="row">
-                            <div class="col-4 colMain"></div>
-                            <div class="col-4 colMain">
-                                <button class="btn-round">6</button>
-                            </div>
-                            <div class="col-4 colMain">
-                                <button class="btn-round">7</button>
-                            </div>
-                        </div>
+                        <div class="col-4 colMain"></div>
+                    </div>
                     </div>
                 </main>
                 <aside
@@ -161,7 +144,8 @@
                                     <div class="d-flex justify-content-center align-items-center">
                                         @foreach($tematicas as $tematica)
                                             <li>
-                                                <a class="dropdown-item p-1" href="#" onclick="cambiarImagen('{{ asset('media/imgs/temas/' . $tematica->image) }}', '{{ $tematica->name }}')">
+                                                <a class="dropdown-item p-1" href="#" 
+                                                    onclick="cambiarImagenYGuardarId('{{ asset('media/imgs/temas/' . $tematica->image) }}', '{{ $tematica->name }}', '{{ $tematica->id }}')">
                                                     <img src="{{ asset('media/imgs/temas/' . $tematica->image) }}" 
                                                     class="border border-light imgTema imgTemaDropdown" 
                                                     alt="{{ $tematica->name }}"
@@ -244,18 +228,17 @@
                     <div class="d-block d-md-none">
                         <!-- CONTENIDO PRINCIPAL -->
                         <div class="topMainContent">
-                            <span class="tema">{{ $tematicas->first()->name ?? 'Selecciona un tema' }}</span>: FASE
-                            <span class="fase">1</span>, NIVEL
-                            <span class="nivel">1</span>
+                        <span class="tema notranslate">Berserk</span>: FASE
+                        <span class="fase">1</span>
                         </div>
                         <!-- MAPA DE LOS ELEMENTOS EN UN GRID DE BOOTSTRAP -->
                         <div class="mainContent">
                             <div class="row">
                                 <div class="col-4 colMain">
-                                    <button class="btn-round">1</button>
+                                    <button onclick="irAlQuiz(1)">Nivel 1</button>
                                 </div>
                                 <div class="col-4 colMain">
-                                    <button class="btn-round">2</button>
+                                    <button onclick="irAlQuiz(2)">Nivel 2</button>
                                 </div>
                                 <div class="col-4 colMain"></div>
                             </div>
@@ -263,7 +246,7 @@
                                 <div class="col-4 colMain"></div>
                                 <div class="col-4 colMain"></div>
                                 <div class="col-4 colMain">
-                                    <button class="btn-round">3</button>
+                                    <button onclick="irAlQuiz(3)">Nivel 3</button>
                                 </div>
                             </div>
                             <div class="row">
@@ -758,7 +741,30 @@
         </script>
         <script>
             let map;
+            let temaSeleccionadoId = null;
 
+    function cambiarImagenYGuardarId(ruta, nombre, id) {
+        // 1. Llama a tu función original para que cambie la imagen como siempre
+        if (typeof cambiarImagen === 'function') {
+            cambiarImagen(ruta, nombre);
+        }
+
+        // 2. Guarda el ID de la temática
+        temaSeleccionadoId = id;
+
+        // 3. (Opcional) Mostrar el contenedor de niveles si estaba oculto
+        const divNiveles = document.getElementById('seccionNiveles');
+        if (divNiveles) divNiveles.style.display = 'block';
+    }
+
+    function irAlQuiz(nivel) {
+        if (!temaSeleccionadoId) {
+            alert("Selecciona un tema primero");
+            return;
+        }
+        // Redirige a la URL que tu JS original sabe leer
+        window.location.href = `/pregunta-texto?tematica=${temaSeleccionadoId}&pregunta=${nivel}`;
+    }
             function initMap() {
                 const modal = document.getElementById('mapModal');
                 
