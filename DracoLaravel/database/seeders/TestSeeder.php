@@ -13,7 +13,6 @@ class TestSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Definimos los archivos que están en database/data
         $archivos = ['berserk.json', 'gloryhammer.json', 'lotr.json'];
 
         foreach ($archivos as $nombreArchivo) {
@@ -24,21 +23,22 @@ class TestSeeder extends Seeder
                 continue;
             }
 
-            // 2. Leemos y decodificamos el JSON
+            // EXTRAER EL SLUG (nombre de la carpeta) del nombre del archivo
+            // Ejemplo: 'lotr.json' -> 'lotr'
+            $slug = str_replace('.json', '', $nombreArchivo);
+
             $json = File::get($ruta);
             $data = json_decode($json, true);
 
             foreach ($data['datos'] as $temaData) {
-                // Buscamos la temática por el nombre (Berserk, El Señor de los Anillos, etc.)
                 $tema = Tematica::where('name', $temaData['nombre'])->first();
 
                 if (!$tema) {
-                    $this->command->error("Temática '{$temaData['nombre']}' no encontrada en la BD.");
+                    $this->command->error("Temática '{$temaData['nombre']}' no encontrada.");
                     continue;
                 }
 
                 foreach ($temaData['tests'] as $testData) {
-                    // Mapeo: JSON 'titulo' -> Modelo 'title' | JSON 'orden' -> Modelo 'order'
                     $test = Test::create([
                         'title'       => $testData['titulo'],
                         'order'       => $testData['orden'],
@@ -46,19 +46,36 @@ class TestSeeder extends Seeder
                     ]);
 
                     foreach ($testData['preguntas'] as $qData) {
-                        // Mapeo: JSON 'enunciado' -> Modelo 'enunciado'
+                        // Lógica para AUDIO en Pregunta
+                        $rutaAudio = null;
+                        if (isset($qData['audio'])) {
+                            $rutaAudio = "media/audio/{$slug}/" . $qData['audio'];
+                        }
+
                         $pregunta = Pregunta::create([
-                            'enunciado'            => $qData['enunciado'],
-                            'reward_points'   => $qData['puntos_recompensa'] ?? 10,
-                            'test_id'         => $test->id
+                            'enunciado'     => $qData['enunciado'],
+                            'audio'         => $rutaAudio, // Asegúrate de tener esta columna en Preguntas
+                            'reward_points' => $qData['puntos_recompensa'] ?? 10,
+                            'test_id'       => $test->id
                         ]);
 
                         foreach ($qData['respuestas'] as $aData) {
-                            // Mapeo: JSON 'texto' -> Modelo 'text'
-                            // Mapeo: JSON 'correcta' -> Modelo 'is_correct'
+                            // Lógica para IMAGEN en Respuesta
+                            $rutaImagen = null;
+                            if (isset($aData['imagen'])) {
+                                // Caso especial para lotr que me dijiste que está en media/img/lotr
+                                if ($slug === 'lotr') {
+                                    $rutaImagen = "media/img/{$slug}/" . $aData['imagen'];
+                                } else {
+                                    // Para berserk y gloryhammer que están en media/nombre/
+                                    $rutaImagen = "media/{$slug}/" . $aData['imagen'];
+                                }
+                            }
+
                             Respuesta::create([
-                                'opcion'        => $aData['texto'] ?? '',
+                                'opcion'      => $aData['texto'] ?? '',
                                 'is_correct'  => $aData['correcta'], 
+                                'image'       => $rutaImagen,
                                 'pregunta_id' => $pregunta->id
                             ]);
                         }
@@ -66,6 +83,6 @@ class TestSeeder extends Seeder
                 }
             }
         }
-        $this->command->info("¡Tests y preguntas cargados con éxito desde database/data!");
+        $this->command->info("¡Tests y multimedia cargados con éxito!");
     }
 }
