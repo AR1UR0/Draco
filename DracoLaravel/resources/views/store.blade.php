@@ -520,7 +520,7 @@
                             <label class="btn btn-outline-draco" for="methodCard">Tarjeta Bancaria</label>
 
                             <input type="radio" class="btn-check" name="payMethod" id="methodIban" autocomplete="off" onclick="switchPay('iban')">
-                            <label class="btn btn-outline-draco" for="methodIban">IBAN / SEPA</label>
+                            <label class="btn btn-outline-draco" for="methodIban">IBAN </label>
                         </div>
 
                     <div id="sectionCard">
