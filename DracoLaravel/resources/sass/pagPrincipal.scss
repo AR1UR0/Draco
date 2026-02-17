@@ -420,3 +420,23 @@ html {
         }
     }
 }
+
+// justificacion para los modales
+// Definición del estilo para textos formales
+.texto-justificado {
+    text-align: justify;
+    text-justify: inter-word;
+
+    // Soporte para guiones automáticos (mejora el bloque visual)
+    hyphens: auto;
+
+    // Opcional: Si quieres que dentro del modal los párrafos
+    // tengan un espaciado consistente
+    p {
+        margin-bottom: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -310,4 +310,16 @@ html {
   background-color: #f57c00;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.texto-justificado {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+.texto-justificado p {
+  margin-bottom: 1rem;
+}
+.texto-justificado p:last-child {
+  margin-bottom: 0;
 }/*# sourceMappingURL=pagPrincipal.css.map */

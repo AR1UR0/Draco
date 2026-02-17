@@ -266,12 +266,18 @@
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
+          <img
+              src="{{ asset('media/imgs/icoDraco.png') }}"
+              class="rounded me-2"
+              alt="..."
+              style="width: 25px"
+            />
           <h5 class="modal-title" id="termsModalLabel">
-            Términos y Condiciones – Plataforma DRACO
+            Términos y Condiciones – DRACO
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body texto-justificado">
           <p>
             <strong>1. Introducción</strong><br />
             Bienvenido a <strong>DRACO</strong>, una plataforma web para
@@ -345,6 +351,12 @@
       <div class="modal-dialog modal-dialog-scrollable">
           <div class="modal-content">
               <div class="modal-header">
+                <img
+                    src="{{ asset('media/imgs/icoDraco.png') }}"
+                    class="rounded me-2"
+                    alt="..."
+                    style="width: 25px"
+                />
                   <h5 class="modal-title" id="aboutModalLabel">
                       Sobre Nosotros – DRACO
                   </h5>
