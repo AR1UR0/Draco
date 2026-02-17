@@ -86,7 +86,7 @@
           <div class="content p-3">
             <h2 class="fw-bold">Consigue vidas ilimitadas y muchas otras ventajas con Draco Plus</h2>
             <p>Con un descuento incluido en el plan de 12 meses.</p>
-            <button class="btn btnPlus">OBTÉN UN 60% DE DESCUENTO</button>
+            <button class="btn btnPlus" data-bs-toggle="modal" data-bs-target="#modalPago">OBTÉN UN 60% DE DESCUENTO</button>
           </div>
         </div>
 
