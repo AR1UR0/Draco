@@ -452,6 +452,12 @@
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <img
+                                src="{{ asset('media/imgs/icoDraco.png') }}"
+                                class="rounded me-2"
+                                alt="..."
+                                style="width: 25px"
+                            />
                         <h5 class="modal-title" id="termsModalLabel">
                             Términos y Condiciones – DRACO
                         </h5>
@@ -462,7 +468,7 @@
                             aria-label="Cerrar"
                         ></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body texto-justificado">
                         <p>
                             <strong>1. Introducción</strong><br />
                             Bienvenido a <strong>DRACO</strong>, una plataforma
@@ -547,6 +553,12 @@
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <img
+                                src="{{ asset('media/imgs/icoDraco.png') }}"
+                                class="rounded me-2"
+                                alt="..."
+                                style="width: 25px"
+                            />
                         <h5 class="modal-title" id="aboutModalLabel">
                             Sobre Nosotros – DRACO
                         </h5>
@@ -557,7 +569,7 @@
                             aria-label="Cerrar"
                         ></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body texto-justificado">
                         <p>
                             Draco es un proyecto educativo y tecnológico diseñado para
                             ofrecer a los usuarios una plataforma interactiva donde puedan 
