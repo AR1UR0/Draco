@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Draco Quiz - Escucha y responde</title>
 
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
@@ -44,7 +45,7 @@
           <div class="col-2 col-md-1 text-end text-nowrap">
             <span class="hearts-count text-danger">
               <img src="{{ asset('media/imgs/iconos/heart.png') }}" alt="" width="45" />
-              7
+              <span id="contadorVidas">{{ Auth::check() ? Auth::user()->current_lives : session('vidas_invitado', 5) }}</span>
             </span>
           </div>
         </div>
