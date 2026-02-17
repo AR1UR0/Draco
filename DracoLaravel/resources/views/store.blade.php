@@ -136,12 +136,33 @@
         <div class="panelVidas w-100 px-5 mt-4">
           <h5 class="fw-bold mb-3 text-uppercase">Cosméticos</h5>
           <div class="d-flex align-items-center justify-content-between slider-cos">
-            <button class="btn arrow-btn">&lt;</button>
-            <span class="cos-item">COS1</span>
-            <span class="cos-item">COS2</span>
-            <span class="cos-item">COS3</span>
-            <span class="cos-item">COS4</span>
-            <button class="btn arrow-btn">&gt;</button>
+            <button class="btn arrow-btn" onclick="moveSlider(-1)">&lt;</button>
+        
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/hair.png') }}" alt="Cosmético 1" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Peluca Elfica</span>
+            <button class="btn btn-buy-cos">300 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15"></button>
+        </div>
+
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/marco_dorado.png') }}" alt="Cosmético 2" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Marco Dorado</span>
+            <button class="btn btn-buy-cos">100 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15"></button>
+        </div>
+
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/mexican_hat.png') }}" alt="Cosmético 2" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Sombrero Mexicano</span>
+            <button class="btn btn-buy-cos">200 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15"></button>
+        </div>
+
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/tiara.png') }}" alt="Cosmético 2" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Tiara</span>
+            <button class="btn btn-buy-cos">300 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15"></button>
+        </div>
+
+        <button class="btn arrow-btn" onclick="moveSlider(1)">&gt;</button>
           </div>
         </div>
       </main>

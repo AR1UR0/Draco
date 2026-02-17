@@ -198,4 +198,31 @@ body.bg-dark .btnVida:hover {
   background-color: #f57c00;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.cos-container {
+  transition: transform 0.3s ease;
+  padding: 10px;
+}
+.cos-container .imgCosmetico {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+.cos-container .btn-buy-cos {
+  background-color: #f70071;
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  padding: 2px 12px;
+  margin-top: 5px;
+  border: none;
+}
+.cos-container .btn-buy-cos:hover {
+  background-color: rgb(196, 0, 89.6680161943);
+}
+.cos-container:hover {
+  transform: scale(1.1);
 }/*# sourceMappingURL=store.css.map */
