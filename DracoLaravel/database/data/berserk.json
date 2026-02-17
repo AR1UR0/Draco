@@ -20,13 +20,25 @@
                         },
                         {
                             "enunciado": "¿Quien canción es esta?",
-                            "audio": "https://example.com/audios/frase_guts.mp3",
+                            "audio": "Audio/berserk/berserkIntro.mp3",
                             "puntos_recompensa": 10,
                             "respuestas": [
-                                { "texto": "Intro Anime 2010", "correcta": false },
-                                { "texto": "Intro Primera Película", "correcta": false },
-                                { "texto": "Intro Segunda Película", "correcta": false },
-                                { "texto": "Intro Anime 1997", "correcta": true }
+                                {
+                                    "texto": "Intro Anime 2010",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Intro Primera Película",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Intro Segunda Película",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Intro Anime 1997",
+                                    "correcta": true
+                                }
                             ]
                         },
                         {
@@ -50,12 +62,12 @@
                                 },
                                 {
                                     "texto": "Judeau",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/judeau.jpg",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/judeau.png",
                                     "correcta": false
                                 },
                                 {
                                     "texto": "Casca",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/casca.jpg",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/casca.jpeg",
                                     "correcta": true
                                 }
                             ]
@@ -97,7 +109,7 @@
                         },
                         {
                             "enunciado": "¿A que personaje pertenece este tema?",
-                            "audio": "https://example.com/audios/tema_guts.mp3",
+                            "audio": "Audio/berserk/berserkCancionGuts.mp3",
                             "puntos_recompensa": 20,
                             "respuestas": [
                                 { "texto": "Griffith", "correcta": false },
@@ -128,7 +140,7 @@
                             "respuestas": [
                                 {
                                     "texto": "Casca",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/casca.jpg",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/casca.jpeg",
                                     "correcta": false
                                 },
                                 {
@@ -138,7 +150,7 @@
                                 },
                                 {
                                     "texto": "Charlotte",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/charlotte.jpg",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/charlotte.webp",
                                     "correcta": false
                                 }
                             ]
@@ -236,7 +248,7 @@
                                 },
                                 {
                                     "texto": "Grunbeld",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/grunbeld.jpg",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/grunbeld.webp",
                                     "correcta": false
                                 }
                             ]
