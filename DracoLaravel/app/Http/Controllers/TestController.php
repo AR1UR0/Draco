@@ -27,12 +27,17 @@ class TestController extends Controller
         // Cargar el test con sus preguntas y respuestas
         $test = Test::with('preguntas.respuestas')->findOrFail($id);
 
-        return view('tests.play', compact('vidas', 'test'));
+        return view('preguntaTexto', compact('vidas', 'test'));
     }
 
     // funcion para comprobar las respuestas del usuario
     public function comprobarRespuesta(Request $request)
     {
+        if ($request->id_respuesta == -1) {
+        $this->restarVida();
+        return response()->json(['status' => 'vida_restada']);
+        }
+
         $respuesta = Respuesta::find($request->id_respuesta);
 
         if (!$respuesta->is_correct) {

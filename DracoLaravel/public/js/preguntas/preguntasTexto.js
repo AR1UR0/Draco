@@ -269,6 +269,23 @@ btnPrincipal.onclick = () => {
             botones[selectedIdx].classList.add("is-wrong");
             // Opcional: mostrar cuál era la correcta en verde
             botones[data.correct].classList.add("is-correct");
+
+            // 1. Descontar visualmente para que el usuario lo vea al instante
+            const contador = document.getElementById("contadorVidas");
+            if (contador) {
+                let vidas = parseInt(contador.innerText);
+                if (vidas > 0) contador.innerText = vidas - 1;
+            }
+        
+            // 2. Avisar a la base de datos de forma invisible (Fetch)
+            fetch('/test/validar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({ id_respuesta: -1 }) // Enviamos un ID que sabemos que no existe para que tu controlador reste vida
+            }).then(response => response.json());
         }
 
         // Bloquear otros botones para que no sigan marcando
@@ -284,8 +301,8 @@ btnPrincipal.onclick = () => {
         } else {
             finishQuiz();
         }
-    } else {
-        location.reload();
+    } else if (btnPrincipal.innerText === "FINALIZAR") {
+        window.location.href = '/pagPrincipal'; // Redirección directa
     }
 };
 
