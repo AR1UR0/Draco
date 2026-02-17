@@ -20,20 +20,25 @@ class StoreController extends Controller
         $user = Auth::user();
         $precioVida = 100; // Puedes ajustar el precio aquí
 
+        // Verificación de seguridad: ¿Ya tiene las vidas al máximo?
+        if ($user->current_lives >= $user->max_lives) {
+            return back()->with('error', 'Ya tienes el máximo de vidas permitidas.');
+        }
+        // Verificación de saldo
         if ($user->points >= $precioVida) {
             $user->decrement('points', $precioVida); // Resta puntos
             $user->increment('current_lives', 1);   // Suma una vida
-            return back()->with('success', '¡Vida comprada!');
+            return back()->with('success', "¡Vida comprada! Te quedan {$user->points} monedas.");
         }
 
-        return back()->with('error', 'No tienes suficientes puntos.');
+        return back()->with('error', 'No tienes suficientes monedas.');
     }
 
 
     public function buyPlus()
     {
         $user = Auth::user();
-        $precioPlus = 2000; // Un precio alto para el modo "Premium"
+        $precioPlus = 2000; 
 
         if ($user->is_plus) {
             return back()->with('error', 'Ya tienes Draco Plus activado.');
@@ -48,12 +53,8 @@ class StoreController extends Controller
             return back()->with('success', '¡Bienvenido a Draco Plus! Vidas ilimitadas activadas.');
         }
 
-        return back()->with('error', 'No tienes suficientes puntos para Draco Plus.');
+        return back()->with('error', 'No tienes suficientes monedas para Draco Plus.');
     }
-
-    
-
-
 
 
 }
