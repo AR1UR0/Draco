@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pregunta extends Model
 {
     protected $table = 'preguntas';
-    protected $fillable = ['enunciado', 'reward_points', 'test_id']; 
+    protected $fillable = ['enunciado', 'reward_points', 'test_id', 'audio']; 
 
     public function test()
     {
