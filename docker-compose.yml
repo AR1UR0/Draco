@@ -3,12 +3,12 @@ services:
   php:
     build:
       context: ./
-      dockerfile: ./DracoLaravel/Dockerfile
+      dockerfile: ./Dockerfile
     ports:
-      - 8080:443
-      - 80:80
+      - "80:80"
+      - "443:443"
     env_file:
-      - ./DracoLaravel/.env
+      - ./.env
     networks:
       draco:
         aliases:
@@ -22,7 +22,7 @@ services:
     ports:
       - 3306:3306
     env_file:
-      - ./DracoLaravel/.env
+      - ./.env
     networks:
       draco:
         aliases:

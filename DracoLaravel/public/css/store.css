@@ -1,24 +1,39 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
 body.bg-dark .titleItem,
 body.bg-dark h5,
 body.bg-dark .cos-item,
 body.bg-dark .arrow-btn {
   color: #ffffff !important;
 }
+
 body.bg-dark .vidaItem {
   border-color: #444 !important;
 }
+
 body.bg-dark .btnVida {
   border-color: #ffffff;
   color: #ffffff;
 }
+
 body.bg-dark .btnVida:hover {
   background-color: #ffffff;
   color: #000;
 }
 
-.navPrin,
-.asidePrin {
+.navPrin {
   min-height: 100vh;
+}
+
+.asidePrin {
+  height: auto;
+  align-self: stretch;
 }
 
 .dracoPlus2 {
@@ -29,14 +44,17 @@ body.bg-dark .btnVida:hover {
   background-color: #6a8200;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
+
 .dracoPlus2 h2 {
   font-size: 1.4rem;
   line-height: 1.2;
 }
+
 .dracoPlus2 p {
   font-size: 0.9rem;
   opacity: 0.9;
 }
+
 .dracoPlus2 .btnPlus {
   background-color: white;
   color: #f70071;
@@ -48,6 +66,7 @@ body.bg-dark .btnVida:hover {
   letter-spacing: 0.5px;
   transition: transform 0.1s;
 }
+
 .dracoPlus2 .btnPlus:active {
   transform: translateY(2px);
   border-bottom-width: 1px;
@@ -59,20 +78,23 @@ body.bg-dark .btnVida:hover {
   border-bottom: 2px solid #bebebe;
   padding-bottom: 8px;
 }
+
 .panelVidas .vidaItem {
   border-bottom: 2px solid #bebebe;
   padding: 20px 0 !important;
 }
+
 .panelVidas .vidaItem .iconVida {
   width: 50px;
   height: 50px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
+
 .panelVidas .vidaItem .titleItem {
   color: #4b4b4b;
   font-size: 1rem;
 }
+
 .panelVidas .vidaItem .btnVida {
   min-width: 150px;
   font-weight: 800;
@@ -86,6 +108,7 @@ body.bg-dark .btnVida:hover {
   color: #919191;
   font-size: 1.2rem;
 }
+
 .slider-cos .arrow-btn {
   font-size: 1.8rem;
   font-weight: 900;
@@ -102,6 +125,7 @@ body.bg-dark .btnVida:hover {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.02);
 }
+
 .menuHamb .enlPrinWider {
   text-decoration: none;
   color: inherit;
@@ -110,6 +134,7 @@ body.bg-dark .btnVida:hover {
   border-left: 4px solid transparent;
   transition: all 0.3s ease;
 }
+
 .menuHamb .enlPrinWider:hover {
   border-left: 4px solid #6a8200;
   background-color: rgba(153, 183, 5, 0.44);
@@ -121,6 +146,7 @@ body.bg-dark .btnVida:hover {
   background: transparent !important;
   transition: transform 0.2s ease;
 }
+
 .btnHamb:active {
   transform: scale(0.9);
 }
@@ -151,10 +177,12 @@ body.bg-dark .btnVida:hover {
     min-height: auto;
   }
 }
+
 .panelAnuncio {
   padding: 0;
   min-height: 250px;
 }
+
 .panelAnuncio .anuncio-link {
   display: block;
   width: 100%;
@@ -162,17 +190,19 @@ body.bg-dark .btnVida:hover {
   text-decoration: none;
   position: relative;
 }
+
 .panelAnuncio .imgAnuncio {
   width: 100%;
   height: 100%;
   display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
+
 .panelAnuncio:hover .imgAnuncio {
   transform: scale(1.08);
 }
+
 .panelAnuncio .overlay-button {
   position: absolute;
   inset: 0;
@@ -182,6 +212,7 @@ body.bg-dark .btnVida:hover {
   padding-bottom: 20px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 50%);
 }
+
 .panelAnuncio .overlay-button .btnAnuncio {
   background-color: #ff9800;
   color: white;
@@ -194,8 +225,39 @@ body.bg-dark .btnVida:hover {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .panelAnuncio .overlay-button .btnAnuncio:hover {
   background-color: #f57c00;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}/*# sourceMappingURL=store.css.map */
+}
+
+.cos-container {
+  transition: transform 0.3s ease;
+  padding: 10px;
+}
+
+.cos-container .imgCosmetico {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.cos-container .btn-buy-cos {
+  background-color: #f70071;
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  padding: 2px 12px;
+  margin-top: 5px;
+  border: none;
+}
+
+.cos-container .btn-buy-cos:hover {
+  background-color: #c4005a;
+}
+
+.cos-container:hover {
+  transform: scale(1.1);
+}

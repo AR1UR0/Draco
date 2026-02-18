@@ -20,7 +20,7 @@
                         },
                         {
                             "enunciado": "¿A qué personaje pertenece esta risa malvada?",
-                            "audio": "https://example.com/audios/risa_zargothrax.mp3",
+                            "audio": "Audio/gloryhammer/risamalvada.mp3",
                             "puntos_recompensa": 10,
                             "respuestas": [
                                 { "texto": "The Hootsman", "correcta": false },
@@ -33,10 +33,19 @@
                             "enunciado": "¿Cuál es el arma principal utilizada para luchar contra el mal?",
                             "puntos_recompensa": 10,
                             "respuestas": [
-                                { "texto": "The Hammer of Glory", "correcta": true },
+                                {
+                                    "texto": "The Hammer of Glory",
+                                    "correcta": true
+                                },
                                 { "texto": "Excalibur", "correcta": false },
-                                { "texto": "The Laser Sword", "correcta": false },
-                                { "texto": "Amulet of Justice", "correcta": false }
+                                {
+                                    "texto": "The Laser Sword",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Amulet of Justice",
+                                    "correcta": false
+                                }
                             ]
                         },
                         {
@@ -80,21 +89,39 @@
                             "enunciado": "¿Qué criaturas invaden Dundee en el primer álbum?",
                             "puntos_recompensa": 20,
                             "respuestas": [
-                                { "texto": "Dragones Cibernéticos", "correcta": false },
-                                { "texto": "Orcos del Espacio", "correcta": false },
-                                { "texto": "Unicornios No-Muertos", "correcta": true },
-                                { "texto": "Goblins Galácticos", "correcta": false }
+                                {
+                                    "texto": "Dragones Cibernéticos",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Orcos del Espacio",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Unicornios No-Muertos",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Goblins Galácticos",
+                                    "correcta": false
+                                }
                             ]
                         },
                         {
                             "enunciado": "¿A qué canción pertenece este fragmento?",
-                            "audio": "https://example.com/audios/tema_hootsforce.mp3",
+                            "audio": "Audio/gloryhammer/Hootsforce.mp3",
                             "puntos_recompensa": 20,
                             "respuestas": [
                                 { "texto": "Angus McFife", "correcta": false },
-                                { "texto": "Universe on Fire", "correcta": false },
+                                {
+                                    "texto": "Universe on Fire",
+                                    "correcta": false
+                                },
                                 { "texto": "Hootsforce", "correcta": true },
-                                { "texto": "Masters of the Galaxy", "correcta": false }
+                                {
+                                    "texto": "Masters of the Galaxy",
+                                    "correcta": false
+                                }
                             ]
                         },
                         {
@@ -113,7 +140,7 @@
                             "respuestas": [
                                 {
                                     "texto": "Proletius",
-                                    "imagen": "imgs/PREGUNTAS/Gloryhammer/proletius.jpg",
+                                    "imagen": "imgs/PREGUNTAS/gloryhammer/proletius.jpg",
                                     "correcta": false
                                 },
                                 {
@@ -134,8 +161,14 @@
                             "respuestas": [
                                 { "texto": "En la Luna", "correcta": false },
                                 { "texto": "Hielo Líquido", "correcta": true },
-                                { "texto": "Un agujero negro", "correcta": false },
-                                { "texto": "El núcleo del sol", "correcta": false }
+                                {
+                                    "texto": "Un agujero negro",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "El núcleo del sol",
+                                    "correcta": false
+                                }
                             ]
                         }
                     ]
@@ -156,23 +189,47 @@
                         },
                         {
                             "enunciado": "¿Qué frase completa la canción?",
-                            "audio": "https://example.com/audios/lyric_sanctus.mp3",
+                            "audio": "Audio/gloryhammer/FlyAway.mp3",
                             "puntos_recompensa": 30,
                             "respuestas": [
-                                { "texto": "Gloria Perpetua", "correcta": false },
-                                { "texto": "Infernus Ad Astra", "correcta": false },
-                                { "texto": "Sanctus Dominus", "correcta": true },
-                                { "texto": "Missiles of Nuclear Justice", "correcta": false }
+                                {
+                                    "texto": "Gloria Perpetua",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Infernus Ad Astra",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Sanctus Dominus",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Missiles of Nuclear Justice",
+                                    "correcta": false
+                                }
                             ]
                         },
                         {
                             "enunciado": "¿Con qué objeto fue apuñalado Angus McFife XIII corrompiéndolo?",
                             "puntos_recompensa": 30,
                             "respuestas": [
-                                { "texto": "The Vorpal Laserblaster", "correcta": false },
-                                { "texto": "The Knife of Evil", "correcta": true },
-                                { "texto": "The Sorcerer's Staff", "correcta": false },
-                                { "texto": "The Goblin Blade", "correcta": false }
+                                {
+                                    "texto": "The Vorpal Laserblaster",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "The Knife of Evil",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "The Sorcerer's Staff",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "The Goblin Blade",
+                                    "correcta": false
+                                }
                             ]
                         },
                         {
@@ -186,7 +243,7 @@
                                 },
                                 {
                                     "texto": "The Hootsman",
-                                    "imagen": "imgs/PREGUNTAS/Gloryhammer/hootsman.jpg",
+                                    "imagen": "imgs/PREGUNTAS/gloryhammer/hootsman.jpg",
                                     "correcta": true
                                 },
                                 {
@@ -200,10 +257,19 @@
                             "enunciado": "¿Cómo se llama la dimensión alternativa a la que viajan en el 3er álbum?",
                             "puntos_recompensa": 30,
                             "respuestas": [
-                                { "texto": "The Galactic Empire", "correcta": false },
-                                { "texto": "The Terrorvortex", "correcta": true },
+                                {
+                                    "texto": "The Galactic Empire",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "The Terrorvortex",
+                                    "correcta": true
+                                },
                                 { "texto": "The Warp", "correcta": false },
-                                { "texto": "The Shadow Realm", "correcta": false }
+                                {
+                                    "texto": "The Shadow Realm",
+                                    "correcta": false
+                                }
                             ]
                         }
                     ]

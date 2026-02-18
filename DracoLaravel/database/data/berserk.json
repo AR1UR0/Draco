@@ -19,14 +19,26 @@
                             ]
                         },
                         {
-                            "enunciado": "¿Quien dice esta frase?",
-                            "audio": "https://example.com/audios/frase_guts.mp3",
+                            "enunciado": "¿Qué canción es esta?",
+                            "audio": "Audio/berserk/berserkIntro.mp3",
                             "puntos_recompensa": 10,
                             "respuestas": [
-                                { "texto": "Griffith", "correcta": false },
-                                { "texto": "Skull Knight", "correcta": false },
-                                { "texto": "Guts", "correcta": true },
-                                { "texto": "Zodd", "correcta": false }
+                                {
+                                    "texto": "Intro Anime 2010",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Intro Primera Película",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Intro Segunda Película",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Intro Anime 1997",
+                                    "correcta": true
+                                }
                             ]
                         },
                         {
@@ -50,12 +62,12 @@
                                 },
                                 {
                                     "texto": "Judeau",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/judeau.jpg",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/judeau.png",
                                     "correcta": false
                                 },
                                 {
                                     "texto": "Casca",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/casca.jpg",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/casca.jpeg",
                                     "correcta": true
                                 }
                             ]
@@ -97,7 +109,7 @@
                         },
                         {
                             "enunciado": "¿A que personaje pertenece este tema?",
-                            "audio": "https://example.com/audios/tema_guts.mp3",
+                            "audio": "Audio/berserk/berserkCancionGuts.mp3",
                             "puntos_recompensa": 20,
                             "respuestas": [
                                 { "texto": "Griffith", "correcta": false },
@@ -128,7 +140,7 @@
                             "respuestas": [
                                 {
                                     "texto": "Casca",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/casca.jpg",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/casca.jpeg",
                                     "correcta": false
                                 },
                                 {
@@ -188,14 +200,17 @@
                             ]
                         },
                         {
-                            "enunciado": "¿Quien dice esta frase?",
-                            "audio": "audio",
+                            "enunciado": "¿Qué canción es esta? ",
+                            "audio": "Audio/berserk/berserkSerie2010.mp3",
                             "puntos_recompensa": 30,
                             "respuestas": [
-                                { "texto": "", "correcta": false },
-                                { "texto": "", "correcta": false },
-                                { "texto": "", "correcta": false },
-                                { "texto": "", "correcta": false }
+                                {
+                                    "texto": "Primera Pelicula",
+                                    "correcta": false
+                                },
+                                { "texto": "Anime 2010", "correcta": true },
+                                { "texto": "Anime 1997", "correcta": false },
+                                { "texto": "Live action", "correcta": false }
                             ]
                         },
                         {

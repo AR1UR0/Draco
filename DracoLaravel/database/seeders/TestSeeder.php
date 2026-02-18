@@ -23,10 +23,6 @@ class TestSeeder extends Seeder
                 continue;
             }
 
-            // EXTRAER EL SLUG (nombre de la carpeta) del nombre del archivo
-            // Ejemplo: 'lotr.json' -> 'lotr'
-            $slug = str_replace('.json', '', $nombreArchivo);
-
             $json = File::get($ruta);
             $data = json_decode($json, true);
 
@@ -49,7 +45,7 @@ class TestSeeder extends Seeder
                         // Lógica para AUDIO en Pregunta
                         $rutaAudio = null;
                         if (isset($qData['audio'])) {
-                            $rutaAudio = "media/audio/{$slug}/" . $qData['audio'];
+                            $rutaAudio = "media/" . $qData['audio'];
                         }
 
                         $pregunta = Pregunta::create([
@@ -63,13 +59,9 @@ class TestSeeder extends Seeder
                             // Lógica para IMAGEN en Respuesta
                             $rutaImagen = null;
                             if (isset($aData['imagen'])) {
-                                // Caso especial para lotr que me dijiste que está en media/img/lotr
-                                if ($slug === 'lotr') {
-                                    $rutaImagen = "media/img/{$slug}/" . $aData['imagen'];
-                                } else {
+
                                     // Para berserk y gloryhammer que están en media/nombre/
-                                    $rutaImagen = "media/{$slug}/" . $aData['imagen'];
-                                }
+                                    $rutaImagen = "media/" . $aData['imagen'];
                             }
 
                             Respuesta::create([

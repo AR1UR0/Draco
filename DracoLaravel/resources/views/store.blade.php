@@ -86,14 +86,14 @@
           <div class="content p-3">
             <h2 class="fw-bold">Consigue vidas ilimitadas y muchas otras ventajas con Draco Plus</h2>
             <p>Con un descuento incluido en el plan de 12 meses.</p>
-            <button class="btn btnPlus">OBTÉN UN 60% DE DESCUENTO</button>
+            <button class="btn btnPlus" data-bs-toggle="modal" data-bs-target="#modalPago">OBTÉN UN 60% DE DESCUENTO</button>
           </div>
         </div>
 
         <div class="panelVidas w-100 px-5">
           <h5 class="fw-bold mb-3 text-uppercase">Vidas</h5>
 
-          <div class="vidaItem d-flex align-items-center justify-content-between p-3">
+          <div class="vidaItem d-flex align-items-center justify-content-center justify-content-lg-between p-3 flex-wrap flex-md-nowrap">
             <div class="d-flex align-items-center">
               <img src="{{ asset('media/imgs/iconos/heart.png') }}" alt="Vidas" class="me-3 iconVida">
               <div>
@@ -104,13 +104,14 @@
             </div>
             <form action="{{ route('buy.life') }}" method="POST">
               @csrf
-              <button type="submit" class="btn btnVida btn-outline-dark text-uppercase">
-                Recargar
+              <button type="submit" class="btn btnVida btn-outline-dark text-uppercase" 
+                {{ Auth::user()->current_lives >= Auth::user()->max_lives ? 'disabled' : '' }}>
+                100 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="18"> Recargar
               </button>
             </form>
           </div>
 
-          <div class="vidaItem d-flex align-items-center justify-content-between p-3">
+          <div class="vidaItem d-flex align-items-center justify-content-center justify-content-lg-between p-3 flex-wrap flex-md-nowrap">
             <div class="d-flex align-items-center">
               <img src="{{ asset('media/imgs/iconos/heartBlue.png') }}" alt="Vidas" class="me-3 iconVida">
               <div>
@@ -120,31 +121,84 @@
             </div>
             <form action="{{ route('buy.plus') }}" method="POST">
               @csrf
-              <button type="submit" class="btn btnVida btn-outline-dark text-uppercase">
-                {{ Auth::user()->is_plus ? 'Activado' : 'Obtener Super' }}
+              <button type="submit" class="btn btnVida btn-outline-dark text-uppercase"
+                {{ Auth::user()->is_plus ? 'disabled' : '' }}>
+                  @if(Auth::user()->is_plus)
+                      Activado
+                  @else
+                      2000 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="18"> Obtener Plus
+                  @endif
               </button>
             </form>
           </div>
         </div>
 
         <div class="panelVidas w-100 px-5 mt-4">
-          <h5 class="fw-bold mb-3 text-uppercase">Cosméticos</h5>
-          <div class="d-flex align-items-center justify-content-between slider-cos">
-            <button class="btn arrow-btn">&lt;</button>
-            <span class="cos-item">COS1</span>
-            <span class="cos-item">COS2</span>
-            <span class="cos-item">COS3</span>
-            <span class="cos-item">COS4</span>
-            <button class="btn arrow-btn">&gt;</button>
-          </div>
+    <h5 class="fw-bold mb-3 text-uppercase">Cosméticos</h5>
+    <div class="d-flex align-items-center justify-content-center justify-content-lg-between slider-cos flex-wrap flex-md-nowrap">
+        
+
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/hair.png') }}" alt="Cosmético 1" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Peluca Elfica</span>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                300 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
         </div>
+
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/marco_dorado.png') }}" alt="Cosmético 2" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Marco Dorado</span>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                100 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
+        </div>
+
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/mexican_hat.png') }}" alt="Cosmético 3" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Sombrero Mexicano</span>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                200 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
+        </div>
+
+        <div class="cos-container text-center">
+            <img src="{{ asset('media/imgs/store/tiara.png') }}" alt="Cosmético 4" class="imgCosmetico mb-2">
+            <span class="cos-item d-block">Tiara</span>
+            <button type="button" class="btn btn-buy-cos" 
+                    data-bs-toggle="popover" 
+                    data-bs-title="Tienda Draco" 
+                    data-bs-content="¡Este objeto estará disponible próximamente!" 
+                    data-bs-trigger="focus">
+                300 <img src="{{ asset('media/imgs/iconos/coin.png') }}" width="15">
+            </button>
+        </div>
+
+        
+      </div>
+    </div>
+      <hr
+          class="border border-light mb-4 mt-4 d-block d-lg-none w-100"
+      />
       </main>
-      <aside class="flex-grow-0 pt-3 ps-3 border-start border-1 border-light asidePrin d-flex flex-column">
+      <aside class="flex-grow-1 flex-md-grow-0 pt-3 ps-3 border-start border-md-1 border-light asidePrin vh-100 d-flex flex-column">
         <!-- PANEL LATERAL -->
         <div class="d-flex flex-grow-0 parteArriba justify-content-evenly align-items-center mb-3">
           <!-- IMAGENES DE TEMA, RACHA, DINERO Y VIDAS -->
           <div>
-            <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" alt=" " class="border border-light imgTema" />
+            <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" id="imgTienda" alt=" " class="border border-light imgTema" />
           </div>
           <div class="d-flex align-items-center justify-content-center">
             <img src="{{ asset('media/imgs/iconos/burn.png') }}" alt="Racha:" class="imgIco" />
@@ -223,9 +277,9 @@
             </div>
           </div>
           <div class="container mt-4 mb-4 justify-content-evenly align-items-center d-flex">
-            <img src="{{ asset('media/imgs/iconos/instagram.png') }}" alt="Instagram" class="imgFooterPrin" />
-            <img src="{{ asset('media/imgs/iconos/twitter.png') }}" alt="Twitter" class="imgFooterPrin" />
-            <img src="{{ asset('media/imgs/iconos/facebook.png') }}" alt="Facebook" class="imgFooterPrin" />
+            <img src="{{ asset('media/imgs/iconos/instagram.png') }}" alt="Instagram" class="imgFooterPrin" onclick="window.open('https://www.instagram.com/dracoteam.d/', '_blank')" />
+            <img src="{{ asset('media/imgs/iconos/twitter.png') }}" alt="Twitter" class="imgFooterPrin" onclick="window.open('https://x.com/home', '_blank')" />
+            <img src="{{ asset('media/imgs/iconos/facebook.png') }}" alt="Facebook" class="imgFooterPrin" onclick="window.open('https://www.facebook.com/', '_blank')" />
           </div>
         </footer>
       </aside>
@@ -266,12 +320,18 @@
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
+          <img
+              src="{{ asset('media/imgs/icoDraco.png') }}"
+              class="rounded me-2"
+              alt="..."
+              style="width: 25px"
+            />
           <h5 class="modal-title" id="termsModalLabel">
-            Términos y Condiciones – Plataforma DRACO
+            Términos y Condiciones – DRACO
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body texto-justificado">
           <p>
             <strong>1. Introducción</strong><br />
             Bienvenido a <strong>DRACO</strong>, una plataforma web para
@@ -345,6 +405,12 @@
       <div class="modal-dialog modal-dialog-scrollable">
           <div class="modal-content">
               <div class="modal-header">
+                <img
+                    src="{{ asset('media/imgs/icoDraco.png') }}"
+                    class="rounded me-2"
+                    alt="..."
+                    style="width: 25px"
+                />
                   <h5 class="modal-title" id="aboutModalLabel">
                       Sobre Nosotros – DRACO
                   </h5>
@@ -481,7 +547,7 @@
                             <label class="btn btn-outline-draco" for="methodCard">Tarjeta Bancaria</label>
 
                             <input type="radio" class="btn-check" name="payMethod" id="methodIban" autocomplete="off" onclick="switchPay('iban')">
-                            <label class="btn btn-outline-draco" for="methodIban">IBAN / SEPA</label>
+                            <label class="btn btn-outline-draco" for="methodIban">IBAN </label>
                         </div>
 
                     <div id="sectionCard">
@@ -572,8 +638,26 @@
     };
 </script>
 <script src="{{ asset('js/toastBuyLife.js') }}"></script>
+<script>
+  // Inicializa los popovers de Bootstrap
+  document.addEventListener('DOMContentLoaded', function () {
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+  });
 
-
+  document.addEventListener("DOMContentLoaded", function() {
+    // Intentar recuperar los datos del localStorage
+    const rutaGuardada = localStorage.getItem('tema_seleccionado_ruta');
+    
+    if (rutaGuardada) {
+        // Actualizar la imagen en el panel lateral de la tienda
+        const imgTienda = document.getElementById('imgTienda');
+        if (imgTienda) {
+            imgTienda.src = rutaGuardada;
+        }
+    }
+});
+</script>
 </body>
 
 </html>

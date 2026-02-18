@@ -9,34 +9,28 @@ use Carbon\Carbon;
 
 class UpdateStreak
 {
-    public function handle(Request $request, Closure $next)
+        public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
             $user = Auth::user();
             $today = Carbon::today();
-            $lastStreak = $user->last_streak_at ? Carbon::parse($user->last_streak_at)->startOfDay() : null;
+            // Convertimos la fecha de la DB a Carbon para comparar
+            $lastStreakDate = Carbon::parse($user->last_streak_at)->startOfDay();
 
-            if (!$lastStreak) {
-                // Primera vez que entra
+            $diff = $today->diffInDays($lastStreakDate);
+
+            if ($diff === 1) {
+                // Caso B: Entró al día siguiente exacto
+                $user->streak += 1;
+                $user->last_streak_at = now();
+                $user->save();
+            } elseif ($diff > 1) {
+                // Caso C: Racha rota (pasaron 2 o más días)
                 $user->streak = 1;
                 $user->last_streak_at = now();
                 $user->save();
-            } else {
-                $diff = $today->diffInDays($lastStreak);
-
-                if ($diff === 1) {
-                    // Entró al día siguiente: +1 racha
-                    $user->streak += 1;
-                    $user->last_streak_at = now();
-                    $user->save();
-                } elseif ($diff > 1) {
-                    // Pasó más de un día: Reiniciar racha a 1
-                    $user->streak = 1;
-                    $user->last_streak_at = now();
-                    $user->save();
-                }
-                // Si diff === 0, ya entró hoy, no hacemos nada.
             }
+            // Caso A: Si diff es 0 (mismo día), no entramos en los if y no hacemos nada.
         }
 
         return $next($request);

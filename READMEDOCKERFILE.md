@@ -51,7 +51,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 > Para comprobar el Id del contenedor se puede usar el comando `docker container ls`
 
 ```bash
-docker exec {idContenedor} php artisan migrate:fresh --seed
+php artisan migrate --seed
 ```
 
 ---
@@ -61,7 +61,7 @@ docker exec {idContenedor} php artisan migrate:fresh --seed
 Para levantar todo el entorno, simplemente ejecuta el siguiente comando en la raíz del proyecto:
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 ## Accesos directos:

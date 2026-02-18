@@ -3,6 +3,14 @@ $secColor: #6a8200; // Verde oliva de la imagen
 $gray-text: #919191;
 $secColorTran: rgba(153, 183, 5, 0.44);
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
 // Estilos globales de modo oscuro (Basado en tu body.bg-dark)
 body.bg-dark {
     .titleItem,
@@ -23,9 +31,12 @@ body.bg-dark {
         }
     }
 }
-.navPrin,
-.asidePrin {
+.navPrin {
     min-height: 100vh;
+}
+.asidePrin {
+    height: auto;
+    align-self: stretch;
 }
 
 // Banner Draco Plus
@@ -242,5 +253,37 @@ body.bg-dark {
                 box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
             }
         }
+    }
+}
+
+// estilo para los cosmeticos
+
+.cos-container {
+    transition: transform 0.3s ease;
+    padding: 10px;
+
+    .imgCosmetico {
+        width: 80px; // Ajusta según el tamaño de tus iconos
+        height: 80px;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    }
+
+    .btn-buy-cos {
+        background-color: $maincolor;
+        color: white;
+        font-size: 0.8rem;
+        border-radius: 20px;
+        padding: 2px 12px;
+        margin-top: 5px;
+        border: none;
+
+        &:hover {
+            background-color: darken($maincolor, 10%);
+        }
+    }
+
+    &:hover {
+        transform: scale(1.1);
     }
 }

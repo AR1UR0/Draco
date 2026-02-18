@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/perfil/perfil.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}" />
 
         <script defer src="{{ asset('js/adminCRUD.js') }}"></script>
         <script defer src="{{ asset('js/bootstrap.bundle.js') }}"></script>

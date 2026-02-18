@@ -10,77 +10,101 @@ use App\Models\Respuesta;
 
 class TestController extends Controller
 {
-    public function mostrarTest($id)
+    public function mostrarTest(Request $request)
     {
-        // Obtener las vidas
         if (Auth::check()) {
             $vidas = Auth::user()->current_lives;
         } else {
             $vidas = Session::get('vidas_invitado', 5);
         }
 
-        // Comprobar si puede jugar
         if ($vidas <= 0) {
-            return redirect()->back()->with('error', 'No te quedan vidas.');
+            return redirect()->route('pagPrincipal')->with('error', 'No tienes vidas suficientes.');
         }
 
-        // Cargar el test con sus preguntas y respuestas
-        $test = Test::with('preguntas.respuestas')->findOrFail($id);
-
-        return view('tests.play', compact('vidas', 'test'));
+        return view('preguntaTexto', compact('vidas'));
     }
 
-    // funcion para comprobar las respuestas del usuario
     public function comprobarRespuesta(Request $request)
     {
+        // 1. Fallo detectado por el JS
+        if ($request->id_respuesta == -1) {
+            $this->restarVida();
+            return response()->json(['status' => 'vida_restada']);
+        }
+
         $respuesta = Respuesta::find($request->id_respuesta);
 
+        if (!$respuesta) {
+            return response()->json(['error' => 'Respuesta no encontrada'], 404);
+        }
+
+        // 2. Respuesta INCORRECTA
+        // CAMBIO IMPORTANTE: Enviamos JSON para no romper el JS de Thais
         if (!$respuesta->is_correct) {
             $this->restarVida();
-            // Usamos 'error' para que tu Toast rojo lo detecte
-            return back()->with('error', 'Respuesta incorrecta, pierdes una vida');
+            return response()->json(['status' => 'incorrecto']); 
         }
 
-        // --- AQUÍ AÑADIMOS LA LÓGICA DE EXPERIENCIA ---
+        // 3. Respuesta CORRECTA
+        $pregunta = \App\Models\Pregunta::find($respuesta->pregunta_id);
+        $puntosXP = $pregunta->reward_points ?? 10;
+
         if (Auth::check()) {
             $user = Auth::user();
-            
-            // Accedemos a la pregunta para saber cuánto vale (reward_points)
-            $pregunta = \App\Models\Pregunta::find($respuesta->pregunta_id);
-            $puntos = $pregunta->reward_points ?? 10;
+            $user->experience += $puntosXP; 
+            $user->save(); // Dispara el canje de monedas en User.php
+            $user->refresh();
 
-            // Sumamos la experiencia
-            $user->increment('experience', $puntos);
+            return response()->json([
+                'status' => 'success', 
+                'xp' => $user->experience,
+                'puntos' => $user->points
+            ]);
+        } else {
+            // INVITADO
+            $xpActual = Session::get('xp_invitado', 0);
+            $puntosActuales = Session::get('puntos_invitado', 0);
+            $xpNueva = $xpActual + $puntosXP;
 
-            // Como pusimos el evento 'updating' en el modelo User, 
-            // la base de datos convertirá los 10 XP en 5 monedas automáticamente.
-            
-            return back()->with('success', "¡Correcto! Has ganado $puntos de XP.");
+            $bloquesAntiguos = floor($xpActual / 10);
+            $bloquesNuevos = floor($xpNueva / 10);
+
+            if ($bloquesNuevos > $bloquesAntiguos) {
+                $monedasGanadas = ($bloquesNuevos - $bloquesAntiguos) * 5;
+                $puntosActuales += $monedasGanadas;
+            }
+
+            Session::put('xp_invitado', $xpNueva);
+            Session::put('puntos_invitado', $puntosActuales);
+            Session::save();
+
+            return response()->json([
+                'status' => 'success', 
+                'xp' => $xpNueva,
+                'puntos' => $puntosActuales
+            ]);
         }
+    } // <-- Esta es la llave que faltaba y daba error de compilación
 
-        return back()->with('success', '¡Correcto!');
-    }
-
-    // ESTA FUNCIÓN ES UN MÉTODO PRIVADO (Auxiliar)
-    // Se pone aquí dentro pero al final, para que las rutas no la vean directamente
     private function restarVida()
     {
         $user = Auth::user();
     
-        // Si es Plus, NO restamos nada, salimos de la función
         if ($user && $user->is_plus) {
             return; 
         }
         
         if (Auth::check()) {
-            $user = Auth::user();
             if ($user->current_lives > 0) {
                 $user->decrement('current_lives');
             }
         } else {
             $vidas = Session::get('vidas_invitado', 5);
             if ($vidas > 0) {
-                Session::put('vidas_invitado', $vidas - 1);
+                $nuevasVidas = $vidas - 1;
+                Session::put('vidas_invitado', $nuevasVidas);
+                Session::save();
             }
         }
     }

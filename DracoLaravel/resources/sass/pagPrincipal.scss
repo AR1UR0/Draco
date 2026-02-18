@@ -25,13 +25,26 @@ $super-bottom: #0f083d; // Color inferior del gradiente
 // Estilos principales que gobiernan la disposición y apariencia general
 // de la página de inicio / panel principal.
 
+html,
 body {
-    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
     margin: 0 !important;
 }
 html {
     margin: 0 !important;
     padding: 0 !important;
+}
+
+main {
+    overflow-y: auto;
+    padding-bottom: 20px;
+    box-sizing: border-box;
 }
 
 // Navegación principal: enlaces del menú lateral o superior.
@@ -419,4 +432,42 @@ html {
             }
         }
     }
+}
+
+// justificacion para los modales
+// Definición del estilo para textos formales
+.texto-justificado {
+    text-align: justify;
+    text-justify: inter-word;
+
+    // Soporte para guiones automáticos (mejora el bloque visual)
+    hyphens: auto;
+
+    // Opcional: Si quieres que dentro del modal los párrafos
+    // tengan un espaciado consistente
+    p {
+        margin-bottom: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.imgFooterPrin {
+    cursor: pointer;
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
+}
+
+/* Hover */
+.imgFooterPrin:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+}
+
+/* Click real */
+.imgFooterPrin:active {
+    transform: scale(0.95);
 }

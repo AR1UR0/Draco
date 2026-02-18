@@ -46,7 +46,7 @@
                 <main class="d-none d-md-block flex-grow-1">
                     <!-- CONTENIDO PRINCIPAL -->
                     <div class="topMainContent">
-                        <span class="tema notranslate">Berserk</span>: FASE
+                        <span class="tema notranslate"> </span> &nbsp; FASE
                         <span class="fase">1 Niveles</span>
                     </div>
                     <!-- MAPA DE LOS ELEMENTOS EN UN GRID DE BOOTSTRAP -->
@@ -72,7 +72,22 @@
                         <div class="col-4 colMain">
                             <button class="btn-round" onclick="irAlQuiz(4)">4</button>
                         </div>
-                        <div class="col-4 colMain"></div>
+                        <div class="row">
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(5)">5</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(6)">6</button>
+                            </div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(7)">7</button>
+                            </div>
+                        </div>
                     </div>
                     </div>
                 </main>
@@ -137,7 +152,7 @@
                             
                             <div class="dropdown d-none d-sm-block">
                                 <button class="btn btn-temas dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" id="imgPrincipal" class="border border-light imgTema" />
+                                    <img src="{{ asset('media/imgs/temas/default.jpg') }}" id="imgPrincipal" class="border border-light imgTema" />
                                 </button>
                                 
                                 <ul class="dropdown-menu">
@@ -185,7 +200,7 @@
                                 alt="Vida:"
                                 class="imgIco"
                             />
-                            <span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->current_lives : 5 }}</span>
+                            <span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->current_lives : session('vidas_invitado', 5) }}</span>
                         </div>
                     </div>
                     <hr
@@ -232,47 +247,47 @@
                         <span class="fase">1</span>
                         </div>
                         <!-- MAPA DE LOS ELEMENTOS EN UN GRID DE BOOTSTRAP -->
-                        <div class="mainContent">
-                            <div class="row">
-                                <div class="col-4 colMain">
-                                    <button onclick="irAlQuiz(1)">Nivel 1</button>
-                                </div>
-                                <div class="col-4 colMain">
-                                    <button onclick="irAlQuiz(2)">Nivel 2</button>
-                                </div>
-                                <div class="col-4 colMain"></div>
+                       <div class="mainContent">
+                        <div class="row">
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(1)">1</button>
                             </div>
-                            <div class="row">
-                                <div class="col-4 colMain"></div>
-                                <div class="col-4 colMain"></div>
-                                <div class="col-4 colMain">
-                                    <button onclick="irAlQuiz(3)">Nivel 3</button>
-                                </div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(2)">2</button>
                             </div>
-                            <div class="row">
-                                <div class="col-4 colMain"></div>
-                                <div class="col-4 colMain">
-                                    <button class="btn-round">4</button>
-                                </div>
-                                <div class="col-4 colMain"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4 colMain">
-                                    <button class="btn-round">5</button>
-                                </div>
-                                <div class="col-4 colMain"></div>
-                                <div class="col-4 colMain"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4 colMain"></div>
-                                <div class="col-4 colMain">
-                                    <button class="btn-round">6</button>
-                                </div>
-                                <div class="col-4 colMain">
-                                    <button class="btn-round">7</button>
-                                </div>
+                            <div class="col-4 colMain"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(3)">3</button>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(4)">4</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(5)">5</button>
+                            </div>
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 colMain"></div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(6)">6</button>
+                            </div>
+                            <div class="col-4 colMain">
+                                <button class="btn-round" onclick="irAlQuiz(7)">7</button>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                     <hr
                         class="border border-light mb-2 mt-2 d-block d-md-none"
@@ -323,21 +338,9 @@
                         <div
                             class="d-none container mt-4 mb-4 justify-content-evenly align-items-center d-md-flex"
                         >
-                            <img
-                                src="{{ asset('media/imgs/iconos/instagram.png') }}"
-                                alt="Instagram"
-                                class="imgFooterPrin"
-                            />
-                            <img
-                                src="{{ asset('media/imgs/iconos/twitter.png') }}"
-                                alt="Twitter"
-                                class="imgFooterPrin"
-                            />
-                            <img
-                                src="{{ asset('media/imgs/iconos/facebook.png') }}"
-                                alt="Facebook"
-                                class="imgFooterPrin"
-                            />
+                            <img src="{{ asset('media/imgs/iconos/instagram.png') }}" alt="Instagram" class="imgFooterPrin" onclick="window.open('https://www.instagram.com/dracoteam.d/', '_blank')" />
+                            <img src="{{ asset('media/imgs/iconos/twitter.png') }}" alt="Twitter" class="imgFooterPrin" onclick="window.open('https://x.com/home', '_blank')" />
+                            <img src="{{ asset('media/imgs/iconos/facebook.png') }}" alt="Facebook" class="imgFooterPrin" onclick="window.open('https://www.facebook.com/', '_blank')" />
                         </div>
                     </footer>
                     <footer
@@ -387,16 +390,19 @@
                                 src="{{ asset('media/imgs/iconos/instagram.png') }}"
                                 alt="Instagram"
                                 class="imgFooterPrin"
+                                onclick="window.open('https://www.instagram.com/dracoteam.d/', '_blank')"
                             />
                             <img
                                 src="{{ asset('media/imgs/iconos/twitter.png') }}"
                                 alt="Twitter"
                                 class="imgFooterPrin"
+                                onclick="window.open('https://x.com/home', '_blank')"
                             />
                             <img
                                 src="{{ asset('media/imgs/iconos/facebook.png') }}"
                                 alt="Facebook"
                                 class="imgFooterPrin"
+                                onclick="window.open('https://www.facebook.com/', '_blank')"
                             />
                         </div>
                     </footer>
@@ -452,6 +458,12 @@
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <img
+                                src="{{ asset('media/imgs/icoDraco.png') }}"
+                                class="rounded me-2"
+                                alt="..."
+                                style="width: 25px"
+                            />
                         <h5 class="modal-title" id="termsModalLabel">
                             Términos y Condiciones – DRACO
                         </h5>
@@ -462,7 +474,7 @@
                             aria-label="Cerrar"
                         ></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body texto-justificado">
                         <p>
                             <strong>1. Introducción</strong><br />
                             Bienvenido a <strong>DRACO</strong>, una plataforma
@@ -547,6 +559,12 @@
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <img
+                                src="{{ asset('media/imgs/icoDraco.png') }}"
+                                class="rounded me-2"
+                                alt="..."
+                                style="width: 25px"
+                            />
                         <h5 class="modal-title" id="aboutModalLabel">
                             Sobre Nosotros – DRACO
                         </h5>
@@ -557,7 +575,7 @@
                             aria-label="Cerrar"
                         ></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body texto-justificado">
                         <p>
                             Draco es un proyecto educativo y tecnológico diseñado para
                             ofrecer a los usuarios una plataforma interactiva donde puedan 
@@ -674,7 +692,7 @@
             <div class="modal-header">
                 <h5 class="modal-title fw-bold" id="modalPagoLabel">Suscribirse a Draco Plus</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+            </div> 
             <div class="modal-body">
                 <form id="paymentForm">
                     <div class="mb-4 text-center">
@@ -683,7 +701,7 @@
                             <label class="btn btn-outline-draco" for="methodCard">Tarjeta Bancaria</label>
 
                             <input type="radio" class="btn-check" name="payMethod" id="methodIban" autocomplete="off" onclick="switchPay('iban')">
-                            <label class="btn btn-outline-draco" for="methodIban">IBAN / SEPA</label>
+                            <label class="btn btn-outline-draco" for="methodIban">IBAN</label>
                         </div>
 
                     <div id="sectionCard">
@@ -741,7 +759,9 @@
         </script>
         <script>
             let map;
-            let temaSeleccionadoId = null;
+            const urlParams = new URLSearchParams(window.location.search);
+            let temaSeleccionadoId = urlParams.get("tematica");
+            
 
     function cambiarImagenYGuardarId(ruta, nombre, id) {
         // 1. Llama a tu función original para que cambie la imagen como siempre
@@ -750,6 +770,10 @@
         }
 
         // 2. Guarda el ID de la temática
+        localStorage.setItem('tema_seleccionado_id', id);
+        localStorage.setItem('tema_seleccionado_ruta', ruta);
+        localStorage.setItem('tema_seleccionado_nombre', nombre);
+
         temaSeleccionadoId = id;
 
         // 3. (Opcional) Mostrar el contenedor de niveles si estaba oculto
@@ -765,6 +789,34 @@
         // Redirige a la URL que tu JS original sabe leer
         window.location.href = `/pregunta-texto?tematica=${temaSeleccionadoId}&pregunta=${nivel}`;
     }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const temaId = urlParams.get("tematica");
+
+        if (temaId) {
+            // Buscamos la imagen pequeña dentro del dropdown que tiene el ID correspondiente
+            const imgDropdown = document.getElementById('imgTema' + temaId);
+            
+            if (imgDropdown) {
+                const rutaImagen = imgDropdown.src;
+                const nombreTema = imgDropdown.alt;
+                
+                // Actualizamos la imagen principal y el texto con los datos encontrados
+                document.getElementById('imgPrincipal').src = rutaImagen;
+                
+                const spanTema = document.querySelector('.tema');
+                if (spanTema) {
+                    spanTema.textContent = nombreTema;
+                }
+                
+                // Aseguramos que la variable global mantenga el ID
+                temaSeleccionadoId = temaId;
+            }
+        }
+    });
+
             function initMap() {
                 const modal = document.getElementById('mapModal');
                 
@@ -778,7 +830,7 @@
                             zoom: 16,
                             center: position,
                             mapTypeId: 'hybrid'
-                    });
+                    }); 
 
                     new google.maps.Marker({
                         position: position,
@@ -792,6 +844,13 @@
                 });
             }
         </script>
+        @if(session('error'))
+        <script>
+            // Esto capturará el mensaje "No tienes vidas suficientes" 
+            // que enviamos desde el controlador
+            alert("{{ session('error') }}");
+        </script>
+        @endif
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIwM93aStjLTqInGUdQriLgLoIiV-hM4g&callback=initMap" async defer></script>
         <script src="{{ asset('js/autotranslate.js') }}"></script>
         <div id="gt" style="display:none"></div>

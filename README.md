@@ -9,48 +9,6 @@ Se trata de una página web, plataforma donde puedes aprender sobre diferentes t
 La plataforma DRACO es una página web orientada al aprendizaje de diferentes universos de fantasía y videojuegos como The Lorf of the Rings, GloryHammer, Berserk, Mitología, Star Wars, WoW. El proyecto surge como objeto de centralizar todo lo aprendido durante el 2º curso de DAW creando para el módulo de Proyecto Intermodular un entorno web accesible, organizado y fácil de usar.
 El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el entretenimiento educativo. Al ser una página web, se puede acceder desde cualquier dispositivo con navegador, sin necesidad de instalación.
 
-### ESTRUCTURA DE CARPETAS
-
-- Draco
-  - todos los html aquí divididos en carpetas
-  - css
-    - todos los css generales aquí
-    - css espec
-      - todos los css específicos de una página en concreto aquí (puede que no sea necesaria esta carpeta)
-      - css título minecraft
-      - css grid glroyhammer
-  - js
-    - todos los js aquí
-  - scss
-    - todos los scss aquí
-  - php
-    - todos los php aquí
-  - multimedia
-    - audios
-      - (todos los audios aquí divididos por tema)
-      - minecraft
-      - wow
-      - gloryhammer
-      - lord of the rings
-      - ...
-
-    - gifs/videos
-      - (todos los gifs/vídeos aquí divididos por tema)
-      - minecraft
-      - wow
-      - gloryhammer
-      - lordofrings
-      - ...
-
-    - imágenes
-      - todas las imágenes divididas por tema
-      - minecraft
-      - wow
-      - gloryhammer
-      - lordofrings
-      - index
-      - ...
-
 ## WEB INTERFACE DESIGN
 ### BRIEFING CUSTOMERS
 
@@ -124,23 +82,10 @@ Shows the user's information, their progress on the platform, and account settin
 
 The available purchase options are displayed on the page. A side menu is included for navigation.
 
-### PUNTOS A MEJORAR
+### USED TECHNOLOGIES
 
-- "Modernizar la página web"
-- Página "principal" con los 4 temas más jugados (GloryHammer / El Señor de los Anillos / WoW / Minecraft)
-- Otra página como "directorio" de temas en formato cuadrícula con las portadas de todos los temas elegibles.
-- Filtrar temas de los tests.
-- Crear nuevos test (el usuario admin los puede crear)
-- Crear usuarios (sin login, con login, administrador)
-- Carrousel de imágenes para algunas fotos específicas de algún test
-
-### COSAS A HACER POR APARTADOS
-
-- USUARIOS
-  - [ ] Formulario de creación de usuarios funcional y filtrado
-  - [ ] Conexión a la base de datos para registro de nuevos usuarios
-  - [ ] Comporbación del registro de los usuarios
-  - [ ] Formulario de inicio de sesión funcional y filtrado
-  - [ ] Conexión a la base de datos para comprobación de usuario y contraseña a la hora de iniciar sesión
-  - [ ] Gestionar todos los datos de los usuarios en la base de datos para aclarar las funcionalidades de estos
-  - [ ] Definir los distintos tipos de usuarios y las funciones que pueden realizar
+- Blade
+- PHP
+- JavaScript
+- SCSS & CSS
+- Dockerfile & Shell
