@@ -15,19 +15,20 @@ class StoreController extends Controller
     }
 
     // Lógica para comprar vidas
-    public function buyLife()
+        public function buyLife()
     {
         $user = Auth::user();
-        $precioVida = 100; // Puedes ajustar el precio aquí
+        $precioVida = 100;
 
-        // Verificación de seguridad: ¿Ya tiene las vidas al máximo?
         if ($user->current_lives >= $user->max_lives) {
             return back()->with('error', 'Ya tienes el máximo de vidas permitidas.');
         }
-        // Verificación de saldo
+
         if ($user->points >= $precioVida) {
-            $user->decrement('points', $precioVida); // Resta puntos
-            $user->increment('current_lives', 1);   // Suma una vida
+            $user->points -= $precioVida;
+            $user->current_lives += 1;
+            $user->save(); 
+
             return back()->with('success', "¡Vida comprada!");
         }
 

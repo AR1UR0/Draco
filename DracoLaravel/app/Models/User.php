@@ -62,21 +62,24 @@ class User extends Authenticatable
 {
     parent::boot();
 
-    // Este evento se dispara justo antes de guardar los cambios del usuario
-    static::updating(function ($user) {
-        // Si la experiencia es 10 o más...
-        if ($user->experience >= 10) {
-            // Calculamos cuántas monedas le tocan (5 por cada 10 XP)
-            $bloques = floor($user->experience / 10);
-            $monedasGanadas = $bloques * 5;
-            $xpAGastar = $bloques * 10;
-
-            // Hacemos el canje automático
-            $user->points += $monedasGanadas;
-            $user->experience -= $xpAGastar;
+    static::saving(function ($user) {
+        // La clave está aquí: ¿Ha cambiado la experiencia? 
+        // Si solo estamos comprando vidas, la experiencia NO cambia, por lo tanto no regala monedas.
+        if ($user->isDirty('experience')) {
             
-            // Nota: No hace falta llamar a save() aquí, 
-            // porque estamos en el evento "updating" y se guardará solo.
+            $xpAntigua = $user->getOriginal('experience') ?? 0;
+            $xpNueva = $user->experience;
+
+            $bloquesAntiguos = floor($xpAntigua / 10);
+            $bloquesNuevos = floor($xpNueva / 10);
+
+            if ($bloquesNuevos > $bloquesAntiguos) {
+                $nuevosBloques = $bloquesNuevos - $bloquesAntiguos;
+                $monedasAGanar = $nuevosBloques * 5;
+                
+                $user->points += $monedasAGanar;
+                \Log::info("Canje XP activado: +{$monedasAGanar} monedas.");
+            }
         }
     });
 }
