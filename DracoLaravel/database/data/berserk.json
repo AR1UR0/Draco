@@ -19,7 +19,7 @@
                             ]
                         },
                         {
-                            "enunciado": "¿Quien canción es esta?",
+                            "enunciado": "¿Qué canción es esta?",
                             "audio": "Audio/berserk/berserkIntro.mp3",
                             "puntos_recompensa": 10,
                             "respuestas": [
@@ -150,7 +150,7 @@
                                 },
                                 {
                                     "texto": "Charlotte",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/charlotte.webp",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/charlotte.jpg",
                                     "correcta": false
                                 }
                             ]
@@ -200,14 +200,17 @@
                             ]
                         },
                         {
-                            "enunciado": "¿Quien dice esta frase?",
-                            "audio": "audio",
+                            "enunciado": "¿Qué canción es esta? ",
+                            "audio": "Audio/berserk/berserkSerie2010.mp3",
                             "puntos_recompensa": 30,
                             "respuestas": [
-                                { "texto": "", "correcta": false },
-                                { "texto": "", "correcta": false },
-                                { "texto": "", "correcta": false },
-                                { "texto": "", "correcta": false }
+                                {
+                                    "texto": "Primera Pelicula",
+                                    "correcta": false
+                                },
+                                { "texto": "Anime 2010", "correcta": true },
+                                { "texto": "Anime 1997", "correcta": false },
+                                { "texto": "Live action", "correcta": false }
                             ]
                         },
                         {
@@ -248,7 +251,7 @@
                                 },
                                 {
                                     "texto": "Grunbeld",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/grunbeld.webp",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/grunbeld.jpg",
                                     "correcta": false
                                 }
                             ]
