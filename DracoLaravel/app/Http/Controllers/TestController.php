@@ -12,79 +12,90 @@ class TestController extends Controller
 {
     public function mostrarTest(Request $request)
     {
-        // Obtener las vidas
         if (Auth::check()) {
             $vidas = Auth::user()->current_lives;
         } else {
             $vidas = Session::get('vidas_invitado', 5);
         }
 
-        // Si intenta entrar con 0 vidas, lo mandamos a la principal con error
         if ($vidas <= 0) {
-            return redirect()->route('pagPrincipal')->with('error', 'No tienes vidas suficientes. ¡Pásate por la tienda!');
+            return redirect()->route('pagPrincipal')->with('error', 'No tienes vidas suficientes.');
         }
 
         return view('preguntaTexto', compact('vidas'));
     }
 
-    // funcion para comprobar las respuestas del usuario
     public function comprobarRespuesta(Request $request)
-{
-    // 1. Si el JS envía -1 (fallo detectado en el frontend), restamos vida
-    if ($request->id_respuesta == -1) {
-        $this->restarVida();
-        return response()->json(['status' => 'vida_restada']);
-    }
+    {
+        // 1. Fallo detectado por el JS
+        if ($request->id_respuesta == -1) {
+            $this->restarVida();
+            return response()->json(['status' => 'vida_restada']);
+        }
 
-    // 2. Buscamos la respuesta en la DB
-    $respuesta = Respuesta::find($request->id_respuesta);
+        $respuesta = Respuesta::find($request->id_respuesta);
 
-    if (!$respuesta) {
-        return response()->json(['error' => 'Respuesta no encontrada'], 404);
-    }
+        if (!$respuesta) {
+            return response()->json(['error' => 'Respuesta no encontrada'], 404);
+        }
 
-    // 3. Si la respuesta es INCORRECTA
-    if (!$respuesta->is_correct) {
-        $this->restarVida();
-        return back()->with('error', 'Respuesta incorrecta, pierdes una vida');
-    }
+        // 2. Respuesta INCORRECTA
+        // CAMBIO IMPORTANTE: Enviamos JSON para no romper el JS de Thais
+        if (!$respuesta->is_correct) {
+            $this->restarVida();
+            return response()->json(['status' => 'incorrecto']); 
+        }
 
-    // 4. Si la respuesta es CORRECTA y el usuario está logueado
-    if (Auth::check()) {
-        $user = Auth::user();
-        
-        // Buscamos la pregunta para obtener sus puntos de recompensa
-        // Si por algún motivo reward_points fuera null, ponemos 10 por defecto
+        // 3. Respuesta CORRECTA
         $pregunta = \App\Models\Pregunta::find($respuesta->pregunta_id);
-        $puntos = $pregunta->reward_points ?? 10;
+        $puntosXP = $pregunta->reward_points ?? 10;
 
-        // Sumamos la experiencia al usuario
-        // Al usar increment(), Laravel dispara el evento 'updating' de tu modelo User
-        // y automáticamente se hará el canje por monedas si llega a 10 XP.
-        $user->increment('experience', $puntos);
+        if (Auth::check()) {
+            $user = Auth::user();
+            $user->experience += $puntosXP; 
+            $user->save(); // Dispara el canje de monedas en User.php
+            $user->refresh();
 
-        return response()->json([
-            'status' => 'success', 
-            'xp' => $user->experience,
-            'puntos' => $user->points
-        ]);
-    }
+            return response()->json([
+                'status' => 'success', 
+                'xp' => $user->experience,
+                'puntos' => $user->points
+            ]);
+        } else {
+            // INVITADO
+            $xpActual = Session::get('xp_invitado', 0);
+            $puntosActuales = Session::get('puntos_invitado', 0);
+            $xpNueva = $xpActual + $puntosXP;
 
-    return response()->json(['status' => 'ok']);
-}
-    // ESTA FUNCIÓN ES UN MÉTODO PRIVADO (Auxiliar)
-    // Se pone aquí dentro pero al final, para que las rutas no la vean directamente
+            $bloquesAntiguos = floor($xpActual / 10);
+            $bloquesNuevos = floor($xpNueva / 10);
+
+            if ($bloquesNuevos > $bloquesAntiguos) {
+                $monedasGanadas = ($bloquesNuevos - $bloquesAntiguos) * 5;
+                $puntosActuales += $monedasGanadas;
+            }
+
+            Session::put('xp_invitado', $xpNueva);
+            Session::put('puntos_invitado', $puntosActuales);
+            Session::save();
+
+            return response()->json([
+                'status' => 'success', 
+                'xp' => $xpNueva,
+                'puntos' => $puntosActuales
+            ]);
+        }
+    } // <-- Esta es la llave que faltaba y daba error de compilación
+
     private function restarVida()
     {
         $user = Auth::user();
     
-        // Si es Plus, NO restamos nada, salimos de la función
         if ($user && $user->is_plus) {
             return; 
         }
         
         if (Auth::check()) {
-            $user = Auth::user();
             if ($user->current_lives > 0) {
                 $user->decrement('current_lives');
             }

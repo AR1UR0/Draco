@@ -74,11 +74,8 @@ class User extends Authenticatable
             $bloquesNuevos = floor($xpNueva / 10);
 
             if ($bloquesNuevos > $bloquesAntiguos) {
-                $nuevosBloques = $bloquesNuevos - $bloquesAntiguos;
-                $monedasAGanar = $nuevosBloques * 5;
-                
+                $monedasAGanar = ($bloquesNuevos - $bloquesAntiguos) * 5;
                 $user->points += $monedasAGanar;
-                \Log::info("Canje XP activado: +{$monedasAGanar} monedas.");
             }
         }
     });
