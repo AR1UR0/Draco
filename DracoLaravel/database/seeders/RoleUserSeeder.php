@@ -21,8 +21,21 @@ class RoleUserSeeder extends Seeder
             'email' => 'admin@draco.com', 
             'password' => Hash::make('admin123'), 
             'role_id' => $adminRole->id, 
+            'points' => 100,
             'current_lives' => 7, 
             'max_lives' => 7, 
+            'experience' => 0,
+        ]);
+
+        User::create([
+            'name' => 'Pepet', 
+            'email' => 'pepet@draco.com', 
+            'password' => Hash::make('pepet123'), 
+            'role_id' => $userRole->id, 
+            'points' => 100, 
+            'current_lives' => 7, 
+            'max_lives' => 7, 
+            'experience' => 0,
         ]);
     }
 }

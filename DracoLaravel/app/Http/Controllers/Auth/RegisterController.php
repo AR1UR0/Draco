@@ -32,7 +32,7 @@ class RegisterController extends Controller
         'email'          => $request->email,
         'password'       => Hash::make($request->password),
         'role_id'        => 2, // Usuario normal
-        'points'         => 0, // Antes 'dinero'
+        'points'         => 100, // Antes 'dinero'
         'streak'         => 0, // Antes 'racha'
         'experience'     => 0, // Antes 'experiencia'
         'current_lives'  => 7, // Antes 'vidas_actuales'
