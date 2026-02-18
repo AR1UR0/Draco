@@ -796,6 +796,33 @@
     }
     </script>
     <script>
+
+            document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const temaId = urlParams.get("tematica");
+
+    if (temaId) {
+        // Buscamos la imagen pequeña dentro del dropdown que tiene el ID correspondiente
+        const imgDropdown = document.getElementById('imgTema' + temaId);
+        
+        if (imgDropdown) {
+            const rutaImagen = imgDropdown.src;
+            const nombreTema = imgDropdown.alt;
+            
+            // Actualizamos la imagen principal y el texto con los datos encontrados
+            document.getElementById('imgPrincipal').src = rutaImagen;
+            
+            const spanTema = document.querySelector('.tema');
+            if (spanTema) {
+                spanTema.textContent = nombreTema;
+            }
+            
+            // Aseguramos que la variable global mantenga el ID
+            temaSeleccionadoId = temaId;
+        }
+    }
+});
+
             function initMap() {
                 const modal = document.getElementById('mapModal');
                 
