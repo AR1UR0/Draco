@@ -33,7 +33,8 @@ class RegisterController extends Controller
         'password'       => Hash::make($request->password),
         'role_id'        => 2, // Usuario normal
         'points'         => 100, // Antes 'dinero'
-        'streak'         => 0, // Antes 'racha'
+        'streak'         => 1, // Antes 'racha'
+        'last_streak_at' => now(),
         'experience'     => 0, // Antes 'experiencia'
         'current_lives'  => 7, // Antes 'vidas_actuales'
         'max_lives'      => 7, // Antes 'vidas_max'

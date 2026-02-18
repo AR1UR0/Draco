@@ -22,7 +22,9 @@ class RoleUserSeeder extends Seeder
             'password' => Hash::make('admin123'), 
             'role_id' => $adminRole->id, 
             'points' => 100,
-            'current_lives' => 7, 
+            'current_lives' => 7,
+            'streak' => 1,
+            'last_streak_at' => now(), 
             'max_lives' => 7, 
             'experience' => 0,
         ]);
@@ -33,7 +35,9 @@ class RoleUserSeeder extends Seeder
             'password' => Hash::make('pepet123'), 
             'role_id' => $userRole->id, 
             'points' => 100, 
-            'current_lives' => 7, 
+            'current_lives' => 7,
+            'streak' => 1,
+            'last_streak_at' => now(), 
             'max_lives' => 7, 
             'experience' => 0,
         ]);
