@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: #ffffff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -11,6 +12,7 @@ body {
   background-color: #e5e5e5;
   border-radius: 20px;
 }
+
 .custom-progress .progress-bar {
   background-color: #f70071;
   border-radius: 20px;
@@ -57,21 +59,25 @@ body {
   text-align: center;
   box-sizing: border-box;
 }
+
 .option-btn:hover:not(.active):not(.is-correct):not(.is-wrong) {
   background-color: #f7f7f7;
 }
+
 .option-btn.active {
   background-color: #ddf4ff;
   border-color: #1cb0f6;
-  border-bottom-color: rgb(7.531779661, 131.3877118644, 189.968220339);
+  border-bottom-color: #0883be;
   color: #1cb0f6;
   transform: translateY(2px);
 }
+
 .option-btn.is-correct {
   background-color: #d7ffb8;
   border-color: #58cc02;
-  color: rgb(55.3203883495, 128.2427184466, 1.2572815534);
+  color: #378001;
 }
+
 .option-btn.is-wrong {
   background-color: #ffdfe0;
   border-color: #ee2a33;
@@ -84,11 +90,13 @@ body {
   gap: 20px;
   max-width: 1000px;
 }
+
 @media (max-width: 768px) {
   .options-grid-images {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media (max-width: 576px) {
   .options-grid-images {
     overflow: scroll;
@@ -99,7 +107,6 @@ body {
   }
   .options-grid-images #opcionesContenedor {
     overflow: scroll;
-    height: -moz-max-content;
     height: max-content;
   }
 }
@@ -113,20 +120,23 @@ body {
   cursor: pointer;
   transition: 0.1s;
 }
+
 .option-card img {
   width: 100%;
   height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
+
 .option-card.active {
   background-color: #ddf4ff;
   border-color: #1cb0f6;
 }
+
 .option-card.is-correct {
   background-color: #d7ffb8;
   border-color: #58cc02;
 }
+
 .option-card.is-wrong {
   background-color: #ffdfe0;
   border-color: #ee2a33;
@@ -151,10 +161,11 @@ footer {
 .btn-comprobar {
   background-color: #98b705;
   color: white;
-  border-bottom: 4px solid rgb(90.1489361702, 108.5345744681, 2.9654255319);
+  border-bottom: 4px solid #5a6d03;
   padding: 10px 40px;
   border-radius: 12px;
 }
+
 .btn-comprobar:disabled {
   background-color: #e5e5e5;
   color: #afafaf;
@@ -180,10 +191,12 @@ footer {
   justify-content: center;
   transition: transform 0.1s;
 }
+
 .audio-btn img {
   width: 32px;
   height: 32px;
 }
+
 .audio-btn:active {
   transform: translateY(2px);
   border-bottom-width: 2px;
@@ -209,4 +222,64 @@ footer {
   header .col-2 {
     display: none;
   }
-}/*# sourceMappingURL=plantillasPreguntas.css.map */
+}
+
+/* ==== GOOGLE TRANSLATE NUKER ==== */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.goog-logo-link,
+.goog-te-gadget {
+  display: none !important;
+}
+
+iframe.skiptranslate {
+  display: none !important;
+}
+
+#google_translate_element {
+  display: none !important;
+}
+
+/* Oculta el cuadro de sugerencia de traducción al pasar el ratón */
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+/* Evita que el texto resaltado cambie de color al pasar el ratón */
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Oculta la barra superior de Google Translate (opcional) */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* Ajusta el body si la barra de arriba dejaba un hueco */
+body {
+  top: 0 !important;
+}
+
+/* Elimina el resaltado (brillo) al pasar el ratón sobre los textos traducidos */
+.goog-text-highlight {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Por si acaso Google usa una versión alternativa de la clase */
+font[style*="background-color"],
+font:hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
