@@ -161,15 +161,15 @@
                     <h4 class="mb-4 fw-semibold">Selecciona tu nivel de conocimiento:</h4>
 
                     <div class="d-flex flex-column align-items-center gap-3">
-                        <button id="lvl-1" class="btn btn-meta-option">
+                        <button id="lvl-1" class="btn btn-meta-option popoverTema" style="cursor: pointer;" >
                             <span class="fw-bold">Nivel 1</span> - Principiante
                         </button>
 
-                        <button id="lvl-2" class="btn btn-meta-option">
+                        <button id="lvl-2" class="btn btn-meta-option popoverTema" style="cursor: pointer;">
                             <span class="fw-bold">Nivel 2</span> - Intermedio
                         </button>
 
-                        <button id="lvl-3" class="btn btn-meta-option">
+                        <button id="lvl-3" class="btn btn-meta-option popoverTema" style="cursor: pointer;">
                             <span class="fw-bold">Nivel 3</span> - Avanzado
                         </button>
                     </div>
@@ -190,6 +190,40 @@
         <div id="google_translate_element"></div>
 
         <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                document.querySelectorAll(".popoverTema").forEach((el) => {
+                    const pop = new bootstrap.Popover(el, {
+                        content: "PRÓXIMAMENTE",
+                        placement: "top",
+                        trigger: "manual",
+                        animation: false,
+                    });
+
+                    el.addEventListener("click", () => {
+                        // Oculta cualquier otro popover abierto
+                        document.querySelectorAll(".popoverTema").forEach((other) => {
+                            if (other !== el) {
+                                bootstrap.Popover.getInstance(other)?.hide();
+                            }
+                        });
+
+                        pop.show();
+
+                        // Se cierra solo tras 1 segundos
+                        setTimeout(() => pop.hide(), 1000);
+                    });
+                });
+
+                // Click fuera = cerrar todo
+                document.addEventListener("click", (e) => {
+                    if (!e.target.closest(".popoverTema")) {
+                        document.querySelectorAll(".popoverTema").forEach((el) => {
+                            bootstrap.Popover.getInstance(el)?.hide();
+                        });
+                    }
+                });
+            });
+
             function setCookie(name, value, days = 365) {
                 const d = new Date();
                 d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
