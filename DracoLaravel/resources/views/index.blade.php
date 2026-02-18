@@ -127,7 +127,7 @@
                                         alt=" "
                                         class="imgCarr border"
                                     />
-                                    &nbsp;&nbsp;LOTR
+                                    &nbsp;&nbsp;<span class="d-none d-lg-inline">LOTR</span>
                                 </a>
                             </div>
                             <div class="carousel-item-custom">
@@ -137,7 +137,7 @@
                                         alt=" "
                                         class="imgCarr border"
                                     />
-                                    &nbsp;&nbsp;GloryHammer
+                                    &nbsp;&nbsp;<span class="d-none d-lg-inline">GloryHammer</span>
                                 </a>
                             </div>
                             <div class="carousel-item-custom">
@@ -146,7 +146,7 @@
                                         src="{{ asset('media/imgs/temas/berserk.jpg') }}" 
                                         alt=" " 
                                         class="imgCarr border" />
-                                    &nbsp;&nbsp;Berserk
+                                    &nbsp;&nbsp;<span class="d-none d-lg-inline">Berserk</span>
                                 </a>
                             </div>
                             <div class="carousel-item-custom" style="position: relative; overflow: visible !important;">
@@ -156,7 +156,7 @@
                                         <img src="{{ asset('media/imgs/temas/mitologia.jpg') }}" 
                                             alt="Mitología" 
                                             class="imgCarr border" />
-                                        &nbsp;&nbsp;Mitología
+                                        &nbsp;&nbsp;<span class="d-none d-lg-inline">Mitología</span>
                                     </div>
 
                                 </div>
@@ -168,7 +168,7 @@
                                         <img src="{{ asset('media/imgs/temas/starwars.jpg') }}" 
                                             alt="Star Wars" 
                                             class="imgCarr border" />
-                                        &nbsp;&nbsp;Star Wars
+                                        &nbsp;&nbsp;<span class="d-none d-lg-inline">Star Wars</span>
                                     </div>
     
                                 </div>
@@ -180,7 +180,7 @@
                                         <img src="{{ asset('media/imgs/temas/wow.jpg') }}" 
                                             alt="WoW" 
                                             class="imgCarr border" />
-                                        &nbsp;&nbsp;WoW
+                                        &nbsp;&nbsp;<span class="d-none d-lg-inline">WoW</span>
                                     </div>
     
                                 </div>

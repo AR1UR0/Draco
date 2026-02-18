@@ -794,6 +794,8 @@
         // Redirige a la URL que tu JS original sabe leer
         window.location.href = `/pregunta-texto?tematica=${temaSeleccionadoId}&pregunta=${nivel}`;
     }
+    </script>
+    <script>
             function initMap() {
                 const modal = document.getElementById('mapModal');
                 
