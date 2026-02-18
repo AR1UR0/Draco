@@ -93,7 +93,7 @@
         <div class="panelVidas w-100 px-5">
           <h5 class="fw-bold mb-3 text-uppercase">Vidas</h5>
 
-          <div class="vidaItem d-flex align-items-center justify-content-between p-3">
+          <div class="vidaItem d-flex align-items-center justify-content-center justify-content-lg-between p-3 flex-wrap flex-md-nowrap">
             <div class="d-flex align-items-center">
               <img src="{{ asset('media/imgs/iconos/heart.png') }}" alt="Vidas" class="me-3 iconVida">
               <div>
@@ -111,7 +111,7 @@
             </form>
           </div>
 
-          <div class="vidaItem d-flex align-items-center justify-content-between p-3">
+          <div class="vidaItem d-flex align-items-center justify-content-center justify-content-lg-between p-3 flex-wrap flex-md-nowrap">
             <div class="d-flex align-items-center">
               <img src="{{ asset('media/imgs/iconos/heartBlue.png') }}" alt="Vidas" class="me-3 iconVida">
               <div>
@@ -135,8 +135,8 @@
 
         <div class="panelVidas w-100 px-5 mt-4">
     <h5 class="fw-bold mb-3 text-uppercase">Cosméticos</h5>
-    <div class="d-flex align-items-center justify-content-between slider-cos">
-        <button class="btn arrow-btn" onclick="moveSlider(-1)">&lt;</button>
+    <div class="d-flex align-items-center justify-content-center justify-content-lg-between slider-cos flex-wrap flex-md-nowrap">
+        
 
         <div class="cos-container text-center">
             <img src="{{ asset('media/imgs/store/hair.png') }}" alt="Cosmético 1" class="imgCosmetico mb-2">
@@ -186,9 +186,12 @@
             </button>
         </div>
 
-        <button class="btn arrow-btn" onclick="moveSlider(1)">&gt;</button>
+        
       </div>
     </div>
+      <hr
+          class="border border-light mb-4 mt-4 d-block d-lg-none w-100"
+      />
       </main>
       <aside class="flex-grow-1 flex-md-grow-0 pt-3 ps-3 border-start border-md-1 border-light asidePrin vh-100 d-flex flex-column">
         <!-- PANEL LATERAL -->
