@@ -200,7 +200,7 @@
                                 alt="Vida:"
                                 class="imgIco"
                             />
-                            <span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->current_lives : 5 }}</span>
+                            <span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->current_lives : session('vidas_invitado', 5) }}</span>
                         </div>
                     </div>
                     <hr
