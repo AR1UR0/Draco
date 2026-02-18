@@ -800,7 +800,7 @@
                             zoom: 16,
                             center: position,
                             mapTypeId: 'hybrid'
-                    });
+                    }); 
 
                     new google.maps.Marker({
                         position: position,
