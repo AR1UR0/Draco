@@ -42,12 +42,13 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-3.  El archivo `.env` de Laravel debe existir en `./DracoLaravel/.env`.
-4.  Certificados SSL en `./ssl/` (`server.crt` y `server.key`).
-5.  Configuración de Apache en `./apache/laravel.conf`.
-6.  **Importante:** Debes esperar a que el contenedor de PHP esté levantado y MySQL esté en estado **"Healthy"**.
+2.  El archivo `.env` de Laravel debe existir.
+3.  Certificados SSL en `./ssl/` (`server.crt` y `server.key`).
+4.  **Importante:** Debes esperar a que el contenedor de PHP esté levantado y MySQL esté en estado **"Healthy"**.
 
-- Para ejecutar las migraciones de Laravel dentro del contenedor:
+- Para ejecutar las migraciones de Laravel dentro del contenedor ya levantado:
+
+> Para comprobar el Id del contenedor se puede usar el comando `docker container ls`
 
 ```bash
 php artisan migrate --seed
@@ -66,42 +67,17 @@ docker compose up -d --build
 ## Accesos directos:
 
 - Aplicación (HTTP): http://localhost
-- Aplicación (HTTPS): https://localhost:8080
+- Aplicación (HTTPS): https://localhost
 - phpMyAdmin: http://localhost:8081
 
 ## Detalles Técnicos
 
 ### Dockerfile (Backend)
 
-La imagen personalizada de PHP incluye:
-
-- **Extensiones:** `pdo_mysql`, `zip`, `gd`.
-- **Módulos Apache:** `rewrite`, `ssl`, `headers`.
-- **Composer:** Integrado para instalar dependencias automáticamente durante el build.
-- **Permisos:** Configuración automática de `www-data` para las carpetas `storage` y `bootstrap/cache`.
+La imagen se descarga desde github.
 
 ### Docker Compose
 
 - **Persistencia:** Los datos de MySQL se almacenan en el directorio local `./db_data` para evitar pérdida de información.
 - **Healthcheck:** El servicio de PHP espera a que MySQL esté totalmente listo (**Healthy**) antes de iniciar el servidor Apache.
 - **Redes:** Utiliza un driver de tipo `bridge` con alias personalizados para comunicación entre contenedores.
-
----
-
-## Estructura del Repositorio
-
-```text
-.
-├── apache/
-│   └── laravel.conf      # Configuración del sitio en Apache
-├── ssl/
-│   ├── server.crt        # Certificado SSL
-│   └── server.key        # Llave privada SSL
-├── DracoLaravel/         # Directorio de la App Laravel
-│   ├── .env              # Variables de entorno
-│   ├── Dockerfile        # Definición de la imagen PHP
-│   └── ...
-├── db_data/              # (Auto-generado) Datos de MySQL
-├── docker-compose.yml    # Orquestador de servicios
-└── README.md             # Instrucciones del proyecto
-```
