@@ -15,10 +15,10 @@ RUN apt-get update && apt-get install -y \
 RUN a2enmod rewrite ssl headers
 
 # 2. Configuración de archivos (Tu archivo de configuración)
-COPY apache/laravel.conf /etc/apache2/sites-available/000-default.conf
+#COPY apache/laravel.conf /etc/apache2/sites-available/000-default.conf
 
 
-RUN a2ensite 000-default.conf
+#RUN a2ensite 000-default.conf
 
 # 3. Certificados SSL
 COPY ssl/server.crt /etc/ssl/certs/server.crt
@@ -36,8 +36,8 @@ RUN git clone https://github.com/AR1UR0/Draco.git
 WORKDIR /var/www/html/Draco/DracoLaravel
 
 
-#RUN cp ../apache/laravel.conf /etc/apache2/sites-available/000-default.conf
-#RUN a2ensite 000-default.conf
+RUN cp ../apache/laravel.conf /etc/apache2/sites-available/000-default.conf
+RUN a2ensite 000-default.conf
 
 # Instalamos Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
