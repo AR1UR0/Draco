@@ -29,40 +29,49 @@ class TestController extends Controller
 
     // funcion para comprobar las respuestas del usuario
     public function comprobarRespuesta(Request $request)
-    {
-        if ($request->id_respuesta == -1) {
+{
+    // 1. Si el JS envía -1 (fallo detectado en el frontend), restamos vida
+    if ($request->id_respuesta == -1) {
         $this->restarVida();
         return response()->json(['status' => 'vida_restada']);
-        }
-
-        $respuesta = Respuesta::find($request->id_respuesta);
-
-        if (!$respuesta->is_correct) {
-            $this->restarVida();
-            // Usamos 'error' para que tu Toast rojo lo detecte
-            return back()->with('error', 'Respuesta incorrecta, pierdes una vida');
-        }
-
-        // --- AQUÍ AÑADIMOS LA LÓGICA DE EXPERIENCIA ---
-        if (Auth::check()) {
-            $user = Auth::user();
-            
-            // Accedemos a la pregunta para saber cuánto vale (reward_points)
-            $pregunta = \App\Models\Pregunta::find($respuesta->pregunta_id);
-            $puntos = $pregunta->reward_points ?? 10;
-
-            // Sumamos la experiencia
-            $user->increment('experience', $puntos);
-
-            // Como pusimos el evento 'updating' en el modelo User, 
-            // la base de datos convertirá los 10 XP en 5 monedas automáticamente.
-            
-            return back()->with('success', "¡Correcto! Has ganado $puntos de XP.");
-        }
-
-        return back()->with('success', '¡Correcto!');
     }
 
+    // 2. Buscamos la respuesta en la DB
+    $respuesta = Respuesta::find($request->id_respuesta);
+
+    if (!$respuesta) {
+        return response()->json(['error' => 'Respuesta no encontrada'], 404);
+    }
+
+    // 3. Si la respuesta es INCORRECTA
+    if (!$respuesta->is_correct) {
+        $this->restarVida();
+        return back()->with('error', 'Respuesta incorrecta, pierdes una vida');
+    }
+
+    // 4. Si la respuesta es CORRECTA y el usuario está logueado
+    if (Auth::check()) {
+        $user = Auth::user();
+        
+        // Buscamos la pregunta para obtener sus puntos de recompensa
+        // Si por algún motivo reward_points fuera null, ponemos 10 por defecto
+        $pregunta = \App\Models\Pregunta::find($respuesta->pregunta_id);
+        $puntos = $pregunta->reward_points ?? 10;
+
+        // Sumamos la experiencia al usuario
+        // Al usar increment(), Laravel dispara el evento 'updating' de tu modelo User
+        // y automáticamente se hará el canje por monedas si llega a 10 XP.
+        $user->increment('experience', $puntos);
+
+        return response()->json([
+            'status' => 'success', 
+            'xp' => $user->experience,
+            'puntos' => $user->points
+        ]);
+    }
+
+    return response()->json(['status' => 'ok']);
+}
     // ESTA FUNCIÓN ES UN MÉTODO PRIVADO (Auxiliar)
     // Se pone aquí dentro pero al final, para que las rutas no la vean directamente
     private function restarVida()
