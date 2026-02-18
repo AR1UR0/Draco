@@ -150,7 +150,7 @@
                                 },
                                 {
                                     "texto": "Charlotte",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/charlotte.webp",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/charlotte.jpg",
                                     "correcta": false
                                 }
                             ]
@@ -228,7 +228,7 @@
                                 },
                                 {
                                     "texto": "Armadura del Eclipse",
-                                    "correcta": false
+                                    "correcta": false15
                                 }
                             ]
                         },
@@ -248,7 +248,7 @@
                                 },
                                 {
                                     "texto": "Grunbeld",
-                                    "imagen": "imgs/PREGUNTAS/Berserk/grunbeld.webp",
+                                    "imagen": "imgs/PREGUNTAS/Berserk/grunbeld.jpg",
                                     "correcta": false
                                 }
                             ]
