@@ -82,6 +82,7 @@ async function pedirPreguntas() {
             options: respuesta.map(function (res) {
                 return {
                     text: res.opcion,
+                    id: res.id,
                     audio: res.audio,
                     imagen: res.image,
                 };
@@ -273,6 +274,16 @@ btnPrincipal.onclick = () => {
         if (selectedIdx === data.correct) {
             // CORRECTO: Verde
             botones[selectedIdx].classList.add("is-correct");
+            const idRespuestaCorrecta = data.options[selectedIdx].id; 
+
+            fetch("/test/validar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+                },
+                body: JSON.stringify({ id_respuesta: idRespuestaCorrecta }),
+            });
         } else {
             // INCORRECTO: Rojo
             botones[selectedIdx].classList.add("is-wrong");
