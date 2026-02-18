@@ -15,9 +15,7 @@ RUN apt-get update && apt-get install -y \
 RUN a2enmod rewrite ssl headers
 
 # 2. Configuración de archivos (Tu archivo de configuración)
-COPY apache/laravel.conf /etc/apache2/sites-available/000-default.conf
-COPY apache/error404.html /etc/apache2/sites-available/error404.html
-COPY apache/error500.html /etc/apache2/sites-available/error500.html
+COPY apache/laravel.conf /etc/apache2/sites-available/000-default.confl
 
 
 RUN a2ensite 000-default.conf
@@ -38,12 +36,8 @@ RUN git clone https://github.com/AR1UR0/Draco.git
 WORKDIR /var/www/html/Draco/DracoLaravel
 
 
-#ADD DracoLaravel/.env .
-#RUN export $(grep -v '^#' .env | xargs)
-
 #COPY ../apache/laravel.conf /etc/apache2/sites-available/000-default.conf
-#COPY error404.html /etc/apache2/sites-available/error404.html
-#COPY error500.html /etc/apache2/sites-available/error500.html
+#RUN a2ensite 000-default.conf
 
 # Instalamos Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -60,6 +54,6 @@ RUN chown -R www-data:www-data /var/www/html/Draco/DracoLaravel \
 
 EXPOSE 80 443
 
-CMD ["apache2-foreground"]
+CMD git fetch && git pull && php artisan migrate && apache2-foreground
 
 
