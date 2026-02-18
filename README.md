@@ -9,48 +9,6 @@ Se trata de una página web, plataforma donde puedes aprender sobre diferentes t
 La plataforma DRACO es una página web orientada al aprendizaje de diferentes universos de fantasía y videojuegos como The Lorf of the Rings, GloryHammer, Berserk, Mitología, Star Wars, WoW. El proyecto surge como objeto de centralizar todo lo aprendido durante el 2º curso de DAW creando para el módulo de Proyecto Intermodular un entorno web accesible, organizado y fácil de usar.
 El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el entretenimiento educativo. Al ser una página web, se puede acceder desde cualquier dispositivo con navegador, sin necesidad de instalación.
 
-### ESTRUCTURA DE CARPETAS
-
-- Draco
-  - todos los html aquí divididos en carpetas
-  - css
-    - todos los css generales aquí
-    - css espec
-      - todos los css específicos de una página en concreto aquí (puede que no sea necesaria esta carpeta)
-      - css título minecraft
-      - css grid glroyhammer
-  - js
-    - todos los js aquí
-  - scss
-    - todos los scss aquí
-  - php
-    - todos los php aquí
-  - multimedia
-    - audios
-      - (todos los audios aquí divididos por tema)
-      - minecraft
-      - wow
-      - gloryhammer
-      - lord of the rings
-      - ...
-
-    - gifs/videos
-      - (todos los gifs/vídeos aquí divididos por tema)
-      - minecraft
-      - wow
-      - gloryhammer
-      - lordofrings
-      - ...
-
-    - imágenes
-      - todas las imágenes divididas por tema
-      - minecraft
-      - wow
-      - gloryhammer
-      - lordofrings
-      - index
-      - ...
-
 ## WEB INTERFACE DESIGN
 ### BRIEFING CUSTOMERS
 
