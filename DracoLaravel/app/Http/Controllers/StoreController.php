@@ -28,7 +28,7 @@ class StoreController extends Controller
         if ($user->points >= $precioVida) {
             $user->decrement('points', $precioVida); // Resta puntos
             $user->increment('current_lives', 1);   // Suma una vida
-            return back()->with('success', "¡Vida comprada! Te quedan {$user->points} monedas.");
+            return back()->with('success', "¡Vida comprada!");
         }
 
         return back()->with('error', 'No tienes suficientes monedas.');
