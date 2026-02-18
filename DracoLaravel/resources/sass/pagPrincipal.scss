@@ -440,3 +440,21 @@ html {
         }
     }
 }
+
+.imgFooterPrin {
+    cursor: pointer;
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
+}
+
+/* Hover */
+.imgFooterPrin:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+}
+
+/* Click real */
+.imgFooterPrin:active {
+    transform: scale(0.95);
+}
