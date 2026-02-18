@@ -204,7 +204,10 @@
                             "audio": "Audio/berserk/berserkSerie2010.mp3",
                             "puntos_recompensa": 30,
                             "respuestas": [
-                                { "texto": "Primera Pelicula", "correcta": false },
+                                {
+                                    "texto": "Primera Pelicula",
+                                    "correcta": false
+                                },
                                 { "texto": "Anime 2010", "correcta": true },
                                 { "texto": "Anime 1997", "correcta": false },
                                 { "texto": "Live action", "correcta": false }
@@ -228,7 +231,7 @@
                                 },
                                 {
                                     "texto": "Armadura del Eclipse",
-                                    "correcta": false15
+                                    "correcta": false
                                 }
                             ]
                         },
