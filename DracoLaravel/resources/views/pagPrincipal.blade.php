@@ -402,6 +402,7 @@
                                 src="{{ asset('media/imgs/iconos/instagram.png') }}"
                                 alt="Instagram"
                                 class="imgFooterPrin"
+                                onclick="window.open('https://www.instagram.com/dracoteam.d/', '_blank')"
                             />
                             <img
                                 src="{{ asset('media/imgs/iconos/twitter.png') }}"

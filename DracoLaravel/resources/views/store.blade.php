@@ -277,7 +277,7 @@
             </div>
           </div>
           <div class="container mt-4 mb-4 justify-content-evenly align-items-center d-flex">
-            <img src="{{ asset('media/imgs/iconos/instagram.png') }}" alt="Instagram" class="imgFooterPrin" />
+            <img src="{{ asset('media/imgs/iconos/instagram.png') }}" alt="Instagram" class="imgFooterPrin" onclick="window.open('https://www.instagram.com/dracoteam.d/', '_blank')" />
             <img src="{{ asset('media/imgs/iconos/twitter.png') }}" alt="Twitter" class="imgFooterPrin" />
             <img src="{{ asset('media/imgs/iconos/facebook.png') }}" alt="Facebook" class="imgFooterPrin" />
           </div>
