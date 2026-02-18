@@ -198,7 +198,7 @@
         <div class="d-flex flex-grow-0 parteArriba justify-content-evenly align-items-center mb-3">
           <!-- IMAGENES DE TEMA, RACHA, DINERO Y VIDAS -->
           <div>
-            <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" alt=" " class="border border-light imgTema" />
+            <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" id="imgTienda" alt=" " class="border border-light imgTema" />
           </div>
           <div class="d-flex align-items-center justify-content-center">
             <img src="{{ asset('media/imgs/iconos/burn.png') }}" alt="Racha:" class="imgIco" />
@@ -644,9 +644,20 @@
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
   });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    // Intentar recuperar los datos del localStorage
+    const rutaGuardada = localStorage.getItem('tema_seleccionado_ruta');
+    
+    if (rutaGuardada) {
+        // Actualizar la imagen en el panel lateral de la tienda
+        const imgTienda = document.getElementById('imgTienda');
+        if (imgTienda) {
+            imgTienda.src = rutaGuardada;
+        }
+    }
+});
 </script>
-
-
 </body>
 
 </html>
