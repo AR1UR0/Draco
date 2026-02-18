@@ -50,7 +50,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 - Para ejecutar las migraciones de Laravel dentro del contenedor:
 
 ```bash
-docker-compose exec php php artisan migrate --seed
+php artisan migrate --seed
 ```
 
 ---
@@ -60,7 +60,7 @@ docker-compose exec php php artisan migrate --seed
 Para levantar todo el entorno, simplemente ejecuta el siguiente comando en la raíz del proyecto:
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 ## Accesos directos:
