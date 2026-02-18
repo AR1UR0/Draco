@@ -91,7 +91,9 @@ class TestController extends Controller
         } else {
             $vidas = Session::get('vidas_invitado', 5);
             if ($vidas > 0) {
-                Session::put('vidas_invitado', $vidas - 1);
+                $nuevasVidas = $vidas - 1;
+                Session::put('vidas_invitado', $nuevasVidas);
+                Session::save();
             }
         }
     }
