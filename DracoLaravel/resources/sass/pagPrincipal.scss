@@ -25,13 +25,26 @@ $super-bottom: #0f083d; // Color inferior del gradiente
 // Estilos principales que gobiernan la disposición y apariencia general
 // de la página de inicio / panel principal.
 
+html,
 body {
-    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
     margin: 0 !important;
 }
 html {
     margin: 0 !important;
     padding: 0 !important;
+}
+
+main {
+    overflow-y: auto;
+    padding-bottom: 20px;
+    box-sizing: border-box;
 }
 
 // Navegación principal: enlaces del menú lateral o superior.

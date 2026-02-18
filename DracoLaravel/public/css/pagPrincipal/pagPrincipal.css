@@ -4,14 +4,27 @@
     -------------------
     Estilos para la página principal de la aplicación.
 */
+html,
 body {
-  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
   margin: 0 !important;
 }
 
 html {
   margin: 0 !important;
   padding: 0 !important;
+}
+
+main {
+  overflow-y: auto;
+  padding-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .navPrin a {
