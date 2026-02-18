@@ -46,7 +46,7 @@
                 <main class="d-none d-md-block flex-grow-1">
                     <!-- CONTENIDO PRINCIPAL -->
                     <div class="topMainContent">
-                        <span class="tema notranslate">Berserk</span>: FASE
+                        <span class="tema notranslate"> </span> &nbsp; FASE
                         <span class="fase">1 Niveles</span>
                     </div>
                     <!-- MAPA DE LOS ELEMENTOS EN UN GRID DE BOOTSTRAP -->
@@ -152,7 +152,7 @@
                             
                             <div class="dropdown d-none d-sm-block">
                                 <button class="btn btn-temas dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" id="imgPrincipal" class="border border-light imgTema" />
+                                    <img src="{{ asset('media/imgs/temas/default.jpg') }}" id="imgPrincipal" class="border border-light imgTema" />
                                 </button>
                                 
                                 <ul class="dropdown-menu">
@@ -692,7 +692,24 @@
             <div class="modal-header">
                 <h5 class="modal-title fw-bold" id="modalPagoLabel">Suscribirse a Draco Plus</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+            </div>                if (!map) {
+                        map = new google.maps.Map(document.getElementById("map"), {
+                            zoom: 16,
+                            center: position,
+                            mapTypeId: 'hybrid'
+                    });
+
+                    new google.maps.Marker({
+                        position: position,
+                        map: map,
+                    });
+                    } else {
+                    // Re-centrar el mapa por si acaso
+                        google.maps.event.trigger(map, "resize");
+                        map.setCenter(position);
+                    }
+                });
+            }
             <div class="modal-body">
                 <form id="paymentForm">
                     <div class="mb-4 text-center">
@@ -770,6 +787,10 @@
         }
 
         // 2. Guarda el ID de la temática
+        localStorage.setItem('tema_seleccionado_id', id);
+        localStorage.setItem('tema_seleccionado_ruta', ruta);
+        localStorage.setItem('tema_seleccionado_nombre', nombre);
+
         temaSeleccionadoId = id;
 
         // 3. (Opcional) Mostrar el contenedor de niveles si estaba oculto
@@ -787,6 +808,32 @@
     }
     </script>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const temaId = urlParams.get("tematica");
+
+        if (temaId) {
+            // Buscamos la imagen pequeña dentro del dropdown que tiene el ID correspondiente
+            const imgDropdown = document.getElementById('imgTema' + temaId);
+            
+            if (imgDropdown) {
+                const rutaImagen = imgDropdown.src;
+                const nombreTema = imgDropdown.alt;
+                
+                // Actualizamos la imagen principal y el texto con los datos encontrados
+                document.getElementById('imgPrincipal').src = rutaImagen;
+                
+                const spanTema = document.querySelector('.tema');
+                if (spanTema) {
+                    spanTema.textContent = nombreTema;
+                }
+                
+                // Aseguramos que la variable global mantenga el ID
+                temaSeleccionadoId = temaId;
+            }
+        }
+    });
+
             function initMap() {
                 const modal = document.getElementById('mapModal');
                 
