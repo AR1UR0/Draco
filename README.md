@@ -81,3 +81,11 @@ Shows the user's information, their progress on the platform, and account settin
 **Purchase Page**
 
 The available purchase options are displayed on the page. A side menu is included for navigation.
+
+### USED TECHNOLOGIES
+
+- Blade
+- PHP
+- JavaScript
+- SCSS & CSS
+- Dockerfile & Shell
