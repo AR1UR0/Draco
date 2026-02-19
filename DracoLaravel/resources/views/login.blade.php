@@ -61,6 +61,12 @@
 
         <!-- LOGIN -->
         <div class="login-card text-center" id="loginView">
+            @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="font-size: 0.9em;">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
             <h1 class="login-title mb-4">Ingresar</h1>
             <form id="loginForm" action="{{ route('login.post') }}" method="POST">
                 @csrf <div class="mb-3">
@@ -165,26 +171,26 @@
 
 
     <!-- Modal Olvidé Contraseña -->
-    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="forgotPasswordLabel">Recuperar Contraseña</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="forgotPasswordForm">
-                        <div class="mb-3">
-                            <label for="forgotEmail" class="form-label">Correo electrónico</label>
-                            <input type="email" class="form-control" id="forgotEmail" placeholder="Ingresa tu correo"
-                                required />
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Enviar</button>
-                    </form>
-                </div>
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="forgotPasswordLabel">Recuperar Contraseña</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
+            <div class="modal-body">
+                <form id="forgotPasswordForm" action="{{ route('password.email') }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="forgotEmail" class="form-label">Correo electrónico</label>
+                        <input type="email" name="email" class="form-control" id="forgotEmail" placeholder="Ingresa tu correo" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Enviar nueva contraseña</button>
+                </form>
+                </div>
         </div>
+    </div>
+</div>
     </div>
     <script>
         // Si hay errores y el usuario estaba intentando registrarse, 

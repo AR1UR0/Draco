@@ -66,26 +66,23 @@ if (loginForm) {
 /**
  * Gestión del formulario de recuperación de contraseña.
  * Simula el envío de correo y cierra el modal de Bootstrap.
+ * @author Marta
  */
-document
-    .getElementById("forgotPasswordForm")
-    .addEventListener("submit", function (e) {
-        e.preventDefault();
-        const email = document.getElementById("forgotEmail").value;
-        console.log("Correo enviado para recuperar contraseña:", email);
+const forgotForm = document.getElementById("forgotPasswordForm");
 
-        // Lógica para enviar el correo
+if (forgotForm) {
+    forgotForm.addEventListener("submit", function (e) {
+        e.preventDefault(); // Detenemos para validar
 
-        const forgotModal = bootstrap.Modal.getInstance(
-            document.getElementById("forgotPasswordModal"),
-        );
-        forgotModal.hide();
+        const email = document.getElementById("forgotEmail").value.trim();
 
-        alert(
-            "Si el correo existe, recibirás instrucciones para recuperar tu contraseña.",
-        );
+        if (!email || !email.includes("@")) {
+            alert("Por favor, introduce un correo electrónico válido.");
+            return;
+        }
+        this.submit(); 
     });
-
+}
 // --- VALIDACIONES CAMPO A CAMPO CON BOOTSTRAP POPOVERS ---
 
 /**

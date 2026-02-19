@@ -22,6 +22,7 @@ Route::post('/test/validar', [TestController::class, 'comprobarRespuesta'])->nam
 Route::get('/login', function() { return view('login'); })->name('login');
 Route::post('/login/ingresar', [LoginController::class, 'login'])->name('login.post');
 Route::post('/login/registrar', [RegisterController::class, 'register'])->name('register.post');
+Route::post('/password/reset', [LoginController::class, 'sendTempPassword'])->name('password.email');
 
 
 // --- 2. RUTAS PARA USUARIOS LOGUEADOS ---

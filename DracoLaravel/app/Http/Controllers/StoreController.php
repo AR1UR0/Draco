@@ -26,10 +26,10 @@ class StoreController extends Controller
 
         if ($user->points >= $precioVida) {
             $user->points -= $precioVida;
-            $user->current_lives += 1;
+            $user->current_lives = $user->max_lives;
             $user->save(); 
 
-            return back()->with('success', "¡Vida comprada!");
+            return back()->with('success', "¡Vida recargadas al máximo!");
         }
 
         return back()->with('error', 'No tienes suficientes monedas.');
