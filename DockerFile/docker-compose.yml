@@ -2,8 +2,8 @@ services:
   # PHP
   php:
     build:
-      context: ./
-      dockerfile: ./Dockerfile
+      context: ../
+      dockerfile: DockerFile/Dockerfile
     ports:
       - "80:80"
       - "443:443"

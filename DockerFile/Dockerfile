@@ -21,8 +21,8 @@ RUN a2enmod rewrite ssl headers
 #RUN a2ensite 000-default.conf
 
 # 3. Certificados SSL
-COPY ssl/server.crt /etc/ssl/certs/server.crt
-COPY ssl/server.key /etc/ssl/private/server.key
+COPY ../ssl/server.crt /etc/ssl/certs/server.crt
+COPY ../ssl/server.key /etc/ssl/private/server.key
 
 # --------------------------------------------------
 # APLICACIÓN (Ajustado a tu estructura DracoLaravel)
