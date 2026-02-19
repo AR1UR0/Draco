@@ -8,6 +8,7 @@ use App\Mail\RegisterMail;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\TematicaController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 // --- 1. RUTAS PÚBLICAS (Accesibles para invitados y usuarios) ---
 Route::view('/', 'index')->name('index');
@@ -53,4 +54,18 @@ Route::get('/test-mail', function () {
     Mail::to('xyz.arturool@gmail.com')->send(new RegisterMail('Arturo'));
 
     return 'Correo enviado';
+});
+
+
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetEmail'])->name('password.email');
+
+
+Route::get('/test-reset-mail', function () {
+    $url = url('/reset-password?token=123456');
+
+    Mail::to('xyz.arturool@gmail.com')->send(
+        new ResetPasswordMail('Arturo', $url)
+    );
+
+    return 'Correo de recuperación enviado';
 });
