@@ -175,13 +175,14 @@
                 </div>
                 <div class="modal-body">
                     <form id="forgotPasswordForm">
+                        @csrf
                         <div class="mb-3">
                             <label for="forgotEmail" class="form-label">Correo electrónico</label>
-                            <input type="email" class="form-control" id="forgotEmail" placeholder="Ingresa tu correo"
-                                required />
+                            <input type="email" class="form-control" id="forgotEmail" name="email" placeholder="Ingresa tu correo" required />
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Enviar</button>
                     </form>
+                    <div id="forgotPasswordMessage" class="mt-2 text-center"></div>
                 </div>
             </div>
         </div>
@@ -204,6 +205,30 @@
                     delay: 5000 // Se cerrará solo después de 5 segundos
                 });
             });
+        });
+    </script>
+    <script>
+        document.getElementById('forgotPasswordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('forgotEmail').value;
+
+            fetch("{{ route('forgot.password') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({ email })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.success){
+                    alert(data.success); // Aquí puedes usar toast en lugar de alert
+                } else {
+                    alert(data.error);
+                }
+            })
+            .catch(err => alert('Error al enviar el correo'));
         });
     </script>
     <script src="{{ asset('js/autotranslate.js') }}"></script>
