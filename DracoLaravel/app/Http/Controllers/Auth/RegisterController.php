@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Mail\RegisterMail;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -39,6 +40,14 @@ class RegisterController extends Controller
         'current_lives'  => 7, // Antes 'vidas_actuales'
         'max_lives'      => 7, // Antes 'vidas_max'
     ]);
+
+    // ENVÍO DEL MAIL
+    try {
+        Mail::to($user->email)->send(new RegisterMail($user->name));
+    } catch (\Exception $e) {
+        // Logueamos el error por si falla, pero dejamos que el usuario entre a la web
+        \Log::error("Error enviando mail: " . $e->getMessage());
+    }
 
     // 3. Loguear y redirigir
     Auth::login($user);

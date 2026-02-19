@@ -21,7 +21,8 @@ class RegisterMail extends Mailable
     public function __construct(string $name)
     {
         $this->name = $name;
-        $this->logo = asset('media/imgs/logoDraco.png');
+        // Usamos config('app.url') para asegurar que mande la ruta completa (http://localhost...)
+        $this->logo = config('app.url') . '/media/imgs/logoDraco.png';
     }
 
     /**
