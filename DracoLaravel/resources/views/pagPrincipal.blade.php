@@ -202,7 +202,17 @@
                                 alt="Vida:"
                                 class="imgIco"
                             />
-                            <span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->current_lives : session('vidas_invitado', 5) }}</span>
+                           <span class="racha">&nbsp;
+                                @auth
+                                    @if(Auth::user()->is_plus)
+                                        <span style="font-size: 1.2em; font-weight: bold;">&infin;</span>
+                                    @else
+                                        {{ Auth::user()->current_lives }}
+                                    @endif
+                                @else
+                                    {{ session('vidas_invitado', 5) }}
+                                @endauth
+                            </span>
                         </div>
                     </div>
                     <hr

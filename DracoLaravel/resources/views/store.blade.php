@@ -210,7 +210,17 @@
           </div>
           <div class="d-flex align-items-center justify-content-center">
             <img src="{{ asset('media/imgs/iconos/heart.png') }}" alt="Vida:" class="imgIco" />
-            <span class="racha">&nbsp;{{ Auth::check() ? Auth::user()->current_lives : 5 }}</span>
+            <span class="racha">&nbsp;
+              @auth
+                @if(Auth::user()->is_plus)
+                  <span style="font-size: 1.2em; font-weight: bold;">&infin;</span>
+                @else
+                  {{ Auth::user()->current_lives }}
+                @endif
+                @else
+                  {{ session('vidas_invitado', 5) }}
+                @endauth
+              </span>
           </div>
         </div>
         <!-- DIV PARA DRACO PLUS Y ANUNCIO -->

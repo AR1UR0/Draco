@@ -35,6 +35,7 @@ class User extends Authenticatable
         'last_life_recovery', 
         'profile_image',  
         'last_streak_at',
+        'is_plus',
     ];
 
     /**
