@@ -1,26 +1,29 @@
 services:
-  # PHP
+  # --- SERVICI D'APLICACIÓ (PHP) ---
+  # Gestiona el servidor web i el processament de la lògica de l'aplicació
   php:
     build:
       context: ../
-      dockerfile: Despliegue/Dockerfile
+      dockerfile: Despliegue/Dockerfile # Construcció personalitzada des de la carpeta de desplegament
     ports:
-      - "80:80"
-      - "443:443"
+      - "80:80" # HTTP estàndard
+      - "443:443" # HTTPS per a connexions segures
     env_file:
-      - ./.env
+      - ./.env # Càrrega de variables d'entorn globals
     networks:
       draco:
         aliases:
-          - draco.com
+          - draco.com # Àlies de xarxa interna per a resolució de dominis
     depends_on:
       mysql:
-        condition: service_healthy
+        condition: service_healthy # L'aplicació només arranca quan la base de dades està llesta
 
+  # --- SERVICI DE BASE DE DADES (MYSQL) ---
+  # Emmagatzematge relacional per a totes les dades del sistema
   mysql:
-    image: mysql:9.6
+    image: mysql:9.6 # Versió específica de la imatge oficial de MySQL
     ports:
-      - 3306:3306
+      - 3306:3306 # Port per defecte per a connexions externes si calguera
     env_file:
       - ./.env
     networks:
@@ -28,27 +31,32 @@ services:
         aliases:
           - mysql.draco.com
     volumes:
-      - ./db_data:/var/lib/mysql
+      - ./db_data:/var/lib/mysql # Persistència de dades en el directori local per a evitar pèrdues
     healthcheck:
+      # Verificació de l'estat de MySQL per a garantir que accepta connexions
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
       retries: 10
 
+  # --- SERVICI DE GESTIÓ (PHPMYADMIN) ---
+  # Interfície gràfica basada en web per a l'administració de la base de dades
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
-      - 8081:80
+      - 8081:80 # Accessible a través del port 8081 de la màquina amfitriona
     environment:
-      PMA_HOST: mysql
+      PMA_HOST: mysql # Enllaça directament amb el contenidor de base de dades
     networks:
       draco:
         aliases:
           - phpmyadmin.draco.com
     depends_on:
       mysql:
-        condition: service_healthy
+        condition: service_healthy # Espera que la base de dades estiga disponible
 
+# --- CONFIGURACIÓ DE XARXA ---
+# Xarxa aïllada per a la comunicació segura entre contenidors
 networks:
   draco:
     name: draco
-    driver: bridge
+    driver: bridge # Controlador de tipus pont per a connectivitat interna
