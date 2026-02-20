@@ -292,6 +292,7 @@ function selectOption(idx, el) {
  * Control central del flux del Quiz.
  * Processa la validació de respostes, comunicació amb el servidor (Fetch POST),
  * gestió de vides de l'usuari i navegació entre estats del joc.
+ * @author Thais
  * @listens click
  */
 btnPrincipal.onclick = () => {
@@ -318,15 +319,22 @@ btnPrincipal.onclick = () => {
                 },
                 body: JSON.stringify({ id_respuesta: idRespuestaCorrecta }),
             });
+            /**
+            * Gestión de la lógica de error y penalización de vidas.
+            * Implementa la "Protección Draco Plus" para omitir penalizaciones.
+            * * @author Marta 
+            */
         } else {
-            // INCORRECTE: Roig
+            // INCORRECTO: ROJO
             botones[selectedIdx].classList.add("is-wrong");
-            // Opcional: mostrar quina era la correcta en verd
+            // MUESTRA CUAL ES CORRECTA EN VERDE
             botones[data.correct].classList.add("is-correct");
 
             // --- PROTECCIÓN DRACO PLUS ---
             if (!window.isUserPlus) {
-                // 1. Descomptar visualment perquè l'usuari ho veja a l'instant
+                /** * Actualización visual inmediata.
+                * Resta una vida del DOM para dar feedback instantáneo al usuario.
+                */
                 const contador = document.getElementById("contadorVidas");
                 let vidasFinales = 0;
                 if (contador) {
@@ -334,7 +342,12 @@ btnPrincipal.onclick = () => {
                     contador.innerText = vidasFinales > 0 ? vidasFinales : 0;
                 }
 
-            // 2. Avisar a la base de dades de forma invisible (Fetch)
+            /**
+            * Persistencia en Base de Datos.
+            * Envía una petición asíncrona al servidor para decrementar la vida en el backend.
+            * Se envía id_respuesta: -1 para forzar la lógica de fallo en el controlador.
+            * @author Marta 
+            */
             fetch("/test/validar", {
                 method: "POST",
                 headers: {
@@ -346,22 +359,28 @@ btnPrincipal.onclick = () => {
                 body: JSON.stringify({ id_respuesta: -1 }), // Enviem un ID que sabem que no existeix perquè el controlador reste vida
             });
 
+            /**
+            * Control de Estado 'Game Over'.
+            * Si el usuario agota sus vidas, se bloquea el progreso y se prepara la salida.
+            * @author Marta 
+            */
             if (vidasFinales <= 0) {
-                estadoPregunta = "game_over"; // Nou estat
+                estadoPregunta = "game_over"; 
                 btnPrincipal.innerText = "VOLVER AL MENÚ";
-                btnPrincipal.classList.add("btn-danger"); // Opcional: posar el botó roig
+                btnPrincipal.classList.add("btn-danger");
                 btnPrincipal.disabled = false;
-                return; // Eixim perquè no execute el canvi a "CONTINUAR" de baix
+                return; 
             }
         }
     }
 
-        // Bloquejar altres botons perquè no continuen marcant
+        // Bloqueo de interacción: impide cambiar la respuesta una vez confirmada
         botones.forEach((btn) => (btn.style.pointerEvents = "none"));
-
+        // Preparación de la transición a la siguiente fase
         btnPrincipal.innerText = "CONTINUAR";
         estadoPregunta = "confirmado";
-        btnPrincipal.classList.add("btn-next"); // Canvia color del botó principal
+        btnPrincipal.classList.add("btn-next"); 
+        
     } else if (estadoPregunta === "confirmado") {
         currentStep++;
         if (currentStep < quizData.length) {
@@ -384,6 +403,7 @@ btnPrincipal.onclick = () => {
 /**
  * Neteja la interfície d'elements de trivia i mostra la pantalla d'èxit.
  * Actualitza l'estat a "final" per a permetre la redirecció.
+ * @author Thais
  */
 function finishQuiz() {
     contenedorImagenes.classList.add("d-none");
