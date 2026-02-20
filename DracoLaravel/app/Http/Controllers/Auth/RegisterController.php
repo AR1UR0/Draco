@@ -9,47 +9,69 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
+/**
+ * Clase RegisterController
+ * * Gestiona la creación de nuevas cuentas de usuario, la asignación de valores iniciales
+ * de gamificación (puntos, vidas, experiencia) y el envío de correos de bienvenida.
+ * @author Marta
+ */
 class RegisterController extends Controller
 {
-    // Muestra la vista del formulario
+    /**
+     * Muestra la interfaz de registro de usuario.
+     * * @return \Illuminate\View\View Vista del formulario de registro.
+     * @author Marta
+     */
     public function showRegistrationForm()
     {
-        return view('auth.registro'); // Asegúrate de que tu vista esté en resources/views/auth/registro.blade.php
+        return view('auth.registro'); 
     }
 
-    // Procesa el registro
+    /**
+     * Procesa la solicitud de registro de un nuevo usuario.
+     * * El proceso sigue estos pasos:
+     * 1. Validación de integridad de datos (email único y contraseña confirmada).
+     * 2. Persistencia en base de datos con valores iniciales de sistema.
+     * 3. Notificación vía Email mediante la clase Mailable 'RegisterMail'.
+     * 4. Autenticación automática y redirección con disparador de eventos (oferta_plus).
+     * * @param  \Illuminate\Http\Request  $request Datos del formulario de registro.
+     * @return \Illuminate\Http\RedirectResponse Redirección a la página principal.
+     * @author Marta
+     */
     public function register(Request $request)
 {
-    // 1. Validar los datos (usando 'name' en lugar de 'nombre')
+
     $request->validate([
         'name' => 'required|string|max:255', 
         'email' => 'required|string|email|max:255|unique:users',
         'password' => 'required|string|min:8|confirmed',
     ]);
 
-    // 2. Crear el usuario en la BD con los nombres en INGLÉS
     $user = User::create([
         'name'           => $request->name,
         'email'          => $request->email,
         'password'       => Hash::make($request->password),
-        'role_id'        => 2, // Usuario normal
-        'points'         => 100, // Antes 'dinero'
-        'streak'         => 1, // Antes 'racha'
+        'role_id'        => 2, 
+        'points'         => 100, 
+        'streak'         => 1, 
         'last_streak_at' => now(),
-        'experience'     => 0, // Antes 'experiencia'
-        'current_lives'  => 7, // Antes 'vidas_actuales'
-        'max_lives'      => 7, // Antes 'vidas_max'
+        'experience'     => 0, 
+        'current_lives'  => 7, 
+        'max_lives'      => 7, 
     ]);
 
-    // ENVÍO DEL MAIL
+    /**
+    * Lógica de Envío de Email de Bienvenida
+    * Se utiliza un bloque try-catch para asegurar que un fallo en el servidor
+    * de correo no interrumpa el flujo de registro del usuario.
+    * @author Marta
+    */
     try {
         Mail::to($user->email)->send(new RegisterMail($user->name));
     } catch (\Exception $e) {
-        // Logueamos el error por si falla, pero dejamos que el usuario entre a la web
         \Log::error("Error enviando mail: " . $e->getMessage());
     }
 
-    // 3. Loguear y redirigir
     Auth::login($user);
     return redirect()->route('pagPrincipal')->with('oferta_plus', true);
 }

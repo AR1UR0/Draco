@@ -10,10 +10,23 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
+/**
+ * Clase LoginController
+ * * Se encarga de gestionar la autenticación de usuarios, el control de sesiones,
+ * la redirección basada en roles y la recuperación de contraseñas.
+ * @author Marta
+ */ 
 class LoginController extends Controller
 {
     /**
-     * Gestiona el intento de inicio de sesión.
+     * Gestiona el proceso de autenticación del usuario.
+     * * Valida las credenciales introducidas, regenera la sesión para evitar
+     * ataques de fijación y redirige al usuario según su rol:
+     * - Administrador (role_id = 1) -> Panel de Administración.
+     * - Usuario (role_id = 2) -> Página Principal de temáticas.
+     * * @param  \Illuminate\Http\Request  $request Objeto con los datos del formulario.
+     * @return \Illuminate\Http\RedirectResponse Redirección a la ruta correspondiente o error.
+     * @author Marta
      */
     public function login(Request $request)
 {
@@ -24,13 +37,10 @@ class LoginController extends Controller
 
     if (Auth::attempt($credentials)) {
         $request->session()->regenerate();
-
-        // Diferenciar Admin vs Usuario al entrar
         if (Auth::user()->role_id == 1) {
-            return redirect()->intended(route('admin')); // Va directo al panel
+            return redirect()->intended(route('admin')); 
         }
-        
-        return redirect()->intended(route('pagPrincipal')); // Usuario normal va a aprender
+        return redirect()->intended(route('pagPrincipal')); 
     }
 
     return back()->withErrors([
@@ -39,7 +49,12 @@ class LoginController extends Controller
 }
 
     /**
-     * Cerrar sesión.
+     * Cierra la sesión activa del usuario.
+     * * Elimina la información de autenticación, invalida la sesión en el servidor
+     * y regenera el token CSRF para garantizar un cierre seguro.
+     * * @param  \Illuminate\Http\Request  $request Objeto de la petición actual.
+     * @return \Illuminate\Http\RedirectResponse Redirección a la landing page.
+     * @author Marta
      */
     public function logout(Request $request)
     {
@@ -50,12 +65,18 @@ class LoginController extends Controller
         return redirect()->route('index');
     }
 
-
-
+    /**
+     * Gestiona la recuperación de acceso mediante contraseña temporal.
+     * * 1. Verifica la existencia del usuario en la base de datos.
+     * 2. Genera una cadena aleatoria de 8 caracteres.
+     * 3. Encripta y actualiza la contraseña en la base de datos.
+     * 4. Envía la nueva clave por correo electrónico utilizando la fachada Mail.
+     * * @param  \Illuminate\Http\Request  $request Objeto con el email del usuario.
+     * @return \Illuminate\Http\RedirectResponse Notificación de éxito o error.
+     * @author Marta
+     */
     public function sendTempPassword(Request $request)
     {
-        // Chivato 1: ¿Llegan los datos?
-    \Log::info("Intento de recuperación para: " . $request->email);
 
         $request->validate(['email' => 'required|email']);
 
@@ -65,16 +86,11 @@ class LoginController extends Controller
             \Log::info("Usuario no encontrado en la DB");
             return back()->withErrors(['email' => 'No encontramos ningún usuario con ese correo.']);
         }
-        \Log::info("Usuario encontrado: " . $user->name);
 
-        // 1. Generar contraseña temporal de 8 caracteres
         $tempPassword = Str::random(8);
-
-        // 2. Actualizar en la base de datos
         $user->password = Hash::make($tempPassword);
         $user->save();
 
-        // 3. Enviar el correo (usaremos una clase nueva o una simple)
         try {
             Mail::send('emails.forgot', ['name' => $user->name, 'password' => $tempPassword], function($message) use ($user) {
                 $message->to($user->email);
