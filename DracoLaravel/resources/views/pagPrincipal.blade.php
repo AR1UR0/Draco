@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/pagPrincipal/pagPrincipal.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/firstConfig.css') }}" />
+
     </head>
     <body>
         <div class="container-fluid">
@@ -70,11 +72,11 @@
                     <div class="row">
                         <div class="col-4 colMain"></div>
                         <div class="col-4 colMain">
-                            <button class="btn-round" onclick="irAlQuiz(4)">4</button>
+                            <button class="btn-round popoverTema" style="cursor: pointer;">4</button>
                         </div>
                         <div class="row">
                             <div class="col-4 colMain">
-                                <button class="btn-round" onclick="irAlQuiz(5)">5</button>
+                                <button  class="btn-round popoverTema" style="cursor: pointer;">5</button>
                             </div>
                             <div class="col-4 colMain"></div>
                             <div class="col-4 colMain"></div>
@@ -82,10 +84,10 @@
                         <div class="row">
                             <div class="col-4 colMain"></div>
                             <div class="col-4 colMain">
-                                <button class="btn-round" onclick="irAlQuiz(6)">6</button>
+                                <button  class="btn-round popoverTema" style="cursor: pointer;">6</button>
                             </div>
                             <div class="col-4 colMain">
-                                <button class="btn-round" onclick="irAlQuiz(7)">7</button>
+                                <button  class="btn-round popoverTema" style="cursor: pointer;">7</button>
                             </div>
                         </div>
                     </div>
@@ -267,13 +269,13 @@
                         <div class="row">
                             <div class="col-4 colMain"></div>
                             <div class="col-4 colMain">
-                                <button class="btn-round" onclick="irAlQuiz(4)">4</button>
+                                <button  class="btn-round popoverTema" style="cursor: pointer;">4</button>
                             </div>
                             <div class="col-4 colMain"></div>
                         </div>
                         <div class="row">
                             <div class="col-4 colMain">
-                                <button class="btn-round" onclick="irAlQuiz(5)">5</button>
+                                <button  class="btn-round popoverTema" style="cursor: pointer;">5</button>
                             </div>
                             <div class="col-4 colMain"></div>
                             <div class="col-4 colMain"></div>
@@ -281,10 +283,10 @@
                         <div class="row">
                             <div class="col-4 colMain"></div>
                             <div class="col-4 colMain">
-                                <button class="btn-round" onclick="irAlQuiz(6)">6</button>
+                                <button  class="btn-round popoverTema" style="cursor: pointer;">6</button>
                             </div>
                             <div class="col-4 colMain">
-                                <button class="btn-round" onclick="irAlQuiz(7)">7</button>
+                                <button  class="btn-round popoverTema" style="cursor: pointer;">7</button>
                             </div>
                         </div>
                     </div>
@@ -843,6 +845,42 @@
                     }
                 });
             }
+            
+            //Popover para temas 4,5,6 y 7
+            document.addEventListener("DOMContentLoaded", () => {
+                document.querySelectorAll(".popoverTema").forEach((el) => {
+                    const pop = new bootstrap.Popover(el, {
+                        content: "Por desbloquear",
+                        placement: "top",
+                        trigger: "manual",
+                        animation: false,
+                    });
+
+                    el.addEventListener("click", () => {
+                        // Oculta cualquier otro popover abierto
+                        document.querySelectorAll(".popoverTema").forEach((other) => {
+                            if (other !== el) {
+                                bootstrap.Popover.getInstance(other)?.hide();
+                            }
+                        });
+
+                        pop.show();
+
+                        // Se cierra solo tras 1 segundos
+                        setTimeout(() => pop.hide(), 1000);
+                    });
+                });
+
+                // Click fuera = cerrar todo
+                document.addEventListener("click", (e) => {
+                    if (!e.target.closest(".popoverTema")) {
+                        document.querySelectorAll(".popoverTema").forEach((el) => {
+                            bootstrap.Popover.getInstance(el)?.hide();
+                        });
+                    }
+                });
+            });
+
         </script>
         @if(session('error'))
         <script>
