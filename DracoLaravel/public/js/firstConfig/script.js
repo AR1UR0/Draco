@@ -1,22 +1,18 @@
 /**
  * @fileoverview Gestión de la configuración inicial de usuario (Wizard).
  * Controla la selección única de temas, la navegación entre pasos
- * y almacena la elección final del usuario.
- * @author Marta/Draco Team
+ * y almacena la elección final del usuario para poder realizarlo en el futuro.
+ * @author Marta
  * @version 1.2.0
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-    /** * Variable para almacenar el tema seleccionado globalmente.
-     * @type {string|null}
+    /** * Lógica de tarjetas "Flipped":
+     * sistema de selección exclusiva. Al hacer clic en una
+     * temática (Gloryhammer, LOTR, etc.), la tarjeta gira 180 grados mediante CSS.
+     * El script asegura que solo pueda haber una tarjeta seleccionada a la vez.
      */
     let temaSeleccionado = null;
-
-    /**
-     * Maneja la selección exclusiva de tarjetas de temas.
-     * Solo permite tener una tarjeta girada ('flipped') a la vez.
-     * @listens click
-     */
     const cards = document.querySelectorAll(".topic-card");
 
     cards.forEach((card) => {
@@ -41,7 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- ELEMENTOS DE NAVEGACIÓN ---
+    /**
+     * Navegación entre pasos:
+     * El sistema utiliza clases de Bootstrap ('d-none') para alternar la visibilidad
+     * de las secciones. Esto garantiza una transición fluida y rápida.
+     * Paso 1: Selección de Tema.
+     * Paso 2: Elección de Meta Diaria.
+     * Paso 3: Decisión de nivel (Eleccion desde el principio o elección de nivel).
+     * Paso 4: Selector de nivel específico(Funcionalidad proximamente).
+     */
 
     /** @type {HTMLElement} Botón para avanzar del paso 1 al 2 */
     const btnToStep2 = document.getElementById("btn-continuar");

@@ -9,8 +9,24 @@ use App\Models\Respuesta;
 use App\Models\Tematica;
 use Illuminate\Support\Facades\File;
 
+/**
+ * Seeder: TestSeeder (El Motor de Carga JSON)
+ * * Este componente es la pieza más avanzada de la siembra de datos. 
+ * Implementa un sistema de parseo de archivos JSON para poblar de forma 
+ * recursiva los tres niveles de contenido: Tests, Preguntas y Respuestas.
+ * * @author Thais 
+ */
 class TestSeeder extends Seeder
 {
+    /**
+     * Ejecuta el proceso de importación masiva.
+     * * Lógica de operación:
+     * 1. Localiza los archivos JSON en la carpeta 'database/data/'.
+     * 2. Mapea cada archivo con su Temática correspondiente.
+     * 3. Procesa y normaliza las rutas multimedia (Audio y Video).
+     * 4. Persiste la información respetando la jerarquía de claves foráneas.
+     * * @author Thais
+     */
     public function run(): void
     {
         $archivos = ['berserk.json', 'gloryhammer.json', 'lotr.json'];
@@ -42,7 +58,6 @@ class TestSeeder extends Seeder
                     ]);
 
                     foreach ($testData['preguntas'] as $qData) {
-                        // Lógica para AUDIO en Pregunta
                         $rutaAudio = null;
                         if (isset($qData['audio'])) {
                             $rutaAudio = "media/" . $qData['audio'];
@@ -50,17 +65,15 @@ class TestSeeder extends Seeder
 
                         $pregunta = Pregunta::create([
                             'enunciado'     => $qData['enunciado'],
-                            'audio'         => $rutaAudio, // Asegúrate de tener esta columna en Preguntas
+                            'audio'         => $rutaAudio, 
                             'reward_points' => $qData['puntos_recompensa'] ?? 10,
                             'test_id'       => $test->id
                         ]);
 
                         foreach ($qData['respuestas'] as $aData) {
-                            // Lógica para IMAGEN en Respuesta
+                            
                             $rutaImagen = null;
                             if (isset($aData['imagen'])) {
-
-                                    // Para berserk y gloryhammer que están en media/nombre/
                                     $rutaImagen = "media/" . $aData['imagen'];
                             }
 
