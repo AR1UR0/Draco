@@ -1,29 +1,35 @@
 /**
- * @fileoverview Lógica para el sistema de cuestionarios (Quiz).
- * Gestiona la carga de preguntas, validación de respuestas,
- * actualización de la barra de progreso y estados finales.
+ * @fileoverview Lògica per al sistema de qüestionaris (Quiz).
+ * Gestiona la càrrega de preguntes, validació de respostes,
+ * actualització de la barra de progrés i estats finals.
  * @author Thais/Draco Team
- * @version 1.0.0
+ * @version 1.4.0
  */
 
 /**
- * Banco de preguntas y opciones del cuestionario.
- * @type {Array<{q: string, options: string[], correct: number}>}
+ * Paràmetres de configuració extrets de la URL per a identificar el test actual.
  */
-
 const urlParams = new URLSearchParams(window.location.search);
 // http://127.0.0.1:8000/pregunta-texto?tematica=1&pregunta=1
 const idPregunta = urlParams.get("pregunta");
 const idTematica = urlParams.get("tematica");
 
+/**
+ * Validacions inicials d'integritat dels paràmetres obligatoris.
+ */
 if (isNaN(idPregunta) || idPregunta === null) {
-    alert("La pregunta es inválida");
+    alert("La pregunta és invàlida");
 }
 if (isNaN(idTematica) || idTematica === null) {
-    alert("La temática es inválida");
+    alert("La temàtica és invàlida");
 }
 
+/** * Estat actual de la resposta de l'usuari.
+ * Valors: "no confirmado", "confirmado", "final", "game_over".
+ */
 var estadoPregunta = "no confirmado";
+
+// --- SELECTORS DE CONTENIDORS I MULTIMÈDIA ---
 const contenedorTexto = document.getElementById("contenedorTexto");
 const contenedorAudio = document.getElementById("contenedorAudio");
 const contenedorImagenes = document.getElementById("contenedorImagenes");
@@ -31,10 +37,19 @@ const opcionesContenedor = document.getElementById("opcionesContenedor");
 const audioSource = document.getElementById("audioSource");
 const audioPregunta = document.getElementById("audioPregunta");
 
+/**
+ * Manegador per a la reproducció manual de l'àudio de la pregunta.
+ */
 document.getElementById("btnAudio").addEventListener("click", function () {
     audioPregunta.play();
 });
 
+/**
+ * Obté i estructura les dades del quiz des de l'API.
+ * Realitza peticions encadenades per a test, preguntes i respostes,
+ * processant i barrejant les opcions aleatòriament.
+ * @async
+ */
 async function pedirPreguntas() {
     const testsPromise = await fetch(
         `/api/tests?tematica_id=${idTematica}&order=${idPregunta}`,
@@ -44,10 +59,11 @@ async function pedirPreguntas() {
     // console.log("tests", tests);
 
     if (tests.length == 0) {
-        alert("No existe el test");
+        alert("No existeix el test");
         return;
     }
 
+    /** Mapeig de preguntes associades als tests trobats */
     const preguntas = (
         await Promise.all(
             tests.map(async function (test) {
@@ -61,6 +77,7 @@ async function pedirPreguntas() {
 
     // console.log("preguntas", preguntas);
 
+    /** Obtenció i barreja de respostes per a cada pregunta */
     const respuestas = await Promise.all(
         preguntas.map(async function (pregunta) {
             const respuestasPromise = await fetch(
@@ -75,6 +92,7 @@ async function pedirPreguntas() {
 
     // console.log("respuestas", respuestas);
 
+    /** Transformació de dades al format intern del Quiz */
     quizData = preguntas.map(function (pregunta, index) {
         const respuesta = respuestas[index];
         return {
@@ -98,31 +116,31 @@ async function pedirPreguntas() {
     loadQuiz(quizData[currentStep]);
 }
 
-/** @type {number} Índice del paso o pregunta actual */
+/** @type {number} Índex de navegació de la pregunta actual */
 let currentStep = 0;
 
-/** @type {number|null} Índice de la opción seleccionada por el usuario */
+/** @type {number|null} Emmagatzema l'opció seleccionada abans de confirmar */
 let selectedIdx = null;
 
-// --- ELEMENTOS DEL INTERFAZ DE USUARIO ---
+// --- INICIALITZACIÓ DE DADES ---
 var quizData = null;
 pedirPreguntas();
 
-/** @type {HTMLElement} Elemento de texto de la pregunta */
+/** @type {HTMLElement} Referència a l'enunciat de la pregunta */
 const pTexto = document.getElementById("preguntaTexto");
 
-/** @type {HTMLElement} Contenedor para los botones de opciones */
+/** @type {HTMLElement} Contenidor on s'injecten les opcions */
 const oContenedor = document.getElementById("opcionesContenedor");
 
-/** @type {HTMLElement} Botón de acción principal (Comprobar/Continuar/Finalizar) */
+/** @type {HTMLElement} Botó que controla el flux de l'aplicació */
 const btnPrincipal = document.getElementById("btnPrincipal");
 
-/** @type {HTMLElement} Barra de progreso visual */
+/** @type {HTMLElement} Indicador visual d'avanç */
 const progBar = document.getElementById("progressBar");
 
 /**
- * Carga los datos de la pregunta actual y actualiza la interfaz.
- * Reinicia los estados de selección y ajusta la barra de progreso.
+ * Prepara la interfície per a una pregunta de tipus text.
+ * @param {Object} currentQuiz - Objecte amb dades de la pregunta.
  */
 function loadQuizText(currentQuiz) {
     contenedorImagenes.classList.add("d-none");
@@ -136,7 +154,7 @@ function loadQuizText(currentQuiz) {
     btnPrincipal.innerText = "COMPROBAR";
     btnPrincipal.disabled = true;
 
-    // Actualizar barra
+    // Actualitzar barra
     const percent = (currentStep / quizData.length) * 100 + 10;
     progBar.style.width = percent + "%";
 
@@ -151,6 +169,10 @@ function loadQuizText(currentQuiz) {
     });
 }
 
+/**
+ * Prepara la interfície per a una pregunta de tipus imatge amb grid específic.
+ * @param {Object} currentQuiz - Objecte amb dades de la pregunta.
+ */
 function loadQuizImage(currentQuiz) {
     contenedorImagenes.classList.remove("d-none");
     contenedorAudio.classList.add("d-none");
@@ -163,7 +185,7 @@ function loadQuizImage(currentQuiz) {
     btnPrincipal.innerText = "COMPROBAR";
     btnPrincipal.disabled = true;
 
-    // Actualizar barra
+    // Actualitzar barra
     const percent = (currentStep / quizData.length) * 100 + 10;
     progBar.style.width = percent + "%";
 
@@ -183,6 +205,10 @@ function loadQuizImage(currentQuiz) {
     });
 }
 
+/**
+ * Prepara la interfície i carrega el recurs d'àudio per a la pregunta.
+ * @param {Object} currentQuiz - Objecte amb dades de la pregunta.
+ */
 function loadQuizAudio(currentQuiz) {
     contenedorImagenes.classList.add("d-none");
     contenedorAudio.classList.remove("d-none");
@@ -197,7 +223,7 @@ function loadQuizAudio(currentQuiz) {
     btnPrincipal.innerText = "COMPROBAR";
     btnPrincipal.disabled = true;
 
-    // Actualizar barra
+    // Actualitzar barra
     const percent = (currentStep / quizData.length) * 100 + 10;
     progBar.style.width = percent + "%";
 
@@ -213,6 +239,11 @@ function loadQuizAudio(currentQuiz) {
     });
 }
 
+/**
+ * Actua com a orquestrador per a determinar el tipus de càrrega visual
+ * segons les metadades presents en la pregunta (Àudio, Imatge o Text).
+ * @param {Object} currentQuiz - Objecte amb dades de la pregunta.
+ */
 function loadQuiz(currentQuiz) {
     let hasAudio = currentQuiz.audio != null && currentQuiz.audio != undefined;
     let hasImage = false;
@@ -232,21 +263,21 @@ function loadQuiz(currentQuiz) {
     }
 
     if (hasAudio === true) {
-        console.log("la pregunta te audio");
+        console.log("la pregunta té àudio");
         loadQuizAudio(currentQuiz);
     } else if (hasImage === true) {
-        console.log("la pregunta te imagen");
+        console.log("la pregunta té imatge");
         loadQuizImage(currentQuiz);
     } else {
-        console.log("La pregunta no te ni audio ni res");
+        console.log("La pregunta no té ni àudio ni res");
         loadQuizText(currentQuiz);
     }
 }
 
 /**
- * Gestiona la selección visual y lógica de una opción.
- * @param {number} idx - Índice de la opción elegida.
- * @param {HTMLElement} el - Elemento del DOM del botón pulsado.
+ * Gestiona la selecció de botons, actualitzant classes CSS i l'índex d'elecció.
+ * @param {number} idx - Índex de l'opció.
+ * @param {HTMLElement} el - Element polsat.
  */
 function selectOption(idx, el) {
     document
@@ -258,8 +289,9 @@ function selectOption(idx, el) {
 }
 
 /**
- * Controlador de eventos para el botón principal.
- * Gestiona el flujo de validación, avance de nivel y reinicio.
+ * Control central del flux del Quiz.
+ * Processa la validació de respostes, comunicació amb el servidor (Fetch POST),
+ * gestió de vides de l'usuari i navegació entre estats del joc.
  * @listens click
  */
 btnPrincipal.onclick = () => {
@@ -270,35 +302,12 @@ btnPrincipal.onclick = () => {
         const data = quizData[currentStep];
         const botones = document.querySelectorAll(".option-btn");
 
-        // Validar respuesta
+        // Validar resposta
         if (selectedIdx === data.correct) {
-            // CORRECTO: Verde
+            // CORRECTE: Verd
             botones[selectedIdx].classList.add("is-correct");
-            const idRespuestaCorrecta = data.options[selectedIdx].id; 
+            const idRespuestaCorrecta = data.options[selectedIdx].id;
 
-            fetch("/test/validar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-                },
-                body: JSON.stringify({ id_respuesta: idRespuestaCorrecta }),
-            });
-        } else {
-            // INCORRECTO: Rojo
-            botones[selectedIdx].classList.add("is-wrong");
-            // Opcional: mostrar cuál era la correcta en verde
-            botones[data.correct].classList.add("is-correct");
-
-            // 1. Descontar visualmente para que el usuario lo vea al instante
-            const contador = document.getElementById("contadorVidas");
-            let vidasFinales = 0;
-            if (contador) {
-                vidasFinales = parseInt(contador.innerText) - 1;
-                contador.innerText = vidasFinales > 0 ? vidasFinales : 0;
-            }
-
-            // 2. Avisar a la base de datos de forma invisible (Fetch)
             fetch("/test/validar", {
                 method: "POST",
                 headers: {
@@ -307,25 +316,49 @@ btnPrincipal.onclick = () => {
                         .querySelector('meta[name="csrf-token"]')
                         .getAttribute("content"),
                 },
-                body: JSON.stringify({ id_respuesta: -1 }), // Enviamos un ID que sabemos que no existe para que tu controlador reste vida
-            })
+                body: JSON.stringify({ id_respuesta: idRespuestaCorrecta }),
+            });
+        } else {
+            // INCORRECTE: Roig
+            botones[selectedIdx].classList.add("is-wrong");
+            // Opcional: mostrar quina era la correcta en verd
+            botones[data.correct].classList.add("is-correct");
 
-            if (vidasFinales <= 0) {
-                estadoPregunta = "game_over"; // Nuevo estado
-                btnPrincipal.innerText = "VOLVER AL MENÚ";
-                btnPrincipal.classList.add("btn-danger"); // Opcional: poner el botón rojo
-                btnPrincipal.disabled = false;
-                return; // Salimos para que no ejecute el cambio a "CONTINUAR" de abajo
+            // 1. Descomptar visualment perquè l'usuari ho veja a l'instant
+            const contador = document.getElementById("contadorVidas");
+            let vidasFinales = 0;
+            if (contador) {
+                vidasFinales = parseInt(contador.innerText) - 1;
+                contador.innerText = vidasFinales > 0 ? vidasFinales : 0;
             }
 
+            // 2. Avisar a la base de dades de forma invisible (Fetch)
+            fetch("/test/validar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": document
+                        .querySelector('meta[name="csrf-token"]')
+                        .getAttribute("content"),
+                },
+                body: JSON.stringify({ id_respuesta: -1 }), // Enviem un ID que sabem que no existeix perquè el controlador reste vida
+            });
+
+            if (vidasFinales <= 0) {
+                estadoPregunta = "game_over"; // Nou estat
+                btnPrincipal.innerText = "VOLVER AL MENÚ";
+                btnPrincipal.classList.add("btn-danger"); // Opcional: posar el botó roig
+                btnPrincipal.disabled = false;
+                return; // Eixim perquè no execute el canvi a "CONTINUAR" de baix
+            }
         }
 
-        // Bloquear otros botones para que no sigan marcando
+        // Bloquejar altres botons perquè no continuen marcant
         botones.forEach((btn) => (btn.style.pointerEvents = "none"));
 
         btnPrincipal.innerText = "CONTINUAR";
         estadoPregunta = "confirmado";
-        btnPrincipal.classList.add("btn-next"); // Cambia color del botón principal
+        btnPrincipal.classList.add("btn-next"); // Canvia color del botó principal
     } else if (estadoPregunta === "confirmado") {
         currentStep++;
         if (currentStep < quizData.length) {
@@ -336,16 +369,18 @@ btnPrincipal.onclick = () => {
             finishQuiz();
         }
     } else if (estadoPregunta === "final") {
-        window.location.href = "/pagPrincipal?tematica=" + idTematica; // Redirección directa
+        window.location.href = "/pagPrincipal?tematica=" + idTematica; // Redirecció directa
     } else if (estadoPregunta === "game_over") {
-        alert("Te has quedado sin vidas. Serás redirigido a la página principal.");
+        alert(
+            "T'has quedat sense vides. Seràs redirigit a la pàgina principal.",
+        );
         window.location.href = "/pagPrincipal";
     }
 };
 
 /**
- * Finaliza el cuestionario mostrando una vista de éxito
- * y actualizando la barra de progreso al máximo.
+ * Neteja la interfície d'elements de trivia i mostra la pantalla d'èxit.
+ * Actualitza l'estat a "final" per a permetre la redirecció.
  */
 function finishQuiz() {
     contenedorImagenes.classList.add("d-none");
