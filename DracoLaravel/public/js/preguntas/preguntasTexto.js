@@ -324,13 +324,15 @@ btnPrincipal.onclick = () => {
             // Opcional: mostrar quina era la correcta en verd
             botones[data.correct].classList.add("is-correct");
 
-            // 1. Descomptar visualment perquè l'usuari ho veja a l'instant
-            const contador = document.getElementById("contadorVidas");
-            let vidasFinales = 0;
-            if (contador) {
-                vidasFinales = parseInt(contador.innerText) - 1;
-                contador.innerText = vidasFinales > 0 ? vidasFinales : 0;
-            }
+            // --- PROTECCIÓN DRACO PLUS ---
+            if (!window.isUserPlus) {
+                // 1. Descomptar visualment perquè l'usuari ho veja a l'instant
+                const contador = document.getElementById("contadorVidas");
+                let vidasFinales = 0;
+                if (contador) {
+                    vidasFinales = parseInt(contador.innerText) - 1;
+                    contador.innerText = vidasFinales > 0 ? vidasFinales : 0;
+                }
 
             // 2. Avisar a la base de dades de forma invisible (Fetch)
             fetch("/test/validar", {
@@ -352,6 +354,7 @@ btnPrincipal.onclick = () => {
                 return; // Eixim perquè no execute el canvi a "CONTINUAR" de baix
             }
         }
+    }
 
         // Bloquejar altres botons perquè no continuen marcant
         botones.forEach((btn) => (btn.style.pointerEvents = "none"));

@@ -8,6 +8,9 @@
 
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/plantillasPreguntas.css') }}" />
+    <script>
+    window.isUserPlus = {{ Auth::check() && Auth::user()->is_plus ? 'true' : 'false' }};
+    </script>
     <script defer src="{{ asset('js/preguntas/preguntasTexto.js') }}"></script>
 
     <link
@@ -45,7 +48,17 @@
           <div class="col-2 col-md-1 text-end text-nowrap">
             <span class="hearts-count text-danger">
               <img src="{{ asset('media/imgs/iconos/heart.png') }}" alt="" width="45" />
-              <span id="contadorVidas">{{ Auth::check() ? Auth::user()->current_lives : session('vidas_invitado', 5) }}</span>
+              <span id="contadorVidas">
+                  @auth
+                      @if(Auth::user()->is_plus)
+                          &infin;
+                      @else
+                          {{ Auth::user()->current_lives }}
+                      @endif
+                  @else
+                      {{ session('vidas_invitado', 5) }}
+                  @endauth
+              </span>
             </span>
           </div>
         </div>
