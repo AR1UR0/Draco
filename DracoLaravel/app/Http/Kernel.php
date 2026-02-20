@@ -4,17 +4,24 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
+/**
+ * Clase Kernel
+ * * Es el núcleo central de las peticiones HTTP de DRACO.
+ * Su función es orquestar el flujo de datos, definiendo qué filtros (middlewares)
+ * se aplican de forma global, cuáles pertenecen al grupo web y cómo se apodan
+ * los middlewares personalizados para ser usados en las rutas.
+ * * @author Marta
+ */
 class Kernel extends HttpKernel
 {
     /**
-     * The application's global HTTP middleware stack.
-     *
-     * These middleware are run during every request to your application.
-     *
-     * @var array<int, class-string|string>
+     * Stack de Middlewares Globales.
+     * * Estos filtros se ejecutan en CUALQUIER petición al servidor.
+     * Incluyen tareas de mantenimiento, validación de tamaño de posts y 
+     * la normalización de cadenas (TrimStrings) desarrollada por Marta.
+     * * @author Marta
      */
     protected $middleware = [
-        // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
@@ -24,9 +31,11 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * The application's route middleware groups.
-     *
-     * @var array<string, array<int, class-string|string>>
+     * Grupos de Middlewares por tipo de ruta.
+     * * Se ha configurado el grupo 'web' para gestionar sesiones, cookies y
+     * seguridad CSRF. Se destaca la inclusión de 'UpdateStreak' para que la
+     * racha del usuario se actualice en cada interacción con la web.
+     * * @author Marta
      */
     protected $middlewareGroups = [
         'web' => [
@@ -40,18 +49,17 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
 
     /**
-     * The application's middleware aliases.
-     *
-     * Aliases may be used instead of class names to conveniently assign middleware to routes and groups.
-     *
-     * @var array<string, class-string|string>
+     * Aliases de Middlewares.
+     * * Permiten asignar nombres cortos a clases complejas. Aquí es donde se
+     * registra los middlewares personalizados como 'admin', 'nocache' y 'streak'
+     * para utilizarlos fácilmente en el archivo de rutas (web.php).
+     * * @author Marta
      */
     protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,

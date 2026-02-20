@@ -8,8 +8,25 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Test; 
 use App\Models\Respuesta;
 
+/**
+ * Clase TestController
+ * * Gestiona el núcleo de la experiencia de usuario (Gameplay).
+ * Se encarga de validar el acceso a los cuestionarios según el estado de salud (vidas),
+ * procesar las respuestas en tiempo real mediante JSON y gestionar el sistema de 
+ * recompensas (Experiencia y Puntos) tanto para usuarios registrados como invitados.
+ * * @author Marta
+ */
 class TestController extends Controller
 {
+    /**
+     * Prepara y muestra la interfaz de resolución de tests.
+     * * Verifica la disponibilidad de vidas antes de permitir el acceso. 
+     * Implementa una lógica híbrida: consulta el modelo User si hay sesión activa
+     * o recurre a la Fachada Session para gestionar invitados.
+     * * @author Marta
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function mostrarTest(Request $request)
     {
         if (Auth::check()) {
@@ -25,9 +42,20 @@ class TestController extends Controller
         return view('preguntaTexto', compact('vidas'));
     }
 
+    /**
+     * Evalúa la respuesta seleccionada por el usuario de forma asíncrona.
+     * * Este método es el motor lógico del test:
+     * 1. Gestiona fallos por tiempo agotado (id_respuesta == -1).
+     * 2. Valida la corrección de la respuesta mediante el modelo Respuesta.
+     * 3. Calcula y asigna XP y Puntos (Monedas).
+     * 4. Sincroniza con el frontend enviando respuestas en formato JSON.
+     * * @author Marta
+     * @param \Illuminate\Http\Request $request Petición enviada vía AJAX/Fetch.
+     * @return \Illuminate\Http\JsonResponse Estado del resultado y progreso actualizado.
+     */
     public function comprobarRespuesta(Request $request)
     {
-        // 1. Fallo detectado por el JS
+        // Fallo detectado por el JS
         if ($request->id_respuesta == -1) {
             $this->restarVida();
             return response()->json(['status' => 'vida_restada']);
@@ -39,14 +67,13 @@ class TestController extends Controller
             return response()->json(['error' => 'Respuesta no encontrada'], 404);
         }
 
-        // 2. Respuesta INCORRECTA
-        // CAMBIO IMPORTANTE: Enviamos JSON para no romper el JS de Thais
+        // Respuesta INCORRECTA
         if (!$respuesta->is_correct) {
             $this->restarVida();
             return response()->json(['status' => 'incorrecto']); 
         }
 
-        // 3. Respuesta CORRECTA
+        // Respuesta CORRECTA
         $pregunta = \App\Models\Pregunta::find($respuesta->pregunta_id);
         $puntosXP = $pregunta->reward_points ?? 10;
 
@@ -85,8 +112,17 @@ class TestController extends Controller
                 'puntos' => $puntosActuales
             ]);
         }
-    } // <-- Esta es la llave que faltaba y daba error de compilación
-
+    } 
+    
+    /**
+     * Método auxiliar privado para la gestión de penalizaciones.
+     * * Aplica la lógica de "muerte" del jugador:
+     * - Si es usuario 'Plus', es inmune a la pérdida de vidas.
+     * - Si es usuario normal, decrementa vidas en base de datos.
+     * - Si es invitado, decrementa el valor almacenado en la sesión.
+     * * @author Marta
+     * @return void
+     */
     private function restarVida()
     {
         $user = Auth::user();

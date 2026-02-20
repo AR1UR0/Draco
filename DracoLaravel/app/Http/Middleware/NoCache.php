@@ -6,12 +6,25 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Clase NoCache
+ * * Este middleware de seguridad se encarga de gestionar las cabeceras HTTP de respuesta
+ * para evitar que el navegador almacene copias locales (caché) de las páginas visitadas.
+ * Es crítico para proteger la privacidad del usuario tras el cierre de sesión.
+ * * @author Marta
+ */
 class NoCache
 {
     /**
-     * Handle an incoming request.
-     *Este método se encarga de interceptar la respuesta del servidor antes de que llegue al navegador del usuario para ordenarle que no guarde una copia local (caché) de la página.
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * Intercepta la respuesta y aplica directivas de control de caché.
+     * * Modifica las cabeceras de la respuesta para asegurar que:
+     * 1. No se almacene información sensible en el disco (no-store).
+     * 2. Se fuerce la revalidación con el servidor en cada petición (must-revalidate).
+     * 3. Se establezca una fecha de expiración en el pasado para invalidar cualquier copia.
+     * * @author Marta
+     * @param  \Illuminate\Http\Request  $request Petición entrante.
+     * @param  \Closure  $next Siguiente capa del ciclo de vida.
+     * @return \Symfony\Component\HttpFoundation\Response Respuesta con cabeceras de seguridad aplicadas.
      */
     public function handle($request, Closure $next)
 {
