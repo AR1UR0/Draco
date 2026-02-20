@@ -1,3 +1,5 @@
+#  @author Thais
+#  @version 1.4.0
 services:
   # --- SERVICI D'APLICACIÓ (PHP) ---
   # Gestiona el servidor web i el processament de la lògica de l'aplicació
