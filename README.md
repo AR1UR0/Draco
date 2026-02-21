@@ -1,10 +1,13 @@
 # DRACO
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[contributors-shield]: https://img.shields.io/github/contributors/AR1UR0/Draco.svg?style=for-the-badge
+[contributors-url]: https://github.com/AR1UR0/Draco/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/AR1UR0/Draco.svg?style=for-the-badge
+[forks-url]: https://github.com/AR1UR0/Draco/network/members
+[stars-shield]: https://img.shields.io/github/stars/AR1UR0/Draco.svg?style=for-the-badge
+[stars-url]: https://github.com/AR1UR0/Draco/stargazers
+[issues-shield]: https://img.shields.io/github/issues/AR1UR0/Draco.svg?style=for-the-badge
+[issues-url]: https://github.com/AR1UR0/Draco/issues
 
 ## IDEA DE PROYECTO
 
