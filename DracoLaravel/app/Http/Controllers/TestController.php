@@ -133,7 +133,11 @@ class TestController extends Controller
         
         if (Auth::check()) {
             if ($user->current_lives > 0) {
+                if ($user->current_lives == $user->max_lives) {
+                $user->last_life_recovery = now();
+                }
                 $user->decrement('current_lives');
+                $user->save();
             }
         } else {
             $vidas = Session::get('vidas_invitado', 5);
