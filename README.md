@@ -1,22 +1,61 @@
 # DRACO
 
-[contributors-shield]: https://img.shields.io/github/contributors/AR1UR0/Draco.svg?style=for-the-badge
-[contributors-url]: https://github.com/AR1UR0/Draco/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/AR1UR0/Draco.svg?style=for-the-badge
-[forks-url]: https://github.com/AR1UR0/Draco/network/members
-[stars-shield]: https://img.shields.io/github/stars/AR1UR0/Draco.svg?style=for-the-badge
-[stars-url]: https://github.com/AR1UR0/Draco/stargazers
-[issues-shield]: https://img.shields.io/github/issues/AR1UR0/Draco.svg?style=for-the-badge
-[issues-url]: https://github.com/AR1UR0/Draco/issues
+<a id="readme-top"></a>
+[![Contributors][contributors-shield]][contributors-url] &nbsp;&nbsp;&nbsp;
+[![branches][branches-shield]][branches-url] &nbsp;&nbsp;&nbsp;
+[![Stargazers][stars-shield]][stars-url]
 
-## IDEA DE PROYECTO
+<div align="center">
+  <a href="https://github.com/tu-usuario/tu-repo">
+    <img src="./DracoLaravel/public/media/imgs/icoDraco.png" alt="Logo" width="80" height="80">
+  </a>
 
-Se trata de una página web, plataforma donde puedes aprender sobre diferentes temáticas: The Lorf of the Rings, GloryHammer, Berserk, Mitología, Star Wars, WoW...
+  <h3 align="center">Draco</h3>
 
-## ANÁLISIS DEL PROYECTO
+  <p align="center">
+    The smartest and most visual way to learn what you are passionate about.
+        <br />
+    <a href="https://github.com/AR1UR0/Draco"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+</div>
 
-La plataforma DRACO es una página web orientada al aprendizaje de diferentes universos de fantasía y videojuegos como The Lorf of the Rings, GloryHammer, Berserk, Mitología, Star Wars, WoW. El proyecto surge como objeto de centralizar todo lo aprendido durante el 2º curso de DAW creando para el módulo de Proyecto Intermodular un entorno web accesible, organizado y fácil de usar.
-El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el entretenimiento educativo. Al ser una página web, se puede acceder desde cualquier dispositivo con navegador, sin necesidad de instalación.
+<!-- Index -->
+<details>
+  <summary>Index</summary>
+  <ol>
+    <li>
+      <a href="#project-idea">Project Idea</a>
+    </li>
+    <li>
+      <a href="#project-analysis">Project analysis</a>
+    </li>
+    <li><a href="#web-interface-design">Web interface desing</a>
+         <ul>
+        <li><a href="#briefing-customers">Briefing customers</a></li>
+        <li><a href="#mock-up">Mock up</a></li>       
+      </ul>
+    </li>
+    <li><a href="#workflow">Workflow</a></li>
+    <li><a href="#wireframe">Wireframe</a></li> 
+    <li><a href="#used-technologies">Used technologies</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contributors">Contributors</a></li>
+  </ol>
+</details>
+
+## Project Idea
+
+This is a web-based platform where users can learn about a variety of topics and universes, including: **The Lord of the Rings**, **GloryHammer**, **Berserk**, **Mythology**, **Star Wars**, **World of Warcraft**, and more.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## PROJECT ANALYSIS
+
+The DRACO platform is a website oriented to the learning of different fantasy universes and video games such as The Lord of the Rings, GloryHammer, Berserk, Mythology, Star Wars, WoW. The project arises as an object to centralize everything learned during the 2nd year of DAW, creating for the Intermodular Project module an accessible, organized and easy-to-use web environment.
+The system is aimed at users interested in self-taught learning and educational entertainment. Being a web page, it can be accessed from any device with a browser, without the need for installation.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## WEB INTERFACE DESIGN
 
@@ -38,9 +77,13 @@ It is for people interested in fantasy and video games, from beginners who want 
 
 There are some limitations, such as the need to organize a large amount of information without overwhelming the user, and having a lot of information about each topic, which could lead to copyright issues.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### MOCK UP
 
 https://design.penpot.app/#/view?file-id=115ba52a-c46a-8039-8007-70d10067839a&page-id=01ada482-695e-8018-8007-75c1a6445921&section=interactions&frame-id=01ada482-695e-8018-8007-75c210bc6613&index=0&share-id=65fc3905-adc4-807d-8007-75ca87ec765c
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### WORKFLOW
 
@@ -57,6 +100,8 @@ https://design.penpot.app/#/view?file-id=115ba52a-c46a-8039-8007-70d10067839a&pa
    - Settings
 
 5. Finally, the user can log out from their profile.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### WIREFRAME
 
@@ -92,10 +137,64 @@ Shows the user's information, their progress on the platform, and account settin
 
 The available purchase options are displayed on the page. A side menu is included for navigation.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### USED TECHNOLOGIES
 
-- Blade
-- PHP
-- JavaScript
-- SCSS & CSS
-- Dockerfile & Shell
+- [![HTML5][HTML5.com]][HTML5-url]
+- [![SCSS][SCSS.com]][SCSS-url]
+- [![JavaScript][JS.com]][JS-url]
+- [![PHP][PHP.com]][PHP-url]
+- [![Laravel][Laravel.com]][Laravel-url]
+- [![MySQL][MySQL.com]][MySQL-url]
+- [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+- [![Docker][Docker.com]][Docker-url]
+- [![Docker Compose][DockerCompose.com]][DockerCompose-url]
+- [![Apache][Apache.com]][Apache-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### CONTACTS
+
+Project Link: [https://github.com/AR1UR0/Draco](https://github.com/AR1UR0/Draco)
+
+- LINKEDIN MARTA: [https://www.linkedin.com/in/marta-clemente-collado-6616b227b/](https://www.linkedin.com/in/marta-clemente-collado-6616b227b/)
+- LINKEDIN ARTURO: [https://www.linkedin.com/in/arturo-ortiz-l%C3%B3pez-a323152aa/](https://www.linkedin.com/in/arturo-ortiz-l%C3%B3pez-a323152aa/)
+- LINKEDIN THAIS: [www.linkedin.com/in/thais-nuñez-agullo-93840019a](www.linkedin.com/in/thais-nuñez-agullo-93840019a)
+
+### Contributors:
+
+<a href="https://github.com/AR1UR0/Draco/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=AR1UR0/Draco" alt="contrib.rocks image" />
+</a>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/AR1UR0/Draco.svg?style=for-the-badge
+[contributors-url]: https://github.com/AR1UR0/Draco/graphs/contributors
+[branches-shield]: https://img.shields.io/badge/ramas-100%2B-blue?style=for-the-badge&logo=git
+[branches-url]: https://github.com/AR1UR0/Draco/branches
+[stars-shield]: https://img.shields.io/github/stars/AR1UR0/Draco.svg?style=for-the-badge
+[stars-url]: https://github.com/AR1UR0/Draco/stargazers
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[HTML5.com]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[HTML5-url]: https://developer.mozilla.org/es/docs/Web/HTML
+[SCSS.com]: https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white
+[SCSS-url]: https://sass-lang.com
+[JS.com]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[JS-url]: https://developer.mozilla.org/es/docs/Web/JavaScript
+[PHP.com]: https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white
+[PHP-url]: https://www.php.net
+[MySQL.com]: https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white
+[MySQL-url]: https://www.mysql.com
+[Docker.com]: https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
+[Docker-url]: https://www.docker.com
+[Apache.com]: https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=apache&logoColor=white
+[Apache-url]: https://httpd.apache.org/
+[DockerCompose.com]: https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white
+[DockerCompose-url]: https://docs.docker.com/compose/
