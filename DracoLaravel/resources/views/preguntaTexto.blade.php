@@ -65,40 +65,32 @@
       </header>
 
       
-      <main
-        class="container py-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-        <h2 id="preguntaTexto" class="question-text mb-5 text-center">
-        </h2>
+      <main class="container py-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+    
+    <h2 id="preguntaTexto" class="question-text mb-5 text-center"></h2>
 
-        <!-- Texto -->
-         <div id="contenedorTexto">
-          <h5 class="text-uppercase text-pink mb-3">Lee y responde</h5>
-         </div>
+    <div id="contenedorTexto" class="d-none text-center">
+        <h5 class="text-uppercase text-pink mb-3">Lee y responde</h5>
+    </div>
 
-        <!-- Audio -->
-        <div
-          id = "contenedorAudio"
-          class="d-flex align-items-center gap-3 mb-5"
-          style="max-width: 600px">
-          <button id="btnAudio" class="audio-btn">
-            <img
-              src="{{ asset('media/imgs/iconos/speaker.png') }}"
-              alt="Reproducir audio"
-              style="width: 40px; height: 40px" />
-          </button>
-          <audio id="audioPregunta">
-            <source id="audioSource" type="audio/mpeg" />
-          </audio>
+    <div id="contenedorAudio" class="d-none d-flex flex-column align-items-center gap-3 mb-5" style="max-width: 600px">
+        <h5 class="text-uppercase text-pink mb-3">Escucha y responde</h5>
+        <div class="d-flex align-items-center gap-3">
+            <button id="btnAudio" class="audio-btn">
+                <img src="{{ asset('media/imgs/iconos/speaker.png') }}" alt="Reproducir" style="width: 40px; height: 40px" />
+            </button>
+            <audio id="audioPregunta">
+                <source id="audioSource" type="audio/mpeg" />
+            </audio>
         </div>
+    </div>
 
-        <!-- Imagnes-->
-        <div id="contenedorImagenes">
-          <h5 class="text-uppercase text-pink mb-3">Lee y responde</h5>
-        </div>
-        <div id="opcionesContenedor" class="mt-5"></div>
-        
-      
-      </main>
+    <div id="contenedorImagenes" class="d-none text-center">
+        <h5 class="text-uppercase text-pink mb-3">Observa y responde</h5>
+    </div>
+
+    <div id="opcionesContenedor" class="mt-5"></div>
+</main>
       <footer class="border-top py-4">
         <div class="container">
           <div
