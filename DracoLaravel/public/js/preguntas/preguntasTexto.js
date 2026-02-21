@@ -174,9 +174,9 @@ function loadQuizText(currentQuiz) {
  * @param {Object} currentQuiz - Objecte amb dades de la pregunta.
  */
 function loadQuizImage(currentQuiz) {
-    contenedorImagenes.classList.remove("d-none");
     contenedorAudio.classList.add("d-none");
     contenedorTexto.classList.add("d-none");
+    contenedorImagenes.classList.remove("d-none");
     opcionesContenedor.classList.add("options-grid-images");
 
     pTexto.innerText = currentQuiz.q;
@@ -211,13 +211,18 @@ function loadQuizImage(currentQuiz) {
  */
 function loadQuizAudio(currentQuiz) {
     contenedorImagenes.classList.add("d-none");
-    contenedorAudio.classList.remove("d-none");
     contenedorTexto.classList.add("d-none");
-    opcionesContenedor.classList.remove("options-grid-images");
+    contenedorAudio.classList.remove("d-none");
+    
 
     pTexto.innerText = currentQuiz.q;
-    audioSource.setAttribute("src", currentQuiz.audio);
-    audioPregunta.load();
+
+    if (currentQuiz.audio) {
+        audioSource.setAttribute("src", currentQuiz.audio);
+        audioPregunta.load();
+    } else {
+        contenedorAudio.classList.add("d-none");
+    }
     oContenedor.innerHTML = "";
     selectedIdx = null;
     btnPrincipal.innerText = "COMPROBAR";
@@ -245,31 +250,34 @@ function loadQuizAudio(currentQuiz) {
  * @param {Object} currentQuiz - Objecte amb dades de la pregunta.
  */
 function loadQuiz(currentQuiz) {
-    let hasAudio = currentQuiz.audio != null && currentQuiz.audio != undefined;
+    // Función auxiliar para validar si un recurso existe de verdad
+    const isValid = (res) => res !== null && res !== undefined && res.toString().trim() !== "" && res !== "null";
+
+    // Inicializamos basándonos en el audio de la pregunta principal
+    let hasAudio = isValid(currentQuiz.audio);
     let hasImage = false;
-    console.log("currentquiz", currentQuiz);
+    
+    console.log("Cargando pregunta. ¿Tiene audio inicial?:", hasAudio);
+
+    // Revisamos las opciones para ver si alguna tiene multimedia
     for (let i = 0; i < currentQuiz.options.length; i++) {
-        if (
-            currentQuiz.options[i].audio != null &&
-            currentQuiz.options[i].audio != undefined
-        ) {
+        if (isValid(currentQuiz.options[i].audio)) {
             hasAudio = true;
-        } else if (
-            currentQuiz.options[i].imagen != undefined &&
-            currentQuiz.options[i].imagen != null
-        ) {
+        } 
+        if (isValid(currentQuiz.options[i].imagen)) {
             hasImage = true;
         }
     }
 
-    if (hasAudio === true) {
-        console.log("la pregunta té àudio");
+    // Prioridad de carga
+    if (hasAudio) {
+        console.log("Modo: AUDIO");
         loadQuizAudio(currentQuiz);
-    } else if (hasImage === true) {
-        console.log("la pregunta té imatge");
+    } else if (hasImage) {
+        console.log("Modo: IMAGEN");
         loadQuizImage(currentQuiz);
     } else {
-        console.log("La pregunta no té ni àudio ni res");
+        console.log("Modo: TEXTO");
         loadQuizText(currentQuiz);
     }
 }
