@@ -1,5 +1,11 @@
 # DRACO
 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+
 ## IDEA DE PROYECTO
 
 Se trata de una página web, plataforma donde puedes aprender sobre diferentes temáticas: The Lorf of the Rings, GloryHammer, Berserk, Mitología, Star Wars, WoW...
@@ -10,6 +16,7 @@ La plataforma DRACO es una página web orientada al aprendizaje de diferentes un
 El sistema va dirigido a usuarios interesados en el aprendizaje autodidacta y el entretenimiento educativo. Al ser una página web, se puede acceder desde cualquier dispositivo con navegador, sin necesidad de instalación.
 
 ## WEB INTERFACE DESIGN
+
 ### BRIEFING CUSTOMERS
 
 **What is needed**
