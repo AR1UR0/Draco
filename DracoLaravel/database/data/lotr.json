@@ -33,6 +33,26 @@
                             ]
                         },
                         {
+                            "enunciado": "¿Esta canción a qué territorio de la Tierra Media pertenece?",
+                            "audio": "Audio/lotr/TheShire.mp3",
+                            "puntos_recompensa": 10,
+                            "respuestas": [
+                                { "texto": "La Comarca", "correcta": true },
+                                {
+                                    "texto": "Gondor",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Mordor",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Rivendel",
+                                    "correcta": false
+                                }
+                            ]
+                        },
+                        {
                             "enunciado": "¿Cuál es el nombre del protagonista hobbit que recibe el encargo de llevar el Anillo Único hasta el Monte del Destino?",
                             "puntos_recompensa": 10,
                             "respuestas": [
@@ -50,28 +70,6 @@
                                 },
                                 {
                                     "texto": "Bilbo Bolsón",
-                                    "correcta": false
-                                }
-                            ]
-                        },
-                        {
-                            "enunciado": "¿En qué región viven los Hobbits al comienzo de la aventura?",
-                            "puntos_recompensa": 10,
-                            "respuestas": [
-                                {
-                                    "texto": "Gondor",
-                                    "correcta": false
-                                },
-                                {
-                                    "texto": "La Comarca",
-                                    "correcta": true
-                                },
-                                {
-                                    "texto": "Rohan",
-                                    "correcta": false
-                                },
-                                {
-                                    "texto": "Rivendel",
                                     "correcta": false
                                 }
                             ]
@@ -98,17 +96,19 @@
                             ]
                         },
                         {
-                            "enunciado": "¿Esta canción a qué territorio de la Tierra Media pertenece?",
-                            "audio": "Audio/lotr/TheShire.mp3",
+                            "enunciado": "¿En qué región viven los Hobbits al comienzo de la aventura?",
                             "puntos_recompensa": 10,
                             "respuestas": [
-                                { "texto": "La Comarca", "correcta": true },
                                 {
                                     "texto": "Gondor",
                                     "correcta": false
                                 },
                                 {
-                                    "texto": "Mordor",
+                                    "texto": "La Comarca",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Rohan",
                                     "correcta": false
                                 },
                                 {
@@ -117,6 +117,8 @@
                                 }
                             ]
                         }
+                        
+                        
                     ]
                 },
                 {
@@ -146,6 +148,26 @@
                             ]
                         },
                         {
+                            "enunciado": "¿Esta canción a qué territorio/facción de la Tierra Media pertenece?",
+                            "audio": "Audio/lotr/uruks.mp3",
+                            "puntos_recompensa": 20,
+                            "respuestas": [
+                                { "texto": "La Comarca", "correcta": false },
+                                {
+                                    "texto": "Gondor",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Isengard",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Rivendel",
+                                    "correcta": false
+                                }
+                            ]
+                        },
+                        {
                             "enunciado": "¿Quién es el actual soberano de Rohan que estaba bajo el influjo de Saruman y Gríma Lengua de Serpiente?",
                             "puntos_recompensa": 20,
                             "respuestas": [
@@ -164,28 +186,6 @@
                                 {
                                     "texto": "Denethor",
                                     "correcta": false
-                                }
-                            ]
-                        },
-                        {
-                            "enunciado": "¿Cuál es el verdadero nombre de la criatura conocida como Gollum antes de ser corrompido por el Anillo?",
-                            "puntos_recompensa": 20,
-                            "respuestas": [
-                                {
-                                    "texto": "Trahal",
-                                    "correcta": false
-                                },
-                                {
-                                    "texto": "Bandobras",
-                                    "correcta": false
-                                },
-                                {
-                                    "texto": "Déagol",
-                                    "correcta": false
-                                },
-                                {
-                                    "texto": "Sméagol",
-                                    "correcta": true
                                 }
                             ]
                         },
@@ -211,25 +211,29 @@
                             ]
                         },
                         {
-                            "enunciado": "¿Esta canción a qué territorio/facción de la Tierra Media pertenece?",
-                            "audio": "Audio/lotr/uruks.mp3",
+                            "enunciado": "¿Cuál es el verdadero nombre de la criatura conocida como Gollum antes de ser corrompido por el Anillo?",
                             "puntos_recompensa": 20,
                             "respuestas": [
-                                { "texto": "La Comarca", "correcta": false },
                                 {
-                                    "texto": "Gondor",
+                                    "texto": "Trahal",
                                     "correcta": false
                                 },
                                 {
-                                    "texto": "Isengard",
+                                    "texto": "Bandobras",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Déagol",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Sméagol",
                                     "correcta": true
-                                },
-                                {
-                                    "texto": "Rivendel",
-                                    "correcta": false
                                 }
                             ]
                         }
+                        
+                        
                     ]
                 },
 
@@ -260,6 +264,26 @@
                             ]
                         },
                         {
+                            "enunciado": "¿Esta canción a qué territorio/facción de la Tierra Media pertenece?",
+                            "audio": "Audio/lotr/rohan.mp3",
+                            "puntos_recompensa": 30,
+                            "respuestas": [
+                                { "texto": "La Comarca", "correcta": false },
+                                {
+                                    "texto": "Rohan",
+                                    "correcta": true
+                                },
+                                {
+                                    "texto": "Gondor",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Rivendel",
+                                    "correcta": false
+                                }
+                            ]
+                        },
+                        {
                             "enunciado": "¿Cuál de estos personajes NO es uno de los Ents que se encuentran con Merry y Pippin?",
                             "puntos_recompensa": 30,
                             "respuestas": [
@@ -278,28 +302,6 @@
                                 {
                                     "texto": "Corteza de Roble (Leaflock)",
                                     "correcta": false
-                                }
-                            ]
-                        },
-                        {
-                            "enunciado": "¿Quién fue el primer Señor Oscuro de la Tierra Media, de quien Sauron fue solo un sirviente?",
-                            "puntos_recompensa": 30,
-                            "respuestas": [
-                                {
-                                    "texto": "Ungoliant",
-                                    "correcta": false
-                                },
-                                {
-                                    "texto": "Gothmog",
-                                    "correcta": false
-                                },
-                                {
-                                    "texto": "Anatar",
-                                    "correcta": false
-                                },
-                                {
-                                    "texto": "Melkor (Morgoth)",
-                                    "correcta": true
                                 }
                             ]
                         },
@@ -325,25 +327,29 @@
                             ]
                         },
                         {
-                            "enunciado": "¿Esta canción a qué territorio/facción de la Tierra Media pertenece?",
-                            "audio": "Audio/lotr/rohan.mp3",
+                            "enunciado": "¿Quién fue el primer Señor Oscuro de la Tierra Media, de quien Sauron fue solo un sirviente?",
                             "puntos_recompensa": 30,
                             "respuestas": [
-                                { "texto": "La Comarca", "correcta": false },
                                 {
-                                    "texto": "Rohan",
+                                    "texto": "Ungoliant",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Gothmog",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Anatar",
+                                    "correcta": false
+                                },
+                                {
+                                    "texto": "Melkor (Morgoth)",
                                     "correcta": true
-                                },
-                                {
-                                    "texto": "Gondor",
-                                    "correcta": false
-                                },
-                                {
-                                    "texto": "Rivendel",
-                                    "correcta": false
                                 }
                             ]
                         }
+                        
+                        
                     ]
                 }
             ]
