@@ -5,23 +5,23 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: CreateOrdersTable
- * * Gestiona el registro de transacciones comerciales dentro de la plataforma.
- * Esta tabla es esencial para auditar las compras de los usuarios, permitiendo
- * generar facturas o historiales de transacciones y garantizando la 
- * transparencia en el uso de la moneda virtual (points).
- * * @author Marta
- */
+* Migration: CreateOrdersTable
+* Manages the recording of business transactions within the platform.
+* This table is essential for auditing user purchases, allowing you to
+* generate invoices or transaction histories and ensuring
+* transparency in the use of the virtual currency (points).
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Crea la tabla 'orders' con un enfoque en la persistencia transaccional:
-     * - user_id: Identifica al comprador, vinculado permanentemente a la tabla users.
-     * - total_price: El montante total de la operación (soporta decimales).
-     * - status: Estado del pedido, vital para futuras integraciones de pasarelas de pago.
-     * * @author Marta
-     */
+    * Run the migration (Up).
+    * Create the 'orders' table with a focus on transactional persistence:
+    * - user_id: Identifies the buyer, permanently linked to the users table.
+    * - total_price: The total amount of the transaction (supports decimals).
+    * - status: Order status, essential for future payment gateway integrations.
+    * @author Marta
+    */
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
@@ -34,10 +34,10 @@ return new class extends Migration
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina la tabla 'orders'.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * * Deletes the 'orders' table.
+    * * @author Marta
+    */
     public function down(): void
     {
         Schema::dropIfExists('orders');

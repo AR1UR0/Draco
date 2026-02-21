@@ -9,25 +9,25 @@ use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Clase RedirectIfAuthenticated
- * * Este middleware gestiona el comportamiento de las rutas de acceso (Login, Registro)
- * cuando el usuario ya dispone de una sesión activa. Su objetivo es evitar la
- * redundancia y redirigir al usuario a la zona principal de la aplicación.
- * * @author Marta
- */
+* RedirectIfAuthenticated Class
+* This middleware manages the behavior of access routes (Login, Registration)
+* when the user already has an active session. Its purpose is to avoid redundancy
+* and redirect the user to the main area of ​​the application.
+* @author Marta
+*/
 class RedirectIfAuthenticated
 {
     /**
-     * Intercepta la petición para comprobar el estado de autenticación.
-     * * Si el sistema detecta que el usuario ya está identificado, bloquea el acceso
-     * a las páginas de invitados y lo redirige automáticamente a la ruta definida 
-     * en el RouteServiceProvider (página principal).
-     * * @author Marta
-     * @param  \Illuminate\Http\Request  $request Petición entrante.
-     * @param  \Closure  $next Siguiente capa en el ciclo de vida.
-     * @param  string  ...$guards Diferentes "guardias" de autenticación configurados.
-     * @return \Symfony\Component\HttpFoundation\Response Respuesta procesada o redirección.
-     */
+    * Intercepts the request to check the authentication status.
+    * If the system detects that the user is already authenticated, it blocks access
+    * to guest pages and automatically redirects them to the route defined
+    * in the RouteServiceProvider (home page).
+    * @author Marta
+    * @param \Illuminate\Http\Request $request Incoming request.
+    * @param \Closure $next Next layer in the lifecycle.
+    * @param string ...$guards Different authentication "guards" configured.
+    * @return \Symfony\Component\HttpFoundation\Response Response processed or redirected.
+    */
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
         $guards = empty($guards) ? [null] : $guards;

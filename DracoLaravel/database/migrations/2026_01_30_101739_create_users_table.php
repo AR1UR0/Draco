@@ -5,23 +5,22 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: CreateUsersTable
- * * Define la estructura fundamental de los usuarios en DRACO. 
- * Integra en una sola tabla la información de autenticación, el perfil 
- * estético y todas las variables de estado necesarias para la gamificación.
- * * @author Marta
- */
+* Migration: CreateUsersTable
+* Defines the fundamental user structure in DRACO.
+* Integrates authentication information, profile, and all necessary state variables for gamification into a single table.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Construye la tabla 'users' con lógica de negocio integrada:
-     * - Identidad: name y email (único para evitar duplicados).
-     * - Gamificación: points, streak y sistema de vidas (current/max).
-     * - Seguridad: password encriptado y relación con la tabla 'roles'.
-     * - Recuperación: last_life_recovery para el control de tiempo de regeneración.
-     * * @author Marta
-     */
+    * Run the migration (Up).
+    * Build the 'users' table with integrated business logic:
+    * - Identity: name and email (unique to avoid duplicates).
+    * - Gamification: points, streak, and lives system (current/max).
+    * - Security: encrypted password and relationship with the 'roles' table.
+    * - Recovery: last_life_recovery for regeneration time control.
+    * @author Marta
+    */
     public function up()
 {
     Schema::create('users', function (Blueprint $table) {
@@ -42,10 +41,10 @@ return new class extends Migration
 }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina la tabla 'users', rompiendo las relaciones con roles y resultados.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * Deletes the 'users' table, breaking the relationships with roles and results.
+    * @author Marta
+    */
     public function down()
 {
     Schema::dropIfExists('users');

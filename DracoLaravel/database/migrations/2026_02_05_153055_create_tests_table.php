@@ -5,22 +5,22 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: CreateTestsTable
- * * Define la estructura para los cuestionarios.
- * Esta tabla actúa como el nivel intermedio de la jerarquía, vinculando
- * una categoría global (Temática) con un conjunto específico de preguntas.
- * * @author Marta
- */
+* Migration: CreateTestsTable
+* Defines the structure for the quizzes.
+* This table acts as the intermediate level of the hierarchy, linking
+* a global category (Topic) to a specific set of questions.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Crea la tabla 'tests' con las siguientes especificaciones:
-     * - title: Título del test (hasta 150 caracteres para permitir nombres descriptivos).
-     * - order: Valor numérico para organizar la secuencia de niveles (Nivel 1, Nivel 2...).
-     * - tematica_id: Clave foránea que vincula el test a su temática padre.
-     * * @author Marta
-     */
+    * Run the migration (Up).
+    * Create the 'tests' table with the following specifications:
+    * - title: Test title (up to 150 characters to allow for descriptive names).
+    * - order: Numeric value to organize the sequence of levels (Level 1, Level 2...).
+    * - tematica_id: Foreign key that links the test to its parent topic.
+    * @author Marta
+    */
     public function up(): void
     {
         Schema::create('tests', function (Blueprint $table) {
@@ -33,10 +33,10 @@ return new class extends Migration
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina la tabla 'tests'.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * * Deletes the 'tests' table.
+    * * @author Marta
+    */
     public function down(): void
     {
         Schema::dropIfExists('tests');

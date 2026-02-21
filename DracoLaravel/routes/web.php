@@ -10,37 +10,37 @@ use App\Http\Controllers\TematicaController;
 use App\Http\Controllers\StoreController;
 
 /**
- * @fileoverview Definición del Sistema de Rutas (Routing).
- * Organiza los puntos de entrada de la aplicación mediante la asignación de
- * URLs a controladores específicos, aplicando capas de seguridad por roles.
- * @author Marta Thais
- */
-// --- 1. RUTAS PÚBLICAS (Accesibles para invitados y usuarios) ---
+* @fileoverview Routing System Definition.
+* Organizes application entry points by assigning
+* URLs to specific controllers, applying role-based security layers.
+* @author Marta Thais
+*/
+// --- 1. PUBLIC ROUTES (Accessible to guests and users) ---
 /**
- * Incluye la página de aterrizaje, el asistente de configuración inicial y el Dashboard.
- * También gestiona el flujo de acceso (Login) y creación de cuentas (Register).
- */
+* Includes the landing page, the initial setup wizard, and the Dashboard.
+* Also manages the login and registration flows.
+*/
 Route::view('/', 'index')->name('index');
 Route::view('/first-config', 'firstConfig')->name('firstConfig');
 Route::get('/pagPrincipal', [TematicaController::class, 'index'])->name('pagPrincipal');
 
-// Rutas del Test (Públicas)
+// Test Routes (Public)
 Route::get('/test/{id}', [TestController::class, 'mostrarTest'])->name('test.show');
 Route::post('/test/validar', [TestController::class, 'comprobarRespuesta'])->name('test.validar');
 
-// Login y Registro (Vistas y Procesos)
+// Login and Registration (Views and Processes)
 Route::get('/login', function() { return view('login'); })->name('login');
 Route::post('/login/ingresar', [LoginController::class, 'login'])->name('login.post');
 Route::post('/login/registrar', [RegisterController::class, 'register'])->name('register.post');
 Route::post('/password/reset', [LoginController::class, 'sendTempPassword'])->name('password.email');
 
 
-// --- 2. RUTAS PARA USUARIOS LOGUEADOS ---
+// --- 2. ROUTES FOR LOGGED-IN USERS ---
 /**
- * Middleware 'auth': Solo usuarios logueados.
- * Middleware 'streak': Ejecuta la lógica de actualización de racha diaria al navegar.
- * Middleware 'nocache': Evita que el usuario vuelva atrás a páginas protegidas tras el logout.
- */
+* Middleware 'auth': Only logged-in users.
+* Middleware 'streak': Executes the daily streak update logic while browsing.
+* Middleware 'nocache': Prevents the user from returning to protected pages after logging out.
+*/
 Route::middleware(['auth', 'nocache', 'streak'])->group(function () {
     Route::view('/perfil', 'perfil')->name('perfil');
     Route::get('/store', [StoreController::class, 'index'])->name('store');
@@ -50,16 +50,16 @@ Route::middleware(['auth', 'nocache', 'streak'])->group(function () {
 });
 
 
-// --- 3. CAPA DE SEGURIDAD: NIVEL ADMINISTRADOR ---
+// --- 3. SECURITY LAYER: ADMINISTRATOR LEVEL ---
 /**
- * Middleware 'admin': Restringe el acceso exclusivamente a usuarios con role_id de administrador.
- */
+* Middleware 'admin': Restricts access exclusively to users with the administrator role_id.
+*/
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::view('/admin', 'admin')->name('admin');
 });
 
 
-// --- 4. UTILIDADES Y PLANTILLAS ---
+// --- 4. UTILITIES AND TEMPLATES ---
 Route::view('/plantilla', 'plantilla')->name('plantilla');
 Route::get('/pregunta-texto', [TestController::class, 'mostrarTest'])->name('preguntaTexto');
 Route::view('/plantilla-media', 'plantillaMedia')->name('plantillaMedia');
@@ -68,9 +68,9 @@ Route::view('/plantilla-imagenes', 'plantillaimagenes')->name('plantillaimagenes
 
 
 
-// Se utilizó una ruta de pruebas temporal para validar el servicio SMTP, la cual ha sido comentada tras verificar la correcta recepción de los emails. Se deja comentada por si se requiere realizar pruebas
+// A temporary test route was used to validate the SMTP service. This route has been commented out after verifying the correct reception of emails. It remains commented out in case further testing is required.
 // Route::get('/test-mail', function () {
-//     Mail::to('xyz.arturool@gmail.com')->send(new RegisterMail('Arturo'));
+// Mail::to('xyz.arturool@gmail.com')->send(new RegisterMail('Arturo'));
 
-//     return 'Correo enviado';
+// return 'Email sent';
 // });

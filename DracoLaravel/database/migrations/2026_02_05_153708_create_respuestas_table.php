@@ -5,22 +5,22 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: CreateRespuestasTable
- * * Define la estructura para las opciones de respuesta de cada pregunta.
- * Es el nivel final de la jerarquía de contenidos y el que permite 
- * la interactividad y evaluación del sistema DRACO.
- * * @author Marta
- */
+* Migration: CreateRespuestasTable
+* Defines the structure for the answer options of each question.
+* It is the final level of the content hierarchy and enables
+* interactivity and evaluation of the DRACO system.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Crea la tabla 'respuestas' con lógica de validación binaria:
-     * - opcion: El texto de la respuesta o descripción de la opción.
-     * - is_correct: Flag booleano (true/false) para identificar la respuesta válida.
-     * - pregunta_id: Clave foránea que asocia la respuesta a su pregunta padre.
-     * * @author Marta
-     */
+    * Run the migration (Up).
+    * Create the 'answers' table with binary validation logic:
+    * - option: The answer text or option description.
+    * - is_correct: Boolean flag (true/false) to identify a valid answer.
+    * - question_id: Foreign key that associates the answer with its parent question.
+    * @author Marta
+    */
     public function up(): void
     {
         Schema::create('respuestas', function (Blueprint $table) {
@@ -33,10 +33,10 @@ return new class extends Migration
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina la tabla 'respuestas'.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * * Deletes the 'responses' table.
+    * * @author Marta
+    */
     public function down(): void
     {
         Schema::dropIfExists('respuestas');

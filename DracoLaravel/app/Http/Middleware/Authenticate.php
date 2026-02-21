@@ -6,23 +6,23 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Http\Request;
 
 /**
- * Clase Authenticate
- * * Middleware encargado de verificar la autenticación global de los usuarios.
- * Su función principal es interceptar peticiones a rutas protegidas y asegurar
- * que solo los usuarios con una sesión activa puedan proceder.
- * * @author Marta
- */
+* Authenticate Class
+* Middleware responsible for verifying global user authentication.
+* Its main function is to intercept requests to protected routes and ensure
+* that only users with an active session can proceed.
+* @author Marta
+*/
 class Authenticate extends Middleware
 {
     /**
-     * Determina la ruta de redirección cuando el usuario no está autenticado.
-     * * Si la petición espera una respuesta JSON (como una llamada AJAX de la API), 
-     * no redirige, sino que devuelve un error 401. En caso contrario, redirige 
-     * automáticamente al formulario de inicio de sesión.
-     * * @author Marta
-     * @param  \Illuminate\Http\Request  $request Petición entrante del usuario.
-     * @return string|null Ruta de redirección al login o null para respuestas API.
-     */
+    * Determines the redirect route when the user is not authenticated.
+    * If the request expects a JSON response (such as an AJAX API call),
+    * it does not redirect, but returns a 401 error. Otherwise, it redirects
+    * automatically to the login form.
+    * @author Marta
+    * @param \Illuminate\Http\Request $request Incoming user request.
+    * @return string|null Redirect route to the login or null for API responses.
+    */
     protected function redirectTo(Request $request): ?string
     {
         return $request->expectsJson() ? null : route('login');

@@ -7,21 +7,21 @@ use Illuminate\Database\Seeder;
 use App\Models\Tematica;
 
 /**
- * Seeder: TematicaSeeder
- * * Este componente es el encargado de dar de alta las categorías principales.
- * Marta ha seleccionado temáticas diversas (música, literatura y manga) para
- * demostrar la versatilidad de la plataforma y su capacidad de segmentación.
- * * @author Marta
- */
+* Seeder: TematicaSeeder
+* This component is responsible for registering the main categories.
+* Marta has selected diverse themes (music, literature, and manga) to
+* demonstrate the platform's versatility and segmentation capabilities.
+* @author Marta
+*/
 class TematicaSeeder extends Seeder
 {
     /**
-     * Ejecuta la siembra de las temáticas base.
-     * * Proceso:
-     * 1. Definición de un array de datos con las propiedades de cada universo.
-     * 2. Iteración mediante un bucle 'foreach' para la persistencia masiva.
-     * * @author Marta
-     */
+    * Executes the seeding of the base themes.
+    * Process:
+    * 1. Definition of a data array with the properties of each universe.
+    * 2. Iteration using a 'foreach' loop for bulk persistence.
+    * @author Marta
+    */
    public function run(): void {
     $temas = [
         [

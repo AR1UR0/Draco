@@ -9,24 +9,23 @@ use App\Models\Test;
 use App\Models\Respuesta;
 
 /**
- * Clase TestController
- * * Gestiona el núcleo de la experiencia de usuario (Gameplay).
- * Se encarga de validar el acceso a los cuestionarios según el estado de salud (vidas),
- * procesar las respuestas en tiempo real mediante JSON y gestionar el sistema de 
- * recompensas (Experiencia y Puntos) tanto para usuarios registrados como invitados.
- * * @author Marta
- */
+* TestController Class
+* Manages the core of the user experience (Gameplay).
+* Validates access to quizzes based on health status (lives),
+* processes responses in real time using JSON, and manages the reward system (Experience and Points) for both registered and guest users.
+* @author Marta
+*/
 class TestController extends Controller
 {
     /**
-     * Prepara y muestra la interfaz de resolución de tests.
-     * * Verifica la disponibilidad de vidas antes de permitir el acceso. 
-     * Implementa una lógica híbrida: consulta el modelo User si hay sesión activa
-     * o recurre a la Fachada Session para gestionar invitados.
-     * * @author Marta
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
-     */
+    * Prepares and displays the test resolution interface.
+    * Checks for available lives before granting access.
+    * Implements hybrid logic: queries the User model to see if a session is active
+    * or uses the Session Facade to manage guests.
+    * @author Marta
+    * @param \Illuminate\Http\Request $request
+    * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
+    */
     public function mostrarTest(Request $request)
     {
         if (Auth::check()) {
@@ -43,19 +42,19 @@ class TestController extends Controller
     }
 
     /**
-     * Evalúa la respuesta seleccionada por el usuario de forma asíncrona.
-     * * Este método es el motor lógico del test:
-     * 1. Gestiona fallos por tiempo agotado (id_respuesta == -1).
-     * 2. Valida la corrección de la respuesta mediante el modelo Respuesta.
-     * 3. Calcula y asigna XP y Puntos (Monedas).
-     * 4. Sincroniza con el frontend enviando respuestas en formato JSON.
-     * * @author Marta
-     * @param \Illuminate\Http\Request $request Petición enviada vía AJAX/Fetch.
-     * @return \Illuminate\Http\JsonResponse Estado del resultado y progreso actualizado.
-     */
+    * Evaluates the user's selected answer asynchronously.
+    * This method is the test's logical engine:
+    * 1. Handles timeout failures (response_id == -1).
+    * 2. Validates the answer's correctness using the Response model.
+    * 3. Calculates and assigns XP and Points (Coins).
+    * 4. Synchronizes with the frontend by sending responses in JSON format.
+    * @author Marta
+    * @param \Illuminate\Http\Request $request Request sent via AJAX/Fetch.
+    * @return \Illuminate\Http\JsonResponse Updated result and progress status.
+    */
     public function comprobarRespuesta(Request $request)
     {
-        // Fallo detectado por el JS
+        
         if ($request->id_respuesta == -1) {
             $this->restarVida();
             return response()->json(['status' => 'vida_restada']);
@@ -67,20 +66,20 @@ class TestController extends Controller
             return response()->json(['error' => 'Respuesta no encontrada'], 404);
         }
 
-        // Respuesta INCORRECTA
+        
         if (!$respuesta->is_correct) {
             $this->restarVida();
             return response()->json(['status' => 'incorrecto']); 
         }
 
-        // Respuesta CORRECTA
+        
         $pregunta = \App\Models\Pregunta::find($respuesta->pregunta_id);
         $puntosXP = $pregunta->reward_points ?? 10;
 
         if (Auth::check()) {
             $user = Auth::user();
             $user->experience += $puntosXP; 
-            $user->save(); // Dispara el canje de monedas en User.php
+            $user->save(); 
             $user->refresh();
 
             return response()->json([
@@ -89,7 +88,7 @@ class TestController extends Controller
                 'puntos' => $user->points
             ]);
         } else {
-            // INVITADO
+            // GUEST
             $xpActual = Session::get('xp_invitado', 0);
             $puntosActuales = Session::get('puntos_invitado', 0);
             $xpNueva = $xpActual + $puntosXP;
@@ -115,14 +114,14 @@ class TestController extends Controller
     } 
     
     /**
-     * Método auxiliar privado para la gestión de penalizaciones.
-     * * Aplica la lógica de "muerte" del jugador:
-     * - Si es usuario 'Plus', es inmune a la pérdida de vidas.
-     * - Si es usuario normal, decrementa vidas en base de datos.
-     * - Si es invitado, decrementa el valor almacenado en la sesión.
-     * * @author Marta
-     * @return void
-     */
+    * Private auxiliary method for penalty management.
+    * Applies the player's "death" logic:
+    * - If a 'Plus' user, they are immune to losing lives.
+    * - If a normal user, decrements lives in the database.
+    * - If a guest, decrements the value stored in the session.
+    * * @author Marta
+    * @return void
+    */
     private function restarVida()
     {
         $user = Auth::user();

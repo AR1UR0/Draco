@@ -5,22 +5,22 @@ namespace App\Http;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 /**
- * Clase Kernel
- * * Es el núcleo central de las peticiones HTTP de DRACO.
- * Su función es orquestar el flujo de datos, definiendo qué filtros (middlewares)
- * se aplican de forma global, cuáles pertenecen al grupo web y cómo se apodan
- * los middlewares personalizados para ser usados en las rutas.
- * * @author Marta
- */
+* Kernel Class
+* * It is the central core of DRACO's HTTP requests.
+* Its function is to orchestrate the data flow, defining which filters (middlewares)
+* are applied globally, which belong to the web group, and how they are nicknamed.
+* Custom middlewares are used in the routes.
+* * @author Marta
+*/
 class Kernel extends HttpKernel
 {
     /**
-     * Stack de Middlewares Globales.
-     * * Estos filtros se ejecutan en CUALQUIER petición al servidor.
-     * Incluyen tareas de mantenimiento, validación de tamaño de posts y 
-     * la normalización de cadenas (TrimStrings) desarrollada por Marta.
-     * * @author Marta
-     */
+    * Global Middleware Stack.
+    * These filters are executed on ANY request to the server.
+    * They include maintenance tasks, post size validation, and
+    * string normalization (TrimStrings) developed by Marta.
+    * @author Marta
+    */
     protected $middleware = [
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
@@ -31,12 +31,12 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * Grupos de Middlewares por tipo de ruta.
-     * * Se ha configurado el grupo 'web' para gestionar sesiones, cookies y
-     * seguridad CSRF. Se destaca la inclusión de 'UpdateStreak' para que la
-     * racha del usuario se actualice en cada interacción con la web.
-     * * @author Marta
-     */
+    * Middleware groups by route type.
+    * The 'web' group has been configured to manage sessions, cookies, and
+    * CSRF security. The inclusion of 'UpdateStreak' is noteworthy, ensuring that the user's
+    * streak is updated with each interaction with the website.
+    * @author Marta
+    */
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -56,12 +56,12 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * Aliases de Middlewares.
-     * * Permiten asignar nombres cortos a clases complejas. Aquí es donde se
-     * registra los middlewares personalizados como 'admin', 'nocache' y 'streak'
-     * para utilizarlos fácilmente en el archivo de rutas (web.php).
-     * * @author Marta
-     */
+    * Middleware Aliases.
+    * These allow you to assign short names to complex classes. This is where you
+    * register custom middlewares like 'admin', 'nocache', and 'streak'
+    * for easy use in the routes file (web.php).
+    * @author Marta
+    */
     protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

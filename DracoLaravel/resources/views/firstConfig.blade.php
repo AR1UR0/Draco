@@ -1,3 +1,4 @@
+<!-- @author Marta/Draco Team -->
 <!doctype html>
 <html lang="en">
 
@@ -40,7 +41,7 @@
                     </ul>
                 </div>
 
-                <!-- CAMBIO DE TEMA -->
+                <!-- CHANGE OF SUBJECT -->
                 <label class="switch m-0">
                     <input type="checkbox" id="toggleTheme" checked />
                     <span class="slider"></span>
@@ -200,7 +201,7 @@
                     });
 
                     el.addEventListener("click", () => {
-                        // Oculta cualquier otro popover abierto
+                        // Hides any other open popovers
                         document.querySelectorAll(".popoverTema").forEach((other) => {
                             if (other !== el) {
                                 bootstrap.Popover.getInstance(other)?.hide();
@@ -209,12 +210,12 @@
 
                         pop.show();
 
-                        // Se cierra solo tras 1 segundos
+                        // It closes automatically after 1 second
                         setTimeout(() => pop.hide(), 1000);
                     });
                 });
 
-                // Click fuera = cerrar todo
+                // Click outside = close all
                 document.addEventListener("click", (e) => {
                     if (!e.target.closest(".popoverTema")) {
                         document.querySelectorAll(".popoverTema").forEach((el) => {

@@ -11,23 +11,23 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 /**
- * Clase LoginController
- * * Se encarga de gestionar la autenticación de usuarios, el control de sesiones,
- * la redirección basada en roles y la recuperación de contraseñas.
- * @author Marta
- */ 
+* LoginController Class
+* * Handles user authentication, session control,
+* role-based redirection, and password recovery.
+* @author Marta
+*/
 class LoginController extends Controller
 {
     /**
-     * Gestiona el proceso de autenticación del usuario.
-     * * Valida las credenciales introducidas, regenera la sesión para evitar
-     * ataques de fijación y redirige al usuario según su rol:
-     * - Administrador (role_id = 1) -> Panel de Administración.
-     * - Usuario (role_id = 2) -> Página Principal de temáticas.
-     * * @param  \Illuminate\Http\Request  $request Objeto con los datos del formulario.
-     * @return \Illuminate\Http\RedirectResponse Redirección a la ruta correspondiente o error.
-     * @author Marta
-     */
+    * Manages the user authentication process.
+    * Validates the entered credentials, regenerates the session to prevent
+    * fixation attacks, and redirects the user according to their role:
+    * - Administrator (role_id = 1) -> Administration Panel.
+    * - User (role_id = 2) -> Main Topics Page.
+    * @param \Illuminate\Http\Request $request Object with the form data.
+    * @return \Illuminate\Http\RedirectResponse Redirect to the corresponding path or error.
+    * @author Marta
+    */
     public function login(Request $request)
 {
     $credentials = $request->validate([
@@ -49,13 +49,13 @@ class LoginController extends Controller
 }
 
     /**
-     * Cierra la sesión activa del usuario.
-     * * Elimina la información de autenticación, invalida la sesión en el servidor
-     * y regenera el token CSRF para garantizar un cierre seguro.
-     * * @param  \Illuminate\Http\Request  $request Objeto de la petición actual.
-     * @return \Illuminate\Http\RedirectResponse Redirección a la landing page.
-     * @author Marta
-     */
+    * Closes the user's active session.
+    * * Removes authentication information, invalidates the session on the server
+    * and regenerates the CSRF token to ensure a secure closure.
+    * * @param \Illuminate\Http\Request $request Object of the current request.
+    * @return \Illuminate\Http\RedirectResponse Redirects to the landing page.
+    * @author Marta
+    */
     public function logout(Request $request)
     {
         Auth::logout();
@@ -66,15 +66,15 @@ class LoginController extends Controller
     }
 
     /**
-     * Gestiona la recuperación de acceso mediante contraseña temporal.
-     * * 1. Verifica la existencia del usuario en la base de datos.
-     * 2. Genera una cadena aleatoria de 8 caracteres.
-     * 3. Encripta y actualiza la contraseña en la base de datos.
-     * 4. Envía la nueva clave por correo electrónico utilizando la fachada Mail.
-     * * @param  \Illuminate\Http\Request  $request Objeto con el email del usuario.
-     * @return \Illuminate\Http\RedirectResponse Notificación de éxito o error.
-     * @author Marta
-     */
+    * Manages access recovery using a temporary password.
+    * 1. Verifies the user exists in the database.
+    * 2. Generates a random 8-character string.
+    * 3. Encrypts and updates the password in the database.
+    * 4. Sends the new password via email using the Mail facade.
+    * @param \Illuminate\Http\Request $request Object containing the user's email address.
+    * @return \Illuminate\Http\RedirectResponse Success or error notification.
+    * @author Marta
+    */
     public function sendTempPassword(Request $request)
     {
 

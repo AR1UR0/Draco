@@ -64,10 +64,10 @@ if (loginForm) {
 }
 
 /**
- * Gestión del formulario de recuperación de contraseña.
- * Simula el envío de correo y cierra el modal de Bootstrap.
- * @author Marta
- */
+* Password recovery form management.
+* Simulates email sending and closes the Bootstrap modal.
+* @author Marta
+*/
 const forgotForm = document.getElementById("forgotPasswordForm");
 
 if (forgotForm) {

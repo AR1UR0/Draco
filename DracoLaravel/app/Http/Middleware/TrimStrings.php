@@ -6,21 +6,21 @@ use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
 
 
 /**
- * Clase TrimStrings
- * * Este middleware se encarga de la normalización de los datos de entrada.
- * Su función es eliminar automáticamente los espacios en blanco accidentales 
- * al inicio y al final de las cadenas de texto enviadas a través de formularios.
- * * @author Marta
- */
+* TrimStrings Class
+* This middleware handles the normalization of input data.
+* Its function is to automatically remove accidental whitespace
+* from the beginning and end of text strings submitted through forms.
+* @author Marta
+*/
 class TrimStrings extends Middleware
 {
     /**
-     * Lista de atributos que no deben ser recortados.
-     * * Ciertos campos, como las contraseñas, no deben ser alterados, ya que los 
-     * espacios en blanco pueden formar parte intencionada de la clave de seguridad.
-     * * @author Marta
-     * @var array<int, string>
-     */
+    * List of attributes that should not be truncated.
+    * * Certain fields, such as passwords, should not be altered, as the
+    * spaces may be an intentional part of the security key.
+    * * @author Marta
+    * @var array<int, string>
+    */
     protected $except = [
         'current_password',
         'password',

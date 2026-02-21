@@ -1,8 +1,11 @@
-// Colores principales del tema, usados en botones y detalles visuales
+// Styles required for initial user setup
+// @author Marta/Draco Team
+
+// Main theme colors, used in buttons and visual details
 $maincolor: #f70071;
 $secColor: #98b705;
 
-// Botón para avanzar de paso, destaca el color secundario y el efecto al pasar el ratón
+// Button to advance to the next step, highlights the secondary color and the effect when hovering over the mouse
 .btn-step-next {
     background-color: $secColor !important;
     border: 2px solid $secColor !important;
@@ -17,7 +20,7 @@ $secColor: #98b705;
     }
 }
 
-// Botones para elegir la meta diaria, con efectos visuales al interactuar
+// Buttons to choose the daily goal, with visual effects when interacting
 .btn-meta-option {
     width: 100%;
     max-width: 400px;
@@ -39,7 +42,7 @@ $secColor: #98b705;
     }
 }
 
-// Tarjetas para seleccionar el nivel, con animación y sombra al pasar el ratón
+// Cards for selecting the level, with animation and shadow when hovering over the mouse
 .level-card {
     width: 100%;
     max-width: 500px;

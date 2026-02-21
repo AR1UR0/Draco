@@ -5,28 +5,28 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 
 /**
- * Seeder Maestro: DatabaseSeeder
- * * Clase principal encargada de coordinar la inserción masiva de datos iniciales.
- * Es un orquestador para garantizar que la base de datos pase 
- * de estar vacía a tener una estructura funcional completa con un solo comando.
- * * @author Marta
- */
+* Seeder Maestro: DatabaseSeeder
+* * Main class responsible for coordinating the bulk insertion of initial data.
+* It's an orchestrator to ensure that the database goes
+* from being empty to having a complete functional structure with a single command.
+* * @author Marta
+*/
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Método principal de ejecución.
-     * * Define el orden crítico de "siembra" de datos para respetar 
-     * la integridad referencial de la base de datos.
-     * * @author Marta
-     */
+    * Main execution method.
+    * Defines the critical order for data "seeding" to respect
+    * the referential integrity of the database.
+    * @author Marta
+    */
     public function run(): void
     {
         $this->call([
-            // 1. Identidad: Crea los roles y el usuario administrador inicial.
+            // 1. Identity: Create the roles and the initial administrator user.
             RoleUserSeeder::class, 
-            // 2. Estructura: Crea las categorías globales (Cine, Historia, etc.)
+            // 2. Structure: Create the global categories
             TematicaSeeder::class,  
-            // 3. Contenido: El seeder más complejo que inserta la lógica de los tests.
+            // 3. Content: The most complex seeder that inserts the test logic.
             TestSeeder::class, 
         ]);
     }

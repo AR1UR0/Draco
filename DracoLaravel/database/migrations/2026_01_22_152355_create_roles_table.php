@@ -5,22 +5,22 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: CreateRolesTable
- * * Esta clase se encarga de definir la estructura de la tabla 'roles' en la base de datos.
- * Es la piedra angular del sistema de seguridad (RBAC) de DRACO, permitiendo 
- * categorizar a los usuarios según sus privilegios.
- * * @author Marta
- */
+* Migration: CreateRolesTable
+* This class defines the structure of the 'roles' table in the database.
+* It is the cornerstone of DRACO's RBAC security system, allowing
+* users to be categorized according to their privileges.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Crea la tabla 'roles' con los siguientes campos:
-     * - id: Clave primaria autoincremental.
-     * - name: Nombre del rol (ej: 'admin', 'user'), limitado a 50 caracteres para optimizar espacio.
-     * - timestamps: Registra automáticamente la fecha de creación y actualización.
-     * * @author Marta
-     */
+    * Run the migration (Up).
+    * Create the 'roles' table with the following fields:
+    * - id: Auto-incrementing primary key.
+    * - name: Role name (e.g., 'admin', 'user'), limited to 50 characters to optimize space.
+    * - timestamps: Automatically records the creation and update dates.
+    * @author Marta
+    */
     public function up(): void
     {
         Schema::create('roles', function (Blueprint $table) {
@@ -31,11 +31,11 @@ return new class extends Migration
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina la tabla de la base de datos. Este método es esencial para 
-     * mantener un entorno de desarrollo limpio y permitir el rollback de cambios.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * Deletes the table from the database. This method is essential for
+    * maintaining a clean development environment and enabling the rollback of changes.
+    * @author Marta
+    */
     public function down(): void
     {
         Schema::dropIfExists('roles');

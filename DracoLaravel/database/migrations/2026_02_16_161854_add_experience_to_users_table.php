@@ -5,37 +5,36 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: AddExperienceToUsersTable
- * * Esta migración implementa el sistema de experiencia (XP) en la tabla de usuarios.
- * Es un componente vital de la gamificación de DRACO, permitiendo cuantificar 
- * el esfuerzo acumulado del jugador independientemente de los puntos (monedas) 
- * que gaste en la tienda.
- * * @author Marta
- */
+* Migration: AddExperienceToUsersTable
+* This migration implements the experience (XP) system in the user table.
+* It is a vital component of DRACO's gamification, allowing us to quantify
+* the player's accumulated effort regardless of the points (coins)
+* they spend in the store.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Actualiza la tabla 'users' para integrar la progresión:
-     * - experience: Valor entero que acumula el historial de aciertos.
-     * - after('points'): Se sitúa junto a los puntos para mantener coherencia 
-     * en el bloque de atributos económicos y de progreso.
-     * * @author Marta
-     */
+    * Runs the migration (Up).
+    * Updates the 'users' table to integrate the progression:
+    * - experience: Integer value that accumulates the history of successes.
+    * - after('points'): Placed next to the points to maintain consistency
+    * in the economic and progress attributes block.
+    * @author Marta
+    */
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-        // Añadimos la columna experience después de points
             $table->integer('experience')->default(0)->after('points');
         });
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina el campo 'experience'. Se debe usar con precaución ya que 
-     * borraría el progreso acumulado de todos los jugadores.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * Removes the 'experience' field. Use with caution as it
+    * would erase the accumulated progress of all players.
+    * @author Marta
+    */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {

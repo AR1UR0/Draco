@@ -1,34 +1,34 @@
 /**
- * @fileoverview Gestión de la configuración inicial de usuario (Wizard).
- * Controla la selección única de temas, la navegación entre pasos
- * y almacena la elección final del usuario para poder realizarlo en el futuro.
- * @author Marta
- * @version 1.2.0
- */
+* @fileoverview User initial configuration management (Wizard).
+* Controls the one-time theme selection, navigation between steps
+* and stores the user's final choice for future reference.
+* @author Marta
+* @version 1.2.0
+*/
 
 document.addEventListener("DOMContentLoaded", () => {
-    /** * Lógica de tarjetas "Flipped":
-     * sistema de selección exclusiva. Al hacer clic en una
-     * temática (Gloryhammer, LOTR, etc.), la tarjeta gira 180 grados mediante CSS.
-     * El script asegura que solo pueda haber una tarjeta seleccionada a la vez.
-     */
+    /** * "Flipped" card logic:
+    * Exclusive selection system. Clicking on a
+    theme (Gloryhammer, LOTR, etc.) rotates the card 180 degrees using CSS.
+    * The script ensures that only one card can be selected at a time.
+    */
     let temaSeleccionado = null;
     const cards = document.querySelectorAll(".topic-card");
 
     cards.forEach((card) => {
         card.addEventListener("click", () => {
-            // Si la tarjeta ya está girada, la desmarcamos y reseteamos la elección
+            // If the card is already turned, we uncheck it and reset the selection
             if (card.classList.contains("flipped")) {
                 card.classList.remove("flipped");
                 temaSeleccionado = null;
             } else {
-                // Cerramos cualquier otra tarjeta abierta
+                // We close any other open cards
                 cards.forEach((c) => c.classList.remove("flipped"));
 
-                // Giramos la tarjeta actual
+                // We turn the current card over.
                 card.classList.add("flipped");
 
-                // GUARDAMOS LA ELECCIÓN: Extraemos el texto del 'topic-front'
+                // WE SAVE THE CHOICE: We extract the text from the 'topic-front'
                 temaSeleccionado = card
                     .querySelector(".topic-front")
                     .innerText.trim();
@@ -38,34 +38,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /**
-     * Navegación entre pasos:
-     * El sistema utiliza clases de Bootstrap ('d-none') para alternar la visibilidad
-     * de las secciones. Esto garantiza una transición fluida y rápida.
-     * Paso 1: Selección de Tema.
-     * Paso 2: Elección de Meta Diaria.
-     * Paso 3: Decisión de nivel (Eleccion desde el principio o elección de nivel).
-     * Paso 4: Selector de nivel específico(Funcionalidad proximamente).
-     */
+    * Navigation between steps:
+    * The system uses Bootstrap classes ('d-none') to toggle the visibility
+    of the sections. This ensures a smooth and fast transition.
+    * Step 1: Theme Selection.
+    * Step 2: Daily Goal Selection.
+    * Step 3: Level Decision (Choice from the beginning or level selection).
+    * Step 4: Specific level selector (Functionality coming soon).
+    */
 
-    /** @type {HTMLElement} Botón para avanzar del paso 1 al 2 */
+    /** @type {HTMLElement} Button to advance from step 1 to step 2 */
     const btnToStep2 = document.getElementById("btn-continuar");
 
-    /** @type {HTMLElement} Botón para avanzar del paso 2 al 3 */
+    /** @type {HTMLElement} Button to advance from step 2 to step 3 */
     const btnToStep3 = document.getElementById("btn-to-step-3");
 
-    /** @type {HTMLElement} Sección del Paso 1: Selección de temas */
+    /** @type {HTMLElement} Step 1 Section: Topic Selection */
     const paso1 = document.getElementById("step-1");
 
-    /** @type {HTMLElement} Sección del Paso 2: Meta diaria */
+    /** @type {HTMLElement} Step 2 Section: Daily Goal Selection */
     const paso2 = document.getElementById("step-2");
 
-    /** @type {HTMLElement} Sección del Paso 3: Modo de inicio */
+    /** @type {HTMLElement} Step 3 Section: Start Mode Selection */
     const paso3 = document.getElementById("step-3");
 
     /**
-     * Cambia la visibilidad del Paso 1 al Paso 2.
-     * @listens click
-     */
+    * Changes the visibility from Step 1 to Step 2.
+    * @listens click
+    */
     if (btnToStep2) {
         btnToStep2.addEventListener("click", () => {
             paso1.classList.add("d-none");
@@ -75,9 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
-     * Cambia la visibilidad del Paso 2 al Paso 3.
-     * @listens click
-     */
+    * Changes the visibility of Step 2 to Step 3.
+    * @listens click
+    */
     if (btnToStep3) {
         btnToStep3.addEventListener("click", () => {
             paso2.classList.add("d-none");
@@ -86,18 +86,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- SELECCIÓN DE NIVEL Y REDIRECCIONES ---
+    // --- LEVEL SELECTION AND REDIRECTIONS ---
 
-    /** @type {HTMLElement} Opción para empezar desde nivel principiante */
+    /** @type {HTMLElement} Option to start from beginner level */
     const opcionPrincipio = document.getElementById("start-beginner");
 
-    /** @type {HTMLElement} Opción para abrir el selector de niveles específicos */
+    /** @type {HTMLElement} Option to open the specific levels selector */
     const opcionNivel = document.getElementById("start-placement");
 
     /**
-     * Redirige al usuario al dashboard principal comenzando desde cero.
-     * @listens click
-     */
+    * Redirects the user to the main dashboard, starting from scratch.
+    * @listens click
+    */
     if (opcionPrincipio) {
         opcionPrincipio.addEventListener("click", () => {
             // window.location.href = "dashboard.html";
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
-     * Oculta el Paso 3 y muestra el selector de niveles (Paso 4).
+     * Hides Step 3 and shows the specific levels selector (Step 4).
      * @listens click
      */
     if (opcionNivel) {
@@ -117,16 +117,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- REDIRECCIÓN POR NIVELES ESPECÍFICOS ---
-
+// --- REDIRECT BY SPECIFIC LEVELS ---
     const btnLvl1 = document.getElementById("lvl-1");
     const btnLvl2 = document.getElementById("lvl-2");
     const btnLvl3 = document.getElementById("lvl-3");
 
+    //This was set up for future implementations, but for now, it redirects to the general dashboard regardless of the selected level.
+    //This was done to simplify the initial experience and avoid confusion, as the specific levels are not yet implemented.
+    //In the future, each button will be able to redirect to a custom section of the dashboard depending on the selected level.
+
     /**
-     * Redirige a la página del Nivel 1.
-     * @listens click
-     */
+    * Redirects to the Level 1 page.
+    * @listens click
+    */
     if (btnLvl1) {
         btnLvl1.addEventListener("click", () => {
             // window.location.href = "nivel1.html";
@@ -134,9 +137,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
-     * Redirige a la página del Nivel 2.
-     * @listens click
-     */
+    * Redirects to the Level 2 page.
+    * @listens click
+    */
     if (btnLvl2) {
         btnLvl2.addEventListener("click", () => {
             // window.location.href = "nivel2.html";
@@ -144,9 +147,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
-     * Redirige a la página del Nivel 3.
-     * @listens click
-     */
+    * Redirects to the Level 3 page.
+    * @listens click
+    */
     if (btnLvl3) {
         btnLvl3.addEventListener("click", () => {
             // window.location.href = "nivel3.html";
@@ -154,10 +157,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
-     * Permite al usuario retroceder del Paso 4 al Paso 3.
-     * @type {HTMLElement}
-     * @listens click
-     */
+    * Allows the user to go back from Step 4 to Step 3.
+    * @type {HTMLElement}
+    * @listens click
+    */
     const btnBackTo3 = document.getElementById("back-to-step-3");
     if (btnBackTo3) {
         btnBackTo3.addEventListener("click", (e) => {
