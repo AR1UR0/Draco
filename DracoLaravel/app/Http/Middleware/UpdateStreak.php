@@ -8,48 +8,47 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 /**
- * Clase UpdateStreak
- * * Este middleware gestiona el sistema de "Rachas" (Streaks) del proyecto DRACO.
- * Se encarga de monitorizar la frecuencia de acceso del usuario y actualizar
- * automáticamente su contador de días consecutivos o reiniciarlo si se detecta
- * una interrupción en la actividad.
- * * @author Marta
- */
+* UpdateStreak Class
+* This middleware manages the "Streaks" system of the DRACO project.
+* It monitors the user's access frequency and automatically updates
+* their consecutive days counter or resets it if an interruption in activity is detected.
+* @author Marta
+*/
 class UpdateStreak
 {
     /**
-     * Procesa la racha del usuario en cada petición autenticada.
-     * * Utiliza la librería Carbon para realizar comparaciones precisas entre fechas:
-     * - Caso A: Acceso en el mismo día (No ocurre nada).
-     * - Caso B: Acceso al día siguiente (Incrementa la racha +1).
-     * - Caso C: Acceso tras un periodo de inactividad (Reinicia la racha a 1).
-     * * @author Marta
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
+    * Processes the user's streak on each authenticated request.
+    * Uses the Carbon library to perform accurate date comparisons:
+    * - Case A: Access on the same day (Nothing happens).
+    * - Case B: Access the next day (Increments the streak by 1).
+    * - Case C: Access after a period of inactivity (Resets the streak to 1).
+    * * @author Marta
+    * @param \Illuminate\Http\Request $request
+    * @param \Closure $next
+    * @return mixed
+    */
         public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
             $user = Auth::user();
             $today = Carbon::today();
-            // Convertimos la fecha de la DB a Carbon para comparar
+            // We convert the database date to Carbon for comparison
             $lastStreakDate = Carbon::parse($user->last_streak_at)->startOfDay();
 
             $diff = $today->diffInDays($lastStreakDate);
 
             if ($diff === 1) {
-                // Caso B: Entró al día siguiente exacto
+                // Case B: He entered the exact next day
                 $user->streak += 1;
                 $user->last_streak_at = now();
                 $user->save();
             } elseif ($diff > 1) {
-                // Caso C: Racha rota (pasaron 2 o más días)
+                // Case C: Streak broken (2 or more days have passed)
                 $user->streak = 1;
                 $user->last_streak_at = now();
                 $user->save();
             }
-            // Caso A: Si diff es 0, el usuario ya ha accedido hoy, por lo que se mantiene la racha.
+            // Case A: If diff is 0, the user has already logged in today, so the streak continues.
         }
 
         return $next($request);

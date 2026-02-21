@@ -8,29 +8,29 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 /**
- * Seeder: RoleUserSeeder
- * * Este componente inicializa el sistema de permisos y usuarios. 
- * Crea los roles fundamentales y genera cuentas de prueba con diferentes 
- * niveles de acceso para validar la seguridad de la aplicación.
- * * @author Marta
- */
+* Seeder: RoleUserSeeder
+* This component initializes the permissions and user system.
+* It creates the fundamental roles and generates test accounts with different
+* access levels to validate application security.
+* @author Marta
+*/
 class RoleUserSeeder extends Seeder
 {
     /**
-     * Ejecución de la siembra de roles y usuarios.
-     * * Proceso:
-     * 1. Definición de roles (admin/user).
-     * 2. Creación de un administrador con privilegios totales.
-     * 3. Creación de un usuario estándar para pruebas de interfaz.
-     * * @author Marta
-     */
+    * Execution of role and user seeding.
+    * Process:
+    * 1. Definition of roles (admin/user).
+    * 2. Creation of an administrator with full privileges.
+    * 3. Creation of a standard user for interface testing.
+    * @author Marta
+    */
     public function run(): void
     {
-        // Crear Roles 
+        
         $adminRole = Role::create(['name' => 'admin']); 
         $userRole = Role::create(['name' => 'user']); 
 
-        // Crear Usuario Administrador de prueba 
+       
         User::create([
             'name' => 'Admin Draco', 
             'email' => 'admin@draco.com', 
@@ -44,7 +44,7 @@ class RoleUserSeeder extends Seeder
             'experience' => 0,
         ]);
 
-        //Creación de usuario de prueba
+        
         User::create([
             'name' => 'Pepet', 
             'email' => 'pepet@draco.com', 

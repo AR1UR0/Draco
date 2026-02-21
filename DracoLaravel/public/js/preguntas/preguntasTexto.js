@@ -328,20 +328,20 @@ btnPrincipal.onclick = () => {
                 body: JSON.stringify({ id_respuesta: idRespuestaCorrecta }),
             });
             /**
-            * Gestión de la lógica de error y penalización de vidas.
-            * Implementa la "Protección Draco Plus" para omitir penalizaciones.
-            * * @author Marta 
+            * Error logic and life penalty management.
+            * Implements "Draco Plus Protection" to bypass penalties.
+            * @author Marta
             */
         } else {
-            // INCORRECTO: ROJO
+            // INCORRECT: RED
             botones[selectedIdx].classList.add("is-wrong");
-            // MUESTRA CUAL ES CORRECTA EN VERDE
+            // SHOW WHICH ONE IS CORRECT IN GREEN
             botones[data.correct].classList.add("is-correct");
 
-            // --- PROTECCIÓN DRACO PLUS ---
+            // --- DRACO PLUS PROTECTION ---
             if (!window.isUserPlus) {
-                /** * Actualización visual inmediata.
-                * Resta una vida del DOM para dar feedback instantáneo al usuario.
+                /** * Immediate visual update.
+                * Subtracts one DOM element to provide instant user feedback.
                 */
                 const contador = document.getElementById("contadorVidas");
                 let vidasFinales = 0;
@@ -351,10 +351,10 @@ btnPrincipal.onclick = () => {
                 }
 
             /**
-            * Persistencia en Base de Datos.
-            * Envía una petición asíncrona al servidor para decrementar la vida en el backend.
-            * Se envía id_respuesta: -1 para forzar la lógica de fallo en el controlador.
-            * @author Marta 
+            * Database persistence.
+            * Sends an asynchronous request to the server to decrement the lifetime in the backend.
+            * Sends response_id: -1 to force failure logic in the controller.
+            * @author Marta
             */
             fetch("/test/validar", {
                 method: "POST",
@@ -364,13 +364,13 @@ btnPrincipal.onclick = () => {
                         .querySelector('meta[name="csrf-token"]')
                         .getAttribute("content"),
                 },
-                body: JSON.stringify({ id_respuesta: -1 }), // Enviem un ID que sabem que no existeix perquè el controlador reste vida
+                body: JSON.stringify({ id_respuesta: -1 }), 
             });
 
             /**
-            * Control de Estado 'Game Over'.
-            * Si el usuario agota sus vidas, se bloquea el progreso y se prepara la salida.
-            * @author Marta 
+            * 'Game Over' status control.
+            * If the user runs out of lives, progress is blocked and the exit is prepared.
+            * @author Marta
             */
             if (vidasFinales <= 0) {
                 estadoPregunta = "game_over"; 

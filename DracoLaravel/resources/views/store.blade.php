@@ -1,3 +1,4 @@
+<!-- @author Marta/Draco Team -->
 <!doctype html>
 <html lang="en">
 
@@ -15,10 +16,10 @@
 <body>
   <div class="container-fluid">
     <div class="container-fluid p-0 g-0 ps-4 d-flex flex-column flex-md-row">
-      <!-- CONTENEDOR PRINCIPAL -->
+      <!-- MAIN CONTAINER -->
       <nav
         class="d-none d-md-flex flex-grow-0 pt-3 d-flex flex-column border-end border-1 border-light navPrin pe-4 ps-1 align-items-end">
-        <!-- NAVEGACIÓN -->
+        <!-- NAVIGATION -->
         <a href="{{ route('index') }}">
           <img src="{{ asset('media/imgs/pagPrincipal/logoLetras.png') }}" alt="DRACO" class="logoDraco mb-5" />
         </a>
@@ -33,7 +34,7 @@
 
 
       </nav>
-  <!-- MENU HAMBURGUESA -->
+<!-- HAMBURGER MENU -->
       <div 
           class="d-flex d-md-none align-items-center justify-content-between p-2"
       >
@@ -194,9 +195,9 @@
       />
       </main>
       <aside class="flex-grow-1 flex-md-grow-0 pt-3 ps-3 border-start border-md-1 border-light asidePrin vh-100 d-flex flex-column">
-        <!-- PANEL LATERAL -->
+        <!-- SIDE PANEL -->
         <div class="d-flex flex-grow-0 parteArriba justify-content-evenly align-items-center mb-3">
-          <!-- IMAGENES DE TEMA, RACHA, DINERO Y VIDAS -->
+          <!-- IMAGES OF THEME, STREAK, MONEY AND LIVES -->
           <div>
             <img src="{{ asset('media/imgs/temas/berserk.jpg') }}" id="imgTienda" alt=" " class="border border-light imgTema" />
           </div>
@@ -223,7 +224,7 @@
               </span>
           </div>
         </div>
-        <!-- DIV PARA DRACO PLUS Y ANUNCIO -->
+        <!-- DIV FOR DRACO PLUS AND ADVERTISEMENT -->
         <div class="flex-grow-1 d-flex flex-column justify-content-between">
           <!-- DRACO PLUS -->
           <div class="dracoPlus dracoPlusGlow flex-grow-1 align-items-center justify-content-center d-flex flex-column">
@@ -235,7 +236,7 @@
               </button>
             </div>
           </div>
-          <!-- ANUNCIO -->
+          <!-- ADVERTISEMENT -->
           <div class="panelAnuncio flex-grow-1">
             <a href="https://LAPAGINAWEB.com" target="_blank" class="anuncio-link">
               <img
@@ -251,7 +252,7 @@
         </div>
 
         <footer class="flex-grow-0 mt-3 container text-center">
-          <!-- FOOTER LATERAL -->
+          <!-- LATERAL FOOTER -->
           <div class="row">
             <div class="col-4 col4">
               <a
@@ -312,7 +313,7 @@
     </div>
   </div>
 
- <!-- toast para compra de vidas -->
+ <!-- toast for buying lives -->
   <div class="toast-container position-fixed bottom-0 start-0 p-3">
     <div id="storeToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
@@ -325,7 +326,7 @@
     </div>
 </div>
 
-  <!-- MODAL DE TÉRMINOS Y CONDICIONES -->
+  <!-- TERMS AND CONDITIONS MODALITY -->
   <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
@@ -404,7 +405,7 @@
     </div>
   </div>
 
-  <!-- MODAL SOBRE NOSOTROS -->
+  <!-- MODAL ABOUT US -->
   <div
       class="modal fade"
       id="aboutModal"
@@ -466,7 +467,7 @@
       </div>
   </div>
 
-  <!-- MODAL MAPA/DIRECCIÓN -->
+  <!-- MODAL MAP/ADDRESS -->
   <div class="modal fade" id="mapModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -490,7 +491,7 @@
       </div>
   </div>
 
-  <!-- MODAL CONTACTOS -->
+  <!-- MODAL CONTACTS -->
   <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -541,7 +542,7 @@
           </div>
       </div>
   </div>
-    <!-- Modal para el pago de DracoPlus -->
+    <!-- DracoPlus payment method -->
    <div class="modal fade" id="modalPago" tabindex="-1" aria-labelledby="modalPagoLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 shadow">
@@ -614,11 +615,11 @@
     function initMap() {
         const modal = document.getElementById('mapModal');
         
-        // Escuchamos el evento de Bootstrap cuando el modal termina de abrirse
+        // We listen for the Bootstrap event when the modal finishes opening
         modal.addEventListener('shown.bs.modal', function () {
             const position = { lat: 39.46846981708395, lng: -0.38866599592922074 }; 
 
-            // Si el mapa ya existe, no lo recreamos, solo lo centramos
+           // If the map already exists, we don't recreate it, we just center it.
             if (!map) {
                 map = new google.maps.Map(document.getElementById("map"), {
                     zoom: 16,
@@ -631,7 +632,7 @@
                 map: map,
             });
             } else {
-            // Re-centrar el mapa por si acaso
+           // Re-center the map just in case
                 google.maps.event.trigger(map, "resize");
                 map.setCenter(position);
             }
@@ -649,18 +650,18 @@
 </script>
 <script src="{{ asset('js/toastBuyLife.js') }}"></script>
 <script>
-  // Inicializa los popovers de Bootstrap
+  // Initializes Bootstrap popovers
   document.addEventListener('DOMContentLoaded', function () {
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
   });
 
   document.addEventListener("DOMContentLoaded", function() {
-    // Intentar recuperar los datos del localStorage
+    // Attempt to retrieve data from localStorage
     const rutaGuardada = localStorage.getItem('tema_seleccionado_ruta');
     
     if (rutaGuardada) {
-        // Actualizar la imagen en el panel lateral de la tienda
+        // Update the image in the store's sidebar
         const imgTienda = document.getElementById('imgTienda');
         if (imgTienda) {
             imgTienda.src = rutaGuardada;

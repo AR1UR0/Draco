@@ -5,22 +5,22 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: CreatePreguntasTable
- * * Define la estructura de los reactivos o desafíos del sistema.
- * Esta tabla almacena el cuerpo de la pregunta y establece la conexión
- * con el sistema de economía (puntos) de la aplicación.
- * * @author Marta
- */
+* Migration: CreatePreguntasTable
+* Defines the structure of the system's questions or challenges.
+* This table stores the question body and establishes the connection
+* with the application's point system.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Crea la tabla 'preguntas' con las siguientes propiedades:
-     * - enunciado: Campo de tipo 'text' para permitir preguntas largas o complejas.
-     * - reward_points: Define cuántos puntos (monedas) gana el usuario al acertar.
-     * - test_id: Relación foránea con la tabla 'tests'.
-     * * @author Marta
-     */
+    * Run the migration (Up).
+    * Create the 'questions' table with the following properties:
+    * - statement: 'Text' field to allow long or complex questions.
+    * - reward_points: Defines how many points (coins) the user earns for a correct answer.
+    * - test_id: Foreign relationship with the 'tests' table.
+    * @author Marta
+    */
     public function up(): void
     {
         Schema::create('preguntas', function (Blueprint $table) {
@@ -33,10 +33,10 @@ return new class extends Migration
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina la tabla 'preguntas'.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * * Deletes the 'questions' table.
+    * * @author Marta
+    */
     public function down(): void
     {
         Schema::dropIfExists('preguntas');

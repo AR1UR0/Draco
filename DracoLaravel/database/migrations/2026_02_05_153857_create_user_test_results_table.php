@@ -5,23 +5,23 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: CreateUserTestResultsTable
- * * Esta tabla actúa como un registro histórico de actividad. Almacena el desempeño
- * de cada usuario en cada test específico, permitiendo la persistencia de datos 
- * sobre su progreso y éxito en la plataforma.
- * * @author Marta
- */
+* Migration: CreateUserTestResultsTable
+* This table acts as a historical activity log. It stores the performance
+* of each user in each specific test, allowing data persistence
+* regarding their progress and success on the platform.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Crea la tabla 'user_test_results' que vincula usuarios con contenidos:
-     * - user_id: Referencia al usuario que realizó la prueba.
-     * - test_id: Referencia al test completado.
-     * - score: Calificación o puntuación obtenida en esa sesión.
-     * - completed_at: Fecha y hora exacta de finalización, configurada por defecto.
-     * * @author Marta
-     */
+    * Runs the migration (Up).
+    * Creates the 'user_test_results' table that links users with content:
+    * - user_id: Reference to the user who took the test.
+    * - test_id: Reference to the completed test.
+    * - score: Grade or score obtained in that session.
+    * - completed_at: Exact date and time of completion, configured by default.
+    * @author Marta
+    */
     public function up(): void
     {
         Schema::create('user_test_results', function (Blueprint $table) {
@@ -35,10 +35,10 @@ return new class extends Migration
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina la tabla 'user_test_results'.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * * Deletes the 'user_test_results' table.
+    * * @author Marta
+    */
     public function down(): void
     {
         Schema::dropIfExists('user_test_results');

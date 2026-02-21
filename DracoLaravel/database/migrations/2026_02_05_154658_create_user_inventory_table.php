@@ -5,23 +5,23 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: CreateUserInventoryTable
- * * Esta tabla gestiona la propiedad de los objetos por parte de los usuarios.
- * Funciona como el nexo de unión entre los productos de la tienda y el perfil
- * del jugador, permitiendo el almacenamiento de consumibles y beneficios temporales.
- * * @author Marta
- */
+* Migration: CreateUserInventoryTable
+* This table manages user ownership of objects.
+* It acts as the link between store products and the player's profile,
+* allowing for the storage of consumables and temporary benefits.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Crea la tabla 'user_inventory' con soporte para gestión de stock y caducidad:
-     * - user_id: Propietario del objeto.
-     * - item_id: Referencia al objeto del catálogo.
-     * - quantity: Cantidad de unidades poseídas (permite acumular consumibles).
-     * - expires_at: Fecha de vencimiento, esencial para suscripciones o ventajas limitadas.
-     * * @author Marta
-     */
+    * Run the migration (Up).
+    * Create the 'user_inventory' table with support for stock and expiration management:
+    * - user_id: Owner of the item.
+    * - item_id: Reference to the item in the catalog.
+    * - quantity: Number of units owned (allows for accumulating consumables).
+    * - expires_at: Expiration date, essential for subscriptions or limited-time offers.
+    * @author Marta
+    */
     public function up(): void
     {
         Schema::create('user_inventory', function (Blueprint $table) {
@@ -35,10 +35,10 @@ return new class extends Migration
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina la tabla de inventarios.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * Deletes the inventory table.
+    * @author Marta
+    */
     public function down(): void
     {
         Schema::dropIfExists('user_inventory');

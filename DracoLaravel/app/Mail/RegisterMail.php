@@ -9,13 +9,13 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Clase RegisterMail
- * * Esta clase es la encargada de estructurar y configurar el correo electrónico
- * de bienvenida que se envía automáticamente tras un registro exitoso.
- * Utiliza el sistema de Mailables de Laravel para separar la lógica de envío
- * del diseño visual (vista).
- * * @author Marta Arturo
- */
+* RegisterMail Class
+* This class is responsible for structuring and configuring the welcome email
+* that is automatically sent after successful registration.
+* It uses Laravel's Mailables system to separate the sending logic
+* from the visual design (view).
+* @author Marta Arturo
+*/
 class RegisterMail extends Mailable
 {
 
@@ -23,24 +23,24 @@ class RegisterMail extends Mailable
     use Queueable, SerializesModels;
 
     /**
-     * @var string Nombre del usuario destinatario.
-     */
+    * @var string Recipient username.
+    */
     public string $name;
 
     /**
-     * @var string Ruta absoluta de la imagen del logo para el correo.
-     */
+    * @var string Absolute path to the logo image for the email.
+    */
     public string $logo;
 
 
     /**
-     * Crea una nueva instancia del mensaje.
-     * * Inicializa los datos necesarios para la vista del correo. 
-     * Se utiliza la URL de configuración de la aplicación para garantizar que 
-     * el logo sea accesible desde clientes de correo externos.
-     * * @author Marta Arturo
-     * @param string $name Nombre del usuario registrado.
-     */
+    * Creates a new instance of the message.
+    * Initializes the data necessary for viewing the email.
+    * The application's configuration URL is used to ensure that
+    * the logo is accessible from external email clients.
+    * @author Marta Arturo
+    * @param string $name Registered user name.
+    */
     public function __construct(string $name)
     {
         $this->name = $name;
@@ -48,12 +48,12 @@ class RegisterMail extends Mailable
     }
 
     /**
-     * Define el sobre del mensaje (Envelope).
-     * * Configura los metadatos del correo, específicamente el asunto (Subject)
-     * que verá el usuario en su bandeja de entrada.
-     * * @author Arturo Marta
-     * @return Envelope Configuración del remitente y asunto.
-     */
+    * Defines the message envelope.
+    * Configures the email metadata, specifically the subject
+    * that the user will see in their inbox.
+    * @author Arturo Marta
+    * @return Envelope Sender and subject settings.
+    */
     public function envelope(): Envelope
     {
         return new Envelope(
@@ -62,12 +62,12 @@ class RegisterMail extends Mailable
     }
 
     /**
-     * Define el contenido del mensaje (Content).
-     * * Vincula el Mailable con la plantilla Blade correspondiente y 
-     * suministra las variables necesarias para renderizar el HTML personalizado.
-     * * @author Arturo Marta
-     * @return Content Definición de la vista y datos inyectados.
-     */
+    * Defines the message content.
+    * Links the Mailable to the corresponding Blade template and
+    * supplies the necessary variables to render the custom HTML.
+    * @author Arturo Marta
+    * @return Content Definition of the view and injected data.
+    */
     public function content(): Content
     {
         return new Content(
@@ -80,10 +80,10 @@ class RegisterMail extends Mailable
     }
 
     /**
-     * Define los archivos adjuntos del mensaje.
-     * * @author Arturo Marta
-     * @return array Lista de adjuntos (actualmente vacío).
-     */
+    * Defines the message attachments.
+    * * @author Arturo Marta
+    * @return array List of attachments (currently empty).
+    */
     public function attachments(): array
     {
         return [];

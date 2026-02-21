@@ -5,36 +5,35 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: AddMultimediaToRespuestasTable
- * * Esta migración expande la tabla 'respuestas' para integrar capacidades 
- * multimodales. Permite que las opciones de respuesta contengan archivos 
- * visuales o auditivos, elevando la calidad pedagógica y lúdica de los tests.
- * * @author Marta
- */
+* Migration: AddMultimediaToRespuestasTable
+* This migration expands the 'answers' table to integrate multimodal capabilities.
+* It allows answer options to contain visual or audio files, enhancing the pedagogical and engaging quality of the tests.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Modifica la tabla 'respuestas' añadiendo campos para recursos externos:
-     * - image: Almacena la ruta o nombre del archivo de imagen (ej. 'imgs/lotr/mordor.jpg').
-     * - audio: Almacena la ruta del archivo de sonido (ej. 'audio/efectos/acierto.mp3').
-     * - after('is_correct'): Mantiene los campos multimedia organizados al final de la estructura.
-     * * @author Marta
-     */
+    * Runs the migration (Up).
+    * Modifies the 'answers' table by adding fields for external resources:
+    * - image: Stores the path or filename of the image (e.g., 'imgs/lotr/mordor.jpg').
+    * - audio: Stores the path of the audio file (e.g., 'audio/effects/correct.mp3').
+    * - after('is_correct'): Keeps the multimedia fields organized at the end of the structure.
+    * @author Marta
+    */
     public function up(): void
     {
         Schema::table('respuestas', function (Blueprint $table) {
-            // Se definen como nullable ya que no todas las respuestas requieren multimedia
+            // They are defined as nullable since not all responses require multimedia
             $table->string('image')->nullable()->after('is_correct');
             $table->string('audio')->nullable()->after('image');
         });
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina las columnas 'image' y 'audio' en caso de rollback.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * * Removes the 'image' and 'audio' columns in case of a rollback.
+    * * @author Marta
+    */
     public function down(): void
     {
         Schema::table('respuestas', function (Blueprint $table) {

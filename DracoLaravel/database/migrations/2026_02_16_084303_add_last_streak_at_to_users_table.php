@@ -5,22 +5,21 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: AddLastStreakAtToUsersTable
- * * Esta migración expande la tabla 'users' para soportar la lógica de persistencia
- * del sistema de rachas. Permite registrar el momento exacto del último acierto 
- * o login, dato indispensable para el middleware 'UpdateStreak'.
- * * @author Marta
- */
+* Migration: AddLastStreakAtToUsersTable
+* This migration expands the 'users' table to support the persistence logic
+* of the streak system. It allows recording the exact time of the last hit
+* or login, essential data for the 'UpdateStreak' middleware.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Modifica la estructura existente de 'users':
-     * - last_streak_at: Campo de tipo timestamp que almacena la fecha del último hito.
-     * - after('streak'): Posiciona la columna visualmente después de 'streak' para 
-     * mantener el orden lógico en las herramientas de gestión de DB.
-     * * @author Marta
-     */
+    * Runs the migration (Up).
+    * Modifies the existing 'users' structure:
+    * - last_streak_at: Timestamp field that stores the date of the last milestone.
+    * - after('streak'): Visually positions the column after 'streak' to maintain the logical order in the database management tools.
+    * @author Marta
+    */
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
@@ -29,10 +28,10 @@ return new class extends Migration
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina la columna 'last_streak_at' de la tabla 'users'.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * * Removes the 'last_streak_at' column from the 'users' table.
+    * * @author Marta
+    */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {

@@ -5,23 +5,23 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: CreateTematicasTable
- * * Define la estructura para las categorías principales de la aplicación.
- * Esta tabla permite agrupar los tests bajo conceptos temáticos (ej. Mitología, 
- * LOTR, Gloryhammer), facilitando una navegación organizada para el usuario.
- * * @author Marta
- */
+* Migration: CreateTematicasTable
+* Defines the structure for the application's main categories.
+* This table allows you to group tests under thematic concepts (e.g., Mythology,
+* LOTR, Gloryhammer), facilitating organized navigation for the user.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Crea la tabla 'tematicas' con soporte para contenido descriptivo y visual:
-     * - name: Nombre de la temática (limitado a 50 caracteres).
-     * - description: Campo de texto para explicar de qué trata la categoría.
-     * - image: Ruta al icono o banner representativo de la temática.
-     * - is_active: Interruptor lógico para habilitar o deshabilitar la temática en la UI.
-     * * @author Marta
-     */
+    * Run the migration (Up).
+    * Create the 'themes' table with support for descriptive and visual content:
+    * - name: Theme name (limited to 50 characters).
+    * - description: Text field to explain what the category is about.
+    * - image: Path to the icon or banner representing the theme.
+    * - is_active: Logical switch to enable or disable the theme in the UI.
+    * @author Marta
+    */
     public function up(): void
     {
         Schema::create('tematicas', function (Blueprint $table) {
@@ -35,12 +35,12 @@ return new class extends Migration
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina la tabla 'tematicas'. 
-     * Nota: Debido a la integridad referencial, esto fallará si existen tests vinculados 
-     * a menos que se hayan configurado eliminaciones en cascada.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * Deletes the 'tematicas' table.
+    * Note: Due to referential integrity, this will fail if linked tests exist
+    * unless cascading deletes have been configured.
+    * @author Marta
+    */
     public function down(): void
     {
         Schema::dropIfExists('tematicas');

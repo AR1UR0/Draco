@@ -8,24 +8,24 @@ use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Clase AdminMiddleware
- * * Actúa como una capa de seguridad (filtro) que intercepta las peticiones HTTP
- * antes de que lleguen a los controladores. Su función es verificar que el usuario
- * no solo esté autenticado, sino que además posea privilegios de administrador.
- * * @author Marta
- */
+* AdminMiddleware Class
+* * Acts as a security layer (filter) that intercepts HTTP requests
+* before they reach the controllers. Its function is to verify that the user
+* is not only authenticated, but also has administrator privileges.
+* * @author Marta
+*/
 class AdminMiddleware
 {
     /**
-     * Gestiona la petición entrante.
-     * * Aplica una validación basada en el rol del usuario:
-     * 1. Verifica si existe una sesión activa (Auth::check).
-     * 2. Comprueba si el identificador de rol corresponde al Administrador (role_id == 1).
-     * * @author Marta
-     * @param  \Illuminate\Http\Request  $request Petición capturada.
-     * @param  \Closure  $next Siguiente eslabón en el ciclo de vida de la petición.
-     * @return \Symfony\Component\HttpFoundation\Response Respuesta permitida o redirección de seguridad.
-     */
+    * Handles the incoming request.
+    * Applies validation based on the user's role:
+    * 1. Checks if an active session exists (Auth::check).
+    * 2. Checks if the role ID corresponds to Administrator (role_id == 1).
+    * @author Marta
+    * @param \Illuminate\Http\Request $request Captured request.
+    * @param \Closure $next Next step in the request lifecycle.
+    * @return \Symfony\Component\HttpFoundation\Response Allowed response or security redirection.
+    */
     public function handle(Request $request, Closure $next): Response
     {
         

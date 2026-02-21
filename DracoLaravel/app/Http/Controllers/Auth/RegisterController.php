@@ -10,34 +10,34 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 /**
- * Clase RegisterController
- * * Gestiona la creación de nuevas cuentas de usuario, la asignación de valores iniciales
- * de gamificación (puntos, vidas, experiencia) y el envío de correos de bienvenida.
- * @author Marta
- */
+
+* RegisterController Class
+* Manages the creation of new user accounts, the assignment of initial gamification values ​​(points, lives, experience), and the sending of welcome emails.
+* @author Marta
+*/
 class RegisterController extends Controller
 {
     /**
-     * Muestra la interfaz de registro de usuario.
-     * * @return \Illuminate\View\View Vista del formulario de registro.
-     * @author Marta
-     */
+    * Displays the user registration interface.
+    * @return \Illuminate\View\View Registration form view.
+    * @author Marta
+    */
     public function showRegistrationForm()
     {
         return view('auth.registro'); 
     }
 
     /**
-     * Procesa la solicitud de registro de un nuevo usuario.
-     * * El proceso sigue estos pasos:
-     * 1. Validación de integridad de datos (email único y contraseña confirmada).
-     * 2. Persistencia en base de datos con valores iniciales de sistema.
-     * 3. Notificación vía Email mediante la clase Mailable 'RegisterMail'.
-     * 4. Autenticación automática y redirección con disparador de eventos (oferta_plus).
-     * * @param  \Illuminate\Http\Request  $request Datos del formulario de registro.
-     * @return \Illuminate\Http\RedirectResponse Redirección a la página principal.
-     * @author Marta
-     */
+    * Processes a new user registration request.
+    * The process follows these steps:
+    * 1. Data integrity validation (unique email and confirmed password).
+    * 2. Database persistence with system defaults.
+    * 3. Email notification using the Mailable class 'RegisterMail'.
+    * 4. Automatic authentication and redirection with an event trigger (oferta_plus).
+    * @param \Illuminate\Http\Request $request Registration form data.
+    * @return \Illuminate\Http\RedirectResponse Redirection to the homepage.
+    * @author Marta
+    */
     public function register(Request $request)
 {
 
@@ -61,9 +61,8 @@ class RegisterController extends Controller
     ]);
 
     /**
-    * Lógica de Envío de Email de Bienvenida
-    * Se utiliza un bloque try-catch para asegurar que un fallo en el servidor
-    * de correo no interrumpa el flujo de registro del usuario.
+    * Welcome Email Sending Logic
+    * A try-catch block is used to ensure that a mail server failure does not interrupt the user registration flow.
     * @author Marta
     */
     try {

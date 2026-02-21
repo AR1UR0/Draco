@@ -5,23 +5,23 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Migración: CreateItemsTable
- * * Define el catálogo de productos disponibles en la tienda virtual de DRACO.
- * Permite categorizar diferentes tipos de beneficios (vidas, acceso premium, etc.)
- * y establecer su valor económico dentro del ecosistema de la aplicación.
- * * @author Marta
- */
+* Migration: CreateItemsTable
+* Defines the catalog of products available in the DRACO virtual store.
+* Allows categorizing different types of benefits (lives, premium access, etc.)
+* and establishing their economic value within the application's ecosystem.
+* @author Marta
+*/
 return new class extends Migration
 {
     /**
-     * Ejecuta la migración (Up).
-     * * Crea la tabla 'items' con las propiedades necesarias para la venta:
-     * - name: Nombre comercial del producto.
-     * - type: Categoría del objeto (clave para la lógica de uso posterior).
-     * - price: Coste del item (formato decimal para precisión).
-     * - description: Detalles sobre los beneficios que otorga el objeto.
-     * * @author Marta
-     */
+    * Run the migration (Up).
+    * Create the 'items' table with the properties necessary for the sale:
+    * - name: Product name.
+    * - type: Item category (key for subsequent usage logic).
+    * - price: Item cost (decimal format for precision).
+    * - description: Details about the benefits the item provides.
+    * * @author Marta
+    */
     public function up(): void
     {
         Schema::create('items', function (Blueprint $table) {
@@ -35,10 +35,10 @@ return new class extends Migration
     }
 
     /**
-     * Revierte la migración (Down).
-     * * Elimina la tabla 'items' y, por consiguiente, el catálogo de la tienda.
-     * * @author Marta
-     */
+    * Reverts the migration (Down).
+    * Deletes the 'items' table and, consequently, the store catalog.
+    * @author Marta
+    */
     public function down(): void
     {
         Schema::dropIfExists('items');
