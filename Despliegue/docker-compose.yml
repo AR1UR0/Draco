@@ -1,31 +1,31 @@
 #  @author Thais
 #  @version 1.4.0
 services:
-  # --- SERVICI D'APLICACIÓ (PHP) ---
-  # Gestiona el servidor web i el processament de la lògica de l'aplicació
+  # --- APPLICATION SERVICE (PHP) ---
+  # Manages the web server and the processing of the application logic
   php:
     build:
       context: ../
-      dockerfile: Despliegue/Dockerfile # Construcció personalitzada des de la carpeta de desplegament
+      dockerfile: Despliegue/Dockerfile # Custom build from the deployment folder
     ports:
-      - "80:80" # HTTP estàndard
-      - "443:443" # HTTPS per a connexions segures
+      - "80:80" # Standard HTTP
+      - "443:443" # HTTPS for secure connections
     env_file:
-      - ./.env # Càrrega de variables d'entorn globals
+      - ./.env # Loading of global environment variables
     networks:
       draco:
         aliases:
-          - draco.com # Àlies de xarxa interna per a resolució de dominis
+          - draco.com # Internal network alias for domain resolution
     depends_on:
       mysql:
-        condition: service_healthy # L'aplicació només arranca quan la base de dades està llesta
+        condition: service_healthy # The application only starts when the database is ready
 
-  # --- SERVICI DE BASE DE DADES (MYSQL) ---
-  # Emmagatzematge relacional per a totes les dades del sistema
+  # --- DATABASE SERVICE (MYSQL) ---
+  # Relational storage for all system data
   mysql:
-    image: mysql:9.6 # Versió específica de la imatge oficial de MySQL
+    image: mysql:9.6 # Specific version of the official MySQL image
     ports:
-      - 3306:3306 # Port per defecte per a connexions externes si calguera
+      - 3306:3306 # Default port for external connections if necessary
     env_file:
       - ./.env
     networks:
@@ -33,32 +33,32 @@ services:
         aliases:
           - mysql.draco.com
     volumes:
-      - ./db_data:/var/lib/mysql # Persistència de dades en el directori local per a evitar pèrdues
+      - ./db_data:/var/lib/mysql # Data persistence in the local directory to avoid loss
     healthcheck:
-      # Verificació de l'estat de MySQL per a garantir que accepta connexions
+      # Verification of MySQL status to ensure it accepts connections
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
       retries: 10
 
-  # --- SERVICI DE GESTIÓ (PHPMYADMIN) ---
-  # Interfície gràfica basada en web per a l'administració de la base de dades
+  # --- MANAGEMENT SERVICE (PHPMYADMIN) ---
+  # Web-based graphical interface for database administration
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
-      - 8081:80 # Accessible a través del port 8081 de la màquina amfitriona
+      - 8081:80 # Accessible via port 8081 of the host machine
     environment:
-      PMA_HOST: mysql # Enllaça directament amb el contenidor de base de dades
+      PMA_HOST: mysql # Links directly to the database container
     networks:
       draco:
         aliases:
           - phpmyadmin.draco.com
     depends_on:
       mysql:
-        condition: service_healthy # Espera que la base de dades estiga disponible
+        condition: service_healthy # Waits for the database to be available
 
-# --- CONFIGURACIÓ DE XARXA ---
-# Xarxa aïllada per a la comunicació segura entre contenidors
+# --- NETWORK CONFIGURATION ---
+# Isolated network for secure communication between containers
 networks:
   draco:
     name: draco
-    driver: bridge # Controlador de tipus pont per a connectivitat interna
+    driver: bridge # Bridge-type driver for internal connectivity
