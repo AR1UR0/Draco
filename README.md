@@ -85,6 +85,7 @@ Follow these steps to set up the project locally.
 - **Node.js:** version 18.19.1
 - **Docker:** version 28.2.2
 - **Compose:** version version 1.29.2
+- **MySQL:** version 9.6
 
 ### Installation Steps
 
@@ -122,7 +123,7 @@ Follow these steps to set up the project locally.
 
 ## Docker Deployment
 
-The project is fully containerized using **Docker Compose**, featuring a pre-configured stack with Apache, PHP 8.2, MySQL 9.6, and phpMyAdmin.
+The project is fully containerized using **Docker Compose**, featuring a pre-configured stack with Apache, PHP 8.3.6, MySQL 9.6, and phpMyAdmin.
 
 ### Deployment Steps
 
