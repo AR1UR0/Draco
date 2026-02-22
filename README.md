@@ -197,15 +197,6 @@ Administrative module for system-wide resource management and oversight.
 - **File:** `admin.blade.php`
   ![Admin Panel](./DracoLaravel/public/media/screenshots/admin.png)
 
----
-
-### Store
-
-Dedicated view for browsing products, services, or available items.
-
-- **File:** `store.blade.php`
-  ![Store View](./DracoLaravel/public/media/screenshots/store.png)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## CONTACTS
