@@ -1,16 +1,16 @@
 /**
- * @fileoverview Lògica de control per al panell d'administració.
- * Gestiona la navegació entre temàtiques i tests, així com les
- * operacions CRUD (Crear, Llegir, Actualitzar, Borrar) de preguntes.
+ * @fileoverview Control logic for the administration panel.
+ * Manages navigation between themes and tests, as well as
+ * CRUD operations (Create, Read, Update, Delete) for questions.
  * @author Thais/Draco Team
  * @version 1.0.0
  */
 
-/** * Estat global per a rastrejar la selecció actual de l'administrador.
- * S'utilitza per a saber en quin context (temàtica/test) s'estan realitzant les operacions.
+/** * Global state to track the administrator's current selection.
+ * Used to identify the context (theme/test) where operations are being performed.
  * @type {Object}
- * @property {number|null} tematicaId - Identificador de la temàtica activa.
- * @property {number|null} testId - Identificador del test actiu.
+ * @property {number|null} tematicaId - Identifier for the active theme.
+ * @property {number|null} testId - Identifier for the active test.
  */
 window.adminState = {
     tematicaId: null,
@@ -18,37 +18,37 @@ window.adminState = {
 };
 
 /**
- * Configuració inicial dels listeners d'esdeveniments un colp carregat el DOM.
- * Centralitza la captura de botons principals i la gestió de la vista inicial.
+ * Initial configuration of event listeners once the DOM is loaded.
+ * Centralizes the capture of main buttons and initial view management.
  */
 document.addEventListener("DOMContentLoaded", () => {
-    // Referències als contenidors i botons de l'estructura base
+    // References to containers and buttons in the base structure
     const contentArea = document.querySelector(".admin-content-area");
     const btnCargarTematicas = document.getElementById("btn-cargar-tematicas");
     const btnAñadirPregunta = document.getElementById("btn-añadir-pregunta");
 
-    // Selecció per índex dels botons d'administració lateral segons l'ordre de l'HTML
+    // Selection by index of side administration buttons based on HTML order
     const botonesAdmin = document.querySelectorAll(".btnAdmin");
     const btnModificar = botonesAdmin[2];
     const btnEliminar = botonesAdmin[3];
 
-    // --- 1. ESDEVENIMENT TEMÀTICA ---
-    // En polsar el botó de càrrega, s'obtenen totes les categories disponibles
+    // --- 1. THEME EVENT ---
+    // When the load button is pressed, all available categories are retrieved
     if (btnCargarTematicas) {
         btnCargarTematicas.addEventListener("click", async () => {
-            // Feedback visual de càrrega per a l'usuari
+            // Visual loading feedback for the user
             contentArea.innerHTML =
-                '<div class="text-center p-5"><div class="spinner-border text-primary"></div><p class="mt-2">Cargando temáticas...</p></div>';
+                '<div class="text-center p-5"><div class="spinner-border text-primary"></div><p class="mt-2">Loading themes...</p></div>';
             try {
-                // Petició asíncrona a la llista de temàtiques
+                // Asynchronous request to the themes list
                 const response = await fetch("/api/tematicas");
                 const tematicas = await response.json();
 
-                // Neteja i preparació del grid visual
-                contentArea.innerHTML = `<div class="p-4"><h3 class="text-dark mb-4 text-center">Selecciona una Temática</h3><div class="row g-3" id="grid-tematicas"></div></div>`;
+                // Clean and prepare the visual grid
+                contentArea.innerHTML = `<div class="p-4"><h3 class="text-dark mb-4 text-center">Select a Theme</h3><div class="row g-3" id="grid-tematicas"></div></div>`;
                 const grid = document.getElementById("grid-tematicas");
 
-                // Generació dinàmica de botons per a cada temàtica trobada
+                // Dynamic generation of buttons for each theme found
                 tematicas.forEach((t) => {
                     const col = document.createElement("div");
                     col.className = "col-6 col-md-4";
@@ -61,56 +61,56 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- 2. ESDEVENIMENT AFEGIR ---
-    // Comprova que hi haja un test seleccionat abans de mostrar el formulari de creació
+    // --- 2. ADD EVENT ---
+    // Verifies that a test is selected before displaying the creation form
     if (btnAñadirPregunta) {
         btnAñadirPregunta.addEventListener("click", () => {
             if (!window.adminState.testId)
-                return alert("Selecciona primero una Temática y un Test.");
-            mostrarFormularioPregunta(); // Mostra el formulari buit per a inserció
+                return alert("Please select a Theme and a Test first.");
+            mostrarFormularioPregunta(); // Shows the empty form for insertion
         });
     }
 
-    // --- 3. ESDEVENIMENT MODIFICAR ---
-    // Permet llistar les preguntes existents per a entrar en mode edició
+    // --- 3. MODIFY EVENT ---
+    // Allows listing existing questions to enter edit mode
     if (btnModificar) {
         btnModificar.addEventListener("click", () => {
             if (!window.adminState.testId)
-                return alert("Selecciona primero una Temática y un Test.");
+                return alert("Please select a Theme and a Test first.");
             listarPreguntasParaEditar();
         });
     }
 
-    // --- 4. ESDEVENIMENT ELIMINAR ---
-    // Permet llistar les preguntes per a la seua esborradura permanent
+    // --- 4. DELETE EVENT ---
+    // Allows listing questions for permanent deletion
     if (btnEliminar) {
         btnEliminar.addEventListener("click", () => {
             if (!window.adminState.testId)
-                return alert("Selecciona primero una Temática y un Test.");
+                return alert("Please select a Theme and a Test first.");
             listarPreguntasParaEliminar();
         });
     }
 });
 
-/** * SECCIÓ: NAVEGACIÓ (TEMÀTIQUES I TESTS)
+/** * SECTION: NAVIGATION (THEMES AND TESTS)
  */
 
 /**
- * Estableix la temàtica activa, actualitza l'estat i llança la càrrega dels tests associats.
- * @param {number} id - ID únic de la temàtica.
- * @param {string} nombre - Etiqueta textual de la temàtica.
+ * Sets the active theme, updates the state, and triggers the loading of associated tests.
+ * @param {number} id - Unique ID of the theme.
+ * @param {string} nombre - Text label of the theme.
  */
 async function seleccionarTematica(id, nombre) {
     window.adminState.tematicaId = id;
     const contentArea = document.querySelector(".admin-content-area");
-    // Inclou un botó de retorn per a facilitar la navegació a l'usuari
-    contentArea.innerHTML = `<div class="p-4"><button class="btn btn-sm btn-secondary mb-3" onclick="document.getElementById('btn-cargar-tematicas').click()">← Volver</button><h3 class="text-dark mb-4 text-center">Tests en: ${nombre}</h3><div class="row g-3" id="grid-tests"></div></div>`;
+    // Includes a back button to facilitate user navigation
+    contentArea.innerHTML = `<div class="p-4"><button class="btn btn-sm btn-secondary mb-3" onclick="document.getElementById('btn-cargar-tematicas').click()">← Back</button><h3 class="text-dark mb-4 text-center">Tests in: ${nombre}</h3><div class="row g-3" id="grid-tests"></div></div>`;
     await cargarTests(id);
 }
 
 /**
- * Obté els tests que pertanyen a una temàtica concreta filtrant els resultats de l'API.
- * @param {number} tematicaId - ID de referència per a filtrar la llista.
+ * Retrieves tests belonging to a specific theme by filtering API results.
+ * @param {number} tematicaId - Reference ID to filter the list.
  */
 async function cargarTests(tematicaId) {
     const grid = document.getElementById("grid-tests");
@@ -118,11 +118,11 @@ async function cargarTests(tematicaId) {
         const response = await fetch(`/api/tematicas`);
         const tematicas = await response.json();
 
-        // Busquem en l'array de temàtiques la que coincideix amb la seleccionada
+        // Find the theme matching the selection within the themes array
         const tematicaActual = tematicas.find((t) => t.id === tematicaId);
         grid.innerHTML = "";
 
-        // Iterem sobre la propietat 'tests' de l'objecte temàtica
+        // Iterate over the 'tests' property of the theme object
         tematicaActual.tests.forEach((test) => {
             const col = document.createElement("div");
             col.className = "col-12";
@@ -130,28 +130,28 @@ async function cargarTests(tematicaId) {
             grid.appendChild(col);
         });
     } catch (e) {
-        console.error("Error en carregar tests:", e);
+        console.error("Error loading tests:", e);
     }
 }
 
 /**
- * Bloqueja el test actiu en l'estat global i mostra un missatge de confirmació.
- * Prepara l'entorn per a realitzar accions de CRUD.
- * @param {number} id - ID del test.
- * @param {string} titulo - Títol del test per al feedback visual.
+ * Locks the active test in the global state and displays a confirmation message.
+ * Prepares the environment for CRUD actions.
+ * @param {number} id - Test ID.
+ * @param {string} titulo - Test title for visual feedback.
  */
 function fijarTest(id, titulo) {
     window.adminState.testId = id;
     document.querySelector(".admin-content-area").innerHTML =
-        `<div class="text-center p-5"><h4 class="text-primary fw-bold text-black">Test Seleccionado:</h4><h2 style="color: black;">${titulo}</h2><div class="alert alert-success mt-4">¡Listo! Ahora elige una acción a la izquierda.</div></div>`;
+        `<div class="text-center p-5"><h4 class="text-primary fw-bold text-black">Selected Test:</h4><h2 style="color: black;">${titulo}</h2><div class="alert alert-success mt-4">Ready! Now choose an action on the left.</div></div>`;
 }
 
-/** * SECCIÓ: FORMULARI ÚNIC (CREAR / EDITAR)
+/** * SECTION: SINGLE FORM (CREATE / EDIT)
  */
 
 /**
- * Inyecta el codi HTML del formulari dinàmic en l'àrea de contingut.
- * Utilitza un bucle map per a generar els camps de les 4 opcions de resposta.
+ * Injects the dynamic form HTML code into the content area.
+ * Uses a map loop to generate fields for the 4 answer options.
  */
 function mostrarFormularioPregunta() {
     document.querySelector(".admin-content-area").innerHTML = `
@@ -165,8 +165,8 @@ function mostrarFormularioPregunta() {
                 ${[1, 2, 3, 4]
                     .map(
                         (i) => `
-                    <div class="col-8"><input type="text" class="form-control" id="opt${i}" placeholder="Opción ${i}"></div>
-                    <div class="col-4 d-flex align-items-center"><input type="radio" name="correcta" value="${i - 1}"> Correcta</div>
+                    <div class="col-8"><input type="text" class="form-control" id="opt${i}" placeholder="Option ${i}"></div>
+                    <div class="col-4 d-flex align-items-center"><input type="radio" name="correcta" value="${i - 1}"> Correct</div>
                 `,
                     )
                     .join("")}
@@ -175,32 +175,32 @@ function mostrarFormularioPregunta() {
         </div>`;
 }
 
-/** * SECCIÓ: OPERACIONS CRUD (AFEGIR, MODIFICAR, ELIMINAR)
+/** * SECTION: CRUD OPERATIONS (ADD, MODIFY, DELETE)
  */
 
 /**
- * Recull les dades del formulari i crea una nova pregunta mitjançant POST.
- * Inclou validació de camps buits i gestió del token CSRF per a la seguretat.
+ * Collects form data and creates a new question via POST.
+ * Includes empty field validation and CSRF token management for security.
  * @async
  */
 async function guardarPregunta() {
     const enunciado = document.getElementById("enunciado").value;
 
-    // Recollida d'opcions en un array mitjançant mapeig d'IDs
+    // Collect options into an array using ID mapping
     const opciones = [1, 2, 3, 4].map(
         (i) => document.getElementById(`opt${i}`).value,
     );
 
-    // Identificació de l'índex de la resposta correcta seleccionada
+    // Identify the index of the selected correct answer
     const indexCorrecta = Array.from(
         document.getElementsByName("correcta"),
     ).findIndex((r) => r.checked);
 
-    // Validació bàsica per a evitar enviaments incomplets
+    // Basic validation to prevent incomplete submissions
     if (!enunciado || opciones.some((o) => !o.trim()) || indexCorrecta === -1)
         return alert("Por favor, rellena todo.");
 
-    // Estructuració de l'objecte JSON segons el format de l'API
+    // Structure the JSON object according to the API format
     const datos = {
         enunciado,
         test_id: window.adminState.testId,
@@ -228,8 +228,8 @@ async function guardarPregunta() {
 }
 
 /**
- * Recupera totes les preguntes vinculades al test actual per a permetre l'edició.
- * Genera una llista interactiva de tipus "list-group".
+ * Retrieves all questions linked to the current test to allow editing.
+ * Generates an interactive "list-group" style list.
  * @async
  */
 async function listarPreguntasParaEditar() {
@@ -247,24 +247,24 @@ async function listarPreguntasParaEditar() {
 }
 
 /**
- * Carrega els detalls d'una pregunta específica en el formulari per a la seua modificació.
- * Transforma el botó de "Guardar" en un botó d'"Actualitzar".
- * @param {number} id - ID de la pregunta a recuperar.
+ * Loads specific question details into the form for modification.
+ * Transforms the "Save" button into an "Update" button.
+ * @param {number} id - ID of the question to retrieve.
  * @async
  */
 async function cargarDatosEnFormulario(id) {
     const res = await fetch(`/api/preguntas/${id}`);
     const pregunta = await res.json();
-    mostrarFormularioPregunta(); // Reutilitzem la creació del formulari base
+    mostrarFormularioPregunta(); // Reusing the base form creation
 
-    // Modificació de la capçalera i el botó per al mode edició
-    document.querySelector("h3").innerText = "Editando Pregunta #" + id;
+    // Modify header and button for edit mode
+    document.querySelector("h3").innerText = "Editing Question #" + id;
     const btn = document.getElementById("btnGuardarAccion");
-    btn.innerText = "ACTUALIZAR CAMBIOS";
+    btn.innerText = "UPDATE CHANGES";
     btn.className = "btn btn-warning w-100";
     btn.setAttribute("onclick", `actualizarPregunta(${id})`);
 
-    // Emplenat dels camps amb la informació recuperada
+    // Populate fields with retrieved information
     document.getElementById("enunciado").value = pregunta.enunciado;
     pregunta.respuestas.forEach((r, i) => {
         document.getElementById(`opt${i + 1}`).value = r.opcion;
@@ -274,8 +274,8 @@ async function cargarDatosEnFormulario(id) {
 }
 
 /**
- * Envia les actualitzacions d'una pregunta existent mitjançant una petició PUT.
- * @param {number} id - ID de la pregunta que s'està actualitzant.
+ * Sends updates for an existing question via a PUT request.
+ * @param {number} id - ID of the question being updated.
  * @async
  */
 async function actualizarPregunta(id) {
@@ -313,7 +313,7 @@ async function actualizarPregunta(id) {
 }
 
 /**
- * Mostra una llista de preguntes amb opció de borrat directe per a cada element.
+ * Displays a list of questions with a direct delete option for each element.
  * @async
  */
 async function listarPreguntasParaEliminar() {
@@ -331,9 +331,9 @@ async function listarPreguntasParaEliminar() {
 }
 
 /**
- * Gestiona l'eliminació física d'una pregunta de la base de dades mitjançant DELETE.
- * Inclou una finestra de confirmació per a evitar pèrdues accidentals.
- * @param {number} id - ID de la pregunta a eliminar.
+ * Manages the physical deletion of a question from the database via DELETE.
+ * Includes a confirmation window to prevent accidental loss.
+ * @param {number} id - ID of the question to delete.
  * @async
  */
 async function borrarPregunta(id) {
@@ -349,7 +349,7 @@ async function borrarPregunta(id) {
 
     if (res.ok) {
         alert("Eliminada");
-        // Actualitza la llista per a reflectir els canvis
+        // Update the list to reflect changes
         listarPreguntasParaEliminar();
     } else {
         alert("Error al eliminar");
