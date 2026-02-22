@@ -1,13 +1,13 @@
 /**
- * @fileoverview Lògica per al sistema de qüestionaris (Quiz).
- * Gestiona la càrrega de preguntes, validació de respostes,
- * actualització de la barra de progrés i estats finals.
+ * @fileoverview Logic for the questionnaire system (Quiz).
+ * Manages question loading, answer validation,
+ * progress bar updates, and final states.
  * @author Thais/Draco Team
  * @version 1.4.0
  */
 
 /**
- * Paràmetres de configuració extrets de la URL per a identificar el test actual.
+ * Configuration parameters extracted from the URL to identify the current test.
  */
 const urlParams = new URLSearchParams(window.location.search);
 // http://127.0.0.1:8000/pregunta-texto?tematica=1&pregunta=1
@@ -15,7 +15,7 @@ const idPregunta = urlParams.get("pregunta");
 const idTematica = urlParams.get("tematica");
 
 /**
- * Validacions inicials d'integritat dels paràmetres obligatoris.
+ * Initial integrity validations of mandatory parameters.
  */
 if (isNaN(idPregunta) || idPregunta === null) {
     alert("La pregunta és invàlida");
@@ -24,12 +24,12 @@ if (isNaN(idTematica) || idTematica === null) {
     alert("La temàtica és invàlida");
 }
 
-/** * Estat actual de la resposta de l'usuari.
- * Valors: "no confirmado", "confirmado", "final", "game_over".
+/** * Current state of the user's response.
+ * Values: "no confirmado", "confirmado", "final", "game_over".
  */
 var estadoPregunta = "no confirmado";
 
-// --- SELECTORS DE CONTENIDORS I MULTIMÈDIA ---
+// --- CONTAINER AND MULTIMEDIA SELECTORS ---
 const contenedorTexto = document.getElementById("contenedorTexto");
 const contenedorAudio = document.getElementById("contenedorAudio");
 const contenedorImagenes = document.getElementById("contenedorImagenes");
@@ -38,16 +38,16 @@ const audioSource = document.getElementById("audioSource");
 const audioPregunta = document.getElementById("audioPregunta");
 
 /**
- * Manegador per a la reproducció manual de l'àudio de la pregunta.
+ * Handler for manual playback of the question audio.
  */
 document.getElementById("btnAudio").addEventListener("click", function () {
     audioPregunta.play();
 });
 
 /**
- * Obté i estructura les dades del quiz des de l'API.
- * Realitza peticions encadenades per a test, preguntes i respostes,
- * processant i barrejant les opcions aleatòriament.
+ * Retrieves and structures quiz data from the API.
+ * Performs chained requests for test, questions, and answers,
+ * processing and shuffling options randomly.
  * @async
  */
 async function pedirPreguntas() {
@@ -63,7 +63,7 @@ async function pedirPreguntas() {
         return;
     }
 
-    /** Mapeig de preguntes associades als tests trobats */
+    /** Mapping of questions associated with the found tests */
     const preguntas = (
         await Promise.all(
             tests.map(async function (test) {
@@ -77,7 +77,7 @@ async function pedirPreguntas() {
 
     // console.log("preguntas", preguntas);
 
-    /** Obtenció i barreja de respostes per a cada pregunta */
+    /** Retrieval and shuffling of answers for each question */
     const respuestas = await Promise.all(
         preguntas.map(async function (pregunta) {
             const respuestasPromise = await fetch(
@@ -92,7 +92,7 @@ async function pedirPreguntas() {
 
     // console.log("respuestas", respuestas);
 
-    /** Transformació de dades al format intern del Quiz */
+    /** Data transformation to internal Quiz format */
     quizData = preguntas.map(function (pregunta, index) {
         const respuesta = respuestas[index];
         return {
@@ -116,31 +116,31 @@ async function pedirPreguntas() {
     loadQuiz(quizData[currentStep]);
 }
 
-/** @type {number} Índex de navegació de la pregunta actual */
+/** @type {number} Navigation index of the current question */
 let currentStep = 0;
 
-/** @type {number|null} Emmagatzema l'opció seleccionada abans de confirmar */
+/** @type {number|null} Stores the selected option before confirming */
 let selectedIdx = null;
 
-// --- INICIALITZACIÓ DE DADES ---
+// --- DATA INITIALIZATION ---
 var quizData = null;
 pedirPreguntas();
 
-/** @type {HTMLElement} Referència a l'enunciat de la pregunta */
+/** @type {HTMLElement} Reference to the question statement */
 const pTexto = document.getElementById("preguntaTexto");
 
-/** @type {HTMLElement} Contenidor on s'injecten les opcions */
+/** @type {HTMLElement} Container where options are injected */
 const oContenedor = document.getElementById("opcionesContenedor");
 
-/** @type {HTMLElement} Botó que controla el flux de l'aplicació */
+/** @type {HTMLElement} Button that controls the application flow */
 const btnPrincipal = document.getElementById("btnPrincipal");
 
-/** @type {HTMLElement} Indicador visual d'avanç */
+/** @type {HTMLElement} Visual progress indicator */
 const progBar = document.getElementById("progressBar");
 
 /**
- * Prepara la interfície per a una pregunta de tipus text.
- * @param {Object} currentQuiz - Objecte amb dades de la pregunta.
+ * Prepares the interface for a text-type question.
+ * @param {Object} currentQuiz - Object containing question data.
  */
 function loadQuizText(currentQuiz) {
     contenedorImagenes.classList.add("d-none");
@@ -154,7 +154,7 @@ function loadQuizText(currentQuiz) {
     btnPrincipal.innerText = "COMPROBAR";
     btnPrincipal.disabled = true;
 
-    // Actualitzar barra
+    // Update progress bar
     const percent = (currentStep / quizData.length) * 100 + 10;
     progBar.style.width = percent + "%";
 
@@ -170,8 +170,8 @@ function loadQuizText(currentQuiz) {
 }
 
 /**
- * Prepara la interfície per a una pregunta de tipus imatge amb grid específic.
- * @param {Object} currentQuiz - Objecte amb dades de la pregunta.
+ * Prepares the interface for an image-type question with a specific grid.
+ * @param {Object} currentQuiz - Object containing question data.
  */
 function loadQuizImage(currentQuiz) {
     contenedorAudio.classList.add("d-none");
@@ -185,7 +185,7 @@ function loadQuizImage(currentQuiz) {
     btnPrincipal.innerText = "COMPROBAR";
     btnPrincipal.disabled = true;
 
-    // Actualitzar barra
+    // Update progress bar
     const percent = (currentStep / quizData.length) * 100 + 10;
     progBar.style.width = percent + "%";
 
@@ -206,14 +206,13 @@ function loadQuizImage(currentQuiz) {
 }
 
 /**
- * Prepara la interfície i carrega el recurs d'àudio per a la pregunta.
- * @param {Object} currentQuiz - Objecte amb dades de la pregunta.
+ * Prepares the interface and loads the audio resource for the question.
+ * @param {Object} currentQuiz - Object containing question data.
  */
 function loadQuizAudio(currentQuiz) {
     contenedorImagenes.classList.add("d-none");
     contenedorTexto.classList.add("d-none");
     contenedorAudio.classList.remove("d-none");
-    
 
     pTexto.innerText = currentQuiz.q;
 
@@ -228,7 +227,7 @@ function loadQuizAudio(currentQuiz) {
     btnPrincipal.innerText = "COMPROBAR";
     btnPrincipal.disabled = true;
 
-    // Actualitzar barra
+    // Update progress bar
     const percent = (currentStep / quizData.length) * 100 + 10;
     progBar.style.width = percent + "%";
 
@@ -245,31 +244,35 @@ function loadQuizAudio(currentQuiz) {
 }
 
 /**
- * Actua com a orquestrador per a determinar el tipus de càrrega visual
- * segons les metadades presents en la pregunta (Àudio, Imatge o Text).
- * @param {Object} currentQuiz - Objecte amb dades de la pregunta.
+ * Acts as an orchestrator to determine the type of visual load
+ * based on the metadata present in the question (Audio, Image, or Text).
+ * @param {Object} currentQuiz - Object containing question data.
  */
 function loadQuiz(currentQuiz) {
-    // Función auxiliar para validar si un recurso existe de verdad
-    const isValid = (res) => res !== null && res !== undefined && res.toString().trim() !== "" && res !== "null";
+    // Helper function to validate if a resource truly exists
+    const isValid = (res) =>
+        res !== null &&
+        res !== undefined &&
+        res.toString().trim() !== "" &&
+        res !== "null";
 
-    // Inicializamos basándonos en el audio de la pregunta principal
+    // We initialize based on the main question audio
     let hasAudio = isValid(currentQuiz.audio);
     let hasImage = false;
-    
+
     console.log("Cargando pregunta. ¿Tiene audio inicial?:", hasAudio);
 
-    // Revisamos las opciones para ver si alguna tiene multimedia
+    // We check the options to see if any have multimedia
     for (let i = 0; i < currentQuiz.options.length; i++) {
         if (isValid(currentQuiz.options[i].audio)) {
             hasAudio = true;
-        } 
+        }
         if (isValid(currentQuiz.options[i].imagen)) {
             hasImage = true;
         }
     }
 
-    // Prioridad de carga
+    // Loading priority
     if (hasAudio) {
         console.log("Modo: AUDIO");
         loadQuizAudio(currentQuiz);
@@ -283,9 +286,9 @@ function loadQuiz(currentQuiz) {
 }
 
 /**
- * Gestiona la selecció de botons, actualitzant classes CSS i l'índex d'elecció.
- * @param {number} idx - Índex de l'opció.
- * @param {HTMLElement} el - Element polsat.
+ * Manages button selection, updating CSS classes and choice index.
+ * @param {number} idx - Index of the option.
+ * @param {HTMLElement} el - Clicked element.
  */
 function selectOption(idx, el) {
     document
@@ -297,9 +300,9 @@ function selectOption(idx, el) {
 }
 
 /**
- * Control central del flux del Quiz.
- * Processa la validació de respostes, comunicació amb el servidor (Fetch POST),
- * gestió de vides de l'usuari i navegació entre estats del joc.
+ * Central control of the Quiz flow.
+ * Processes answer validation, server communication (Fetch POST),
+ * user lives management, and game state navigation.
  * @author Thais
  * @listens click
  */
@@ -311,9 +314,9 @@ btnPrincipal.onclick = () => {
         const data = quizData[currentStep];
         const botones = document.querySelectorAll(".option-btn");
 
-        // Validar resposta
+        // Validate response
         if (selectedIdx === data.correct) {
-            // CORRECTE: Verd
+            // CORRECT: Green
             botones[selectedIdx].classList.add("is-correct");
             const idRespuestaCorrecta = data.options[selectedIdx].id;
 
@@ -328,10 +331,10 @@ btnPrincipal.onclick = () => {
                 body: JSON.stringify({ id_respuesta: idRespuestaCorrecta }),
             });
             /**
-            * Error logic and life penalty management.
-            * Implements "Draco Plus Protection" to bypass penalties.
-            * @author Marta
-            */
+             * Error logic and life penalty management.
+             * Implements "Draco Plus Protection" to bypass penalties.
+             * @author Marta
+             */
         } else {
             // INCORRECT: RED
             botones[selectedIdx].classList.add("is-wrong");
@@ -341,8 +344,8 @@ btnPrincipal.onclick = () => {
             // --- DRACO PLUS PROTECTION ---
             if (!window.isUserPlus) {
                 /** * Immediate visual update.
-                * Subtracts one DOM element to provide instant user feedback.
-                */
+                 * Subtracts one DOM element to provide instant user feedback.
+                 */
                 const contador = document.getElementById("contadorVidas");
                 let vidasFinales = 0;
                 if (contador) {
@@ -350,45 +353,44 @@ btnPrincipal.onclick = () => {
                     contador.innerText = vidasFinales > 0 ? vidasFinales : 0;
                 }
 
-            /**
-            * Database persistence.
-            * Sends an asynchronous request to the server to decrement the lifetime in the backend.
-            * Sends response_id: -1 to force failure logic in the controller.
-            * @author Marta
-            */
-            fetch("/test/validar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": document
-                        .querySelector('meta[name="csrf-token"]')
-                        .getAttribute("content"),
-                },
-                body: JSON.stringify({ id_respuesta: -1 }), 
-            });
+                /**
+                 * Database persistence.
+                 * Sends an asynchronous request to the server to decrement the lifetime in the backend.
+                 * Sends response_id: -1 to force failure logic in the controller.
+                 * @author Marta
+                 */
+                fetch("/test/validar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": document
+                            .querySelector('meta[name="csrf-token"]')
+                            .getAttribute("content"),
+                    },
+                    body: JSON.stringify({ id_respuesta: -1 }),
+                });
 
-            /**
-            * 'Game Over' status control.
-            * If the user runs out of lives, progress is blocked and the exit is prepared.
-            * @author Marta
-            */
-            if (vidasFinales <= 0) {
-                estadoPregunta = "game_over"; 
-                btnPrincipal.innerText = "VOLVER AL MENÚ";
-                btnPrincipal.classList.add("btn-danger");
-                btnPrincipal.disabled = false;
-                return; 
+                /**
+                 * 'Game Over' status control.
+                 * If the user runs out of lives, progress is blocked and the exit is prepared.
+                 * @author Marta
+                 */
+                if (vidasFinales <= 0) {
+                    estadoPregunta = "game_over";
+                    btnPrincipal.innerText = "VOLVER AL MENÚ";
+                    btnPrincipal.classList.add("btn-danger");
+                    btnPrincipal.disabled = false;
+                    return;
+                }
             }
         }
-    }
 
-        // Bloqueo de interacción: impide cambiar la respuesta una vez confirmada
+        // Interaction block: prevents changing the answer once confirmed
         botones.forEach((btn) => (btn.style.pointerEvents = "none"));
-        // Preparación de la transición a la siguiente fase
+        // Preparation for the transition to the next phase
         btnPrincipal.innerText = "CONTINUAR";
         estadoPregunta = "confirmado";
-        btnPrincipal.classList.add("btn-next"); 
-        
+        btnPrincipal.classList.add("btn-next");
     } else if (estadoPregunta === "confirmado") {
         currentStep++;
         if (currentStep < quizData.length) {
@@ -399,7 +401,7 @@ btnPrincipal.onclick = () => {
             finishQuiz();
         }
     } else if (estadoPregunta === "final") {
-        window.location.href = "/pagPrincipal?tematica=" + idTematica; // Redirecció directa
+        window.location.href = "/pagPrincipal?tematica=" + idTematica; // Direct redirection
     } else if (estadoPregunta === "game_over") {
         alert(
             "T'has quedat sense vides. Seràs redirigit a la pàgina principal.",
@@ -409,8 +411,8 @@ btnPrincipal.onclick = () => {
 };
 
 /**
- * Neteja la interfície d'elements de trivia i mostra la pantalla d'èxit.
- * Actualitza l'estat a "final" per a permetre la redirecció.
+ * Clears the interface of trivia elements and shows the success screen.
+ * Updates the state to "final" to allow redirection.
  * @author Thais
  */
 function finishQuiz() {
