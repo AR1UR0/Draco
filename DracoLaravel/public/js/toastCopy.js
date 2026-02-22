@@ -1,37 +1,37 @@
 /**
- * @fileoverview Script para mostrar un toast de Bootstrap al hacer
- * clic en un botón. Proporciona una inicialización segura que no produce
- * errores si los elementos no existen en la página.
+ * @fileoverview Script to show a Bootstrap toast when clicking
+ * a button. Provides safe initialization that doesn't produce
+ * errors if elements don't exist on the page.
  * @author Arturo/Draco Team
  * @version 1.1.0
  */
 
 /**
- * Elemento disparador del toast (por ejemplo, un botón). Puede ser `null`
- * si no existe en la página actual.
+ * Toast trigger element (for example, a button). Can be `null`
+ * if it doesn't exist on the current page.
  * @type {HTMLElement|null}
  */
 const toastTrigger = document.getElementById("liveToastBtn");
 
 /**
- * Contenedor o plantilla del toast que utiliza Bootstrap.
+ * Container or template of the toast that uses Bootstrap.
  * @type {HTMLElement|null}
  */
 const toastLiveExample = document.getElementById("liveToast");
 
 /**
- * Inicializa el toast y añade el listener al botón disparador.
+ * Initializes the toast and adds the event listener to the trigger button.
  *
- * Si `toastTrigger` no existe, la inicialización se omite para evitar
- * errores en páginas que no usan este componente.
+ * If `toastTrigger` doesn't exist, initialization is skipped to avoid
+ * errors on pages that don't use this component.
  */
 if (toastTrigger) {
-    // Obtener o crear la instancia de Bootstrap Toast asociada al elemento
-    // `toastLiveExample`. Bootstrap gestionará la instancia internamente.
+    // Get or create the Bootstrap Toast instance associated with the
+    // `toastLiveExample` element. Bootstrap will manage the instance internally.
     const toastBootstrap =
         bootstrap.Toast.getOrCreateInstance(toastLiveExample);
 
-    // Mostrar el toast cuando el usuario haga clic en el disparador.
+    // Show the toast when the user clicks the trigger button.
     toastTrigger.addEventListener("click", () => {
         toastBootstrap.show();
     });
