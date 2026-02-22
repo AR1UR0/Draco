@@ -25,121 +25,41 @@
   <summary>Index</summary>
   <ol>
     <li>
-      <a href="#project-idea">Project Idea</a>
-    </li>
+      <a href="#project-overview">Project Overview</a>
+    <ul>
+      <li><a href="#key-features">Key Features</a></li>
+    </ul>
+    <li><a href="#stack--technologies">Stack & Technologies</a></li>
     <li>
-      <a href="#project-analysis">Project analysis</a>
-    </li>
-    <li><a href="#web-interface-design">Web interface desing</a>
-         <ul>
-        <li><a href="#briefing-customers">Briefing customers</a></li>
-        <li><a href="#mock-up">Mock up</a></li>       
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation-steps">Installation Steps</a></li>
       </ul>
     </li>
-    <li><a href="#workflow">Workflow</a></li>
-    <li><a href="#wireframe">Wireframe</a></li> 
-    <li><a href="#used-technologies">Used technologies</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#contributors">Contributors</a></li>
+    <li><a href="#docker-deployment">Docker Deployment</a></li>
+    <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
+    <li><a href="#contacts">Contacts</a></li>
   </ol>
 </details>
 
-## Project Idea
+## Project Overview
 
-This is a web-based platform where users can learn about a variety of topics and universes, including: **The Lord of the Rings**, **GloryHammer**, **Berserk**, **Mythology**, **Star Wars**, **World of Warcraft**, and more.
+DRACO is a full-stack educational platform built with Laravel designed to centralize learning about fantasy universes and video games through an interactive and gamified interface.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Key Features
 
-## PROJECT ANALYSIS
-
-The DRACO platform is a website oriented to the learning of different fantasy universes and video games such as The Lord of the Rings, GloryHammer, Berserk, Mythology, Star Wars, WoW. The project arises as an object to centralize everything learned during the 2nd year of DAW, creating for the Intermodular Project module an accessible, organized and easy-to-use web environment.
-The system is aimed at users interested in self-taught learning and educational entertainment. Being a web page, it can be accessed from any device with a browser, without the need for installation.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## WEB INTERFACE DESIGN
-
-### BRIEFING CUSTOMERS
-
-**What is needed**
-
-An educational website focused on learning and exploring fantasy and video game worlds, where the user can understand their history, characters, races, maps, world rules, and interesting facts in a clear, attractive, and organized way. The goal is not only to give information, but also to teach and spark curiosity.
-
-**What type of interface is expected**
-
-The client expects a visual and immersive interface with clear menus, sections by universe, and the use of images, videos, and audio.
-
-**Who it is for**
-
-It is for people interested in fantasy and video games, from beginners who want to understand a world before playing, to fans who want to test their knowledge.
-
-**What limitations exist**
-
-There are some limitations, such as the need to organize a large amount of information without overwhelming the user, and having a lot of information about each topic, which could lead to copyright issues.
+- **User Authentication:** Secure login and registration system for personalized user sessions.
+- **Gamified Learning:** System of lives and progress tracking to encourage engagement.
+- **Dynamic Content:** Data-driven architecture using **JSON** for dynamic question and lesson loading.
+- **Draco Plus:** Premium subscription model for enhanced features.
+- **Multi-Universe:** Specialized modules for _Lord of the Rings, Gloryhammer, Berserk, Mythology_, and more.
+- **Responsive Design:** Fully accessible from any device via browser.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### MOCK UP
-
-https://design.penpot.app/#/view?file-id=115ba52a-c46a-8039-8007-70d10067839a&page-id=01ada482-695e-8018-8007-75c1a6445921&section=interactions&frame-id=01ada482-695e-8018-8007-75c210bc6613&index=0&share-id=65fc3905-adc4-807d-8007-75ca87ec765c
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### WORKFLOW
-
-1. The user accesses the home page (Index), where the DRACO platform and its educational purpose are presented.
-2. From the main page, the user can:
-   - Start learning right away without an account
-   - Log in
-
-3. If the user enters without an account, they must answer a series of questions and then start learning. They have 5 lives, and if they reach 0, they cannot learn anymore.
-4. If the user wants to register, they must click on Log in and then on Register. If the user selects Register, they go to the registration screen where they enter their personal information.
-   Once registered or after logging in, the user accesses their learning screen. If it is their first time, they must answer a series of questions to go to the learning page. 5. The user navigates through the available content (lessons, information, and educational material). 6. From the side menu, the user can access:
-   - Profile
-   - Progress
-   - Settings
-
-5. Finally, the user can log out from their profile.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### WIREFRAME
-
-**Home Page (Index)**
-
-The home page shows the DRACO logo, a short description of the project, and buttons to log in or sign up. Its purpose is to inform the user and make it easy to access the platform.
-
-**Login**
-
-This screen allows the user to log in using email and password. It includes a direct link to sign up if the user does not have an account.
-
-**Sign Up**
-
-The sign-up screen allows the user to create a new account by entering basic personal information. Once the registration is complete, the user can access the platform.
-
-**Theme Selection**
-
-This screen shows the different themes available on the DRACO platform. The user can choose the universe they want to learn using visual buttons.
-
-**Learning Settings**
-
-This screen allows the user to set up their learning experience, such as study pace and starting point within the chosen content.
-
-**Content Platform**
-
-It includes a side menu for navigation, a main content area, and links to sections like progress, profile, and settings. This is the main learning screen.
-
-**User Profile**
-
-Shows the user's information, their progress on the platform, and account settings options.
-
-**Purchase Page**
-
-The available purchase options are displayed on the page. A side menu is included for navigation.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### USED TECHNOLOGIES
+## Stack & Technologies
 
 - [![HTML5][HTML5.com]][HTML5-url]
 - [![SCSS][SCSS.com]][SCSS-url]
@@ -154,7 +74,141 @@ The available purchase options are displayed on the page. A side menu is include
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### CONTACTS
+## Getting Started
+
+Follow these steps to set up the project locally.
+
+### Prerequisites
+
+- **PHP:** version 8.3.6
+- **Composer:** version 2.9.2
+- **Node.js:** version 18.19.1
+- **Docker:** version 28.2.2
+- **Compose:** version version 1.29.2
+
+### Installation Steps
+
+1. **Clone the repo:**
+
+   ```bash
+   git clone [https://github.com/AR1UR0/Draco.git](https://github.com/AR1UR0/Draco.git)
+   cd Draco
+   ```
+
+1. **Install dependencies:**
+
+   ```bash
+   composer install
+   npm install && npm run build
+   ```
+
+1. **Install dependencies:**
+
+   ```bash
+   cp .env.example .env
+   # Configure your database credentials in the .env file
+   php artisan key:generate
+   ```
+
+1. **Database Setup:**
+
+   Run migrations and seeders to populate the platform with the initial questions (loaded from JSON):
+
+   ```bash
+   php artisan migrate:fresh --seed
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Docker Deployment
+
+The project is fully containerized using **Docker Compose**, featuring a pre-configured stack with Apache, PHP 8.2, MySQL 9.6, and phpMyAdmin.
+
+### Deployment Steps
+
+1. **Prepare SSL Certificates:**
+   Ensure you have `server.crt` and `server.key` inside the `./ssl/` directory.
+
+2. **Launch the environment:**
+   Build and start the services in detached mode:
+   ```bash
+   docker compose up -d --build
+   ```
+3. **Initialize the Database:**
+   Once the containers are healthy, run the migrations and seeders inside the PHP container:
+   ```bash
+   docker exec -it <container_id_or_name> php artisan migrate --seed
+   ```
+4. **Access URLs:**
+
+- Application (HTTPS): https://localhost
+- Application (HTTP): http://localhost
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Project Structure
+
+This project follows the standard **Laravel MVC** architecture. Below are the key directories specific to Draco's functionality:
+
+- **`database/data/json/`**: The core of our content. Contains all the raw data, questions, and lessons for the different universes.
+- **`app/Http/Controllers/`**: Contains the backend logic, including the gamification engine (life system) and user management.
+- **`resources/views/`**: All the UI components and Blade templates that build the visual experience.
+- **`public/media/`**: Stores all global assets, icons, and specific imagery for the universes (LOTR, Star Wars, etc.).
+- **`routes/`**: Definition of all web and API endpoints for the platform.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Screenshots
+
+Capture the visual essence of the Draco platform. Below are some previews of the current interface:
+
+### Index Page
+
+This is the primary entry point of the application, providing users with a high-level overview or the initial landing experience.
+
+- **File:** `index.blade.php`
+
+  ![Index Page View](./DracoLaravel/public/media/screenshots/main.png)
+
+### Login Interface
+
+User authentication screen featuring credential validation and secure access.
+
+- **File:** `login.blade.php`
+
+  ![Login Screen](./DracoLaravel/public/media/screenshots/login.png)
+
+---
+
+### Main / Home
+
+The central navigation hub for the end-user after authentication.
+
+- **File:** `pagPrincipal.blade.php`
+
+  ![Main Dashboard](./DracoLaravel/public/media/screenshots/principal.png)
+
+---
+
+### Admin Control Panel
+
+Administrative module for system-wide resource management and oversight.
+
+- **File:** `admin.blade.php`
+  ![Admin Panel](./DracoLaravel/public/media/screenshots/admin.png)
+
+---
+
+### Store
+
+Dedicated view for browsing products, services, or available items.
+
+- **File:** `store.blade.php`
+  ![Store View](./DracoLaravel/public/media/screenshots/store.png)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## CONTACTS
 
 Project Link: [https://github.com/AR1UR0/Draco](https://github.com/AR1UR0/Draco)
 
