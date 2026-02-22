@@ -1,33 +1,33 @@
 /**
- * @fileoverview JavaScript para el cambio de tema en todas las páginas.
- * Proporciona utilidades para aplicar el tema claro/oscuro y actualizar
- * las clases y atributos necesarios en el DOM.
+ * @fileoverview JavaScript for theme switching across all pages.
+ * Provides utilities to apply light/dark theme and update
+ * the necessary classes and attributes in the DOM.
  *
- * Ahora con persistencia de tema mediante cookies.
+ * Now with theme persistence using cookies.
  *
  * @author Arturo/Draco Team
  * @version 1.2.0
  */
 
 /**
- * Control que alterna el tema (checkbox, switch, etc.). Puede ser `null`
- * si no existe el elemento en la página actual; comprobar antes de usar.
+ * Control that toggles the theme (checkbox, switch, etc.). Can be `null`
+ * if the element doesn't exist on the current page; check before using.
  * @type {HTMLInputElement|null}
  */
 const toggle = document.getElementById("toggleTheme");
 
 /**
- * Referencia al elemento raíz `<html>` para establecer el atributo
- * `data-bs-theme` utilizado por Bootstrap u otras utilidades.
+ * Reference to the root `<html>` element to set the
+ * `data-bs-theme` attribute used by Bootstrap and other utilities.
  * @type {HTMLHtmlElement}
  */
 const html = document.documentElement;
 
 /**
- * Función para crear o actualizar cookies.
- * @param {string} name - Nombre de la cookie.
- * @param {string} value - Valor de la cookie.
- * @param {number} days - Días hasta que expire la cookie.
+ * Function to create or update cookies.
+ * @param {string} name - Name of the cookie.
+ * @param {string} value - Value of the cookie.
+ * @param {number} days - Days until the cookie expires.
  */
 function setCookie(name, value, days) {
     const d = new Date();
@@ -36,9 +36,9 @@ function setCookie(name, value, days) {
 }
 
 /**
- * Función para leer cookies.
- * @param {string} name - Nombre de la cookie a leer.
- * @returns {string|null} Valor de la cookie o null si no existe.
+ * Function to read cookies.
+ * @param {string} name - Name of the cookie to read.
+ * @returns {string|null} Cookie value or null if it doesn't exist.
  */
 function getCookie(name) {
     const value = `; ${document.cookie}`;
@@ -48,21 +48,21 @@ function getCookie(name) {
 }
 
 /**
- * Aplica el tema y actualiza las clases relevantes en el DOM.
+ * Applies the theme and updates relevant classes in the DOM.
  *
- * @param {boolean} isDark - Si true aplica el tema oscuro, si false el claro.
+ * @param {boolean} isDark - If true applies dark theme, if false the light theme.
  * @returns {void}
  *
- * Efectos secundarios:
- * - Modifica `data-bs-theme` en `<html>`.
- * - Añade/quita clases en `document.body` y otros elementos para ajustar
- *   colores, bordes y textos según el tema.
+ * Side effects:
+ * - Modifies `data-bs-theme` on `<html>`.
+ * - Adds/removes classes on `document.body` and other elements to adjust
+ *   colors, borders and text according to the theme.
  */
 function applyTheme(isDark) {
     const theme = isDark ? "dark" : "light";
     html.setAttribute("data-bs-theme", theme);
 
-    // CAMBIO DE CLASES EN EL BODY Y OTROS ELEMENTOS
+    // Change classes on body and other elements
     const body = document.body;
     const btnTerciary = document.querySelector(".btnTerciary");
     const imgCarr = document.querySelectorAll(".imgCarr");
@@ -73,7 +73,7 @@ function applyTheme(isDark) {
     const hr = document.querySelectorAll("hr");
     const btnHamb = document.querySelector(".btnHamb");
 
-    // APLICAR CLASES SEGUN EL TEMA
+    // Apply classes according to the theme
     if (isDark) {
         body.classList.add("bg-dark", "text-light");
         body.classList.remove("bg-light", "text-dark");
@@ -168,31 +168,31 @@ function applyTheme(isDark) {
 }
 
 /**
- * Inicialización del tema al cargar la página.
- * Se comprueba primero la cookie para aplicar el tema guardado.
- * Si no existe cookie, se usa el estado del toggle o tema por defecto.
+ * Theme initialization when the page loads.
+ * Checks the cookie first to apply the saved theme.
+ * If no cookie exists, uses the toggle state or default light theme.
  */
-const savedTheme = getCookie("theme"); // <-- NUEVO: leer cookie 'theme'
+const savedTheme = getCookie("theme"); // Read the 'theme' cookie
 if (savedTheme) {
     const isDark = savedTheme === "dark";
     applyTheme(isDark);
 
-    // Sincronizar toggle si existe
+    // Synchronize toggle if it exists
     if (toggle) toggle.checked = isDark;
 } else {
-    // Si no hay cookie, usar toggle.checked o default light
+    // If no cookie exists, use toggle.checked or default light theme
     applyTheme(toggle ? toggle.checked : false);
 }
 
 /**
- * Listener para el toggle.
- * Aplica el tema y actualiza la cookie cada vez que el usuario cambia el toggle.
+ * Event listener for the toggle.
+ * Applies the theme and updates the cookie each time the user changes the toggle.
  */
 if (toggle) {
     toggle.addEventListener("change", () => {
         applyTheme(toggle.checked);
 
-        // <-- NUEVO: actualizar cookie cuando el toggle cambia
-        setCookie("theme", toggle.checked ? "dark" : "light", 30); // 30 días
+        // Update cookie when the toggle changes
+        setCookie("theme", toggle.checked ? "dark" : "light", 30); // 30 days
     });
 }

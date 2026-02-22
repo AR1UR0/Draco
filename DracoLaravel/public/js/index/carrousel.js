@@ -1,32 +1,31 @@
 /**
- * @fileoverview JavaScript para el carrusel de imágenes en la página principal.
+ * @fileoverview JavaScript for the image carousel on the main page.
  * @author Arturo/Draco Team
  * @version 1.1.0
  */
 
 /**
- * Inicializa el comportamiento del carrusel cuando la página está lista.
-
+ * Initializes the carousel behavior when the page is ready.
  */
 document.addEventListener("DOMContentLoaded", () => {
     /**
-     * Elemento contenedor (track) que agrupa los items del carrusel.
+     * Container element (track) that groups carousel items.
      * @type {HTMLElement|null}
      */
     const track = document.getElementById("carouselTrack");
 
     /**
-     * Bandera para evitar reentradas: impide iniciar otra animación mientras
-     * la actual no ha finalizado.
+     * Flag to avoid re-entrancy: prevents starting another animation while
+     * the current one is not finished.
      * @type {boolean}
      */
     let isMoving = false;
 
     /**
-     * Calcula el ancho en píxeles de un elemento del carrusel incluyendo
-     * los márgenes izquierdo y derecho calculados por CSS.
+     * Calculates the width in pixels of a carousel element including
+     * the left and right margins calculated by CSS.
      *
-     * @returns {number} Ancho total del item en píxeles (offsetWidth + margen).
+     * @returns {number} Total width of the item in pixels (offsetWidth + margin).
      */
     function getItemWidth() {
         if (!track || !track.children.length) return 0;
@@ -40,18 +39,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
-     * Mueve el carrusel una posición hacia la izquierda.
+     * Moves the carousel one position to the left.
      *
-     * El flujo es el siguiente:
-     * 1. Si ya se está moviendo (`isMoving`), salir para evitar colisiones.
-     * 2. Calcular el ancho del primer elemento.
-     * 3. Aplicar una transición CSS para desplazar la pista hacia la izquierda
-     *    el ancho del item.
-     * 4. Tras finalizar la animación, deshabilitar la transición, mover el
-     *    primer elemento al final de la pista y resetear la transform.
+     * The flow is as follows:
+     * 1. If already moving (`isMoving`), exit to avoid collisions.
+     * 2. Calculate the width of the first element.
+     * 3. Apply a CSS transition to slide the track to the left
+     *    by the item width.
+     * 4. After the animation finishes, disable the transition, move the
+     *    first element to the end of the track and reset the transform.
      *
-     * Efectos secundarios: modifica el DOM (reordena hijos del `track`) y
-     * estilos inline (`transition`, `transform`).
+     * Side effects: modifies the DOM (reorders track children) and
+     * inline styles (`transition`, `transform`).
      *
      * @returns {void}
      */
@@ -62,22 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const itemWidth = getItemWidth();
 
-        // Animar la pista para desplazar el primer item hacia la izquierda
+        // Animate the track to slide the first item to the left
         track.style.transition = "transform 0.5s ease";
         track.style.transform = `translateX(-${itemWidth}px)`;
 
-        // Al terminar la animación, reordenamos los elementos y reseteamos
+        // When the animation finishes, we reorder the elements and reset
         setTimeout(() => {
             track.style.transition = "none";
-            // Mover el primer hijo al final para crear efecto de bucle
+            // Move the first child to the end to create a loop effect
             track.appendChild(track.firstElementChild);
-            // Resetear la transformación para dejar la pista en su lugar
+            // Reset the transformation to leave the track in place
             track.style.transform = "translateX(0)";
             isMoving = false;
         }, 500);
     }
 
-    // Iniciar el ciclo automático cada 3 segundos (3000 ms).
+    // Start the automatic cycle every 3 seconds (3000 ms).
     setInterval(moveCarousel, 3000);
 });
 
@@ -88,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover(popoverTriggerEl, {
-            // ESTA ES LA CLAVE: El contenedor es el padre directo
+            // THIS IS THE KEY: The container is the direct parent
             container: popoverTriggerEl.parentElement,
             trigger: "click",
         });
@@ -105,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         el.addEventListener("click", () => {
-            // Oculta cualquier otro popover abierto
+            // Hides any other open popover
             document.querySelectorAll(".popoverTema").forEach((other) => {
                 if (other !== el) {
                     bootstrap.Popover.getInstance(other)?.hide();
@@ -114,12 +113,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             pop.show();
 
-            // Se cierra solo tras 1 segundos
+            // Closes itself after 1 second
             setTimeout(() => pop.hide(), 1000);
         });
     });
 
-    // Click fuera = cerrar todo
+    // Click outside = close everything
     document.addEventListener("click", (e) => {
         if (!e.target.closest(".popoverTema")) {
             document.querySelectorAll(".popoverTema").forEach((el) => {
